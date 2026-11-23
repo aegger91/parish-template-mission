@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "News posts",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "categories": { "$ref": "common.schema.json#/definitions/categories" },
+    "posts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/definitions/id" },
+          "slug": { "$ref": "common.schema.json#/definitions/slug" },
+          "date": { "$ref": "common.schema.json#/definitions/date" },
+          "category": { "$ref": "common.schema.json#/definitions/id" },
+          "motif": { "$ref": "common.schema.json#/definitions/motif" },
+          "image": { "$ref": "common.schema.json#/definitions/imageSrc" },
+          "title": { "$ref": "common.schema.json#/definitions/localized" },
+          "excerpt": { "$ref": "common.schema.json#/definitions/localized" },
+          "body": { "$ref": "common.schema.json#/definitions/localizedList" }
+        },
+        "required": ["id", "slug", "date", "category", "title", "excerpt", "body"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["categories", "posts"]
+}

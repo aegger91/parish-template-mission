@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Request a Service",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "recipients": {
+      "type": "object",
+      "description": "Who receives requests. Keys are used in each service's recipients list.",
+      "additionalProperties": { "$ref": "common.schema.json#/definitions/localized" }
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/definitions/id" },
+          "motif": { "$ref": "common.schema.json#/definitions/motif" },
+          "image": { "$ref": "common.schema.json#/definitions/imageSrc" },
+          "title": { "$ref": "common.schema.json#/definitions/localized" },
+          "summary": { "$ref": "common.schema.json#/definitions/localized" },
+          "price": { "enum": ["free", "donation"] },
+          "duration": { "$ref": "common.schema.json#/definitions/localized" },
+          "recipients": { "type": "array", "items": { "type": "string" } },
+          "action": {
+            "type": "object",
+            "properties": { "type": { "enum": ["form", "page"] }, "pageId": { "$ref": "common.schema.json#/definitions/id" } },
+            "required": ["type"]
+          }
+        },
+        "required": ["id", "title", "price", "action"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["recipients", "services"]
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Shared definitions",
+  "definitions": {
+    "localized": {
+      "description": "Plain text, or one value per language code. Missing languages fall back to the default language.",
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "minProperties": 1,
+          "patternProperties": { "^[a-z]{2,3}(-[A-Za-z0-9]+)*$": { "type": "string" } },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "localizedList": { "type": "array", "items": { "$ref": "#/definitions/localized" } },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$", "description": "Stable id. Never change it once the site is live." },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]*$" },
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "time": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" },
+    "money": { "type": "number", "minimum": 0 },
+    "motif": {
+      "description": "Drawn pictogram used for placeholders and icons.",
+      "enum": ["church", "chalice", "censer", "candle", "prayer-rope", "gospel", "icon-frame", "bells", "cross", "lampada", "slip", "font", "analogion", "chrism", "crowns", "unction", "holy-water", "kanun", "utensils", "mail"]
+    },
+    "tone": { "enum": ["blue", "stone", "slate", "gold"] },
+    "imageSrc": { "type": ["string", "null"], "description": "Path or URL to a real photo. Leave null to show the drawn placeholder." },
+    "link": {
+      "type": "object",
+      "properties": {
+        "label": { "$ref": "#/definitions/localized" },
+        "href": { "type": "string" },
+        "pageId": { "$ref": "#/definitions/id" },
+        "anchor": { "type": "string" },
+        "feature": { "type": "string" }
+      },
+      "required": ["label"],
+      "additionalProperties": false
+    },
+    "category": {
+      "type": "object",
+      "properties": { "id": { "$ref": "#/definitions/id" }, "label": { "$ref": "#/definitions/localized" }, "motif": { "$ref": "#/definitions/motif" } },
+      "required": ["id", "label"],
+      "additionalProperties": false
+    },
+    "categories": { "type": "array", "items": { "$ref": "#/definitions/category" } }
+  }
+}

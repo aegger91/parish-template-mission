@@ -7,8 +7,10 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "validate": "node scripts/validate-content.mjs",
+    "build": "node scripts/validate-content.mjs && astro build",
+    "preview": "astro preview --port 4638",
+    "qa": "node scripts/qa.mjs",
     "astro": "astro"
   },
   "dependencies": {

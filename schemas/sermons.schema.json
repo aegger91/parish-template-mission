@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sermon archive",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "sermons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/definitions/id" },
+          "date": { "$ref": "common.schema.json#/definitions/date" },
+          "speakerId": { "$ref": "common.schema.json#/definitions/id", "description": "An id from clergy.json." },
+          "format": { "enum": ["audio", "video", "text"] },
+          "mediaUrl": { "type": ["string", "null"] },
+          "duration": { "type": ["string", "null"] },
+          "scripture": { "$ref": "common.schema.json#/definitions/localized" },
+          "title": { "$ref": "common.schema.json#/definitions/localized" },
+          "summary": { "$ref": "common.schema.json#/definitions/localized" },
+          "text": { "$ref": "common.schema.json#/definitions/localizedList" }
+        },
+        "required": ["id", "date", "speakerId", "format", "title"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["sermons"]
+}

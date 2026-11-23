@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "History timeline",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/definitions/id" },
+          "year": { "type": "string" },
+          "icon": { "$ref": "common.schema.json#/definitions/motif" },
+          "title": { "$ref": "common.schema.json#/definitions/localized" },
+          "text": { "$ref": "common.schema.json#/definitions/localized" }
+        },
+        "required": ["id", "year", "title"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["events"]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Events (mirrors OrthodoxConnect)",
+  "description": "Field names match OrthodoxConnect events so this file can be replaced by a feed from the app.",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "source": { "const": "orthodoxconnect" },
+    "categories": { "$ref": "common.schema.json#/definitions/categories" },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "$ref": "common.schema.json#/definitions/localized" },
+          "description": { "$ref": "common.schema.json#/definitions/localized" },
+          "date": { "$ref": "common.schema.json#/definitions/date" },
+          "time": { "$ref": "common.schema.json#/definitions/time" },
+          "location": { "$ref": "common.schema.json#/definitions/localized" },
+          "capacity": { "type": "integer", "minimum": 0 },
+          "signups": { "type": "integer", "minimum": 0 },
+          "organizer": { "$ref": "common.schema.json#/definitions/localized" },
+          "category": { "$ref": "common.schema.json#/definitions/id" }
+        },
+        "required": ["id", "title", "date", "time", "location", "capacity", "signups", "organizer", "category"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["events"]
+}

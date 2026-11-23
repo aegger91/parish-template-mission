@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pages, navigation and sections",
+  "description": "Pages appear in the menu in this order. Each page lists its sections in display order; set enabled to false to hide one.",
+  "type": "object",
+  "definitions": {
+    "item": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/definitions/id" },
+        "icon": { "$ref": "common.schema.json#/definitions/motif" },
+        "title": { "$ref": "common.schema.json#/definitions/localized" },
+        "text": { "$ref": "common.schema.json#/definitions/localized" },
+        "summary": { "$ref": "common.schema.json#/definitions/localized" },
+        "detail": { "$ref": "common.schema.json#/definitions/localized" },
+        "tip": { "$ref": "common.schema.json#/definitions/localized" }
+      },
+      "required": ["id", "title"]
+    },
+    "section": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/definitions/id" },
+        "type": {
+          "enum": [
+            "hero", "whatToExpect", "firstVisitGuide", "livestreamBand", "latestNews", "visit", "donateBand",
+            "richText", "subpageCards", "featureList", "clergyCards", "timeline", "gallery", "schedule",
+            "livestream", "sermons", "newsList", "donate", "contactForm", "mapDirections",
+            "serviceRequests", "zapiski", "productGrid", "cart", "checkout", "connectActions", "eventsBoard", "needsBoard"
+          ]
+        },
+        "enabled": { "type": "boolean" },
+        "feature": { "type": "string", "description": "Only show when this feature is on." },
+        "tone": { "enum": ["white", "stone"] },
+        "eyebrow": { "$ref": "common.schema.json#/definitions/localized" },
+        "title": { "$ref": "common.schema.json#/definitions/localized" },
+        "intro": { "$ref": "common.schema.json#/definitions/localized" },
+        "lead": { "$ref": "common.schema.json#/definitions/localized" },
+        "text": { "$ref": "common.schema.json#/definitions/localized" },
+        "body": { "$ref": "common.schema.json#/definitions/localizedList" },
+        "items": { "type": "array", "items": { "$ref": "#/definitions/item" } },
+        "steps": { "type": "array", "items": { "$ref": "#/definitions/item" } },
+        "cta": { "$ref": "common.schema.json#/definitions/link" },
+        "primaryCta": { "$ref": "common.schema.json#/definitions/link" },
+        "secondaryCta": { "$ref": "common.schema.json#/definitions/link" },
+        "shortcut": { "$ref": "common.schema.json#/definitions/link" },
+        "newcomer": {
+          "type": "object",
+          "properties": {
+            "title": { "$ref": "common.schema.json#/definitions/localized" },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "$ref": "common.schema.json#/definitions/id" },
+                  "label": { "$ref": "common.schema.json#/definitions/localized" },
+                  "text": { "$ref": "common.schema.json#/definitions/localized" },
+                  "link": { "$ref": "common.schema.json#/definitions/link" }
+                },
+                "required": ["id", "label", "text"]
+              }
+            }
+          }
+        },
+        "count": { "type": "integer", "minimum": 1, "description": "latestNews: how many posts to show." },
+        "startView": { "enum": ["week", "month"], "description": "schedule: which view opens first." },
+        "limit": { "type": "integer", "minimum": 1, "description": "eventsBoard: show only the next N events." },
+        "showCalendar": { "type": "boolean", "description": "eventsBoard: offer a calendar view." },
+        "actions": { "type": "array", "items": { "enum": ["createEvent", "postNeed"] } }
+      },
+      "required": ["id", "type"],
+      "additionalProperties": false
+    },
+    "page": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/definitions/id" },
+        "slug": { "$ref": "common.schema.json#/definitions/slug" },
+        "title": { "$ref": "common.schema.json#/definitions/localized" },
+        "navLabel": { "$ref": "common.schema.json#/definitions/localized" },
+        "navOverviewLabel": { "$ref": "common.schema.json#/definitions/localized" },
+        "intro": { "$ref": "common.schema.json#/definitions/localized" },
+        "description": { "$ref": "common.schema.json#/definitions/localized" },
+        "icon": { "$ref": "common.schema.json#/definitions/motif" },
+        "enabled": { "type": "boolean" },
+        "feature": { "type": "string" },
+        "showInNav": { "type": "boolean" },
+        "navDesktop": { "type": "boolean", "description": "false hides it from the desktop bar (still in the mobile menu)." },
+        "navPriority": { "enum": ["primary", "secondary"], "description": "secondary items move into More on narrower screens." },
+        "navPlacement": { "enum": ["link", "button"] },
+        "showPageHeader": { "type": "boolean" },
+        "collection": { "enum": ["news", "products"], "description": "Builds one sub-page per news post or product." },
+        "sections": { "type": "array", "items": { "$ref": "#/definitions/section" } },
+        "children": { "type": "array", "items": { "$ref": "#/definitions/page" } }
+      },
+      "required": ["id", "slug", "title", "sections"],
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "pages": { "type": "array", "items": { "$ref": "#/definitions/page" } }
+  },
+  "required": ["pages"],
+  "additionalProperties": false
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Volunteer opportunities and parish needs (mirrors OrthodoxConnect)",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "source": { "const": "orthodoxconnect" },
+    "categories": { "$ref": "common.schema.json#/definitions/categories" },
+    "needs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "$ref": "common.schema.json#/definitions/localized" },
+          "description": { "$ref": "common.schema.json#/definitions/localized" },
+          "location": { "$ref": "common.schema.json#/definitions/localized" },
+          "organizer": { "$ref": "common.schema.json#/definitions/localized" },
+          "category": { "$ref": "common.schema.json#/definitions/id" },
+          "slots": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "date": { "$ref": "common.schema.json#/definitions/date" },
+                "time": { "$ref": "common.schema.json#/definitions/time" },
+                "capacity": { "type": "integer", "minimum": 0 },
+                "signups": { "type": "integer", "minimum": 0 }
+              },
+              "required": ["id", "date", "time", "capacity", "signups"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["id", "title", "location", "organizer", "category", "slots"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["needs"]
+}
