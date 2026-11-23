@@ -48,15 +48,19 @@ function FeastTag({ day, s }: { day: DaySchedule; s: Record<string, string> }) {
   )
 }
 
-function ServiceRow({ svc, locale, liveOn, s, compact }: { svc: DaySchedule["services"][number]; locale: string; liveOn: boolean; s: Record<string, string>; compact?: boolean }) {
+function ServiceRow({ svc, locale, liveOn, s, compact, stackOnDesktop }: { svc: DaySchedule["services"][number]; locale: string; liveOn: boolean; s: Record<string, string>; compact?: boolean; stackOnDesktop?: boolean }) {
+  const live = liveOn && svc.livestream ? <Radio aria-label={s.streamed} className="size-3.5 shrink-0 text-blue" /> : null
   return (
-    <li className={cn("flex items-baseline gap-3", compact ? "py-0.5 text-[0.8rem] leading-snug" : "py-1.5")}>
-      <span className={cn("shrink-0 font-tradition text-blue-deep tabular-nums", compact ? "w-auto" : "w-[4.8rem]")}>{formatTime(svc.time, locale)}</span>
-      <span className="min-w-0 flex-1 text-ink">
+    <li className={cn("flex items-baseline gap-3", compact ? "py-0.5 text-[0.8rem] leading-snug" : "py-1.5", stackOnDesktop && "lg:flex-col lg:gap-0.5 lg:py-2")}>
+      <span className={cn("inline-flex shrink-0 items-center gap-1.5 font-tradition text-blue-deep tabular-nums", compact ? "w-auto" : "w-[4.8rem]", stackOnDesktop && "lg:w-auto lg:text-sm")}>
+        {formatTime(svc.time, locale)}
+        {stackOnDesktop ? <span className="hidden lg:inline-flex">{live}</span> : null}
+      </span>
+      <span className={cn("min-w-0 flex-1 text-ink", stackOnDesktop && "lg:text-[0.92rem] lg:leading-snug")}>
         {svc.title}
         {!compact && svc.note ? <span className="block text-sm text-ink-500">{svc.note}</span> : null}
       </span>
-      {liveOn && svc.livestream ? <Radio aria-label={s.streamed} className="size-3.5 shrink-0 self-center text-blue" /> : null}
+      {live ? <span className={cn("self-center", stackOnDesktop && "lg:hidden")}>{live}</span> : null}
     </li>
   )
 }
@@ -88,7 +92,7 @@ export default function Schedule({ data, initialToday, locale, weekStartsOn, sta
   const move = (dir: 1 | -1) => setAnchor(view === "week" ? addDays(anchor, dir * 7) : addMonths(anchor, dir))
   const label =
     view === "week"
-      ? fill(s.weekOf, { date: formatDate(weekStart, locale, { month: "long", day: "numeric", year: "numeric" }) })
+      ? fill(s.weekOf, { date: formatDate(weekStart, locale, { month: "short", day: "numeric", year: "numeric" }) })
       : formatDate(monthStart, locale, { month: "long", year: "numeric" })
 
   const dayHeading = (date: string) => formatDate(date, locale, { weekday: "long", month: "long", day: "numeric" })
@@ -116,7 +120,7 @@ export default function Schedule({ data, initialToday, locale, weekStartsOn, sta
           <Button variant="ghost" size="icon-sm" onClick={() => move(-1)} aria-label={view === "week" ? s.previousWeek : s.previousMonth}>
             <ChevronLeft className="rtl:rotate-180" aria-hidden="true" />
           </Button>
-          <p aria-live="polite" className="min-w-0 flex-1 text-center font-heading text-lg text-ink sm:min-w-[15rem]">
+          <p aria-live="polite" className="min-w-0 flex-1 text-center font-heading text-base text-ink sm:min-w-[13rem] sm:text-lg">
             {label}
           </p>
           <Button variant="ghost" size="icon-sm" onClick={() => move(1)} aria-label={view === "week" ? s.nextWeek : s.nextMonth}>
@@ -163,7 +167,7 @@ export default function Schedule({ data, initialToday, locale, weekStartsOn, sta
                 {day.services.length > 0 ? (
                   <ul className="mt-2 divide-y divide-border/70 lg:divide-y-0">
                     {day.services.map((svc) => (
-                      <ServiceRow key={svc.key} svc={svc} locale={locale} liveOn={liveOn} s={s} compact={false} />
+                      <ServiceRow key={svc.key} svc={svc} locale={locale} liveOn={liveOn} s={s} compact={false} stackOnDesktop />
                     ))}
                   </ul>
                 ) : (

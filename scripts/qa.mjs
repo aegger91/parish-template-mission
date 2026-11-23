@@ -24,7 +24,7 @@ function routes(dir, prefix = "/") {
   return out
 }
 
-const server = spawn("npx", ["astro", "preview", "--port", String(port), "--host", "127.0.0.1"], { cwd: root, stdio: "ignore" })
+const server = spawn(join(root, "node_modules/.bin/astro"), ["preview", "--force", "--port", String(port), "--host", "127.0.0.1"], { cwd: root, stdio: "ignore" })
 const base = `http://127.0.0.1:${port}`
 for (let i = 0; i < 60; i++) {
   try {

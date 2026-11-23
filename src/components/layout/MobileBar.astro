@@ -22,7 +22,8 @@ const entries = items
 {
   entries.length > 0 && (
     <nav
-      aria-label={t("mainNav", lang)}
+      data-mobile-bar
+      aria-label={t("quickLinks", lang)}
       class="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-white/95 backdrop-blur-md md:hidden"
       style="padding-bottom: env(safe-area-inset-bottom)"
     >

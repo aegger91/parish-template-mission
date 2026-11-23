@@ -32,11 +32,11 @@ function Wordmark({ line1, line2, showCross, condensed }: LogoProps) {
         <span
           className={cn(
             "mt-1.5 flex items-center gap-2 overflow-hidden transition-all duration-300",
-            condensed ? "max-h-0 opacity-0 sm:max-h-4 sm:opacity-100" : "max-h-4 opacity-100",
+            condensed ? "max-h-0 opacity-0 sm:max-h-8 sm:opacity-100" : "max-h-8 opacity-100",
           )}
         >
           <span aria-hidden="true" className="h-px w-4 shrink-0 bg-gold" />
-          <span className="truncate font-tradition text-[0.62rem] tracking-[0.28em] text-ink-500 uppercase">{line2}</span>
+          <span className="min-w-0 font-tradition text-[0.62rem] leading-[1.35] tracking-[0.28em] text-ink-500 uppercase">{line2}</span>
         </span>
       </span>
     </span>
