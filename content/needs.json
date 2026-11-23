@@ -1,0 +1,74 @@
+{
+  "$schema": "../schemas/needs.schema.json",
+  "source": "orthodoxconnect",
+  "categories": [
+    { "id": "coffee-hour", "label": { "en": "Coffee hour", "es": "Café" } },
+    { "id": "cleaning", "label": { "en": "Cleaning", "es": "Limpieza" } },
+    { "id": "choir", "label": { "en": "Choir", "es": "Coro" } },
+    { "id": "food-drive", "label": { "en": "Food drive", "es": "Colecta de alimentos" } },
+    { "id": "meals", "label": { "en": "Meals for families", "es": "Comidas para familias" } }
+  ],
+  "needs": [
+    {
+      "id": "need-coffee-hour",
+      "title": { "en": "Coffee hour hosts", "es": "Anfitriones del café" },
+      "description": { "en": "Sample need. Short description goes here.", "es": "Necesidad de ejemplo. Aquí va una breve descripción." },
+      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "organizer": { "en": "Hospitality team", "es": "Equipo de acogida" },
+      "category": "coffee-hour",
+      "slots": [
+        { "id": "slot-cof-1129", "date": "2026-11-29", "time": "11:00", "capacity": 3, "signups": 3 },
+        { "id": "slot-cof-1206", "date": "2026-12-06", "time": "11:00", "capacity": 3, "signups": 1 },
+        { "id": "slot-cof-1213", "date": "2026-12-13", "time": "11:00", "capacity": 3, "signups": 0 },
+        { "id": "slot-cof-1220", "date": "2026-12-20", "time": "11:00", "capacity": 3, "signups": 2 }
+      ]
+    },
+    {
+      "id": "need-cleaning",
+      "title": { "en": "Church cleaning before the Nativity", "es": "Limpieza de la iglesia antes de la Natividad" },
+      "description": { "en": "Sample need. Short description goes here.", "es": "Necesidad de ejemplo. Aquí va una breve descripción." },
+      "location": { "en": "Church", "es": "Iglesia" },
+      "organizer": { "en": "Altar guild", "es": "Equipo del altar" },
+      "category": "cleaning",
+      "slots": [{ "id": "slot-cln-1219", "date": "2026-12-19", "time": "10:00", "capacity": 10, "signups": 4 }]
+    },
+    {
+      "id": "need-choir",
+      "title": { "en": "Extra voices for the Nativity", "es": "Más voces para la Natividad" },
+      "description": { "en": "Sample need. Short description goes here.", "es": "Necesidad de ejemplo. Aquí va una breve descripción." },
+      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "organizer": { "en": "Reader Mark Placeholder", "es": "Lector Marcos Ficticio" },
+      "category": "choir",
+      "slots": [
+        { "id": "slot-chr-1203", "date": "2026-12-03", "time": "19:00", "capacity": 8, "signups": 5 },
+        { "id": "slot-chr-1210", "date": "2026-12-10", "time": "19:00", "capacity": 8, "signups": 4 },
+        { "id": "slot-chr-1217", "date": "2026-12-17", "time": "19:00", "capacity": 8, "signups": 2 }
+      ]
+    },
+    {
+      "id": "need-food-drive",
+      "title": { "en": "Food drive for the pantry shelf", "es": "Colecta para el estante de alimentos" },
+      "description": { "en": "Sample need. Short description goes here.", "es": "Necesidad de ejemplo. Aquí va una breve descripción." },
+      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "organizer": { "en": "Dn. Stephen Sample", "es": "Diác. Esteban Muestra" },
+      "category": "food-drive",
+      "slots": [
+        { "id": "slot-fd-1205", "date": "2026-12-05", "time": "10:00", "capacity": 4, "signups": 1 },
+        { "id": "slot-fd-1212", "date": "2026-12-12", "time": "10:00", "capacity": 3, "signups": 3 }
+      ]
+    },
+    {
+      "id": "need-meals",
+      "title": { "en": "Meals for a family with a new baby", "es": "Comidas para una familia con un bebé" },
+      "description": { "en": "Sample need. Short description goes here.", "es": "Necesidad de ejemplo. Aquí va una breve descripción." },
+      "location": { "en": "Shared after sign-up", "es": "Se indica al inscribirse" },
+      "organizer": { "en": "Hospitality team", "es": "Equipo de acogida" },
+      "category": "meals",
+      "slots": [
+        { "id": "slot-ml-1201", "date": "2026-12-01", "time": "17:30", "capacity": 1, "signups": 1 },
+        { "id": "slot-ml-1203", "date": "2026-12-03", "time": "17:30", "capacity": 1, "signups": 0 },
+        { "id": "slot-ml-1205", "date": "2026-12-05", "time": "17:30", "capacity": 1, "signups": 0 }
+      ]
+    }
+  ]
+}

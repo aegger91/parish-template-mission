@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Feasts of the Church year",
+  "description": "Fixed feasts use the church month and day; the site converts them to civil dates for the calendar in site.json. Moveable feasts are days from Pascha.",
+  "type": "object",
+  "definitions": {
+    "rank": { "enum": ["great", "major", "minor"] }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "fixed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/definitions/id" },
+          "month": { "type": "integer", "minimum": 1, "maximum": 12 },
+          "day": { "type": "integer", "minimum": 1, "maximum": 31 },
+          "rank": { "$ref": "#/definitions/rank" },
+          "title": { "$ref": "common.schema.json#/definitions/localized" }
+        },
+        "required": ["id", "month", "day", "rank", "title"],
+        "additionalProperties": false
+      }
+    },
+    "moveable": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/definitions/id" },
+          "offset": { "type": "integer", "description": "Days after Pascha (negative is before)." },
+          "rank": { "$ref": "#/definitions/rank" },
+          "title": { "$ref": "common.schema.json#/definitions/localized" }
+        },
+        "required": ["id", "offset", "rank", "title"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["fixed", "moveable"]
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "../schemas/history.schema.json",
+  "events": [
+    {
+      "id": "first-vespers",
+      "year": "2016",
+      "icon": "censer",
+      "title": { "en": "First Vespers", "es": "Primeras Vísperas" },
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
+    },
+    {
+      "id": "mission-blessed",
+      "year": "2017",
+      "icon": "gospel",
+      "title": { "en": "Mission blessed", "es": "Bendición de la misión" },
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
+    },
+    {
+      "id": "first-pascha",
+      "year": "2018",
+      "icon": "candle",
+      "title": { "en": "First Pascha together", "es": "Primera Pascua juntos" },
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
+    },
+    {
+      "id": "building",
+      "year": "2021",
+      "icon": "church",
+      "title": { "en": "A building of our own", "es": "Un edificio propio" },
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
+    },
+    {
+      "id": "iconostasis",
+      "year": "2023",
+      "icon": "icon-frame",
+      "title": { "en": "Iconostasis installed", "es": "Iconostasio instalado" },
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
+    },
+    {
+      "id": "bells",
+      "year": "2025",
+      "icon": "bells",
+      "title": { "en": "Bells ring for the first time", "es": "Las campanas suenan por primera vez" },
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
+    }
+  ]
+}

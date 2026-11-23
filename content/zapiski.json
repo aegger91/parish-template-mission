@@ -1,0 +1,64 @@
+{
+  "$schema": "../schemas/zapiski.schema.json",
+  "maxNames": 10,
+  "maxSlips": 10,
+  "healthSlipInk": "red",
+  "currency": "USD",
+  "types": [
+    {
+      "id": "health",
+      "label": { "en": "For Health", "es": "Por la salud" },
+      "heading": { "en": "For Health", "es": "Por la salud" },
+      "style": "health"
+    },
+    {
+      "id": "repose",
+      "label": { "en": "For the Repose", "es": "Por el descanso" },
+      "heading": { "en": "For the Repose", "es": "Por el descanso" },
+      "style": "repose"
+    }
+  ],
+  "commemorations": [
+    { "id": "proskomedia", "appliesTo": ["health", "repose"], "suggestedDonation": 5, "label": { "en": "Proskomedia", "es": "Proskomidia" } },
+    {
+      "id": "liturgy",
+      "appliesTo": ["health", "repose"],
+      "suggestedDonation": 3,
+      "label": { "en": "At the Divine Liturgy", "es": "En la Divina Liturgia" }
+    },
+    { "id": "moleben", "appliesTo": ["health"], "suggestedDonation": 10, "label": { "en": "Moleben", "es": "Moleben" } },
+    { "id": "panikhida", "appliesTo": ["repose"], "suggestedDonation": 10, "label": { "en": "Panikhida", "es": "Panijida" } },
+    {
+      "id": "sorokoust",
+      "appliesTo": ["health", "repose"],
+      "suggestedDonation": 40,
+      "label": { "en": "Sorokoust (40 days)", "es": "Sorokoust (40 días)" }
+    }
+  ],
+  "prefixes": [
+    { "id": "none", "appliesTo": ["health", "repose"], "label": { "en": "No prefix", "es": "Sin título" } },
+    { "id": "bishop", "appliesTo": ["health", "repose"], "label": { "en": "Bishop", "es": "Obispo" } },
+    { "id": "priest", "appliesTo": ["health", "repose"], "label": { "en": "Priest", "es": "Sacerdote" } },
+    { "id": "deacon", "appliesTo": ["health", "repose"], "label": { "en": "Deacon", "es": "Diácono" } },
+    { "id": "monk", "appliesTo": ["health", "repose"], "label": { "en": "Monk", "es": "Monje" } },
+    { "id": "nun", "appliesTo": ["health", "repose"], "label": { "en": "Nun", "es": "Monja" } },
+    { "id": "infant", "appliesTo": ["health", "repose"], "label": { "en": "Infant (under 7)", "es": "Infante (menor de 7)" } },
+    { "id": "child", "appliesTo": ["health", "repose"], "label": { "en": "Child (7 to 15)", "es": "Niño o niña (7 a 15)" } },
+    {
+      "id": "newly-departed",
+      "appliesTo": ["repose"],
+      "label": { "en": "Newly departed (first 40 days)", "es": "Recién fallecido (primeros 40 días)" }
+    }
+  ],
+  "candles": [
+    { "id": "small", "price": 2, "label": { "en": "Small candle", "es": "Vela pequeña" } },
+    { "id": "medium", "price": 5, "label": { "en": "Medium candle", "es": "Vela mediana" } },
+    { "id": "large", "price": 10, "label": { "en": "Large candle", "es": "Vela grande" } }
+  ],
+  "donationPresets": [5, 10, 25],
+  "hint": { "en": "Please write baptismal first names only.", "es": "Escriba solo los nombres de bautismo." },
+  "consent": {
+    "en": "I agree that the parish may keep these names until the commemoration is complete.",
+    "es": "Acepto que la parroquia guarde estos nombres hasta que se complete la conmemoración."
+  }
+}

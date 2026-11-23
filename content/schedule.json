@@ -1,0 +1,85 @@
+{
+  "$schema": "../schemas/schedule.schema.json",
+  "note": {
+    "en": "Sample times. Please check this page before traveling on feast days.",
+    "es": "Horarios de ejemplo. Revise esta página antes de venir en días de fiesta."
+  },
+  "recurring": [
+    { "id": "sun-hours", "weekday": 0, "time": "09:10", "type": "hours", "title": { "en": "Third and Sixth Hours", "es": "Horas Tercia y Sexta" } },
+    {
+      "id": "sun-liturgy",
+      "weekday": 0,
+      "time": "09:30",
+      "type": "liturgy",
+      "title": { "en": "Divine Liturgy", "es": "Divina Liturgia" },
+      "livestream": true
+    },
+    {
+      "id": "sun-coffee",
+      "weekday": 0,
+      "time": "11:15",
+      "type": "fellowship",
+      "title": { "en": "Coffee hour", "es": "Café de convivencia" },
+      "showInHero": false
+    },
+    { "id": "wed-vespers", "weekday": 3, "time": "18:30", "type": "vespers", "title": { "en": "Vespers", "es": "Vísperas" } },
+    {
+      "id": "wed-class",
+      "weekday": 3,
+      "time": "19:15",
+      "type": "class",
+      "title": { "en": "Adult class", "es": "Clase para adultos" },
+      "showInHero": false
+    },
+    { "id": "sat-vespers", "weekday": 6, "time": "17:00", "type": "vespers", "title": { "en": "Great Vespers", "es": "Grandes Vísperas" } },
+    {
+      "id": "sat-confession",
+      "weekday": 6,
+      "time": "18:00",
+      "type": "confession",
+      "title": { "en": "Confession", "es": "Confesión" },
+      "note": { "en": "After Vespers, or by appointment", "es": "Después de Vísperas, o con cita" },
+      "showInHero": false
+    }
+  ],
+  "feastRules": {
+    "applyToRanks": ["great"],
+    "eve": {
+      "time": "18:00",
+      "type": "vigil",
+      "title": { "en": "Vigil for the feast", "es": "Vigilia de la fiesta" },
+      "replacesTypes": ["vespers", "class"]
+    },
+    "day": {
+      "time": "09:00",
+      "type": "liturgy",
+      "title": { "en": "Divine Liturgy for the feast", "es": "Divina Liturgia de la fiesta" },
+      "replacesTypes": ["liturgy", "hours", "vespers", "class"],
+      "livestream": true
+    }
+  },
+  "overrides": [
+    {
+      "feastId": "pascha",
+      "eve": [
+        {
+          "id": "pascha-night",
+          "time": "23:30",
+          "type": "liturgy",
+          "title": { "en": "Midnight Office, Paschal Matins and Divine Liturgy", "es": "Oficio de medianoche, Maitines pascuales y Divina Liturgia" },
+          "livestream": true
+        }
+      ],
+      "day": [{ "id": "pascha-vespers", "time": "13:00", "type": "vespers", "title": { "en": "Agape Vespers", "es": "Vísperas del Amor" } }]
+    }
+  ],
+  "special": [
+    {
+      "id": "sample-cleanup",
+      "date": "2026-12-19",
+      "time": "10:00",
+      "type": "event",
+      "title": { "en": "Church cleaning before the Nativity", "es": "Limpieza de la iglesia antes de la Natividad" }
+    }
+  ]
+}

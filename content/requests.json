@@ -1,0 +1,105 @@
+{
+  "$schema": "../schemas/requests.schema.json",
+  "recipients": { "priest": { "en": "Father", "es": "El padre" }, "office": { "en": "Parish office", "es": "Oficina parroquial" } },
+  "services": [
+    {
+      "id": "zapiska",
+      "motif": "slip",
+      "title": { "en": "Submit a Commemoration Note (Zapiska)", "es": "Enviar una nota de conmemoración (zapiska)" },
+      "summary": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." },
+      "price": "donation",
+      "duration": { "en": "At the next Liturgy", "es": "En la próxima Liturgia" },
+      "action": { "type": "page", "pageId": "zapiski" }
+    },
+    {
+      "id": "moleben",
+      "motif": "icon-frame",
+      "title": { "en": "Moleben (Prayer Service)", "es": "Moleben (oficio de rogativa)" },
+      "summary": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." },
+      "price": "donation",
+      "duration": { "en": "About 30 minutes", "es": "Unos 30 minutos" },
+      "recipients": ["priest"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "baptism",
+      "motif": "font",
+      "title": { "en": "Baptism", "es": "Bautismo" },
+      "summary": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." },
+      "price": "free",
+      "duration": { "en": "About 1 hour", "es": "Alrededor de 1 hora" },
+      "recipients": ["priest", "office"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "confession",
+      "motif": "analogion",
+      "title": { "en": "Confession", "es": "Confesión" },
+      "summary": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." },
+      "price": "free",
+      "duration": { "en": "15 to 30 minutes", "es": "De 15 a 30 minutos" },
+      "recipients": ["priest"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "chrismation",
+      "motif": "chrism",
+      "title": { "en": "Chrismation", "es": "Crismación" },
+      "summary": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." },
+      "price": "free",
+      "duration": { "en": "After a time of preparation", "es": "Tras un tiempo de preparación" },
+      "recipients": ["priest"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "wedding",
+      "motif": "crowns",
+      "title": { "en": "Wedding (Crowning)", "es": "Boda (Coronación)" },
+      "summary": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." },
+      "price": "donation",
+      "duration": { "en": "About 1 hour", "es": "Alrededor de 1 hora" },
+      "recipients": ["priest", "office"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "unction",
+      "motif": "unction",
+      "title": { "en": "Holy Unction (Anointing of the Sick)", "es": "Santa Unción (unción de los enfermos)" },
+      "summary": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." },
+      "price": "free",
+      "duration": { "en": "30 to 60 minutes", "es": "De 30 a 60 minutos" },
+      "recipients": ["priest"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "blessing",
+      "motif": "holy-water",
+      "title": { "en": "House or Car Blessing", "es": "Bendición de casa o coche" },
+      "summary": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." },
+      "price": "donation",
+      "duration": { "en": "About 30 minutes", "es": "Unos 30 minutos" },
+      "recipients": ["priest", "office"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "funeral",
+      "motif": "kanun",
+      "title": { "en": "Funeral Service (Panikhida / Otpevanie)", "es": "Oficio fúnebre (Panijida / Otpevanie)" },
+      "summary": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." },
+      "price": "donation",
+      "duration": { "en": "Panikhida about 30 minutes, funeral about 1 hour", "es": "Panijida unos 30 minutos, funeral alrededor de 1 hora" },
+      "recipients": ["priest", "office"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "counseling",
+      "motif": "lampada",
+      "title": { "en": "Pastoral Counseling", "es": "Acompañamiento pastoral" },
+      "summary": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." },
+      "price": "free",
+      "duration": { "en": "About 1 hour", "es": "Alrededor de 1 hora" },
+      "recipients": ["priest"],
+      "action": { "type": "form" }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+---
+import SectionShell from "./SectionShell.astro"
+import { Pictogram } from "@/components/brand/Pictogram"
+import { tr, type SectionNode } from "@/lib/site"
+import historyJson from "@content/history.json"
+interface Props {
+  lang: string
+  section: SectionNode
+}
+const { lang, section } = Astro.props
+const events = (historyJson as any).events
+---
+
+<SectionShell id={section.id} eyebrow={tr(section.eyebrow, lang)} title={tr(section.title, lang)}>
+  <ol class="relative mx-auto max-w-4xl">
+    <span aria-hidden="true" class="absolute start-[1.4rem] top-2 bottom-2 w-px bg-gold-line md:start-1/2"></span>
+    {
+      events.map((e: any, i: number) => (
+        <li class="relative grid grid-cols-[2.8rem_minmax(0,1fr)] gap-4 pb-10 last:pb-0 md:grid-cols-[minmax(0,1fr)_3rem_minmax(0,1fr)] md:gap-8">
+          <div class:list={["hidden md:block", i % 2 === 0 ? "md:text-end" : "md:order-3"]}>
+            <p class="font-tradition text-4xl text-gold">{e.year}</p>
+          </div>
+          <div class="relative z-10 flex justify-center md:order-2">
+            <span class="flex size-11 items-center justify-center rounded-full border border-gold-line bg-white text-blue">
+              <Pictogram name={e.icon} size={22} strokeWidth={1.3} />
+            </span>
+          </div>
+          <div class:list={["min-w-0 rounded-2xl border border-border bg-white p-5", i % 2 === 0 ? "md:order-3" : "md:order-1"]}>
+            <p class="font-tradition text-2xl text-gold md:hidden">{e.year}</p>
+            <h3 class="text-xl text-ink">{tr(e.title, lang)}</h3>
+            <p class="mt-2 leading-relaxed text-ink-600">{tr(e.text, lang)}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</SectionShell>

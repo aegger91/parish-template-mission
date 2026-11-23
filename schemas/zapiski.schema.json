@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Zapiski (commemoration notes) and candles",
+  "type": "object",
+  "definitions": {
+    "slipTypes": { "type": "array", "items": { "enum": ["health", "repose"] } }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "maxNames": { "type": "integer", "minimum": 1, "maximum": 20 },
+    "maxSlips": { "type": "integer", "minimum": 1 },
+    "healthSlipInk": { "enum": ["red", "black"], "description": "Color of the cross and border on health slips. Repose slips are always black." },
+    "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "enum": ["health", "repose"] },
+          "label": { "$ref": "common.schema.json#/definitions/localized" },
+          "heading": { "$ref": "common.schema.json#/definitions/localized" },
+          "style": { "enum": ["health", "repose"] }
+        },
+        "required": ["id", "label"],
+        "additionalProperties": false
+      }
+    },
+    "commemorations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/definitions/id" },
+          "appliesTo": { "$ref": "#/definitions/slipTypes" },
+          "suggestedDonation": { "$ref": "common.schema.json#/definitions/money" },
+          "label": { "$ref": "common.schema.json#/definitions/localized" },
+          "description": { "$ref": "common.schema.json#/definitions/localized" }
+        },
+        "required": ["id", "appliesTo", "suggestedDonation", "label"],
+        "additionalProperties": false
+      }
+    },
+    "prefixes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/definitions/id" },
+          "appliesTo": { "$ref": "#/definitions/slipTypes" },
+          "label": { "$ref": "common.schema.json#/definitions/localized" }
+        },
+        "required": ["id", "label"],
+        "additionalProperties": false
+      }
+    },
+    "candles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "common.schema.json#/definitions/id" },
+          "price": { "$ref": "common.schema.json#/definitions/money" },
+          "label": { "$ref": "common.schema.json#/definitions/localized" }
+        },
+        "required": ["id", "price", "label"],
+        "additionalProperties": false
+      }
+    },
+    "donationPresets": { "type": "array", "items": { "$ref": "common.schema.json#/definitions/money" } },
+    "hint": { "$ref": "common.schema.json#/definitions/localized" },
+    "consent": { "$ref": "common.schema.json#/definitions/localized" }
+  },
+  "required": ["maxNames", "types", "commemorations", "prefixes", "candles", "consent"],
+  "additionalProperties": false
+}

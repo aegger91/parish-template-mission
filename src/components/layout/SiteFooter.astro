@@ -1,0 +1,126 @@
+---
+import { Camera, Globe, Link as LinkIcon, Mail, Phone, MapPin, PlaySquare } from "lucide-react"
+import { Logo } from "@/components/brand/Logo"
+import NewsletterForm from "@/components/layout/NewsletterForm"
+import { site, tr, t, strings, langInfo, buildNav, formatAddressLines } from "@/lib/site"
+import { formatTime, weekdayNames } from "@/lib/calendar"
+import scheduleJson from "@content/schedule.json"
+
+interface Props {
+  lang: string
+  logo: any
+}
+const { lang, logo } = Astro.props
+const locale = langInfo(lang).locale
+const days = weekdayNames(locale, 0, "long")
+const services = (scheduleJson as any).recurring
+  .filter((r: any) => r.showInHero !== false)
+  .sort((a: any, b: any) => ((a.weekday + 7) % 7) - ((b.weekday + 7) % 7) || a.time.localeCompare(b.time))
+  .map((r: any) => ({ day: days[r.weekday], time: formatTime(r.time, locale), title: tr(r.title, lang) }))
+
+const nav = buildNav(lang, "__footer__").filter((i) => i.id !== "home")
+const newsletter = site.orthodoxConnect?.newsletter
+const showNewsletter = !!newsletter?.enabled
+const socialIcons: Record<string, any> = { facebook: Globe, instagram: Camera, youtube: PlaySquare }
+const address = formatAddressLines(lang)
+const year = new Date().getFullYear()
+const ns = strings(lang, ["newsletterTitle", "newsletterText", "newsletterEmail", "newsletterSubscribe", "newsletterDone", "newsletterVia", "formInvalidEmail"])
+---
+
+<footer class="mt-24 border-t border-border bg-stone-50">
+  {
+    showNewsletter && (
+      <div class="border-b border-border bg-white">
+        <div class="container-mission py-10 md:py-12">
+          <NewsletterForm client:visible s={ns} listId={newsletter.listId} parishId={site.orthodoxConnect.parishId} />
+        </div>
+      </div>
+    )
+  }
+  <div class="container-mission grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_0.8fr]">
+    <div class="min-w-0">
+      <Logo {...logo} />
+      <p class="mt-5 max-w-xs text-sm leading-relaxed text-ink-600">{tr(site.parish.jurisdiction, lang)}</p>
+      <address class="mt-5 space-y-2 text-sm not-italic text-ink-700">
+        <p class="flex gap-2.5">
+          <MapPin aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-gold" />
+          <span>{address.map((line) => <span class="block">{line}</span>)}</span>
+        </p>
+        <p class="flex gap-2.5">
+          <Phone aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-gold" />
+          <a class="hover:text-blue" href={`tel:${site.contact.phone.replace(/[^\d+]/g, "")}`}>{site.contact.phone}</a>
+        </p>
+        <p class="flex gap-2.5">
+          <Mail aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-gold" />
+          <a class="break-all hover:text-blue" href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+        </p>
+      </address>
+    </div>
+
+    <div class="min-w-0">
+      <h2 class="eyebrow">{t("footerServices", lang)}</h2>
+      <ul class="mt-4 space-y-3 text-sm">
+        {
+          services.map((s: any) => (
+            <li>
+              <span class="block text-ink-500">{s.day}</span>
+              <span class="text-ink">
+                {s.time} · {s.title}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="min-w-0">
+      <h2 class="eyebrow">{t("footerPages", lang)}</h2>
+      <ul class="mt-4 grid gap-2 text-sm">
+        {
+          nav.map((item) => (
+            <li>
+              <a class="text-ink-700 hover:text-blue" href={item.href}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="min-w-0">
+      <h2 class="eyebrow">{t("footerFollow", lang)}</h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        {
+          site.socials.map((social: any) => {
+            const Icon = socialIcons[social.id] ?? LinkIcon
+            return (
+              <li>
+                <a class="inline-flex items-center gap-2 text-ink-700 hover:text-blue" href={social.url} rel="noopener">
+                  <Icon aria-hidden="true" className="size-4" strokeWidth={1.6} />
+                  {social.label}
+                </a>
+              </li>
+            )
+          })
+        }
+        {
+          site.orthodoxConnect?.appUrl && (
+            <li class="pt-2">
+              <a class="inline-flex items-center gap-2 text-ink-700 hover:text-blue" href={site.orthodoxConnect.appUrl} rel="noopener">
+                <LinkIcon aria-hidden="true" className="size-4" strokeWidth={1.6} />
+                {t("footerApp", lang)}
+              </a>
+            </li>
+          )
+        }
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-border">
+    <div class="container-mission flex flex-col gap-2 py-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} {logo.name}</p>
+      {site.sample && <p>{tr(site.parish.sampleNotice, lang)}</p>}
+    </div>
+  </div>
+</footer>

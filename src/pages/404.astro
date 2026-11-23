@@ -1,0 +1,37 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { OrthodoxCross } from "@/components/brand/OrthodoxCross"
+import { buttonVariants } from "@/components/ui/button"
+import { t, href, languages, defaultLang, langInfo, specialPageHref } from "@/lib/site"
+
+const others = languages.filter((l) => l.code !== defaultLang)
+const links = (lang: string) =>
+  [
+    { label: t("homeLink", lang), href: href(lang, "") },
+    { label: t("fullSchedule", lang), href: specialPageHref("schedule", lang) },
+    { label: t("contactUs", lang), href: specialPageHref("contact", lang) },
+  ].filter((l): l is { label: string; href: string } => !!l.href)
+---
+
+<BaseLayout lang={defaultLang} path="" title={t("notFoundTitle", defaultLang)} notFound noindex>
+  <section class="container-mission flex flex-col items-center py-20 text-center md:py-28">
+    <OrthodoxCross size={132} inscription className="text-blue" />
+    <div aria-hidden="true" class="hairline-gold mt-8 w-40"></div>
+    <h1 class="mt-8 text-4xl text-ink md:text-5xl">{t("notFoundTitle", defaultLang)}</h1>
+    <p class="mt-4 max-w-lg text-lg text-ink-600">{t("notFoundText", defaultLang)}</p>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      {links(defaultLang).map((l, i) => <a href={l.href} class={buttonVariants({ variant: i === 0 ? "default" : "outline" })}>{l.label}</a>)}
+    </div>
+    {
+      others.map((l) => (
+        <div lang={langInfo(l.code).locale} dir={langInfo(l.code).dir} class="mt-14 max-w-lg border-t border-border pt-8">
+          <p class="font-heading text-2xl text-ink">{t("notFoundTitle", l.code)}</p>
+          <p class="mt-2 text-ink-600">{t("notFoundText", l.code)}</p>
+          <div class="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2">
+            {links(l.code).map((x) => <a href={x.href} class="font-tradition text-blue hover:text-blue-deep">{x.label}</a>)}
+          </div>
+        </div>
+      ))
+    }
+  </section>
+</BaseLayout>

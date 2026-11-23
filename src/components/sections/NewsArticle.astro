@@ -1,0 +1,40 @@
+---
+import { ArrowLeft } from "lucide-react"
+import PageHeader from "@/components/layout/PageHeader.astro"
+import { PlaceholderArt } from "@/components/brand/PlaceholderArt"
+import { tr, t, href, langInfo, navLabel, pageById, newsData, type FlatPage } from "@/lib/site"
+import { formatDate } from "@/lib/calendar"
+interface Props {
+  lang: string
+  page: FlatPage
+  post: any
+}
+const { lang, page, post } = Astro.props
+const locale = langInfo(lang).locale
+const category = newsData.categories.find((c: any) => c.id === post.category)
+const newsHref = href(lang, page.path)
+const parents = page.parentIds.map((id) => pageById(id)!).filter(Boolean)
+const crumbs = [
+  { label: t("homeLink", lang), href: href(lang, "") },
+  ...parents.map((p) => ({ label: navLabel(p.node, lang), href: href(lang, p.path) })),
+  { label: tr(page.node.title, lang), href: newsHref },
+]
+---
+
+<PageHeader lang={lang} page={page} title={tr(post.title, lang)} intro={tr(post.excerpt, lang)} crumbs={crumbs} />
+<article class="container-mission max-w-3xl py-12 md:py-16">
+  <p class="flex flex-wrap items-center gap-3 text-sm text-ink-500">
+    <span class="rounded-full bg-blue-wash px-2.5 py-0.5 text-xs font-medium text-blue-deep">{tr(category?.label, lang)}</span>
+    <time datetime={post.date}>{formatDate(post.date, locale, { year: "numeric", month: "long", day: "numeric" })}</time>
+  </p>
+  <div class="mt-6 aspect-[16/9] overflow-hidden rounded-[1.5rem]">
+    <PlaceholderArt motif={post.motif} tone="stone" alt={tr(post.title, lang)} label={t("sampleImage", lang)} iconSize="20%" />
+  </div>
+  <div class="prose-mission mt-8 text-lg leading-relaxed text-ink-700">
+    {post.body.map((p: any) => <p>{tr(p, lang)}</p>)}
+  </div>
+  <a href={newsHref} class="mt-10 inline-flex items-center gap-1.5 font-tradition text-blue hover:text-blue-deep">
+    <ArrowLeft aria-hidden="true" className="size-4 rtl:rotate-180" />
+    {t("backToNews", lang)}
+  </a>
+</article>

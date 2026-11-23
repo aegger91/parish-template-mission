@@ -1,0 +1,108 @@
+{
+  "$schema": "../schemas/feasts.schema.json",
+  "fixed": [
+    {
+      "id": "circumcision",
+      "month": 1,
+      "day": 1,
+      "rank": "major",
+      "title": { "en": "Circumcision of the Lord; St. Basil the Great", "es": "Circuncisión del Señor; San Basilio el Grande" }
+    },
+    { "id": "theophany", "month": 1, "day": 6, "rank": "great", "title": { "en": "Theophany of the Lord", "es": "Teofanía del Señor" } },
+    {
+      "id": "meeting",
+      "month": 2,
+      "day": 2,
+      "rank": "great",
+      "title": { "en": "Meeting of the Lord in the Temple", "es": "Encuentro del Señor en el Templo" }
+    },
+    {
+      "id": "annunciation",
+      "month": 3,
+      "day": 25,
+      "rank": "great",
+      "title": { "en": "Annunciation of the Theotokos", "es": "Anunciación de la Madre de Dios" }
+    },
+    {
+      "id": "nativity-forerunner",
+      "month": 6,
+      "day": 24,
+      "rank": "major",
+      "title": { "en": "Nativity of St. John the Baptist", "es": "Natividad de San Juan Bautista" }
+    },
+    {
+      "id": "peter-paul",
+      "month": 6,
+      "day": 29,
+      "rank": "major",
+      "title": { "en": "Holy Apostles Peter and Paul", "es": "Santos Apóstoles Pedro y Pablo" }
+    },
+    {
+      "id": "transfiguration",
+      "month": 8,
+      "day": 6,
+      "rank": "great",
+      "title": { "en": "Transfiguration of the Lord", "es": "Transfiguración del Señor" }
+    },
+    {
+      "id": "dormition",
+      "month": 8,
+      "day": 15,
+      "rank": "great",
+      "title": { "en": "Dormition of the Theotokos", "es": "Dormición de la Madre de Dios" }
+    },
+    {
+      "id": "beheading-forerunner",
+      "month": 8,
+      "day": 29,
+      "rank": "major",
+      "title": { "en": "Beheading of St. John the Baptist", "es": "Degollación de San Juan Bautista" }
+    },
+    {
+      "id": "nativity-theotokos",
+      "month": 9,
+      "day": 8,
+      "rank": "great",
+      "title": { "en": "Nativity of the Theotokos", "es": "Natividad de la Madre de Dios" }
+    },
+    {
+      "id": "elevation-cross",
+      "month": 9,
+      "day": 14,
+      "rank": "great",
+      "title": { "en": "Elevation of the Holy Cross", "es": "Exaltación de la Santa Cruz" }
+    },
+    {
+      "id": "protection",
+      "month": 10,
+      "day": 1,
+      "rank": "major",
+      "title": { "en": "Protection of the Theotokos", "es": "Protección de la Madre de Dios" }
+    },
+    {
+      "id": "entry-theotokos",
+      "month": 11,
+      "day": 21,
+      "rank": "great",
+      "title": { "en": "Entry of the Theotokos into the Temple", "es": "Entrada de la Madre de Dios en el Templo" }
+    },
+    { "id": "st-nicholas", "month": 12, "day": 6, "rank": "major", "title": { "en": "St. Nicholas of Myra", "es": "San Nicolás de Mira" } },
+    { "id": "nativity", "month": 12, "day": 25, "rank": "great", "title": { "en": "Nativity of Christ", "es": "Natividad de Cristo" } }
+  ],
+  "moveable": [
+    {
+      "id": "palm-sunday",
+      "offset": -7,
+      "rank": "great",
+      "title": { "en": "Entry of the Lord into Jerusalem", "es": "Entrada del Señor en Jerusalén" }
+    },
+    {
+      "id": "pascha",
+      "offset": 0,
+      "rank": "great",
+      "title": { "en": "Pascha, the Resurrection of Christ", "es": "Pascua, la Resurrección de Cristo" }
+    },
+    { "id": "ascension", "offset": 39, "rank": "great", "title": { "en": "Ascension of the Lord", "es": "Ascensión del Señor" } },
+    { "id": "pentecost", "offset": 49, "rank": "great", "title": { "en": "Pentecost", "es": "Pentecostés" } }
+  ]
+}

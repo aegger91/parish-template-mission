@@ -1,0 +1,171 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource/marcellus/400.css";
+@import "@fontsource-variable/instrument-sans";
+@import "../design/tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-role-heading);
+  --font-tradition: var(--font-tradition);
+  --font-sans: var(--font-role-body);
+
+  --color-paper: var(--mission-paper);
+  --color-canvas: var(--mission-canvas);
+  --color-stone-50: var(--mission-stone-50);
+  --color-stone-100: var(--mission-stone-100);
+  --color-stone-200: var(--mission-stone-200);
+  --color-stone-300: var(--mission-stone-300);
+  --color-ink: var(--mission-slate-900);
+  --color-ink-700: var(--mission-slate-700);
+  --color-ink-600: var(--mission-slate-600);
+  --color-ink-500: var(--mission-slate-500);
+  --color-ink-300: var(--mission-slate-300);
+  --color-blue: var(--mission-blue);
+  --color-blue-deep: var(--mission-blue-deep);
+  --color-blue-wash: var(--mission-blue-wash);
+  --color-blue-line: var(--mission-blue-line);
+  --color-gold: var(--mission-gold);
+  --color-gold-line: var(--mission-gold-line);
+  --color-gold-wash: var(--mission-gold-wash);
+  --color-health: var(--mission-health-red);
+  --color-repose: var(--mission-repose-black);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: var(--mission-paper);
+  --foreground: var(--mission-slate-900);
+  --card: var(--mission-paper);
+  --card-foreground: var(--mission-slate-900);
+  --popover: var(--mission-paper);
+  --popover-foreground: var(--mission-slate-900);
+  --primary: var(--mission-blue);
+  --primary-foreground: #ffffff;
+  --secondary: var(--mission-stone-100);
+  --secondary-foreground: var(--mission-slate-900);
+  --muted: var(--mission-stone-100);
+  --muted-foreground: var(--mission-slate-500);
+  --accent: var(--mission-blue-wash);
+  --accent-foreground: var(--mission-blue-deep);
+  --destructive: #b42318;
+  --border: var(--mission-stone-200);
+  --input: var(--mission-stone-300);
+  --ring: var(--mission-blue);
+  --radius: var(--mission-radius);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--mission-header-h-condensed) + 1rem);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    overflow-x: clip;
+    overflow-wrap: break-word;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-role-heading);
+    font-weight: 400;
+    letter-spacing: var(--tracking-tradition);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :where(a, button, input, select, textarea, summary):focus-visible {
+    outline: 2px solid var(--mission-blue);
+    outline-offset: 2px;
+  }
+  [data-slot="button"],
+  .font-button {
+    font-family: var(--font-role-button);
+    letter-spacing: 0.03em;
+  }
+}
+
+@layer components {
+  .container-mission {
+    width: 100%;
+    max-width: var(--mission-container);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-mission {
+      padding-inline: 2rem;
+    }
+  }
+  .eyebrow {
+    font-family: var(--font-role-ornament);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-ornament);
+    font-size: 0.75rem;
+    color: var(--mission-gold);
+  }
+  .hairline-gold {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--mission-gold-line) 15%, var(--mission-gold-line) 85%, transparent);
+  }
+  .hairline-gold-start {
+    height: 1px;
+    background: linear-gradient(90deg, var(--mission-gold-line), transparent);
+  }
+  [dir="rtl"] .hairline-gold-start {
+    background: linear-gradient(270deg, var(--mission-gold-line), transparent);
+  }
+  .kiot-arch {
+    border-start-start-radius: 999px 7rem;
+    border-start-end-radius: 999px 7rem;
+  }
+  .prose-mission p + p {
+    margin-top: 1rem;
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

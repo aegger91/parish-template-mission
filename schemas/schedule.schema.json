@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Weekly services and feast-day rules",
+  "type": "object",
+  "definitions": {
+    "serviceType": { "enum": ["liturgy", "vespers", "vigil", "hours", "matins", "confession", "class", "fellowship", "moleben", "panikhida", "event"] },
+    "service": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "common.schema.json#/definitions/id" },
+        "time": { "$ref": "common.schema.json#/definitions/time" },
+        "type": { "$ref": "#/definitions/serviceType" },
+        "title": { "$ref": "common.schema.json#/definitions/localized" },
+        "note": { "$ref": "common.schema.json#/definitions/localized" },
+        "livestream": { "type": "boolean" },
+        "showInHero": { "type": "boolean", "description": "false keeps it off the home page card and footer." }
+      },
+      "required": ["time", "type", "title"]
+    },
+    "rule": {
+      "allOf": [
+        { "$ref": "#/definitions/service" },
+        { "properties": { "replacesTypes": { "type": "array", "items": { "$ref": "#/definitions/serviceType" } } } }
+      ]
+    }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "note": { "$ref": "common.schema.json#/definitions/localized" },
+    "recurring": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          { "$ref": "#/definitions/service" },
+          { "properties": { "weekday": { "type": "integer", "minimum": 0, "maximum": 6, "description": "0 is Sunday." } }, "required": ["id", "weekday"] }
+        ]
+      }
+    },
+    "feastRules": {
+      "type": "object",
+      "description": "Applied automatically to feasts of these ranks: a service the evening before and one on the day.",
+      "properties": {
+        "applyToRanks": { "type": "array", "items": { "enum": ["great", "major"] } },
+        "eve": { "$ref": "#/definitions/rule" },
+        "day": { "$ref": "#/definitions/rule" }
+      },
+      "required": ["applyToRanks"]
+    },
+    "overrides": {
+      "type": "array",
+      "description": "Exact services for one feast, replacing the general rule.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "feastId": { "$ref": "common.schema.json#/definitions/id" },
+          "eve": { "type": "array", "items": { "$ref": "#/definitions/service" } },
+          "day": { "type": "array", "items": { "$ref": "#/definitions/service" } }
+        },
+        "required": ["feastId"]
+      }
+    },
+    "special": {
+      "type": "array",
+      "description": "One-off services or events on a date.",
+      "items": {
+        "allOf": [{ "$ref": "#/definitions/service" }, { "properties": { "date": { "$ref": "common.schema.json#/definitions/date" } }, "required": ["id", "date"] }]
+      }
+    }
+  },
+  "required": ["recurring"]
+}

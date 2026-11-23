@@ -1,0 +1,36 @@
+{
+  "$schema": "../schemas/clergy.schema.json",
+  "people": [
+    {
+      "id": "fr-andrew",
+      "name": { "en": "Fr. Andrew Example", "es": "P. Andrés Ejemplo" },
+      "role": { "en": "Rector", "es": "Rector" },
+      "initials": "AE",
+      "photo": null,
+      "email": "father@example.org",
+      "phone": "(555) 555-0142",
+      "summary": { "en": "Short summary goes here.", "es": "Aquí va un breve resumen." },
+      "bio": [{ "en": "Sample bio. A short biography goes here.", "es": "Biografía de ejemplo. Aquí va una breve biografía." }]
+    },
+    {
+      "id": "dn-stephen",
+      "name": { "en": "Dn. Stephen Sample", "es": "Diác. Esteban Muestra" },
+      "role": { "en": "Deacon", "es": "Diácono" },
+      "initials": "SS",
+      "photo": null,
+      "email": "deacon@example.org",
+      "summary": { "en": "Short summary goes here.", "es": "Aquí va un breve resumen." },
+      "bio": [{ "en": "Sample bio. A short biography goes here.", "es": "Biografía de ejemplo. Aquí va una breve biografía." }]
+    },
+    {
+      "id": "rd-mark",
+      "name": { "en": "Reader Mark Placeholder", "es": "Lector Marcos Ficticio" },
+      "role": { "en": "Reader and choir director", "es": "Lector y director del coro" },
+      "initials": "MP",
+      "photo": null,
+      "email": "choir@example.org",
+      "summary": { "en": "Short summary goes here.", "es": "Aquí va un breve resumen." },
+      "bio": [{ "en": "Sample bio. A short biography goes here.", "es": "Biografía de ejemplo. Aquí va una breve biografía." }]
+    }
+  ]
+}
