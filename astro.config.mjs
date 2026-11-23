@@ -10,6 +10,7 @@ export default defineConfig({
   trailingSlash: "always",
   build: { format: "directory" },
   server: { port: 4637, host: true },
+  devToolbar: { enabled: false },
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],

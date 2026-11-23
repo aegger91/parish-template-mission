@@ -3,17 +3,17 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-transparent bg-clip-padding font-tradition text-[0.95rem] tracking-[0.03em] whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/40 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center gap-2 rounded-full border bg-clip-padding font-tradition text-[0.95rem] tracking-[0.03em] whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/40 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
-        default: "bg-blue text-white shadow-[0_1px_0_rgb(255_255_255/0.15)_inset] hover:bg-blue-deep",
+        default: "border-transparent bg-blue text-white shadow-[0_1px_0_rgb(255_255_255/0.15)_inset] hover:bg-blue-deep",
         outline: "border-blue-line bg-white text-blue-deep hover:border-blue hover:bg-blue-wash aria-expanded:bg-blue-wash",
-        secondary: "bg-stone-100 text-ink hover:bg-stone-200 aria-expanded:bg-stone-200",
-        ghost: "text-ink-700 hover:bg-stone-100 hover:text-ink aria-expanded:bg-stone-100",
+        secondary: "border-transparent bg-stone-100 text-ink hover:bg-stone-200 aria-expanded:bg-stone-200",
+        ghost: "border-transparent text-ink-700 hover:bg-stone-100 hover:text-ink aria-expanded:bg-stone-100",
         gold: "border-gold-line bg-gold-wash text-ink hover:border-gold",
-        destructive: "bg-destructive/10 text-destructive hover:bg-destructive/20",
-        link: "rounded-none px-0 text-blue underline-offset-4 hover:underline",
+        destructive: "border-transparent bg-destructive/10 text-destructive hover:bg-destructive/20",
+        link: "border-transparent rounded-none px-0 text-blue underline-offset-4 hover:underline",
       },
       size: {
         default: "h-11 px-5",
