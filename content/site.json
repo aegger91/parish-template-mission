@@ -1,11 +1,24 @@
 {
   "$schema": "../schemas/site.schema.json",
-  "template": { "name": "Mission", "slug": "parish-template-mission", "version": "1.1.0" },
+  "template": {
+    "name": "Mission",
+    "slug": "parish-template-mission",
+    "version": "1.1.1"
+  },
   "sample": true,
   "parish": {
-    "name": { "en": "St. Example Orthodox Mission", "es": "Misión Ortodoxa San Ejemplo" },
-    "shortName": { "en": "St. Example", "es": "San Ejemplo" },
-    "jurisdiction": { "en": "Sample Diocese of the Orthodox Church", "es": "Diócesis de ejemplo de la Iglesia Ortodoxa" },
+    "name": {
+      "en": "St. Example Orthodox Mission",
+      "es": "Misión Ortodoxa San Ejemplo"
+    },
+    "shortName": {
+      "en": "St. Example",
+      "es": "San Ejemplo"
+    },
+    "jurisdiction": {
+      "en": "Sample Diocese of the Orthodox Church",
+      "es": "Diócesis de ejemplo de la Iglesia Ortodoxa"
+    },
     "description": {
       "en": "A small Orthodox Christian mission parish. Sample website template, all names and details are placeholders.",
       "es": "Una pequeña parroquia misionera cristiana ortodoxa. Plantilla de ejemplo, todos los nombres y datos son ficticios."
@@ -17,17 +30,47 @@
   },
   "defaultLanguage": "en",
   "languages": [
-    { "code": "en", "label": "English", "nativeName": "English", "shortLabel": "EN", "locale": "en-US", "dir": "ltr" },
-    { "code": "es", "label": "Spanish", "nativeName": "Español", "shortLabel": "ES", "locale": "es-US", "dir": "ltr" }
+    {
+      "code": "en",
+      "label": "English",
+      "nativeName": "English",
+      "shortLabel": "EN",
+      "locale": "en-US",
+      "dir": "ltr"
+    },
+    {
+      "code": "es",
+      "label": "Spanish",
+      "nativeName": "Español",
+      "shortLabel": "ES",
+      "locale": "es-US",
+      "dir": "ltr"
+    }
   ],
-  "calendar": { "style": "revised-julian", "weekStartsOn": 0, "highlightRanks": ["great", "major"] },
+  "calendar": {
+    "style": "new",
+    "weekStartsOn": 0,
+    "highlightRanks": [
+      "great",
+      "major"
+    ]
+  },
   "logo": {
     "style": "wordmark",
     "showCross": true,
     "image": "/brand/sample-logo-square.svg",
-    "imageAlt": { "en": "St. Example Orthodox Mission logo", "es": "Logotipo de la Misión Ortodoxa San Ejemplo" },
-    "line1": { "en": "St. Example", "es": "San Ejemplo" },
-    "line2": { "en": "Orthodox Mission", "es": "Misión Ortodoxa" }
+    "imageAlt": {
+      "en": "St. Example Orthodox Mission logo",
+      "es": "Logotipo de la Misión Ortodoxa San Ejemplo"
+    },
+    "line1": {
+      "en": "St. Example",
+      "es": "San Ejemplo"
+    },
+    "line2": {
+      "en": "Orthodox Mission",
+      "es": "Misión Ortodoxa"
+    }
   },
   "contact": {
     "address": {
@@ -35,7 +78,10 @@
       "city": "Sampletown",
       "region": "ST",
       "postalCode": "00000",
-      "country": { "en": "Sample Country", "es": "País de ejemplo" }
+      "country": {
+        "en": "Sample Country",
+        "es": "País de ejemplo"
+      }
     },
     "phone": "(555) 555-0142",
     "email": "hello@example.org",
@@ -49,27 +95,72 @@
       "en": "Sample bus line 00 stops two blocks away at Example and Main.",
       "es": "La línea de autobús de ejemplo 00 para a dos cuadras, en Example y Main."
     },
-    "officeHours": { "en": "Tuesday to Friday, 10:00 AM to 2:00 PM", "es": "De martes a viernes, de 10:00 a 14:00" }
+    "officeHours": {
+      "en": "Tuesday to Friday, 10:00 AM to 2:00 PM",
+      "es": "De martes a viernes, de 10:00 a 14:00"
+    }
   },
   "socials": [
-    { "id": "facebook", "label": "Facebook", "url": "https://example.org/facebook" },
-    { "id": "instagram", "label": "Instagram", "url": "https://example.org/instagram" },
-    { "id": "youtube", "label": "YouTube", "url": "https://example.org/youtube" }
+    {
+      "id": "facebook",
+      "label": "Facebook",
+      "url": "https://example.org/facebook"
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "url": "https://example.org/instagram"
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "url": "https://example.org/youtube"
+    }
   ],
   "features": {
-    "livestream": { "enabled": true, "live": true, "platform": "YouTube", "watchUrl": "https://example.org/live", "embedUrl": null },
-    "sermons": { "enabled": true },
-    "store": { "enabled": true, "showCartInHeader": true },
-    "requests": { "enabled": true },
-    "zapiski": { "enabled": true, "showHeroShortcut": true },
-    "involved": { "enabled": true },
-    "mobileBar": { "enabled": true, "items": ["directions", "schedule", "donate"] }
+    "livestream": {
+      "enabled": true,
+      "live": true,
+      "platform": "YouTube",
+      "watchUrl": "https://example.org/live",
+      "embedUrl": null
+    },
+    "sermons": {
+      "enabled": true
+    },
+    "store": {
+      "enabled": true,
+      "showCartInHeader": true
+    },
+    "requests": {
+      "enabled": true
+    },
+    "zapiski": {
+      "enabled": true,
+      "showHeroShortcut": true
+    },
+    "involved": {
+      "enabled": true
+    },
+    "mobileBar": {
+      "enabled": true,
+      "items": [
+        "directions",
+        "schedule",
+        "donate"
+      ]
+    }
   },
   "orthodoxConnect": {
     "appUrl": "https://example.org/orthodoxconnect",
     "parishId": "sample-parish-id",
-    "newsletter": { "enabled": true, "listId": "sample-newsletter" },
-    "calendar": { "enabled": false },
+    "newsletter": {
+      "enabled": true,
+      "listId": "sample-newsletter"
+    },
+    "calendar": {
+      "enabled": false
+    },
     "deepLinks": {
       "createEvent": "{appUrl}/parish/{parishId}/events/new",
       "postNeed": "{appUrl}/parish/{parishId}/needs/new",
@@ -80,7 +171,10 @@
   "checkout": {
     "currency": "USD",
     "provider": "none",
-    "fulfillment": ["ship", "pickup"],
+    "fulfillment": [
+      "ship",
+      "pickup"
+    ],
     "shippingFlat": 8,
     "freeShippingOver": 75,
     "pickupNote": {
@@ -91,14 +185,39 @@
   "donate": {
     "currency": "USD",
     "provider": "none",
-    "presets": [25, 50, 100, 250],
+    "presets": [
+      25,
+      50,
+      100,
+      250
+    ],
     "defaultPreset": 50,
-    "minimum": 5,
-    "frequencies": ["one-time", "monthly"],
+    "frequencies": [
+      "one-time",
+      "monthly"
+    ],
     "funds": [
-      { "id": "general", "label": { "en": "General fund", "es": "Fondo general" } },
-      { "id": "building", "label": { "en": "Building fund", "es": "Fondo de construcción" } },
-      { "id": "charity", "label": { "en": "Help for neighbors in need", "es": "Ayuda a vecinos necesitados" } }
+      {
+        "id": "general",
+        "label": {
+          "en": "General fund",
+          "es": "Fondo general"
+        }
+      },
+      {
+        "id": "building",
+        "label": {
+          "en": "Building fund",
+          "es": "Fondo de construcción"
+        }
+      },
+      {
+        "id": "charity",
+        "label": {
+          "en": "Help for neighbors in need",
+          "es": "Ayuda a vecinos necesitados"
+        }
+      }
     ]
   },
   "pages": {

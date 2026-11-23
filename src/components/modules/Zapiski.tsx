@@ -146,7 +146,9 @@ function SlipCard({
                     {active ? <Check aria-hidden="true" className="size-4 shrink-0 text-blue" /> : null}
                   </span>
                   {c.description ? <span className="mt-1 text-sm leading-snug text-ink-600">{c.description}</span> : null}
-                  {c.suggestedDonation ? <span className="mt-2 text-xs font-medium text-ink-500">{fill(s.suggestedDonation, { amount: money(c.suggestedDonation) })}</span> : null}
+                  {c.suggestedDonation ? (
+                    <span className="mt-2 text-xs font-medium text-ink-500">{fill(s.suggestedDonation, { amount: money(c.suggestedDonation) })}</span>
+                  ) : null}
                 </label>
               )
             })}
@@ -250,7 +252,8 @@ export default function Zapiski(props: Props) {
             const prefix = prefixes.find((p) => p.id === n.prefix && p.id !== "none")
             return prefix ? `${prefix.label} ${n.name.trim()}` : n.name.trim()
           })
-        return { slip, comm, candle, names, amount: (comm?.suggestedDonation ?? 0) + (candle?.price ?? 0) }
+        // Commemorations are free by default; only candle prices and optional extra donation add to the total.
+        return { slip, comm, candle, names, amount: candle?.price ?? 0 }
       }),
     [slips, commemorations, candles, prefixes],
   )
@@ -272,9 +275,9 @@ export default function Zapiski(props: Props) {
         offeringType: "zapiska",
         title: byLang((lng) => fill(lineTemplates[lng].zapiskaLine, { type: type.labels[lng] ?? type.label, commemoration: p.comm?.labels[lng] ?? p.comm?.label ?? "" })),
         names: p.names,
-        amount: p.comm?.suggestedDonation ?? 0,
+        amount: 0,
       })
-      if (p.candle) {
+      if (p.candle && (p.candle.price ?? 0) > 0) {
         const candle = p.candle
         lines.push({ offeringType: "candle", title: byLang((lng) => fill(lineTemplates[lng].candleLine, { name: candle.labels[lng] ?? candle.label })), amount: candle.price ?? 0 })
       }
@@ -388,15 +391,16 @@ export default function Zapiski(props: Props) {
                   {d === 0 ? s.noExtra : money(d)}
                 </label>
               ))}
-              <label className={cn("inline-flex h-9 items-center gap-1.5 rounded-full border ps-3 pe-1 text-sm", donation === "other" ? "border-ink" : "border-border")}>
+              <label className={cn("inline-flex h-9 min-w-0 items-center gap-1.5 rounded-full border ps-3 pe-1 text-sm", donation === "other" ? "border-ink" : "border-border")}>
                 <input type="radio" className="sr-only" name="zap-donation" checked={donation === "other"} onChange={() => setDonation("other")} />
-                <span className="text-ink-700">{s.otherAmount}</span>
+                <span className="shrink-0 text-ink-700">{s.otherAmount}</span>
                 <input
                   inputMode="decimal"
                   aria-label={s.otherAmount}
                   value={otherDonation}
                   onFocus={() => setDonation("other")}
                   onChange={(e) => setOtherDonation(e.target.value.replace(/[^\d.,]/g, ""))}
+                  placeholder={money(0)}
                   className="h-7 w-16 rounded-full bg-stone-100 px-2 text-end outline-none"
                 />
               </label>

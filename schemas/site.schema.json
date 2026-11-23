@@ -3,65 +3,174 @@
   "title": "Site settings",
   "type": "object",
   "definitions": {
-    "toggle": { "type": "object", "properties": { "enabled": { "type": "boolean" } }, "required": ["enabled"] }
+    "toggle": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "enabled"
+      ]
+    }
   },
   "properties": {
-    "$schema": { "type": "string" },
+    "$schema": {
+      "type": "string"
+    },
     "template": {
       "type": "object",
-      "properties": { "name": { "type": "string" }, "slug": { "type": "string" }, "version": { "type": "string" } },
-      "required": ["name", "slug", "version"]
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "slug",
+        "version"
+      ]
     },
-    "sample": { "type": "boolean", "description": "true while the site shows sample content. Adds a notice and noindex." },
+    "sample": {
+      "type": "boolean",
+      "description": "true while the site shows sample content. Adds a notice and noindex."
+    },
     "parish": {
       "type": "object",
       "properties": {
-        "name": { "$ref": "common.schema.json#/definitions/localized" },
-        "shortName": { "$ref": "common.schema.json#/definitions/localized" },
-        "jurisdiction": { "$ref": "common.schema.json#/definitions/localized" },
-        "description": { "$ref": "common.schema.json#/definitions/localized" },
-        "sampleNotice": { "$ref": "common.schema.json#/definitions/localized" }
+        "name": {
+          "$ref": "common.schema.json#/definitions/localized"
+        },
+        "shortName": {
+          "$ref": "common.schema.json#/definitions/localized"
+        },
+        "jurisdiction": {
+          "$ref": "common.schema.json#/definitions/localized"
+        },
+        "description": {
+          "$ref": "common.schema.json#/definitions/localized"
+        },
+        "sampleNotice": {
+          "$ref": "common.schema.json#/definitions/localized"
+        }
       },
-      "required": ["name"]
+      "required": [
+        "name"
+      ]
     },
-    "defaultLanguage": { "type": "string" },
+    "defaultLanguage": {
+      "type": "string"
+    },
     "languages": {
       "type": "array",
       "minItems": 1,
       "items": {
         "type": "object",
         "properties": {
-          "code": { "type": "string", "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)*$" },
-          "label": { "type": "string" },
-          "nativeName": { "type": "string" },
-          "shortLabel": { "type": "string" },
-          "locale": { "type": "string" },
-          "dir": { "enum": ["ltr", "rtl"] }
+          "code": {
+            "type": "string",
+            "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)*$"
+          },
+          "label": {
+            "type": "string"
+          },
+          "nativeName": {
+            "type": "string"
+          },
+          "shortLabel": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "dir": {
+            "enum": [
+              "ltr",
+              "rtl"
+            ]
+          }
         },
-        "required": ["code", "nativeName", "dir"],
+        "required": [
+          "code",
+          "nativeName",
+          "dir"
+        ],
         "additionalProperties": false
       }
     },
     "calendar": {
       "type": "object",
       "properties": {
-        "style": { "enum": ["julian", "revised-julian", "gregorian"], "description": "Which calendar the parish follows for fixed feasts and Pascha." },
-        "weekStartsOn": { "type": "integer", "minimum": 0, "maximum": 6 },
-        "highlightRanks": { "type": "array", "items": { "enum": ["great", "major"] } }
+        "style": {
+          "enum": [
+            "new",
+            "old",
+            "julian",
+            "revised-julian",
+            "gregorian"
+          ],
+          "description": "Parish calendar: 'new' (Revised Julian) or 'old' (Julian). Legacy julian / revised-julian / gregorian are accepted and normalized."
+        },
+        "weekStartsOn": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6
+        },
+        "highlightRanks": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "great",
+              "major"
+            ]
+          }
+        }
       },
-      "required": ["style"]
+      "required": [
+        "style"
+      ]
     },
     "logo": {
       "type": "object",
       "properties": {
-        "style": { "enum": ["wordmark", "seal", "kiot", "square"] },
-        "showCross": { "type": "boolean" },
-        "image": { "type": ["string", "null"] },
-        "imageAlt": { "$ref": "common.schema.json#/definitions/localized" },
-        "line1": { "$ref": "common.schema.json#/definitions/localized" },
-        "line2": { "$ref": "common.schema.json#/definitions/localized" }
+        "style": {
+          "enum": [
+            "wordmark",
+            "seal",
+            "kiot",
+            "square"
+          ]
+        },
+        "showCross": {
+          "type": "boolean"
+        },
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "imageAlt": {
+          "$ref": "common.schema.json#/definitions/localized"
+        },
+        "line1": {
+          "$ref": "common.schema.json#/definitions/localized"
+        },
+        "line2": {
+          "$ref": "common.schema.json#/definitions/localized"
+        }
       },
-      "required": ["style", "line1"]
+      "required": [
+        "style",
+        "line1"
+      ]
     },
     "contact": {
       "type": "object",
@@ -69,30 +178,77 @@
         "address": {
           "type": "object",
           "properties": {
-            "street": { "type": "string" },
-            "city": { "type": "string" },
-            "region": { "type": "string" },
-            "postalCode": { "type": "string" },
-            "country": { "$ref": "common.schema.json#/definitions/localized" }
+            "street": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "postalCode": {
+              "type": "string"
+            },
+            "country": {
+              "$ref": "common.schema.json#/definitions/localized"
+            }
           },
-          "required": ["street", "city"]
+          "required": [
+            "street",
+            "city"
+          ]
         },
-        "phone": { "type": "string" },
-        "email": { "type": "string" },
-        "directionsUrl": { "type": "string" },
-        "mapEmbedUrl": { "type": ["string", "null"] },
-        "parking": { "$ref": "common.schema.json#/definitions/localized" },
-        "transit": { "$ref": "common.schema.json#/definitions/localized" },
-        "officeHours": { "$ref": "common.schema.json#/definitions/localized" }
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "directionsUrl": {
+          "type": "string"
+        },
+        "mapEmbedUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parking": {
+          "$ref": "common.schema.json#/definitions/localized"
+        },
+        "transit": {
+          "$ref": "common.schema.json#/definitions/localized"
+        },
+        "officeHours": {
+          "$ref": "common.schema.json#/definitions/localized"
+        }
       },
-      "required": ["address", "directionsUrl"]
+      "required": [
+        "address",
+        "directionsUrl"
+      ]
     },
     "socials": {
       "type": "array",
       "items": {
         "type": "object",
-        "properties": { "id": { "type": "string" }, "label": { "type": "string" }, "url": { "type": "string" } },
-        "required": ["id", "label", "url"]
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "url"
+        ]
       }
     },
     "features": {
@@ -102,69 +258,236 @@
         "livestream": {
           "type": "object",
           "properties": {
-            "enabled": { "type": "boolean" },
-            "live": { "type": "boolean", "description": "Shows the Live now badge." },
-            "platform": { "type": "string" },
-            "watchUrl": { "type": "string" },
-            "embedUrl": { "type": ["string", "null"] }
+            "enabled": {
+              "type": "boolean"
+            },
+            "live": {
+              "type": "boolean",
+              "description": "Shows the Live now badge."
+            },
+            "platform": {
+              "type": "string"
+            },
+            "watchUrl": {
+              "type": "string"
+            },
+            "embedUrl": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
           },
-          "required": ["enabled"]
+          "required": [
+            "enabled"
+          ]
         },
-        "sermons": { "$ref": "#/definitions/toggle" },
-        "store": { "type": "object", "properties": { "enabled": { "type": "boolean" }, "showCartInHeader": { "type": "boolean" } }, "required": ["enabled"] },
-        "requests": { "$ref": "#/definitions/toggle" },
-        "zapiski": { "type": "object", "properties": { "enabled": { "type": "boolean" }, "showHeroShortcut": { "type": "boolean" } }, "required": ["enabled"] },
-        "involved": { "$ref": "#/definitions/toggle" },
+        "sermons": {
+          "$ref": "#/definitions/toggle"
+        },
+        "store": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "showCartInHeader": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "enabled"
+          ]
+        },
+        "requests": {
+          "$ref": "#/definitions/toggle"
+        },
+        "zapiski": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "showHeroShortcut": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "enabled"
+          ]
+        },
+        "involved": {
+          "$ref": "#/definitions/toggle"
+        },
         "mobileBar": {
           "type": "object",
-          "properties": { "enabled": { "type": "boolean" }, "items": { "type": "array", "items": { "enum": ["directions", "schedule", "donate"] } } },
-          "required": ["enabled"]
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "directions",
+                  "schedule",
+                  "donate"
+                ]
+              }
+            }
+          },
+          "required": [
+            "enabled"
+          ]
         }
       },
-      "additionalProperties": { "$ref": "#/definitions/toggle" }
+      "additionalProperties": {
+        "$ref": "#/definitions/toggle"
+      }
     },
     "orthodoxConnect": {
       "type": "object",
       "properties": {
-        "appUrl": { "type": "string" },
-        "parishId": { "type": "string" },
-        "newsletter": { "type": "object", "properties": { "enabled": { "type": "boolean" }, "listId": { "type": "string" } }, "required": ["enabled"] },
-        "calendar": { "type": "object", "properties": { "enabled": { "type": "boolean" } }, "required": ["enabled"] },
-        "deepLinks": { "type": "object", "additionalProperties": { "type": "string" } }
+        "appUrl": {
+          "type": "string"
+        },
+        "parishId": {
+          "type": "string"
+        },
+        "newsletter": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "listId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "enabled"
+          ]
+        },
+        "calendar": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "enabled"
+          ]
+        },
+        "deepLinks": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
       },
-      "required": ["appUrl", "parishId"]
+      "required": [
+        "appUrl",
+        "parishId"
+      ]
     },
     "checkout": {
       "type": "object",
       "properties": {
-        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
-        "provider": { "enum": ["none", "stripe", "authorize-net"] },
-        "fulfillment": { "type": "array", "minItems": 1, "items": { "enum": ["ship", "pickup"] } },
-        "shippingFlat": { "$ref": "common.schema.json#/definitions/money" },
-        "freeShippingOver": { "$ref": "common.schema.json#/definitions/money" },
-        "pickupNote": { "$ref": "common.schema.json#/definitions/localized" }
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "provider": {
+          "enum": [
+            "none",
+            "stripe",
+            "authorize-net"
+          ]
+        },
+        "fulfillment": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "ship",
+              "pickup"
+            ]
+          }
+        },
+        "shippingFlat": {
+          "$ref": "common.schema.json#/definitions/money"
+        },
+        "freeShippingOver": {
+          "$ref": "common.schema.json#/definitions/money"
+        },
+        "pickupNote": {
+          "$ref": "common.schema.json#/definitions/localized"
+        }
       },
-      "required": ["currency", "fulfillment"]
+      "required": [
+        "currency",
+        "fulfillment"
+      ]
     },
     "donate": {
       "type": "object",
       "properties": {
-        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
-        "provider": { "enum": ["none", "stripe", "authorize-net"] },
-        "presets": { "type": "array", "items": { "$ref": "common.schema.json#/definitions/money" } },
-        "defaultPreset": { "$ref": "common.schema.json#/definitions/money" },
-        "minimum": { "$ref": "common.schema.json#/definitions/money" },
-        "frequencies": { "type": "array", "items": { "enum": ["one-time", "monthly"] } },
-        "funds": { "$ref": "common.schema.json#/definitions/categories" }
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "provider": {
+          "enum": [
+            "none",
+            "stripe",
+            "authorize-net"
+          ]
+        },
+        "presets": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/definitions/money"
+          }
+        },
+        "defaultPreset": {
+          "$ref": "common.schema.json#/definitions/money"
+        },
+        "frequencies": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "one-time",
+              "monthly"
+            ]
+          }
+        },
+        "funds": {
+          "$ref": "common.schema.json#/definitions/categories"
+        }
       },
-      "required": ["currency", "presets"]
+      "required": [
+        "currency",
+        "presets"
+      ]
     },
     "pages": {
       "type": "object",
       "description": "Which page id plays each special role (schedule, donate, cart ...).",
-      "additionalProperties": { "$ref": "common.schema.json#/definitions/id" }
+      "additionalProperties": {
+        "$ref": "common.schema.json#/definitions/id"
+      }
     }
   },
-  "required": ["template", "parish", "defaultLanguage", "languages", "calendar", "logo", "contact", "features"],
+  "required": [
+    "template",
+    "parish",
+    "defaultLanguage",
+    "languages",
+    "calendar",
+    "logo",
+    "contact",
+    "features"
+  ],
   "additionalProperties": false
 }

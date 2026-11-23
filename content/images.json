@@ -1,25 +1,25 @@
 {
   "$schema": "../schemas/images.schema.json",
-  "_comment": "Central image paths for builders. Replace any file under public/images/placeholders/ (or point src to your own file in public/). Keep alt text up to date.",
+  "_comment": "Shared image slots. Replace files under public/images/samples/ or change the paths here. See public/images/CREDITS.md for sources.",
   "hero": {
-    "src": "/images/placeholders/hero.svg",
+    "src": "/images/samples/hero.webp",
     "alt": {
-      "en": "Placeholder for the parish church exterior",
-      "es": "Imagen provisional del exterior de la iglesia"
+      "en": "Sample photo of an Orthodox cathedral complex by a lake",
+      "es": "Foto de ejemplo de un complejo de catedral ortodoxa junto a un lago"
     }
   },
   "pageBanner": {
-    "src": "/images/placeholders/banner.svg",
+    "src": "/images/samples/banner.webp",
     "alt": {
-      "en": "Placeholder for the page header photo",
-      "es": "Imagen provisional del encabezado de página"
+      "en": "Sample photo of an Orthodox cathedral exterior",
+      "es": "Foto de ejemplo del exterior de una catedral ortodoxa"
     }
   },
   "about": {
-    "src": "/images/placeholders/about.svg",
+    "src": "/images/samples/about.webp",
     "alt": {
-      "en": "Placeholder for a welcome photo of parish life",
-      "es": "Imagen provisional de bienvenida de la vida parroquial"
+      "en": "Sample photo of an Orthodox church by the water",
+      "es": "Foto de ejemplo de una iglesia ortodoxa junto al agua"
     }
   }
 }

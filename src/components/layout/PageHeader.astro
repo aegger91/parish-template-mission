@@ -29,6 +29,9 @@ const bannerAlt = tr((page.node as any).bannerAlt ?? (imagesJson as any).pageBan
       <div class="absolute inset-0 -z-10">
         <img src={bannerSrc} alt="" aria-hidden="true" class="h-full w-full object-cover object-[50%_40%]" loading="lazy" width="1920" height="640" />
         <div aria-hidden="true" class="page-banner-overlay absolute inset-0" />
+        <span class="pointer-events-none absolute start-3 bottom-3 z-10 rounded-md bg-ink/75 px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-white uppercase backdrop-blur-sm md:start-5 md:bottom-4">
+          {t("replacePhoto", lang)}
+        </span>
       </div>
     )
   }
@@ -61,7 +64,6 @@ const bannerAlt = tr((page.node as any).bannerAlt ?? (imagesJson as any).pageBan
         <h1 class="max-w-3xl text-[2.25rem] leading-[1.08] text-white sm:text-5xl md:text-[3.5rem]">{heading}</h1>
         <div aria-hidden="true" class="mt-6 h-px w-40 bg-gradient-to-r from-gold-line to-transparent"></div>
         {lead && <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">{lead}</p>}
-        <p class="mt-4 text-xs tracking-wide text-white/75 uppercase">{t("replacePhoto", lang)}</p>
       </div>
       {
         page.node.icon && (

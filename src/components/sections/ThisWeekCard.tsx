@@ -1,10 +1,12 @@
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { ArrowRight, MapPin, Radio } from "lucide-react"
 import { Pictogram } from "@/components/brand/Pictogram"
 import { buttonVariants } from "@/components/ui/button"
-import { addDays, buildDays, daysBetween, formatDate, formatTime, localToday, nextFeast, type ScheduleData } from "@/lib/calendar"
+import { addDays, buildDays, daysBetween, formatDate, formatFeastDateLabel, formatTime, nextFeast, type ScheduleData } from "@/lib/calendar"
 import { fill } from "@/lib/format"
 import { cn } from "@/lib/utils"
+import ServiceDetail, { type ServiceDetailItem } from "./ServiceDetail"
+import { useToday } from "./useToday"
 
 interface Props {
   data: ScheduleData
@@ -14,19 +16,31 @@ interface Props {
   s: Record<string, string>
   scheduleHref: string
   directionsUrl: string
+  place: string
   addressLines: string[]
   live: { href: string } | null
   calendarConnected: boolean
+  calendarLabel: string
+  oldStyleAbbr: string
 }
 
-export function useToday(initial: string) {
-  const [today, setToday] = useState(initial)
-  useEffect(() => setToday(localToday()), [])
-  return today
-}
-
-export default function ThisWeekCard({ data, initialToday, locale, highlightRanks, s, scheduleHref, directionsUrl, addressLines, live, calendarConnected }: Props) {
+export default function ThisWeekCard({
+  data,
+  initialToday,
+  locale,
+  highlightRanks,
+  s,
+  scheduleHref,
+  directionsUrl,
+  place,
+  addressLines,
+  live,
+  calendarConnected,
+  calendarLabel,
+  oldStyleAbbr,
+}: Props) {
   const today = useToday(initialToday)
+  const [selected, setSelected] = useState<ServiceDetailItem | null>(null)
 
   const upcoming = useMemo(() => {
     const days = buildDays(today, 7, data)
@@ -50,11 +64,14 @@ export default function ThisWeekCard({ data, initialToday, locale, highlightRank
     <div className="relative overflow-hidden rounded-[1.75rem] border border-border bg-white shadow-[var(--mission-shadow-lift)]">
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
       <div className="flex flex-wrap items-center justify-between gap-3 px-5 pt-5 sm:px-6 sm:pt-6">
-        <h2 className="font-heading text-xl text-ink">{s.thisWeeksServices}</h2>
+        <div className="min-w-0">
+          <h2 className="font-heading text-xl leading-snug text-ink">{s.thisWeeksServices}</h2>
+          {calendarLabel ? <p className="mt-0.5 text-[0.7rem] leading-snug text-ink-500">{calendarLabel}</p> : null}
+        </div>
         {live ? (
           <a href={live.href} className="inline-flex items-center gap-2 rounded-full bg-blue px-3 py-1.5 text-xs font-semibold tracking-wide text-white uppercase hover:bg-blue-deep">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-60 motion-reduce:hidden" />
+            <span aria-hidden="true" className="relative inline-flex size-2 shrink-0 overflow-visible">
+              <span className="absolute inset-0 animate-ping rounded-full bg-white opacity-60 motion-reduce:hidden" />
               <span className="relative inline-flex size-2 rounded-full bg-white" />
             </span>
             {s.liveNow}
@@ -66,6 +83,15 @@ export default function ThisWeekCard({ data, initialToday, locale, highlightRank
         {upcoming.map((row) => {
           const showDay = row.date !== lastDate
           lastDate = row.date
+          const item: ServiceDetailItem = {
+            id: row.key,
+            title: row.title,
+            date: row.date,
+            time: row.time,
+            place,
+            note: row.note || row.feastTitle || s.serviceDetailNote,
+            livestreamHref: row.livestream && live ? live.href : null,
+          }
           return (
             <li key={row.key} className={cn(showDay && "border-t border-border/80 first:border-t-0")}>
               {showDay ? (
@@ -74,14 +100,18 @@ export default function ThisWeekCard({ data, initialToday, locale, highlightRank
                   <span className="ms-2 font-normal tracking-normal normal-case">{formatDate(row.date, locale, { month: "short", day: "numeric" })}</span>
                 </p>
               ) : null}
-              <div className="flex items-baseline gap-3 py-1.5">
+              <button
+                type="button"
+                onClick={() => setSelected(item)}
+                className="flex w-full items-baseline gap-3 rounded-lg py-1.5 text-start transition-colors hover:bg-stone-50 focus-visible:bg-stone-50"
+              >
                 <span className="w-[4.6rem] shrink-0 font-tradition text-[0.95rem] text-blue-deep tabular-nums">{formatTime(row.time, locale)}</span>
                 <span className="min-w-0 flex-1">
                   <span className="text-[0.97rem] text-ink">{row.title}</span>
                   {row.feastTitle ? <span className="mt-0.5 block text-sm text-gold">{row.feastTitle}</span> : null}
                 </span>
                 {row.livestream && live ? <Radio aria-label={s.streamed} className="size-4 shrink-0 text-blue" /> : null}
-              </div>
+              </button>
             </li>
           )
         })}
@@ -100,7 +130,7 @@ export default function ThisWeekCard({ data, initialToday, locale, highlightRank
               <p className="eyebrow !text-[0.68rem]">{s.nextFeast}</p>
               <p className="mt-1 font-heading text-base text-ink">{coming.title}</p>
               <p className="text-ink-600">
-                {formatDate(coming.date, locale, { weekday: "long", month: "long", day: "numeric" })},{" "}
+                {formatFeastDateLabel(coming, locale, oldStyleAbbr, { weekday: "long", month: "long", day: "numeric" })},{" "}
                 {daysBetween(today, coming.date) === 1 ? s.inOneDay : fill(s.inDays, { n: daysBetween(today, coming.date) })}
               </p>
             </>
@@ -130,6 +160,8 @@ export default function ThisWeekCard({ data, initialToday, locale, highlightRank
           </a>
         </div>
       </div>
+
+      <ServiceDetail item={selected} open={!!selected} onOpenChange={(o) => !o && setSelected(null)} locale={locale} directionsUrl={directionsUrl} s={s} />
     </div>
   )
 }

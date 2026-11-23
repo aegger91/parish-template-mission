@@ -2,13 +2,21 @@
   Church calendar and service schedule engine. Pure functions on ISO dates
   ("YYYY-MM-DD"), safe to run at build time and in the browser.
 
-  calendar style:
-    julian          fixed feasts on the Julian (Old) calendar, Orthodox Pascha
-    revised-julian  fixed feasts on civil dates, Orthodox Pascha
-    gregorian       fixed feasts on civil dates, Gregorian Pascha
+  calendar.style (builder setting, not visitor-facing):
+    new  Revised Julian — fixed feasts on civil dates, Orthodox Pascha
+    old  Julian — fixed feasts on the Julian calendar (shown as civil + O.S.), Orthodox Pascha
+  Legacy values julian / revised-julian / gregorian are still accepted and normalized.
 */
 
-export type CalendarStyle = "julian" | "revised-julian" | "gregorian"
+export type CalendarStyle = "new" | "old"
+
+/** Accept legacy schema values from older content files. */
+export type CalendarStyleInput = CalendarStyle | "julian" | "revised-julian" | "gregorian"
+
+export function normalizeCalendarStyle(style: CalendarStyleInput | string | undefined | null): CalendarStyle {
+  if (style === "old" || style === "julian") return "old"
+  return "new"
+}
 
 export interface FeastDef {
   id: string
@@ -24,6 +32,9 @@ export interface Feast {
   rank: string
   title: string
   date: string
+  /** Julian month/day when style is old and the feast is fixed (for O.S. labels). */
+  oldStyleMonth?: number
+  oldStyleDay?: number
 }
 
 const pad = (n: number) => String(n).padStart(2, "0")
@@ -141,18 +152,28 @@ export function gregorianPascha(year: number): string {
   return isoDate(year, month, day)
 }
 
-export function paschaFor(year: number, style: CalendarStyle): string {
-  return style === "gregorian" ? gregorianPascha(year) : orthodoxPascha(year)
+export function paschaFor(year: number, _style: CalendarStyle): string {
+  // New and Old Calendar share Orthodox Pascha (Julian algorithm → civil date).
+  return orthodoxPascha(year)
 }
 
 export function feastsForYear(year: number, style: CalendarStyle, defs: FeastDef[]): Feast[] {
   const pascha = paschaFor(year, style)
   return defs.map((def) => {
-    let date: string
-    if (typeof def.offset === "number") date = addDays(pascha, def.offset)
-    else if (style === "julian") date = julianToCivil(year, def.month!, def.day!)
-    else date = isoDate(year, def.month!, def.day!)
-    return { id: def.id, rank: def.rank, title: def.title, date }
+    if (typeof def.offset === "number") {
+      return { id: def.id, rank: def.rank, title: def.title, date: addDays(pascha, def.offset) }
+    }
+    if (style === "old") {
+      return {
+        id: def.id,
+        rank: def.rank,
+        title: def.title,
+        date: julianToCivil(year, def.month!, def.day!),
+        oldStyleMonth: def.month,
+        oldStyleDay: def.day,
+      }
+    }
+    return { id: def.id, rank: def.rank, title: def.title, date: isoDate(year, def.month!, def.day!) }
   })
 }
 
@@ -164,6 +185,19 @@ export function feastsBetween(start: string, end: string, style: CalendarStyle, 
     for (const f of feastsForYear(y, style, defs)) if (f.date >= start && f.date <= end) out.push(f)
   }
   return out.sort((a, b) => a.date.localeCompare(b.date))
+}
+
+/** Civil date label, with Old Style parenthetical when applicable. */
+export function formatFeastDateLabel(
+  feast: Feast,
+  locale: string,
+  oldStyleAbbr: string,
+  options: Intl.DateTimeFormatOptions = { month: "short", day: "numeric" },
+): string {
+  const civil = formatDate(feast.date, locale, options)
+  if (feast.oldStyleMonth == null || feast.oldStyleDay == null) return civil
+  const os = formatDate(isoDate(2000, feast.oldStyleMonth, feast.oldStyleDay), locale, { month: "short", day: "numeric" })
+  return `${civil} (${os} ${oldStyleAbbr})`
 }
 
 export interface ServiceDef {

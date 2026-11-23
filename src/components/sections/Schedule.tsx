@@ -18,6 +18,7 @@ import {
 } from "@/lib/calendar"
 import { fill } from "@/lib/format"
 import { cn } from "@/lib/utils"
+import ServiceDetail, { type ServiceDetailItem } from "./ServiceDetail"
 
 interface Props {
   data: ScheduleData
@@ -27,8 +28,11 @@ interface Props {
   startView: "week" | "month"
   highlightRanks: string[]
   liveOn: boolean
-  calendarNote: string
+  livestreamHref: string | null
+  calendarLabel: string
   note: string
+  place: string
+  directionsUrl: string
   s: Record<string, string>
 }
 
@@ -48,19 +52,47 @@ function FeastTag({ day, s }: { day: DaySchedule; s: Record<string, string> }) {
   )
 }
 
-function ServiceRow({ svc, locale, liveOn, s, compact, stackOnDesktop }: { svc: DaySchedule["services"][number]; locale: string; liveOn: boolean; s: Record<string, string>; compact?: boolean; stackOnDesktop?: boolean }) {
+function ServiceRow({
+  svc,
+  date,
+  locale,
+  liveOn,
+  s,
+  compact,
+  stackOnDesktop,
+  onSelect,
+}: {
+  svc: DaySchedule["services"][number]
+  date: string
+  locale: string
+  liveOn: boolean
+  s: Record<string, string>
+  compact?: boolean
+  stackOnDesktop?: boolean
+  onSelect: () => void
+}) {
   const live = liveOn && svc.livestream ? <Radio aria-label={s.streamed} className="size-3.5 shrink-0 text-blue" /> : null
   return (
-    <li className={cn("flex items-baseline gap-3", compact ? "py-0.5 text-[0.8rem] leading-snug" : "py-1.5", stackOnDesktop && "lg:flex-col lg:gap-0.5 lg:py-2")}>
-      <span className={cn("inline-flex shrink-0 items-center gap-1.5 font-tradition text-blue-deep tabular-nums", compact ? "w-auto" : "w-[4.8rem]", stackOnDesktop && "lg:w-auto lg:text-sm")}>
-        {formatTime(svc.time, locale)}
-        {stackOnDesktop ? <span className="hidden lg:inline-flex">{live}</span> : null}
-      </span>
-      <span className={cn("min-w-0 flex-1 text-ink", stackOnDesktop && "lg:text-[0.92rem] lg:leading-snug")}>
-        {svc.title}
-        {!compact && svc.note ? <span className="block text-sm text-ink-500">{svc.note}</span> : null}
-      </span>
-      {live ? <span className={cn("self-center", stackOnDesktop && "lg:hidden")}>{live}</span> : null}
+    <li className={cn(compact ? "py-0.5" : "py-0.5", stackOnDesktop && "lg:py-1")}>
+      <button
+        type="button"
+        onClick={onSelect}
+        className={cn(
+          "flex w-full items-baseline gap-3 rounded-md text-start transition-colors hover:bg-white/70 focus-visible:bg-white/70",
+          compact ? "text-[0.8rem] leading-snug" : "py-1",
+          stackOnDesktop && "lg:flex-col lg:gap-0.5 lg:py-1.5",
+        )}
+      >
+        <span className={cn("inline-flex shrink-0 items-center gap-1.5 font-tradition text-blue-deep tabular-nums", compact ? "w-auto" : "w-[4.8rem]", stackOnDesktop && "lg:w-auto lg:text-sm")}>
+          {formatTime(svc.time, locale)}
+          {stackOnDesktop ? <span className="hidden lg:inline-flex">{live}</span> : null}
+        </span>
+        <span className={cn("min-w-0 flex-1 text-ink", stackOnDesktop && "lg:text-[0.92rem] lg:leading-snug")}>
+          {svc.title}
+          {!compact && svc.note ? <span className="block text-sm text-ink-500">{svc.note}</span> : null}
+        </span>
+        {live ? <span className={cn("self-center", stackOnDesktop && "lg:hidden")}>{live}</span> : null}
+      </button>
     </li>
   )
 }
@@ -69,10 +101,25 @@ function dayHighlight(day: DaySchedule, ranks: string[]) {
   return day.feasts.some((f) => ranks.includes(f.rank))
 }
 
-export default function Schedule({ data, initialToday, locale, weekStartsOn, startView, highlightRanks, liveOn, calendarNote, note, s }: Props) {
+export default function Schedule({
+  data,
+  initialToday,
+  locale,
+  weekStartsOn,
+  startView,
+  highlightRanks,
+  liveOn,
+  livestreamHref,
+  calendarLabel,
+  note,
+  place,
+  directionsUrl,
+  s,
+}: Props) {
   const [today, setToday] = useState(initialToday)
   const [view, setView] = useState<"week" | "month">(startView)
   const [anchor, setAnchor] = useState(initialToday)
+  const [selected, setSelected] = useState<ServiceDetailItem | null>(null)
 
   useEffect(() => {
     const t = localToday()
@@ -96,6 +143,18 @@ export default function Schedule({ data, initialToday, locale, weekStartsOn, sta
       : formatDate(monthStart, locale, { month: "long", year: "numeric" })
 
   const dayHeading = (date: string) => formatDate(date, locale, { weekday: "long", month: "long", day: "numeric" })
+
+  const openService = (date: string, svc: DaySchedule["services"][number]) => {
+    setSelected({
+      id: svc.key,
+      title: svc.title,
+      date,
+      time: svc.time,
+      place,
+      note: svc.note || svc.feastTitle || s.serviceDetailNote,
+      livestreamHref: liveOn && svc.livestream ? livestreamHref : null,
+    })
+  }
 
   return (
     <div>
@@ -133,10 +192,21 @@ export default function Schedule({ data, initialToday, locale, weekStartsOn, sta
       </div>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 px-1 text-sm text-ink-600">
-        <span className="inline-flex items-center gap-2"><span className="size-3 rounded-sm bg-gold-wash ring-1 ring-gold" />{s.legendFeast}</span>
-        <span className="inline-flex items-center gap-2"><span className="size-3 rounded-sm ring-2 ring-blue" />{s.legendToday}</span>
-        {liveOn ? <span className="inline-flex items-center gap-2"><Radio className="size-3.5 text-blue" aria-hidden="true" />{s.legendStream}</span> : null}
-        <span className="text-ink-500">{calendarNote}</span>
+        <span className="inline-flex items-center gap-2">
+          <span className="size-3 rounded-sm bg-gold-wash ring-1 ring-gold" />
+          {s.legendFeast}
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <span className="size-3 rounded-sm ring-2 ring-blue" />
+          {s.legendToday}
+        </span>
+        {liveOn ? (
+          <span className="inline-flex items-center gap-2">
+            <Radio className="size-3.5 text-blue" aria-hidden="true" />
+            {s.legendStream}
+          </span>
+        ) : null}
+        {calendarLabel ? <span className="text-ink-500">{calendarLabel}</span> : null}
       </div>
 
       {view === "week" ? (
@@ -167,7 +237,7 @@ export default function Schedule({ data, initialToday, locale, weekStartsOn, sta
                 {day.services.length > 0 ? (
                   <ul className="mt-2 divide-y divide-border/70 lg:divide-y-0">
                     {day.services.map((svc) => (
-                      <ServiceRow key={svc.key} svc={svc} locale={locale} liveOn={liveOn} s={s} compact={false} stackOnDesktop />
+                      <ServiceRow key={svc.key} svc={svc} date={day.date} locale={locale} liveOn={liveOn} s={s} compact={false} stackOnDesktop onSelect={() => openService(day.date, svc)} />
                     ))}
                   </ul>
                 ) : (
@@ -182,7 +252,9 @@ export default function Schedule({ data, initialToday, locale, weekStartsOn, sta
           <div className="mt-6 hidden overflow-hidden rounded-2xl border border-border lg:block">
             <div className="grid grid-cols-7 border-b border-border bg-stone-50">
               {names.map((n) => (
-                <p key={n} className="px-3 py-2 text-xs font-semibold tracking-[0.14em] text-ink-500 uppercase">{n}</p>
+                <p key={n} className="px-3 py-2 text-xs font-semibold tracking-[0.14em] text-ink-500 uppercase">
+                  {n}
+                </p>
               ))}
             </div>
             <ol className="grid grid-cols-7">
@@ -206,7 +278,7 @@ export default function Schedule({ data, initialToday, locale, weekStartsOn, sta
                     ))}
                     <ul className="mt-1">
                       {day.services.map((svc) => (
-                        <ServiceRow key={svc.key} svc={svc} locale={locale} liveOn={false} s={s} compact />
+                        <ServiceRow key={svc.key} svc={svc} date={day.date} locale={locale} liveOn={false} s={s} compact onSelect={() => openService(day.date, svc)} />
                       ))}
                     </ul>
                   </li>
@@ -231,7 +303,7 @@ export default function Schedule({ data, initialToday, locale, weekStartsOn, sta
                     </div>
                     <ul className="mt-1.5 divide-y divide-border/70">
                       {day.services.map((svc) => (
-                        <ServiceRow key={svc.key} svc={svc} locale={locale} liveOn={liveOn} s={s} />
+                        <ServiceRow key={svc.key} svc={svc} date={day.date} locale={locale} liveOn={liveOn} s={s} onSelect={() => openService(day.date, svc)} />
                       ))}
                     </ul>
                   </li>
@@ -241,6 +313,7 @@ export default function Schedule({ data, initialToday, locale, weekStartsOn, sta
         </>
       )}
       <p className="mt-6 text-sm text-ink-500">{note}</p>
+      <ServiceDetail item={selected} open={!!selected} onOpenChange={(o) => !o && setSelected(null)} locale={locale} directionsUrl={directionsUrl} s={s} />
     </div>
   )
 }

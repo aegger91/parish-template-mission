@@ -44,7 +44,7 @@
           "es": "Publicación de ejemplo. Aquí va el texto del artículo."
         }
       ],
-      "image": "/images/placeholders/news-1.svg"
+      "image": "/images/samples/banner.webp"
     },
     {
       "id": "post-meal",
@@ -66,7 +66,7 @@
           "es": "Publicación de ejemplo. Aquí va el texto del artículo."
         }
       ],
-      "image": "/images/placeholders/news-2.svg"
+      "image": "/images/samples/parish-gathering.webp"
     },
     {
       "id": "post-parish-update",
@@ -88,7 +88,7 @@
           "es": "Publicación de ejemplo. Aquí va el texto del artículo."
         }
       ],
-      "image": "/images/placeholders/news-3.svg"
+      "image": "/images/samples/candle-desk.webp"
     },
     {
       "id": "post-choir",
@@ -110,7 +110,7 @@
           "es": "Publicación de ejemplo. Aquí va el texto del artículo."
         }
       ],
-      "image": "/images/placeholders/news-4.svg"
+      "image": "/images/samples/bell-tower.webp"
     },
     {
       "id": "post-icons",
@@ -132,7 +132,7 @@
           "es": "Publicación de ejemplo. Aquí va el texto del artículo."
         }
       ],
-      "image": "/images/placeholders/news-5.svg"
+      "image": "/images/samples/icon-trinity.webp"
     }
   ]
 }

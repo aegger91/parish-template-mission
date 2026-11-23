@@ -55,7 +55,7 @@
         "es": "Equipo de jóvenes"
       },
       "category": "youth",
-      "image": "/images/placeholders/event-1.svg"
+      "image": "/images/samples/procession.webp"
     },
     {
       "id": "evt-adult-class",
@@ -80,7 +80,7 @@
         "es": "P. Andrés Ejemplo"
       },
       "category": "class",
-      "image": "/images/placeholders/event-2.svg"
+      "image": "/images/samples/interior.webp"
     },
     {
       "id": "evt-st-nicholas",
@@ -105,7 +105,7 @@
         "es": "Equipo de catequesis"
       },
       "category": "youth",
-      "image": "/images/placeholders/event-3.svg"
+      "image": "/images/samples/parish-gathering.webp"
     },
     {
       "id": "evt-book-circle",
@@ -130,7 +130,7 @@
         "es": "Círculo de lectura"
       },
       "category": "class",
-      "image": "/images/placeholders/event-4.svg"
+      "image": "/images/samples/candle-desk.webp"
     },
     {
       "id": "evt-carols",
@@ -155,7 +155,7 @@
         "es": "Coro"
       },
       "category": "outreach",
-      "image": "/images/placeholders/event-5.svg"
+      "image": "/images/samples/church-exterior-2.webp"
     },
     {
       "id": "evt-nativity-meal",
@@ -180,7 +180,7 @@
         "es": "Consejo parroquial"
       },
       "category": "feast",
-      "image": "/images/placeholders/event-6.svg"
+      "image": "/images/samples/candles.webp"
     },
     {
       "id": "evt-theophany-potluck",
@@ -205,7 +205,7 @@
         "es": "Consejo parroquial"
       },
       "category": "feast",
-      "image": "/images/placeholders/event-7.svg"
+      "image": "/images/samples/church-gates.webp"
     }
   ]
 }

@@ -37,7 +37,7 @@
       "motif": "church",
       "tone": "blue",
       "shape": "wide",
-      "src": "/images/placeholders/gallery-1.svg",
+      "src": "/images/samples/church-exterior-1.webp",
       "caption": {
         "en": "The church on a winter morning",
         "es": "La iglesia en una mañana de invierno"
@@ -49,7 +49,7 @@
       "motif": "censer",
       "tone": "stone",
       "shape": "tall",
-      "src": "/images/placeholders/gallery-2.svg",
+      "src": "/images/samples/iconostasis.webp",
       "caption": {
         "en": "Censing before the Gospel",
         "es": "Incensación antes del Evangelio"
@@ -61,7 +61,7 @@
       "motif": "candle",
       "tone": "gold",
       "shape": "square",
-      "src": "/images/placeholders/gallery-3.svg",
+      "src": "/images/samples/candles.webp",
       "caption": {
         "en": "Candles at the midnight service",
         "es": "Velas en el servicio de medianoche"
@@ -73,7 +73,7 @@
       "motif": "chalice",
       "tone": "slate",
       "shape": "square",
-      "src": "/images/placeholders/gallery-4.svg",
+      "src": "/images/samples/interior.webp",
       "caption": {
         "en": "Preparing for the Liturgy",
         "es": "Preparación para la Liturgia"
@@ -85,7 +85,7 @@
       "motif": "utensils",
       "tone": "stone",
       "shape": "wide",
-      "src": "/images/placeholders/gallery-5.svg",
+      "src": "/images/samples/parish-gathering.webp",
       "caption": {
         "en": "Monthly meal for neighbors",
         "es": "Comida mensual para los vecinos"
@@ -97,7 +97,7 @@
       "motif": "bells",
       "tone": "slate",
       "shape": "tall",
-      "src": "/images/placeholders/gallery-6.svg",
+      "src": "/images/samples/bell-tower.webp",
       "caption": {
         "en": "The three new bells",
         "es": "Las tres campanas nuevas"
@@ -109,7 +109,7 @@
       "motif": "gospel",
       "tone": "blue",
       "shape": "square",
-      "src": "/images/placeholders/gallery-7.svg",
+      "src": "/images/samples/procession.webp",
       "caption": {
         "en": "Gospel procession on a feast day",
         "es": "Procesión del Evangelio en un día de fiesta"
@@ -121,7 +121,7 @@
       "motif": "prayer-rope",
       "tone": "gold",
       "shape": "square",
-      "src": "/images/placeholders/gallery-8.svg",
+      "src": "/images/samples/candle-desk.webp",
       "caption": {
         "en": "Learning to tie a prayer rope",
         "es": "Aprendiendo a hacer un chotki"
@@ -133,7 +133,7 @@
       "motif": "icon-frame",
       "tone": "stone",
       "shape": "tall",
-      "src": "/images/placeholders/gallery-9.svg",
+      "src": "/images/samples/icon-corner.webp",
       "caption": {
         "en": "New icons on the iconostasis",
         "es": "Íconos nuevos en el iconostasio"
@@ -145,7 +145,7 @@
       "motif": "church",
       "tone": "gold",
       "shape": "wide",
-      "src": "/images/placeholders/gallery-10.svg",
+      "src": "/images/samples/church-exterior-3.webp",
       "caption": {
         "en": "Procession around the church",
         "es": "Procesión alrededor de la iglesia"

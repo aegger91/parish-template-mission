@@ -8,8 +8,7 @@ import { cn } from "@/lib/utils"
 
 interface Props {
   presets: number[]
-  defaultPreset: number
-  minimum: number
+  defaultPreset?: number | null
   currency: string
   locale: string
   funds: { id: string; label: string }[]
@@ -17,13 +16,12 @@ interface Props {
   s: Record<string, string>
 }
 
-export default function DonateForm({ presets, defaultPreset, minimum, currency, locale, funds, frequencies, s }: Props) {
+export default function DonateForm({ presets, currency, locale, funds, frequencies, s }: Props) {
   const [frequency, setFrequency] = useState<"one-time" | "monthly">(frequencies[0] ?? "one-time")
-  const [preset, setPreset] = useState<number | "other">(defaultPreset)
+  const [preset, setPreset] = useState<number | "other">("other")
   const [other, setOther] = useState("")
   const [fund, setFund] = useState(funds[0]?.id ?? "general")
   const [state, setState] = useState<"idle" | "sending" | "done">("idle")
-  const [error, setError] = useState("")
 
   const amount = preset === "other" ? Number(other.replace(",", ".")) || 0 : preset
   const money = (n: number) => formatMoney(n, locale, currency)
@@ -31,11 +29,6 @@ export default function DonateForm({ presets, defaultPreset, minimum, currency, 
 
   async function submit(e: React.FormEvent) {
     e.preventDefault()
-    if (amount < minimum) {
-      setError(fill(s.minimumAmount, { amount: money(minimum) }))
-      return
-    }
-    setError("")
     setState("sending")
     await startPayment({ purpose: "donation", amount, currency, frequency, fund })
     setState("done")
@@ -93,7 +86,7 @@ export default function DonateForm({ presets, defaultPreset, minimum, currency, 
             value={other}
             onFocus={() => setPreset("other")}
             onChange={(e) => setOther(e.target.value.replace(/[^\d.,]/g, ""))}
-            placeholder={money(minimum * 10)}
+            placeholder={money(0)}
             className="h-10 min-w-0 flex-1 border-0 text-end font-tradition text-lg shadow-none focus-visible:ring-0"
           />
         </label>
@@ -111,8 +104,6 @@ export default function DonateForm({ presets, defaultPreset, minimum, currency, 
           </select>
         </label>
       ) : null}
-
-      {error ? <p role="alert" className="mt-4 text-sm text-destructive">{error}</p> : null}
 
       <Button type="submit" size="lg" className="mt-8 w-full whitespace-normal" disabled={state === "sending"}>
         {state === "sending" ? <Loader2 aria-hidden="true" className="animate-spin" /> : <Lock aria-hidden="true" />}

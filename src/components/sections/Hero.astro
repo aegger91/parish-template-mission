@@ -5,6 +5,7 @@ import { buttonVariants } from "@/components/ui/button"
 import ThisWeekCard from "./ThisWeekCard"
 import { site, tr, t, strings, langInfo, resolveLink, specialPageHref, isFeatureOn, formatAddressLines, type SectionNode } from "@/lib/site"
 import { scheduleData, buildDate } from "@/lib/scheduleData"
+import { normalizeCalendarStyle } from "@/lib/calendar"
 import imagesJson from "@content/images.json"
 
 interface Props {
@@ -21,6 +22,7 @@ const isLive = livestreamOn && !!site.features.livestream.live
 const livestreamHref = specialPageHref("livestream", lang) ?? site.features.livestream?.watchUrl
 const live = isLive ? { href: livestreamHref } : null
 const phone: string | undefined = site.contact.phone
+const calStyle = normalizeCalendarStyle(site.calendar?.style)
 const s = strings(lang, [
   "thisWeeksServices",
   "liveNow",
@@ -34,7 +36,19 @@ const s = strings(lang, [
   "getDirections",
   "fullSchedule",
   "streamed",
+  "addToCalendar",
+  "googleCalendar",
+  "time",
+  "location",
+  "notes",
+  "watchLive",
+  "serviceDetailNote",
+  "oldStyleAbbr",
+  `calendarStyle.${calStyle}`,
 ])
+const place = formatAddressLines(lang).join(", ")
+const calendarLabel = t(`calendarStyle.${calStyle}`, lang)
+const oldStyleAbbr = t("oldStyleAbbr", lang)
 const heroImage = (section.image as string | undefined) || (imagesJson as any).hero?.src
 const heroAlt = tr(section.imageAlt ?? (imagesJson as any).hero?.alt, lang) || tr((imagesJson as any).hero?.alt, lang)
 const replaceLabel = t("replacePhoto", lang)
@@ -59,7 +73,7 @@ const pill = "inline-flex max-w-full items-center gap-2.5 rounded-full border bo
   }
   <span class="sr-only">{heroAlt}</span>
   <div class="container-mission relative grid gap-12 pt-12 pb-16 md:pt-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center lg:gap-16 lg:pt-20 lg:pb-24">
-    <div class="min-w-0 reveal-fade">
+    <div class="relative min-w-0 reveal-fade">
       {section.eyebrow && <p class="font-tradition text-sm tracking-[0.22em] text-[#e0bc6a] uppercase">{tr(section.eyebrow, lang)}</p>}
       <h1 class="mt-4 text-[3rem] leading-[1.04] text-white sm:text-[4rem] lg:text-[4.8rem]">{tr(section.title, lang)}</h1>
       <div aria-hidden="true" class="mt-6 h-px w-48 bg-gradient-to-r from-gold-line to-transparent"></div>
@@ -114,7 +128,13 @@ const pill = "inline-flex max-w-full items-center gap-2.5 rounded-full border bo
           )
         }
       </ul>
-      <p class="mt-6 text-xs tracking-wide text-white/75 uppercase">{replaceLabel}</p>
+      {
+        heroImage && (
+          <p class="mt-8">
+            <span class="inline-block rounded-md bg-ink/75 px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-white uppercase backdrop-blur-sm">{replaceLabel}</span>
+          </p>
+        )
+      }
     </div>
     <div class="min-w-0 reveal-fade-delay">
       <ThisWeekCard
@@ -126,9 +146,12 @@ const pill = "inline-flex max-w-full items-center gap-2.5 rounded-full border bo
         s={s}
         scheduleHref={specialPageHref("schedule", lang) ?? "#"}
         directionsUrl={site.contact.directionsUrl}
+        place={place}
         addressLines={formatAddressLines(lang)}
         live={live}
         calendarConnected={!!site.orthodoxConnect?.calendar?.enabled}
+        calendarLabel={calendarLabel}
+        oldStyleAbbr={oldStyleAbbr}
       />
     </div>
   </div>

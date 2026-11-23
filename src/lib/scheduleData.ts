@@ -1,7 +1,7 @@
 import scheduleJson from "@content/schedule.json"
 import feastsJson from "@content/feasts.json"
 import { site, tr } from "./site"
-import type { CalendarStyle, ScheduleData } from "./calendar"
+import { normalizeCalendarStyle, type ScheduleData } from "./calendar"
 
 /** Schedule and feasts with every title resolved for one language, ready for client islands. */
 export function scheduleData(lang: string): ScheduleData {
@@ -9,7 +9,7 @@ export function scheduleData(lang: string): ScheduleData {
   const f = feastsJson as any
   const svc = (x: any) => ({ ...x, title: tr(x.title, lang), note: x.note ? tr(x.note, lang) : undefined })
   return {
-    style: (site.calendar?.style ?? "revised-julian") as CalendarStyle,
+    style: normalizeCalendarStyle(site.calendar?.style),
     recurring: s.recurring.map(svc),
     feastRules: {
       applyToRanks: s.feastRules.applyToRanks,
