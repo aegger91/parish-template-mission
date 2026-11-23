@@ -21,7 +21,8 @@
           "capacity": { "type": "integer", "minimum": 0 },
           "signups": { "type": "integer", "minimum": 0 },
           "organizer": { "$ref": "common.schema.json#/definitions/localized" },
-          "category": { "$ref": "common.schema.json#/definitions/id" }
+          "category": { "$ref": "common.schema.json#/definitions/id" },
+          "image": { "$ref": "common.schema.json#/definitions/imageSrc" }
         },
         "required": ["id", "title", "date", "time", "location", "capacity", "signups", "organizer", "category"],
         "additionalProperties": false

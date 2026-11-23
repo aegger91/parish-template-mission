@@ -2,6 +2,7 @@
 import { ChevronRight } from "lucide-react"
 import { Pictogram } from "@/components/brand/Pictogram"
 import { pageById, tr, t, href, navLabel, type FlatPage } from "@/lib/site"
+import imagesJson from "@content/images.json"
 
 interface Props {
   lang: string
@@ -18,34 +19,53 @@ const trail = crumbs ?? [
 ]
 const heading = title ?? tr(page.node.title, lang)
 const lead = intro ?? tr(page.node.intro, lang)
+const bannerSrc = (page.node as any).banner ?? (imagesJson as any).pageBanner?.src
+const bannerAlt = tr((page.node as any).bannerAlt ?? (imagesJson as any).pageBanner?.alt, lang)
 ---
 
-<header class="relative overflow-hidden border-b border-border bg-stone-50">
+<header class="relative isolate overflow-hidden border-b border-stone-200/80">
+  {
+    bannerSrc && (
+      <div class="absolute inset-0 -z-10">
+        <img src={bannerSrc} alt="" aria-hidden="true" class="h-full w-full object-cover object-[50%_40%]" loading="lazy" width="1920" height="640" />
+        <div aria-hidden="true" class="page-banner-overlay absolute inset-0" />
+      </div>
+    )
+  }
+  {
+    !bannerSrc && (
+      <div aria-hidden="true" class="absolute inset-0 -z-10 bg-ink-band">
+        <div class="page-banner-overlay absolute inset-0" />
+      </div>
+    )
+  }
+  <span class="sr-only">{bannerAlt}</span>
   <div class="container-mission relative py-12 md:py-16">
     <nav aria-label={t("breadcrumb", lang)} class="mb-6">
-      <ol class="flex flex-wrap items-center gap-1.5 text-sm text-ink-500">
+      <ol class="flex flex-wrap items-center gap-1.5 text-sm text-white/70">
         {
           trail.map((c) => (
             <li class="flex items-center gap-1.5">
-              <a href={c.href} class="hover:text-blue">
+              <a href={c.href} class="hover:text-white">
                 {c.label}
               </a>
-              <ChevronRight aria-hidden="true" className="size-3.5 text-ink-300 rtl:rotate-180" />
+              <ChevronRight aria-hidden="true" className="size-3.5 text-white/40 rtl:rotate-180" />
             </li>
           ))
         }
-        <li aria-current="page" class="text-ink-700">{heading}</li>
+        <li aria-current="page" class="text-white/90">{heading}</li>
       </ol>
     </nav>
     <div class="flex items-start gap-6">
-      <div class="min-w-0 flex-1">
-        <h1 class="max-w-3xl text-[2.25rem] leading-[1.08] text-ink sm:text-5xl md:text-[3.5rem]">{heading}</h1>
-        <div aria-hidden="true" class="hairline-gold-start mt-6 w-40"></div>
-        {lead && <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">{lead}</p>}
+      <div class="min-w-0 flex-1 reveal-fade">
+        <h1 class="max-w-3xl text-[2.25rem] leading-[1.08] text-white sm:text-5xl md:text-[3.5rem]">{heading}</h1>
+        <div aria-hidden="true" class="mt-6 h-px w-40 bg-gradient-to-r from-gold-line to-transparent"></div>
+        {lead && <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">{lead}</p>}
+        <p class="mt-4 text-xs tracking-wide text-white/75 uppercase">{t("replacePhoto", lang)}</p>
       </div>
       {
         page.node.icon && (
-          <div aria-hidden="true" class="kiot-arch hidden h-36 w-28 shrink-0 items-center justify-center border border-gold-line bg-white text-blue md:flex">
+          <div aria-hidden="true" class="kiot-arch hidden h-36 w-28 shrink-0 items-center justify-center border border-gold-line/70 bg-white/10 text-gold-wash backdrop-blur-sm md:flex">
             <Pictogram name={page.node.icon} size={56} strokeWidth={1} />
           </div>
         )

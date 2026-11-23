@@ -20,6 +20,7 @@ export interface EventItem {
   category: string
   categoryLabel: string
   connectHref: string
+  image?: string | null
 }
 
 interface Props {
@@ -38,11 +39,21 @@ interface Props {
 function EventCard({ ev, locale, s, going, onRsvp }: { ev: EventItem; locale: string; s: Record<string, string>; going: boolean; onRsvp: () => void }) {
   const full = ev.signups >= ev.capacity
   return (
-    <li className="flex min-w-0 flex-col gap-4 rounded-[1.5rem] border border-border bg-white p-4 sm:flex-row sm:p-5">
-      <div className="kiot-arch flex h-24 w-20 shrink-0 flex-col items-center justify-center border border-gold-line bg-stone-50 text-center">
-        <span className="text-xs font-semibold tracking-[0.16em] text-ink-500 uppercase">{formatDate(ev.date, locale, { month: "short" })}</span>
-        <span className="font-tradition text-3xl leading-none text-ink">{formatDate(ev.date, locale, { day: "numeric" })}</span>
-        <span className="mt-1 text-[0.7rem] text-ink-500">{formatDate(ev.date, locale, { weekday: "short" })}</span>
+    <li className="flex min-w-0 flex-col gap-4 overflow-hidden rounded-[1.5rem] border border-stone-200/90 bg-paper p-4 shadow-[var(--mission-shadow-soft)] sm:flex-row sm:p-5">
+      <div className="relative h-36 w-full shrink-0 overflow-hidden rounded-[1rem] border border-gold-line/40 sm:h-28 sm:w-36">
+        {ev.image ? (
+          <img src={ev.image} alt="" className="h-full w-full object-cover" loading="lazy" />
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center bg-stone-50 text-center">
+            <span className="text-xs font-semibold tracking-[0.16em] text-ink-500 uppercase">{formatDate(ev.date, locale, { month: "short" })}</span>
+            <span className="font-tradition text-3xl leading-none text-ink">{formatDate(ev.date, locale, { day: "numeric" })}</span>
+          </div>
+        )}
+        <div className="absolute start-2 top-2 rounded-md bg-ink/75 px-2 py-1 text-center text-white backdrop-blur-sm">
+          <span className="block text-[0.65rem] font-semibold tracking-[0.14em] uppercase">{formatDate(ev.date, locale, { month: "short" })}</span>
+          <span className="font-tradition text-lg leading-none">{formatDate(ev.date, locale, { day: "numeric" })}</span>
+        </div>
+        <span className="absolute end-2 bottom-2 rounded-md bg-ink/70 px-1.5 py-0.5 text-[0.6rem] tracking-wide text-white uppercase">{s.replacePhoto}</span>
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">

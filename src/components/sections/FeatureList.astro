@@ -1,25 +1,36 @@
 ---
 import SectionShell from "./SectionShell.astro"
-import { Pictogram } from "@/components/brand/Pictogram"
-import { tr, type SectionNode } from "@/lib/site"
+import { PlaceholderArt } from "@/components/brand/PlaceholderArt"
+import { tr, t, type SectionNode } from "@/lib/site"
 interface Props {
   lang: string
   section: SectionNode
 }
 const { lang, section } = Astro.props
 const items = section.items ?? []
+const tones = ["stone", "blue", "gold", "slate"] as const
 ---
 
-<SectionShell id={section.id} eyebrow={tr(section.eyebrow, lang)} title={tr(section.title, lang)} intro={tr(section.intro, lang)} tone="stone">
-  <ul class:list={["grid gap-px overflow-hidden rounded-[1.5rem] border border-border bg-border sm:grid-cols-2", items.length % 3 === 0 ? "lg:grid-cols-3" : "lg:grid-cols-4"]}>
+<SectionShell id={section.id} eyebrow={tr(section.eyebrow, lang)} title={tr(section.title, lang)} intro={tr(section.intro, lang)} tone={(section.tone as any) ?? "stone"}>
+  <ul class:list={["grid gap-5 sm:grid-cols-2", items.length % 3 === 0 ? "lg:grid-cols-3" : "lg:grid-cols-4"]}>
     {
-      items.map((item: any) => (
-        <li class="flex min-w-0 flex-col bg-white p-6 md:p-7">
-          <span class="flex size-12 items-center justify-center rounded-full border border-gold-line text-blue">
-            <Pictogram name={item.icon} size={26} strokeWidth={1.25} />
-          </span>
-          <h3 class="mt-5 text-xl text-ink">{tr(item.title, lang)}</h3>
-          <p class="mt-2 leading-relaxed text-ink-600">{tr(item.text, lang)}</p>
+      items.map((item: any, index: number) => (
+        <li class="flex min-w-0 flex-col overflow-hidden rounded-[1.5rem] border border-stone-200/90 bg-paper shadow-[var(--mission-shadow-soft)]">
+          <div class="aspect-[16/10]">
+            <PlaceholderArt
+              motif={item.icon ?? "church"}
+              tone={tones[index % tones.length]}
+              src={item.image ?? null}
+              alt={tr(item.title, lang)}
+              label={t("replacePhoto", lang)}
+              arch={false}
+              iconSize="30%"
+            />
+          </div>
+          <div class="flex flex-1 flex-col p-6 md:p-7">
+            <h3 class="text-xl text-ink">{tr(item.title, lang)}</h3>
+            <p class="mt-2 leading-relaxed text-ink-600">{tr(item.text, lang)}</p>
+          </div>
         </li>
       ))
     }

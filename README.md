@@ -26,6 +26,7 @@ Everything a parish edits is in `content/`. Each file points at its JSON Schema 
 | File | What it holds |
 | --- | --- |
 | `site.json` | Parish name, languages, calendar style, logo style, contact, features on or off, OrthodoxConnect, checkout and donate settings |
+| `images.json` | Shared hero, page-banner and about image paths with alt text |
 | `pages.json` | The page tree (menu order and nesting) and each page's sections, in display order |
 | `schedule.json`, `feasts.json` | Weekly services, feast-day rules, one-off dates; fixed and moveable feasts |
 | `clergy.json`, `history.json`, `gallery.json`, `news.json`, `sermons.json` | Our Parish and Livestream content |
@@ -39,7 +40,7 @@ Common changes:
 - **Languages:** add an entry to `site.json` → `languages`, then add that language code to any text field. Missing text falls back to the default language. One language hides the switcher; `"dir": "rtl"` is supported.
 - **Calendar:** `site.json` → `calendar.style` is `julian`, `revised-julian` or `gregorian`.
 - **Logo:** `site.json` → `logo.style` is `wordmark`, `seal`, `kiot` or `square` (uses `logo.image`).
-- **Photos:** set `src` (or `photo`) to an image path in `public/`. Until then a drawn placeholder shows.
+- **Photos:** shared slots live in `content/images.json` (hero, page banner, about). Per-item paths are in `clergy.json`, `gallery.json`, `news.json`, `events.json`, and section `image` fields. Bundled soft placeholders sit in `public/images/placeholders/` and are labeled “Replace with your photo”. Point any path at your own file under `public/` to swap it.
 
 Design tokens (colors, font roles, sizes) are in `src/design/tokens.css`.
 

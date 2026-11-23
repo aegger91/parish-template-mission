@@ -43,7 +43,7 @@ export default function ProductGrid({ products, categories, s }: { products: Pro
           <li key={p.id} className="min-w-0">
             <a href={p.href} className="group flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-border bg-white transition-shadow hover:shadow-[var(--mission-shadow-lift)]">
               <div className="relative aspect-square">
-                <PlaceholderArt motif={p.motif} tone={p.tone} src={p.src} alt={p.alt} label={s.sampleImage} iconSize="40%" />
+                <PlaceholderArt motif={p.motif} tone={p.tone} src={p.src} alt={p.alt} label={s.replacePhoto ?? s.sampleImage} arch={false} iconSize="40%" />
                 {!p.inStock ? (
                   <span className="absolute end-2.5 top-2.5 rounded-full bg-white/90 px-2 py-0.5 text-[0.7rem] font-semibold text-ink-700">{s.outOfStock}</span>
                 ) : null}

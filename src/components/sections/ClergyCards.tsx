@@ -22,8 +22,8 @@ export default function ClergyCards({ people, s }: { people: Person[]; s: Record
         const expanded = open === p.id
         const bioId = `bio-${p.id}`
         return (
-          <li key={p.id} className="flex min-w-0 flex-col rounded-[1.5rem] border border-border bg-white p-2">
-            <div className="kiot-arch relative flex h-56 items-center justify-center overflow-hidden border border-gold-line bg-stone-50">
+          <li key={p.id} className="flex min-w-0 flex-col overflow-hidden rounded-[1.5rem] border border-stone-200/90 bg-paper p-2 shadow-[var(--mission-shadow-soft)]">
+            <div className="relative flex h-56 items-center justify-center overflow-hidden rounded-[1.1rem] border border-gold-line/50 bg-stone-50">
               {p.photo ? (
                 <img src={p.photo} alt={p.name} className="h-full w-full object-cover" loading="lazy" />
               ) : (
@@ -31,6 +31,9 @@ export default function ClergyCards({ people, s }: { people: Person[]; s: Record
                   {p.initials}
                 </span>
               )}
+              <span className="absolute start-2.5 bottom-2.5 rounded-md bg-ink/70 px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-white uppercase backdrop-blur-sm">
+                {s.replacePhoto}
+              </span>
             </div>
             <div className="flex flex-1 flex-col p-5">
               <p className="eyebrow">{p.role}</p>

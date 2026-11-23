@@ -8,6 +8,7 @@ import Timeline from "./Timeline.astro"
 import LivestreamBand from "./LivestreamBand.astro"
 import Livestream from "./Livestream.astro"
 import LatestNews from "./LatestNews.astro"
+import GalleryStrip from "./GalleryStrip.astro"
 import Visit from "./Visit.astro"
 import DonateBand from "./DonateBand.astro"
 import MapDirections from "./MapDirections.astro"
@@ -74,7 +75,7 @@ const shell = (section: SectionNode) => ({
   eyebrow: tr(section.eyebrow, lang) || undefined,
   title: tr(section.title, lang) || undefined,
   intro: tr(section.intro, lang) || undefined,
-  tone: section.tone === "stone" ? ("stone" as const) : ("white" as const),
+  tone: (["stone", "warm", "ink"].includes(section.tone) ? section.tone : "white") as "white" | "stone" | "warm" | "ink",
 })
 
 const cartCfg = {
@@ -93,14 +94,14 @@ function props(section: SectionNode): Record<string, any> | null {
     case "clergyCards":
       return {
         people: (clergyJson as any).people.map((p: any) => ({ ...p, name: tr(p.name, lang), role: tr(p.role, lang), summary: tr(p.summary, lang), bio: p.bio.map((b: any) => tr(b, lang)) })),
-        s: strings(lang, ["hideBio", "readBio"]),
+        s: strings(lang, ["hideBio", "readBio", "replacePhoto"]),
       }
     case "gallery": {
       const g = galleryJson as any
       return {
         items: g.items.map((i: any) => ({ ...i, caption: tr(i.caption, lang) })),
         categories: labelList(g.categories),
-        s: strings(lang, ["all", "close", "filterLabel", "imageOf", "nextItem", "noResults", "openImage", "previous", "sampleImage"]),
+        s: strings(lang, ["all", "close", "filterLabel", "imageOf", "nextItem", "noResults", "openImage", "previous", "sampleImage", "replacePhoto"]),
       }
     }
     case "schedule":
@@ -149,11 +150,12 @@ function props(section: SectionNode): Record<string, any> | null {
             category: p.category,
             categoryLabel: tr(newsData.categories.find((c: any) => c.id === p.category)?.label, lang),
             motif: p.motif,
+            image: p.image ?? null,
             title: tr(p.title, lang),
             excerpt: tr(p.excerpt, lang),
           })),
         categories: labelList(newsData.categories),
-        s: strings(lang, ["all", "filterLabel", "noResults", "readPost", "sampleImage"]),
+        s: strings(lang, ["all", "filterLabel", "noResults", "readPost", "sampleImage", "replacePhoto"]),
       }
     }
     case "donate": {
@@ -243,7 +245,7 @@ function props(section: SectionNode): Record<string, any> | null {
           }
         }),
         categories: labelList(productsData.categories),
-        s: strings(lang, ["all", "filterLabel", "noResults", "outOfStock", "pickupOnly", "sampleImage"]),
+        s: strings(lang, ["all", "filterLabel", "noResults", "outOfStock", "pickupOnly", "sampleImage", "replacePhoto"]),
       }
     }
     case "cart":
@@ -270,6 +272,7 @@ function props(section: SectionNode): Record<string, any> | null {
           organizer: tr(ev.organizer, lang),
           categoryLabel: tr(e.categories.find((c: any) => c.id === ev.category)?.label, lang),
           connectHref: connectLink("event", ev.id),
+          image: ev.image ?? null,
         })),
         categories: labelList(e.categories),
         limit: typeof section.limit === "number" ? section.limit : undefined,
@@ -279,7 +282,7 @@ function props(section: SectionNode): Record<string, any> | null {
         locale,
         weekStartsOn,
         parishId,
-        s: strings(lang, [...connectS, "all", "calendarView", "eventsOnDay", "filterLabel", "going", "listView", "location", "nextMonth", "noEvents", "noResults", "onConnect", "organizer", "previousMonth", "rsvp", "seeAllEvents", "viewLabel"]),
+        s: strings(lang, [...connectS, "all", "calendarView", "eventsOnDay", "filterLabel", "going", "listView", "location", "nextMonth", "noEvents", "noResults", "onConnect", "organizer", "previousMonth", "rsvp", "seeAllEvents", "viewLabel", "replacePhoto"]),
       }
     }
     case "needsBoard": {
@@ -306,7 +309,7 @@ function props(section: SectionNode): Record<string, any> | null {
 }
 
 const items = sections.map((section) => ({ section, p: props(section) }))
-const known = new Set(["hero", "richText", "featureList", "subpageCards", "timeline", "livestreamBand", "livestream", "latestNews", "visit", "donateBand", "mapDirections", "connectActions"])
+const known = new Set(["hero", "richText", "featureList", "subpageCards", "timeline", "livestreamBand", "livestream", "latestNews", "galleryStrip", "visit", "donateBand", "mapDirections", "connectActions"])
 for (const { section, p } of items) {
   if (!p && !known.has(section.type)) console.warn(`[mission] unknown section type "${section.type}" in page "${page.node.id}"`)
 }
@@ -331,6 +334,8 @@ for (const { section, p } of items) {
         return <Livestream lang={lang} section={section} />
       case "latestNews":
         return <LatestNews lang={lang} section={section} />
+      case "galleryStrip":
+        return <GalleryStrip lang={lang} section={section} />
       case "visit":
         return <Visit lang={lang} section={section} />
       case "donateBand":
@@ -413,7 +418,7 @@ for (const { section, p } of items) {
         )
       case "eventsBoard":
         return (
-          <SectionShell {...shell(section)} tone={section.limit ? "stone" : "white"}>
+          <SectionShell {...shell(section)} tone={section.tone ?? (section.limit ? "warm" : "white")}>
             <EventsBoard client:visible {...(p as any)} />
           </SectionShell>
         )

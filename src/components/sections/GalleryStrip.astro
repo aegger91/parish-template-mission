@@ -1,0 +1,49 @@
+---
+import { ArrowRight } from "lucide-react"
+import SectionShell from "./SectionShell.astro"
+import { PlaceholderArt } from "@/components/brand/PlaceholderArt"
+import { tr, t, pageHref, type SectionNode } from "@/lib/site"
+import galleryJson from "@content/gallery.json"
+
+interface Props {
+  lang: string
+  section: SectionNode
+}
+const { lang, section } = Astro.props
+const limit = typeof section.limit === "number" ? section.limit : 6
+const items = ((galleryJson as any).items as any[]).slice(0, limit)
+const galleryPageHref = pageHref("gallery", lang)
+---
+
+<SectionShell
+  id={section.id}
+  eyebrow={tr(section.eyebrow, lang)}
+  title={tr(section.title, lang)}
+  intro={tr(section.intro, lang)}
+  tone={(section.tone as any) ?? "warm"}
+>
+  <ul class="grid auto-rows-[9.5rem] grid-cols-2 gap-3 sm:auto-rows-[11rem] md:grid-cols-3 lg:grid-cols-6">
+    {
+      items.map((item: any, i: number) => (
+        <li class:list={["min-w-0 overflow-hidden rounded-2xl border border-stone-200/80 shadow-[var(--mission-shadow-soft)]", i === 0 && "col-span-2 lg:col-span-2", i === 1 && "lg:col-span-2"]}>
+          <div class="h-full min-h-[9.5rem] sm:min-h-[11rem]">
+            <PlaceholderArt
+              motif={item.motif}
+              tone={item.tone}
+              src={item.src}
+              alt={tr(item.caption, lang)}
+              label={t("replacePhoto", lang)}
+              arch={false}
+              iconSize="28%"
+              className="transition-transform duration-500 hover:scale-[1.03]"
+            />
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+  <a href={galleryPageHref} class="mt-8 inline-flex items-center gap-1.5 font-tradition text-blue hover:text-blue-deep">
+    {t("viewGallery", lang)}
+    <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
+  </a>
+</SectionShell>

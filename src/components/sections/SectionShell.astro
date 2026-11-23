@@ -4,31 +4,43 @@ interface Props {
   eyebrow?: string
   title?: string
   intro?: string
-  tone?: "white" | "stone"
+  tone?: "white" | "stone" | "warm" | "ink"
   headingLevel?: 2 | 3
   wide?: boolean
   class?: string
 }
 const { id, eyebrow, title, intro, tone = "white", class: className } = Astro.props
 const headingId = title ? `${id}-heading` : undefined
+const toneClass =
+  tone === "ink"
+    ? "bg-ink-band text-white"
+    : tone === "warm"
+      ? "bg-canvas"
+      : tone === "stone"
+        ? "bg-stone-50"
+        : "bg-paper"
+const titleClass = tone === "ink" ? "text-white" : "text-ink"
+const introClass = tone === "ink" ? "text-white/80" : "text-ink-600"
+const eyebrowClass = tone === "ink" ? "text-gold-wash" : undefined
 ---
 
 <section
   id={id}
   aria-labelledby={headingId}
-  class:list={["py-16 md:py-24", tone === "stone" ? "bg-stone-50" : "bg-white", className]}
+  class:list={["border-y border-transparent py-16 md:py-24", tone === "warm" || tone === "stone" ? "border-stone-200/70" : "", toneClass, className]}
 >
   <div class="container-mission">
     {
       (eyebrow || title || intro) && (
         <div class="mb-10 max-w-2xl md:mb-12">
-          {eyebrow && <p class="eyebrow mb-3">{eyebrow}</p>}
+          {eyebrow && <p class:list={["eyebrow mb-3", eyebrowClass]}>{eyebrow}</p>}
           {title && (
-            <h2 id={headingId} class="text-3xl leading-tight text-ink md:text-[2.6rem]">
+            <h2 id={headingId} class:list={["text-3xl leading-tight md:text-[2.6rem]", titleClass]}>
               {title}
             </h2>
           )}
-          {intro && <p class="mt-4 text-lg leading-relaxed text-ink-600">{intro}</p>}
+          {title && <div aria-hidden="true" class="hairline-gold-start mt-5 w-28" />}
+          {intro && <p class:list={["mt-4 text-lg leading-relaxed", introClass]}>{intro}</p>}
         </div>
       )
     }

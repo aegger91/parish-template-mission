@@ -27,8 +27,8 @@ const crumbs = [
     <span class="rounded-full bg-blue-wash px-2.5 py-0.5 text-xs font-medium text-blue-deep">{tr(category?.label, lang)}</span>
     <time datetime={post.date}>{formatDate(post.date, locale, { year: "numeric", month: "long", day: "numeric" })}</time>
   </p>
-  <div class="mt-6 aspect-[16/9] overflow-hidden rounded-[1.5rem]">
-    <PlaceholderArt motif={post.motif} tone="stone" alt={tr(post.title, lang)} label={t("sampleImage", lang)} iconSize="20%" />
+  <div class="mt-6 aspect-[16/9] overflow-hidden rounded-[1.5rem] border border-stone-200/80 shadow-[var(--mission-shadow-soft)]">
+    <PlaceholderArt motif={post.motif} tone="stone" src={post.image} alt={tr(post.title, lang)} label={t("replacePhoto", lang)} arch={false} iconSize="20%" />
   </div>
   <div class="prose-mission mt-8 text-lg leading-relaxed text-ink-700">
     {post.body.map((p: any) => <p>{tr(p, lang)}</p>)}

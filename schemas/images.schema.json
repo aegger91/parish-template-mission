@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Shared image slots",
+  "description": "Paths builders swap when adding real parish photos. Files live under public/.",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "_comment": { "type": "string" },
+    "hero": { "$ref": "#/definitions/slot" },
+    "pageBanner": { "$ref": "#/definitions/slot" },
+    "about": { "$ref": "#/definitions/slot" }
+  },
+  "required": ["hero", "pageBanner", "about"],
+  "additionalProperties": false,
+  "definitions": {
+    "slot": {
+      "type": "object",
+      "properties": {
+        "src": { "$ref": "common.schema.json#/definitions/imageSrc" },
+        "alt": { "$ref": "common.schema.json#/definitions/localized" }
+      },
+      "required": ["src", "alt"],
+      "additionalProperties": false
+    }
+  }
+}

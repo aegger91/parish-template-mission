@@ -69,7 +69,7 @@ const alternates = notFound ? [] : alternatesFor(path)
     <meta name="description" content={metaDescription} />
     <meta name="generator" content={`Project Orthodox template ${site.template.slug} ${site.template.version}`} />
     {noindex || site.sample ? <meta name="robots" content="noindex" /> : null}
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#1a2a42" />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     {alternates.map((a) => <link rel="alternate" hreflang={a.info.locale ?? a.lang} href={a.href} />)}
     {!notFound && <link rel="alternate" hreflang="x-default" href={href(defaultLang, path)} />}

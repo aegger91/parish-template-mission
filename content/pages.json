@@ -4,8 +4,14 @@
     {
       "id": "home",
       "slug": "",
-      "title": { "en": "Home", "es": "Inicio" },
-      "description": { "en": "Service times, directions and parish news.", "es": "Horarios, cómo llegar y noticias de la parroquia." },
+      "title": {
+        "en": "Home",
+        "es": "Inicio"
+      },
+      "description": {
+        "en": "Service times, directions and parish news.",
+        "es": "Horarios, cómo llegar y noticias de la parroquia."
+      },
       "showInNav": true,
       "navDesktop": false,
       "showPageHeader": false,
@@ -14,102 +20,259 @@
           "id": "home-hero",
           "type": "hero",
           "enabled": true,
-          "eyebrow": { "en": "St. Example Orthodox Mission", "es": "Misión Ortodoxa San Ejemplo" },
-          "title": { "en": "Welcome", "es": "Bienvenidos" },
+          "eyebrow": {
+            "en": "St. Example Orthodox Mission",
+            "es": "Misión Ortodoxa San Ejemplo"
+          },
+          "title": {
+            "en": "Welcome",
+            "es": "Bienvenidos"
+          },
           "lead": {
             "en": "Welcome text goes here. One or two short lines about the parish.",
             "es": "Aquí va el texto de bienvenida. Una o dos líneas breves sobre la parroquia."
           },
-          "primaryCta": { "label": { "en": "Service times", "es": "Horarios" }, "pageId": "services" },
-          "secondaryCta": { "label": { "en": "Get directions", "es": "Cómo llegar" }, "pageId": "contact", "anchor": "directions" },
-          "shortcut": { "feature": "zapiski", "label": { "en": "Submit a commemoration", "es": "Enviar una conmemoración" }, "pageId": "zapiski" }
+          "primaryCta": {
+            "label": {
+              "en": "Service times",
+              "es": "Horarios"
+            },
+            "pageId": "services"
+          },
+          "secondaryCta": {
+            "label": {
+              "en": "Get directions",
+              "es": "Cómo llegar"
+            },
+            "pageId": "contact",
+            "anchor": "directions"
+          },
+          "shortcut": {
+            "feature": "zapiski",
+            "label": {
+              "en": "Submit a commemoration",
+              "es": "Enviar una conmemoración"
+            },
+            "pageId": "zapiski"
+          }
         },
         {
           "id": "home-about",
           "type": "richText",
           "enabled": true,
-          "eyebrow": { "en": "About", "es": "Sobre nosotros" },
-          "title": { "en": "About our parish", "es": "Nuestra parroquia" },
-          "body": [{ "en": "About text goes here. A short paragraph about the parish.", "es": "Aquí va el texto sobre la parroquia. Un párrafo breve." }]
+          "eyebrow": {
+            "en": "About",
+            "es": "Sobre nosotros"
+          },
+          "title": {
+            "en": "About our parish",
+            "es": "Nuestra parroquia"
+          },
+          "body": [
+            {
+              "en": "About text goes here. A short paragraph about the parish.",
+              "es": "Aquí va el texto sobre la parroquia. Un párrafo breve."
+            }
+          ],
+          "tone": "warm",
+          "image": "/images/placeholders/about.svg",
+          "imageAlt": {
+            "en": "Placeholder for a welcome photo of parish life",
+            "es": "Imagen provisional de bienvenida de la vida parroquial"
+          }
         },
         {
           "id": "home-livestream",
           "type": "livestreamBand",
           "enabled": true,
-          "title": { "en": "Livestream", "es": "Transmisión en vivo" },
-          "text": { "en": "Short text about the livestream goes here.", "es": "Aquí va un texto breve sobre la transmisión." }
+          "title": {
+            "en": "Livestream",
+            "es": "Transmisión en vivo"
+          },
+          "text": {
+            "en": "Short text about the livestream goes here.",
+            "es": "Aquí va un texto breve sobre la transmisión."
+          }
         },
         {
           "id": "home-news",
           "type": "latestNews",
           "enabled": true,
-          "eyebrow": { "en": "News", "es": "Noticias" },
-          "title": { "en": "Latest news", "es": "Últimas noticias" },
-          "count": 3
+          "eyebrow": {
+            "en": "News",
+            "es": "Noticias"
+          },
+          "title": {
+            "en": "Latest news",
+            "es": "Últimas noticias"
+          },
+          "count": 3,
+          "tone": "white"
+        },
+        {
+          "id": "home-gallery",
+          "type": "galleryStrip",
+          "enabled": true,
+          "tone": "warm",
+          "eyebrow": {
+            "en": "Gallery",
+            "es": "Galería"
+          },
+          "title": {
+            "en": "Parish life",
+            "es": "Vida parroquial"
+          },
+          "intro": {
+            "en": "A few moments from parish life.",
+            "es": "Algunos momentos de la vida parroquial."
+          },
+          "limit": 6
         },
         {
           "id": "home-visit",
           "type": "visit",
           "enabled": true,
-          "eyebrow": { "en": "Visit", "es": "Visítenos" },
-          "title": { "en": "Find us", "es": "Cómo encontrarnos" },
-          "text": { "en": "Short text about the location goes here.", "es": "Aquí va un texto breve sobre la ubicación." }
+          "eyebrow": {
+            "en": "Visit",
+            "es": "Visítenos"
+          },
+          "title": {
+            "en": "Find us",
+            "es": "Cómo encontrarnos"
+          },
+          "text": {
+            "en": "Short text about the location goes here.",
+            "es": "Aquí va un texto breve sobre la ubicación."
+          },
+          "tone": "stone"
         },
         {
           "id": "home-donate",
           "type": "donateBand",
           "enabled": true,
-          "title": { "en": "Support the parish", "es": "Apoye a la parroquia" },
-          "text": { "en": "Short text about giving goes here.", "es": "Aquí va un texto breve sobre las donaciones." }
+          "title": {
+            "en": "Support the parish",
+            "es": "Apoye a la parroquia"
+          },
+          "text": {
+            "en": "Short text about giving goes here.",
+            "es": "Aquí va un texto breve sobre las donaciones."
+          }
         }
       ]
     },
     {
       "id": "our-parish",
       "slug": "our-parish",
-      "title": { "en": "Our Parish", "es": "Nuestra parroquia" },
-      "intro": { "en": "Short introduction goes here.", "es": "Aquí va una breve introducción." },
-      "description": { "en": "Clergy, history, gallery and news.", "es": "Clero, historia, galería y noticias." },
+      "title": {
+        "en": "Our Parish",
+        "es": "Nuestra parroquia"
+      },
+      "intro": {
+        "en": "Short introduction goes here.",
+        "es": "Aquí va una breve introducción."
+      },
+      "description": {
+        "en": "Clergy, history, gallery and news.",
+        "es": "Clero, historia, galería y noticias."
+      },
       "showInNav": true,
       "sections": [
         {
           "id": "parish-about",
           "type": "richText",
           "enabled": true,
-          "title": { "en": "About us", "es": "Quiénes somos" },
-          "body": [{ "en": "About text goes here. A short paragraph about the parish.", "es": "Aquí va el texto sobre la parroquia. Un párrafo breve." }]
+          "title": {
+            "en": "About us",
+            "es": "Quiénes somos"
+          },
+          "body": [
+            {
+              "en": "About text goes here. A short paragraph about the parish.",
+              "es": "Aquí va el texto sobre la parroquia. Un párrafo breve."
+            }
+          ],
+          "tone": "warm",
+          "image": "/images/placeholders/about.svg",
+          "imageAlt": {
+            "en": "Placeholder for a parish welcome photo",
+            "es": "Imagen provisional de bienvenida parroquial"
+          }
         },
-        { "id": "parish-subpages", "type": "subpageCards", "enabled": true, "title": { "en": "Get to know us", "es": "Conózcanos" } },
+        {
+          "id": "parish-subpages",
+          "type": "subpageCards",
+          "enabled": true,
+          "title": {
+            "en": "Get to know us",
+            "es": "Conózcanos"
+          },
+          "tone": "white"
+        },
         {
           "id": "parish-life",
           "type": "featureList",
           "enabled": true,
-          "eyebrow": { "en": "Highlights", "es": "Destacados" },
-          "title": { "en": "Parish life", "es": "Vida parroquial" },
+          "eyebrow": {
+            "en": "Highlights",
+            "es": "Destacados"
+          },
+          "title": {
+            "en": "Parish life",
+            "es": "Vida parroquial"
+          },
           "items": [
             {
               "id": "worship",
               "icon": "church",
-              "title": { "en": "Worship", "es": "Culto" },
-              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
+              "title": {
+                "en": "Worship",
+                "es": "Culto"
+              },
+              "text": {
+                "en": "Short description goes here.",
+                "es": "Aquí va una breve descripción."
+              },
+              "image": "/images/placeholders/ministry-1.svg"
             },
             {
               "id": "learning",
               "icon": "gospel",
-              "title": { "en": "Education", "es": "Formación" },
-              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
+              "title": {
+                "en": "Education",
+                "es": "Formación"
+              },
+              "text": {
+                "en": "Short description goes here.",
+                "es": "Aquí va una breve descripción."
+              },
+              "image": "/images/placeholders/ministry-2.svg"
             },
             {
               "id": "fellowship",
               "icon": "utensils",
-              "title": { "en": "Fellowship", "es": "Convivencia" },
-              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
+              "title": {
+                "en": "Fellowship",
+                "es": "Convivencia"
+              },
+              "text": {
+                "en": "Short description goes here.",
+                "es": "Aquí va una breve descripción."
+              },
+              "image": "/images/placeholders/ministry-3.svg"
             },
             {
               "id": "outreach",
               "icon": "candle",
-              "title": { "en": "Outreach", "es": "Servicio al prójimo" },
-              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
+              "title": {
+                "en": "Outreach",
+                "es": "Servicio al prójimo"
+              },
+              "text": {
+                "en": "Short description goes here.",
+                "es": "Aquí va una breve descripción."
+              },
+              "image": "/images/placeholders/ministry-4.svg"
             }
           ]
         }
@@ -118,37 +281,74 @@
         {
           "id": "clergy",
           "slug": "clergy",
-          "title": { "en": "Clergy", "es": "Clero" },
-          "intro": { "en": "Sample names and short bios.", "es": "Nombres y biografías breves de ejemplo." },
-          "description": { "en": "The clergy and those who serve with them.", "es": "El clero y quienes sirven con ellos." },
+          "title": {
+            "en": "Clergy",
+            "es": "Clero"
+          },
+          "intro": {
+            "en": "Sample names and short bios.",
+            "es": "Nombres y biografías breves de ejemplo."
+          },
+          "description": {
+            "en": "The clergy and those who serve with them.",
+            "es": "El clero y quienes sirven con ellos."
+          },
           "icon": "chalice",
           "showInNav": true,
           "sections": [
-            { "id": "clergy-cards", "type": "clergyCards", "enabled": true },
+            {
+              "id": "clergy-cards",
+              "type": "clergyCards",
+              "enabled": true
+            },
             {
               "id": "clergy-care",
               "type": "richText",
               "enabled": true,
-              "title": { "en": "Contact the clergy", "es": "Contactar al clero" },
-              "body": [{ "en": "Short text about contacting the clergy goes here.", "es": "Aquí va un texto breve sobre cómo contactar al clero." }]
+              "title": {
+                "en": "Contact the clergy",
+                "es": "Contactar al clero"
+              },
+              "body": [
+                {
+                  "en": "Short text about contacting the clergy goes here.",
+                  "es": "Aquí va un texto breve sobre cómo contactar al clero."
+                }
+              ]
             }
           ]
         },
         {
           "id": "history",
           "slug": "history",
-          "title": { "en": "History", "es": "Historia" },
-          "intro": { "en": "Sample timeline.", "es": "Cronología de ejemplo." },
-          "description": { "en": "Key dates in the life of the parish.", "es": "Fechas importantes de la parroquia." },
+          "title": {
+            "en": "History",
+            "es": "Historia"
+          },
+          "intro": {
+            "en": "Sample timeline.",
+            "es": "Cronología de ejemplo."
+          },
+          "description": {
+            "en": "Key dates in the life of the parish.",
+            "es": "Fechas importantes de la parroquia."
+          },
           "icon": "bells",
           "showInNav": true,
           "sections": [
-            { "id": "history-timeline", "type": "timeline", "enabled": true },
+            {
+              "id": "history-timeline",
+              "type": "timeline",
+              "enabled": true
+            },
             {
               "id": "history-name",
               "type": "richText",
               "enabled": true,
-              "title": { "en": "About our name", "es": "Sobre nuestro nombre" },
+              "title": {
+                "en": "About our name",
+                "es": "Sobre nuestro nombre"
+              },
               "body": [
                 {
                   "en": "Text about the parish name and patron saint goes here.",
@@ -161,58 +361,140 @@
         {
           "id": "gallery",
           "slug": "gallery",
-          "title": { "en": "Gallery", "es": "Galería" },
-          "intro": { "en": "Placeholder artwork stands in for parish photos.", "es": "Las ilustraciones sustituyen a las fotos de la parroquia." },
-          "description": { "en": "Photos of parish life.", "es": "Fotos de la vida parroquial." },
+          "title": {
+            "en": "Gallery",
+            "es": "Galería"
+          },
+          "intro": {
+            "en": "Placeholder artwork stands in for parish photos.",
+            "es": "Las ilustraciones sustituyen a las fotos de la parroquia."
+          },
+          "description": {
+            "en": "Photos of parish life.",
+            "es": "Fotos de la vida parroquial."
+          },
           "icon": "icon-frame",
           "showInNav": true,
-          "sections": [{ "id": "gallery-grid", "type": "gallery", "enabled": true }]
+          "sections": [
+            {
+              "id": "gallery-grid",
+              "type": "gallery",
+              "enabled": true
+            }
+          ]
         },
         {
           "id": "news",
           "slug": "news",
           "collection": "news",
-          "title": { "en": "News", "es": "Noticias" },
-          "intro": { "en": "Sample posts.", "es": "Publicaciones de ejemplo." },
-          "description": { "en": "Parish announcements and reflections.", "es": "Avisos y reflexiones de la parroquia." },
+          "title": {
+            "en": "News",
+            "es": "Noticias"
+          },
+          "intro": {
+            "en": "Sample posts.",
+            "es": "Publicaciones de ejemplo."
+          },
+          "description": {
+            "en": "Parish announcements and reflections.",
+            "es": "Avisos y reflexiones de la parroquia."
+          },
           "icon": "gospel",
           "showInNav": true,
-          "sections": [{ "id": "news-list", "type": "newsList", "enabled": true }]
+          "sections": [
+            {
+              "id": "news-list",
+              "type": "newsList",
+              "enabled": true
+            }
+          ]
         }
       ]
     },
     {
       "id": "services",
       "slug": "services",
-      "title": { "en": "Services & Schedule", "es": "Servicios y horarios" },
-      "navLabel": { "en": "Services", "es": "Servicios" },
-      "navOverviewLabel": { "en": "Schedule", "es": "Horarios" },
-      "intro": { "en": "Weekly services and feast days. Sample times.", "es": "Servicios semanales y días de fiesta. Horarios de ejemplo." },
-      "description": { "en": "Weekly and monthly service schedule with feast days.", "es": "Horario semanal y mensual de servicios con días de fiesta." },
+      "title": {
+        "en": "Services & Schedule",
+        "es": "Servicios y horarios"
+      },
+      "navLabel": {
+        "en": "Services",
+        "es": "Servicios"
+      },
+      "navOverviewLabel": {
+        "en": "Schedule",
+        "es": "Horarios"
+      },
+      "intro": {
+        "en": "Weekly services and feast days. Sample times.",
+        "es": "Servicios semanales y días de fiesta. Horarios de ejemplo."
+      },
+      "description": {
+        "en": "Weekly and monthly service schedule with feast days.",
+        "es": "Horario semanal y mensual de servicios con días de fiesta."
+      },
       "showInNav": true,
-      "sections": [{ "id": "schedule-main", "type": "schedule", "enabled": true, "startView": "week" }],
+      "sections": [
+        {
+          "id": "schedule-main",
+          "type": "schedule",
+          "enabled": true,
+          "startView": "week"
+        }
+      ],
       "children": [
         {
           "id": "request",
           "slug": "request",
           "feature": "requests",
-          "title": { "en": "Request a Service", "es": "Solicitar un servicio" },
-          "intro": { "en": "Requests go to the clergy and the parish office.", "es": "Las solicitudes llegan al clero y a la oficina parroquial." },
-          "description": { "en": "Sacraments, prayer services and blessings.", "es": "Sacramentos, oficios de oración y bendiciones." },
+          "title": {
+            "en": "Request a Service",
+            "es": "Solicitar un servicio"
+          },
+          "intro": {
+            "en": "Requests go to the clergy and the parish office.",
+            "es": "Las solicitudes llegan al clero y a la oficina parroquial."
+          },
+          "description": {
+            "en": "Sacraments, prayer services and blessings.",
+            "es": "Sacramentos, oficios de oración y bendiciones."
+          },
           "icon": "censer",
           "showInNav": true,
-          "sections": [{ "id": "request-grid", "type": "serviceRequests", "enabled": true }]
+          "sections": [
+            {
+              "id": "request-grid",
+              "type": "serviceRequests",
+              "enabled": true
+            }
+          ]
         },
         {
           "id": "zapiski",
           "slug": "zapiski",
           "feature": "zapiski",
-          "title": { "en": "Zapiski and Candles", "es": "Zapiski y velas" },
-          "intro": { "en": "Names for commemoration and candle requests.", "es": "Nombres para conmemorar y pedidos de velas." },
-          "description": { "en": "Commemoration notes and candles.", "es": "Notas de conmemoración y velas." },
+          "title": {
+            "en": "Zapiski and Candles",
+            "es": "Zapiski y velas"
+          },
+          "intro": {
+            "en": "Names for commemoration and candle requests.",
+            "es": "Nombres para conmemorar y pedidos de velas."
+          },
+          "description": {
+            "en": "Commemoration notes and candles.",
+            "es": "Notas de conmemoración y velas."
+          },
           "icon": "candle",
           "showInNav": true,
-          "sections": [{ "id": "zapiski-form", "type": "zapiski", "enabled": true }]
+          "sections": [
+            {
+              "id": "zapiski-form",
+              "type": "zapiski",
+              "enabled": true
+            }
+          ]
         }
       ]
     },
@@ -220,20 +502,42 @@
       "id": "livestream",
       "slug": "livestream",
       "feature": "livestream",
-      "title": { "en": "Livestream & Sermons", "es": "Transmisión y sermones" },
-      "navLabel": { "en": "Livestream", "es": "En vivo" },
-      "intro": { "en": "Live services and recent sermons.", "es": "Servicios en vivo y sermones recientes." },
-      "description": { "en": "Live services and the sermon archive.", "es": "Servicios en vivo y archivo de sermones." },
+      "title": {
+        "en": "Livestream & Sermons",
+        "es": "Transmisión y sermones"
+      },
+      "navLabel": {
+        "en": "Livestream",
+        "es": "En vivo"
+      },
+      "intro": {
+        "en": "Live services and recent sermons.",
+        "es": "Servicios en vivo y sermones recientes."
+      },
+      "description": {
+        "en": "Live services and the sermon archive.",
+        "es": "Servicios en vivo y archivo de sermones."
+      },
       "showInNav": true,
       "navPriority": "secondary",
       "sections": [
-        { "id": "livestream-player", "type": "livestream", "enabled": true },
+        {
+          "id": "livestream-player",
+          "type": "livestream",
+          "enabled": true
+        },
         {
           "id": "sermon-archive",
           "type": "sermons",
           "enabled": true,
-          "eyebrow": { "en": "Archive", "es": "Archivo" },
-          "title": { "en": "Recent sermons", "es": "Sermones recientes" }
+          "eyebrow": {
+            "en": "Archive",
+            "es": "Archivo"
+          },
+          "title": {
+            "en": "Recent sermons",
+            "es": "Sermones recientes"
+          }
         }
       ]
     },
@@ -241,51 +545,119 @@
       "id": "get-involved",
       "slug": "get-involved",
       "feature": "involved",
-      "title": { "en": "Get Involved", "es": "Participar" },
-      "navOverviewLabel": { "en": "Overview", "es": "Resumen" },
+      "title": {
+        "en": "Get Involved",
+        "es": "Participar"
+      },
+      "navOverviewLabel": {
+        "en": "Overview",
+        "es": "Resumen"
+      },
       "intro": {
         "en": "Events, volunteering and parish needs. Sign-ups go through OrthodoxConnect.",
         "es": "Eventos, voluntariado y necesidades. Las inscripciones se hacen en OrthodoxConnect."
       },
-      "description": { "en": "Events, volunteering and parish needs.", "es": "Eventos, voluntariado y necesidades de la parroquia." },
+      "description": {
+        "en": "Events, volunteering and parish needs.",
+        "es": "Eventos, voluntariado y necesidades de la parroquia."
+      },
       "showInNav": true,
       "sections": [
-        { "id": "involved-actions", "type": "connectActions", "enabled": true },
-        { "id": "involved-subpages", "type": "subpageCards", "enabled": true, "title": { "en": "Where to start", "es": "Por dónde empezar" } },
+        {
+          "id": "involved-actions",
+          "type": "connectActions",
+          "enabled": true
+        },
+        {
+          "id": "involved-subpages",
+          "type": "subpageCards",
+          "enabled": true,
+          "title": {
+            "en": "Where to start",
+            "es": "Por dónde empezar"
+          }
+        },
         {
           "id": "involved-upcoming",
           "type": "eventsBoard",
           "enabled": true,
           "limit": 3,
-          "eyebrow": { "en": "Coming up", "es": "Próximamente" },
-          "title": { "en": "Next events", "es": "Próximos eventos" }
+          "eyebrow": {
+            "en": "Coming up",
+            "es": "Próximamente"
+          },
+          "title": {
+            "en": "Next events",
+            "es": "Próximos eventos"
+          }
         }
       ],
       "children": [
         {
           "id": "events",
           "slug": "events",
-          "title": { "en": "Events", "es": "Eventos" },
-          "intro": { "en": "Upcoming parish events.", "es": "Próximos eventos de la parroquia." },
-          "description": { "en": "Upcoming parish events with RSVP.", "es": "Próximos eventos de la parroquia con confirmación de asistencia." },
+          "title": {
+            "en": "Events",
+            "es": "Eventos"
+          },
+          "intro": {
+            "en": "Upcoming parish events.",
+            "es": "Próximos eventos de la parroquia."
+          },
+          "description": {
+            "en": "Upcoming parish events with RSVP.",
+            "es": "Próximos eventos de la parroquia con confirmación de asistencia."
+          },
           "icon": "bells",
           "showInNav": true,
           "sections": [
-            { "id": "events-actions", "type": "connectActions", "enabled": true, "actions": ["createEvent"] },
-            { "id": "events-board", "type": "eventsBoard", "enabled": true, "showCalendar": true }
+            {
+              "id": "events-actions",
+              "type": "connectActions",
+              "enabled": true,
+              "actions": [
+                "createEvent"
+              ]
+            },
+            {
+              "id": "events-board",
+              "type": "eventsBoard",
+              "enabled": true,
+              "showCalendar": true
+            }
           ]
         },
         {
           "id": "volunteer",
           "slug": "volunteer",
-          "title": { "en": "Volunteer and Needs", "es": "Voluntariado y necesidades" },
-          "intro": { "en": "Volunteer slots and parish needs.", "es": "Turnos de voluntariado y necesidades de la parroquia." },
-          "description": { "en": "Sign up for a slot or a parish need.", "es": "Apúntese a un turno o a una necesidad de la parroquia." },
+          "title": {
+            "en": "Volunteer and Needs",
+            "es": "Voluntariado y necesidades"
+          },
+          "intro": {
+            "en": "Volunteer slots and parish needs.",
+            "es": "Turnos de voluntariado y necesidades de la parroquia."
+          },
+          "description": {
+            "en": "Sign up for a slot or a parish need.",
+            "es": "Apúntese a un turno o a una necesidad de la parroquia."
+          },
           "icon": "candle",
           "showInNav": true,
           "sections": [
-            { "id": "needs-actions", "type": "connectActions", "enabled": true, "actions": ["postNeed"] },
-            { "id": "needs-board", "type": "needsBoard", "enabled": true }
+            {
+              "id": "needs-actions",
+              "type": "connectActions",
+              "enabled": true,
+              "actions": [
+                "postNeed"
+              ]
+            },
+            {
+              "id": "needs-board",
+              "type": "needsBoard",
+              "enabled": true
+            }
           ]
         }
       ]
@@ -295,66 +667,136 @@
       "slug": "store",
       "feature": "store",
       "collection": "products",
-      "title": { "en": "Store", "es": "Tienda" },
+      "title": {
+        "en": "Store",
+        "es": "Tienda"
+      },
       "intro": {
         "en": "Sample parish shop. Ship to your home or pick up at church.",
         "es": "Tienda parroquial de ejemplo. Envío a domicilio o recogida en la iglesia."
       },
-      "description": { "en": "The parish shop: icons, candles, books and gifts.", "es": "La tienda parroquial: íconos, velas, libros y regalos." },
+      "description": {
+        "en": "The parish shop: icons, candles, books and gifts.",
+        "es": "La tienda parroquial: íconos, velas, libros y regalos."
+      },
       "showInNav": true,
-      "sections": [{ "id": "store-grid", "type": "productGrid", "enabled": true }],
+      "sections": [
+        {
+          "id": "store-grid",
+          "type": "productGrid",
+          "enabled": true
+        }
+      ],
       "children": [
         {
           "id": "cart",
           "slug": "cart",
-          "title": { "en": "Your cart", "es": "Su carrito" },
-          "description": { "en": "Items and offerings in your cart.", "es": "Artículos y ofrendas en su carrito." },
+          "title": {
+            "en": "Your cart",
+            "es": "Su carrito"
+          },
+          "description": {
+            "en": "Items and offerings in your cart.",
+            "es": "Artículos y ofrendas en su carrito."
+          },
           "showInNav": false,
-          "sections": [{ "id": "cart-view", "type": "cart", "enabled": true }]
+          "sections": [
+            {
+              "id": "cart-view",
+              "type": "cart",
+              "enabled": true
+            }
+          ]
         },
         {
           "id": "checkout",
           "slug": "checkout",
-          "title": { "en": "Checkout", "es": "Finalizar compra" },
-          "description": { "en": "Shipping or pickup, then payment.", "es": "Envío o recogida, y luego el pago." },
+          "title": {
+            "en": "Checkout",
+            "es": "Finalizar compra"
+          },
+          "description": {
+            "en": "Shipping or pickup, then payment.",
+            "es": "Envío o recogida, y luego el pago."
+          },
           "showInNav": false,
-          "sections": [{ "id": "checkout-form", "type": "checkout", "enabled": true }]
+          "sections": [
+            {
+              "id": "checkout-form",
+              "type": "checkout",
+              "enabled": true
+            }
+          ]
         }
       ]
     },
     {
       "id": "donate",
       "slug": "donate",
-      "title": { "en": "Donate", "es": "Donar" },
-      "intro": { "en": "Short text about giving goes here.", "es": "Aquí va un texto breve sobre las donaciones." },
-      "description": { "en": "Give once or monthly to support the mission.", "es": "Done una vez o cada mes para sostener la misión." },
+      "title": {
+        "en": "Donate",
+        "es": "Donar"
+      },
+      "intro": {
+        "en": "Short text about giving goes here.",
+        "es": "Aquí va un texto breve sobre las donaciones."
+      },
+      "description": {
+        "en": "Give once or monthly to support the mission.",
+        "es": "Done una vez o cada mes para sostener la misión."
+      },
       "showInNav": true,
       "navPlacement": "button",
       "sections": [
-        { "id": "donate-form", "type": "donate", "enabled": true },
+        {
+          "id": "donate-form",
+          "type": "donate",
+          "enabled": true
+        },
         {
           "id": "donate-other",
           "type": "featureList",
           "enabled": true,
-          "title": { "en": "Other ways to give", "es": "Otras formas de dar" },
+          "title": {
+            "en": "Other ways to give",
+            "es": "Otras formas de dar"
+          },
           "items": [
             {
               "id": "in-person",
               "icon": "church",
-              "title": { "en": "In person", "es": "En persona" },
-              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
+              "title": {
+                "en": "In person",
+                "es": "En persona"
+              },
+              "text": {
+                "en": "Short description goes here.",
+                "es": "Aquí va una breve descripción."
+              }
             },
             {
               "id": "mail",
               "icon": "mail",
-              "title": { "en": "By mail", "es": "Por correo" },
-              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
+              "title": {
+                "en": "By mail",
+                "es": "Por correo"
+              },
+              "text": {
+                "en": "Short description goes here.",
+                "es": "Aquí va una breve descripción."
+              }
             },
             {
               "id": "time",
               "icon": "candle",
-              "title": { "en": "Volunteer", "es": "Voluntariado" },
-              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
+              "title": {
+                "en": "Volunteer",
+                "es": "Voluntariado"
+              },
+              "text": {
+                "en": "Short description goes here.",
+                "es": "Aquí va una breve descripción."
+              }
             }
           ]
         }
@@ -363,12 +805,32 @@
     {
       "id": "contact",
       "slug": "contact",
-      "title": { "en": "Contact", "es": "Contacto" },
-      "intro": { "en": "Short text about contacting the parish goes here.", "es": "Aquí va un texto breve sobre cómo contactar a la parroquia." },
-      "description": { "en": "Address, directions, phone and a contact form.", "es": "Dirección, cómo llegar, teléfono y formulario de contacto." },
+      "title": {
+        "en": "Contact",
+        "es": "Contacto"
+      },
+      "intro": {
+        "en": "Short text about contacting the parish goes here.",
+        "es": "Aquí va un texto breve sobre cómo contactar a la parroquia."
+      },
+      "description": {
+        "en": "Address, directions, phone and a contact form.",
+        "es": "Dirección, cómo llegar, teléfono y formulario de contacto."
+      },
       "showInNav": true,
       "navPriority": "secondary",
-      "sections": [{ "id": "contact-form", "type": "contactForm", "enabled": true }, { "id": "directions", "type": "mapDirections", "enabled": true }]
+      "sections": [
+        {
+          "id": "contact-form",
+          "type": "contactForm",
+          "enabled": true
+        },
+        {
+          "id": "directions",
+          "type": "mapDirections",
+          "enabled": true
+        }
+      ]
     }
   ]
 }

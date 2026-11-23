@@ -1,0 +1,25 @@
+{
+  "$schema": "../schemas/images.schema.json",
+  "_comment": "Central image paths for builders. Replace any file under public/images/placeholders/ (or point src to your own file in public/). Keep alt text up to date.",
+  "hero": {
+    "src": "/images/placeholders/hero.svg",
+    "alt": {
+      "en": "Placeholder for the parish church exterior",
+      "es": "Imagen provisional del exterior de la iglesia"
+    }
+  },
+  "pageBanner": {
+    "src": "/images/placeholders/banner.svg",
+    "alt": {
+      "en": "Placeholder for the page header photo",
+      "es": "Imagen provisional del encabezado de página"
+    }
+  },
+  "about": {
+    "src": "/images/placeholders/about.svg",
+    "alt": {
+      "en": "Placeholder for a welcome photo of parish life",
+      "es": "Imagen provisional de bienvenida de la vida parroquial"
+    }
+  }
+}

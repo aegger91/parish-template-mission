@@ -13,7 +13,7 @@ const c = site.contact
 const contactHref = specialPageHref("contact", lang)
 ---
 
-<SectionShell id={section.id} tone="stone">
+<SectionShell id={section.id} tone={(section.tone as any) ?? "stone"}>
   <div class="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-12">
     <div class="min-w-0">
       <p class="eyebrow mb-3">{tr(section.eyebrow, lang)}</p>

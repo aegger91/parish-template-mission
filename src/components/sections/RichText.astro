@@ -1,23 +1,50 @@
 ---
 import SectionShell from "./SectionShell.astro"
-import { tr, type SectionNode } from "@/lib/site"
+import { PlaceholderArt } from "@/components/brand/PlaceholderArt"
+import { tr, t, type SectionNode } from "@/lib/site"
+import imagesJson from "@content/images.json"
+
 interface Props {
   lang: string
   section: SectionNode
 }
 const { lang, section } = Astro.props
 const body = (section.body ?? []).map((p: any) => tr(p, lang))
+const useAboutImage = section.id === "home-about" || section.id === "parish-about" || !!section.image
+const imageSrc = (section.image as string | undefined) || (useAboutImage ? (imagesJson as any).about?.src : null)
+const imageAlt = tr(section.imageAlt ?? (imagesJson as any).about?.alt, lang)
+const tone = (section.tone as "white" | "stone" | "warm" | "ink" | undefined) ?? (section.id === "home-about" ? "warm" : "white")
 ---
 
-<SectionShell id={section.id}>
-  <div class="grid gap-6 md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] md:gap-16">
-    <div>
-      {section.eyebrow && <p class="eyebrow mb-3">{tr(section.eyebrow, lang)}</p>}
-      <h2 class="text-3xl leading-tight text-ink md:text-4xl">{tr(section.title, lang)}</h2>
-      <div aria-hidden="true" class="hairline-gold-start mt-5 w-24"></div>
-    </div>
-    <div class="prose-mission max-w-2xl text-lg leading-relaxed text-ink-700">
-      {body.map((p: string) => <p>{p}</p>)}
-    </div>
-  </div>
+<SectionShell id={section.id} tone={tone}>
+  {
+    imageSrc ? (
+      <div class="grid items-center gap-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:gap-14 lg:gap-16">
+        <div class="reveal-fade order-2 md:order-1">
+          {section.eyebrow && <p class="eyebrow mb-3">{tr(section.eyebrow, lang)}</p>}
+          <h2 class="text-3xl leading-tight text-ink md:text-4xl">{tr(section.title, lang)}</h2>
+          <div aria-hidden="true" class="hairline-gold-start mt-5 w-24" />
+          <div class="prose-mission mt-6 max-w-2xl text-lg leading-relaxed text-ink-700">
+            {body.map((p: string) => <p>{p}</p>)}
+          </div>
+        </div>
+        <div class="reveal-fade-delay order-1 overflow-hidden rounded-[1.5rem] border border-stone-200 shadow-[var(--mission-shadow-soft)] md:order-2">
+          <div class="aspect-[4/3]">
+            <PlaceholderArt motif="church" tone="stone" src={imageSrc} alt={imageAlt} label={t("replacePhoto", lang)} arch={false} />
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div class="grid gap-6 md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] md:gap-16">
+        <div>
+          {section.eyebrow && <p class="eyebrow mb-3">{tr(section.eyebrow, lang)}</p>}
+          <h2 class="text-3xl leading-tight text-ink md:text-4xl">{tr(section.title, lang)}</h2>
+          <div aria-hidden="true" class="hairline-gold-start mt-5 w-24" />
+        </div>
+        <div class="prose-mission max-w-2xl text-lg leading-relaxed text-ink-700">
+          {body.map((p: string) => <p>{p}</p>)}
+        </div>
+      </div>
+    )
+  }
 </SectionShell>

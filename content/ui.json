@@ -51,6 +51,8 @@
     "filterLabel": { "en": "Filter", "es": "Filtrar" },
     "noResults": { "en": "Nothing matches yet. Try another filter.", "es": "Todavía no hay resultados. Pruebe otro filtro." },
     "sampleImage": { "en": "Sample image", "es": "Imagen de ejemplo" },
+    "replacePhoto": { "en": "Replace with your photo", "es": "Reemplazar con su foto" },
+    "viewGallery": { "en": "View gallery", "es": "Ver galería" },
     "close": { "en": "Close", "es": "Cerrar" },
     "previous": { "en": "Previous", "es": "Anterior" },
     "nextItem": { "en": "Next", "es": "Siguiente" },

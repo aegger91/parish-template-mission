@@ -11,7 +11,8 @@
         "icon": { "$ref": "common.schema.json#/definitions/motif" },
         "title": { "$ref": "common.schema.json#/definitions/localized" },
         "text": { "$ref": "common.schema.json#/definitions/localized" },
-        "summary": { "$ref": "common.schema.json#/definitions/localized" }
+        "summary": { "$ref": "common.schema.json#/definitions/localized" },
+        "image": { "$ref": "common.schema.json#/definitions/imageSrc" }
       },
       "required": ["id", "title"]
     },
@@ -21,7 +22,7 @@
         "id": { "$ref": "common.schema.json#/definitions/id" },
         "type": {
           "enum": [
-            "hero", "livestreamBand", "latestNews", "visit", "donateBand",
+            "hero", "livestreamBand", "latestNews", "galleryStrip", "visit", "donateBand",
             "richText", "subpageCards", "featureList", "clergyCards", "timeline", "gallery", "schedule",
             "livestream", "sermons", "newsList", "donate", "contactForm", "mapDirections",
             "serviceRequests", "zapiski", "productGrid", "cart", "checkout", "connectActions", "eventsBoard", "needsBoard"
@@ -29,7 +30,7 @@
         },
         "enabled": { "type": "boolean" },
         "feature": { "type": "string", "description": "Only show when this feature is on." },
-        "tone": { "enum": ["white", "stone"] },
+        "tone": { "enum": ["white", "stone", "warm", "ink"] },
         "eyebrow": { "$ref": "common.schema.json#/definitions/localized" },
         "title": { "$ref": "common.schema.json#/definitions/localized" },
         "intro": { "$ref": "common.schema.json#/definitions/localized" },
@@ -37,13 +38,15 @@
         "text": { "$ref": "common.schema.json#/definitions/localized" },
         "body": { "$ref": "common.schema.json#/definitions/localizedList" },
         "items": { "type": "array", "items": { "$ref": "#/definitions/item" } },
+        "image": { "$ref": "common.schema.json#/definitions/imageSrc" },
+        "imageAlt": { "$ref": "common.schema.json#/definitions/localized" },
         "cta": { "$ref": "common.schema.json#/definitions/link" },
         "primaryCta": { "$ref": "common.schema.json#/definitions/link" },
         "secondaryCta": { "$ref": "common.schema.json#/definitions/link" },
         "shortcut": { "$ref": "common.schema.json#/definitions/link" },
         "count": { "type": "integer", "minimum": 1, "description": "latestNews: how many posts to show." },
         "startView": { "enum": ["week", "month"], "description": "schedule: which view opens first." },
-        "limit": { "type": "integer", "minimum": 1, "description": "eventsBoard: show only the next N events." },
+        "limit": { "type": "integer", "minimum": 1, "description": "eventsBoard / galleryStrip: how many items to show." },
         "showCalendar": { "type": "boolean", "description": "eventsBoard: offer a calendar view." },
         "actions": { "type": "array", "items": { "enum": ["createEvent", "postNeed"] } }
       },
@@ -68,6 +71,9 @@
         "navPriority": { "enum": ["primary", "secondary"], "description": "secondary items move into More on narrower screens." },
         "navPlacement": { "enum": ["link", "button"] },
         "showPageHeader": { "type": "boolean" },
+        "banner": { "$ref": "common.schema.json#/definitions/imageSrc" },
+        "bannerAlt": { "$ref": "common.schema.json#/definitions/localized" },
+        "image": { "$ref": "common.schema.json#/definitions/imageSrc" },
         "collection": { "enum": ["news", "products"], "description": "Builds one sub-page per news post or product." },
         "sections": { "type": "array", "items": { "$ref": "#/definitions/section" } },
         "children": { "type": "array", "items": { "$ref": "#/definitions/page" } }

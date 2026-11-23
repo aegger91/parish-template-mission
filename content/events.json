@@ -2,95 +2,210 @@
   "$schema": "../schemas/events.schema.json",
   "source": "orthodoxconnect",
   "categories": [
-    { "id": "class", "label": { "en": "Classes", "es": "Clases" } },
-    { "id": "youth", "label": { "en": "Youth and children", "es": "Jóvenes y niños" } },
-    { "id": "feast", "label": { "en": "Feast gatherings", "es": "Encuentros de fiesta" } },
-    { "id": "outreach", "label": { "en": "Outreach", "es": "Servicio al prójimo" } }
+    {
+      "id": "class",
+      "label": {
+        "en": "Classes",
+        "es": "Clases"
+      }
+    },
+    {
+      "id": "youth",
+      "label": {
+        "en": "Youth and children",
+        "es": "Jóvenes y niños"
+      }
+    },
+    {
+      "id": "feast",
+      "label": {
+        "en": "Feast gatherings",
+        "es": "Encuentros de fiesta"
+      }
+    },
+    {
+      "id": "outreach",
+      "label": {
+        "en": "Outreach",
+        "es": "Servicio al prójimo"
+      }
+    }
   ],
   "events": [
     {
       "id": "evt-youth-evening",
-      "title": { "en": "Youth evening: questions and pizza", "es": "Tarde de jóvenes: preguntas y pizza" },
-      "description": { "en": "Sample event. Short description goes here.", "es": "Evento de ejemplo. Aquí va una breve descripción." },
+      "title": {
+        "en": "Youth evening: questions and pizza",
+        "es": "Tarde de jóvenes: preguntas y pizza"
+      },
+      "description": {
+        "en": "Sample event. Short description goes here.",
+        "es": "Evento de ejemplo. Aquí va una breve descripción."
+      },
       "date": "2026-11-28",
       "time": "18:00",
-      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "location": {
+        "en": "Parish hall",
+        "es": "Salón parroquial"
+      },
       "capacity": 25,
       "signups": 14,
-      "organizer": { "en": "Youth team", "es": "Equipo de jóvenes" },
-      "category": "youth"
+      "organizer": {
+        "en": "Youth team",
+        "es": "Equipo de jóvenes"
+      },
+      "category": "youth",
+      "image": "/images/placeholders/event-1.svg"
     },
     {
       "id": "evt-adult-class",
-      "title": { "en": "Adult class", "es": "Clase para adultos" },
-      "description": { "en": "Sample event. Short description goes here.", "es": "Evento de ejemplo. Aquí va una breve descripción." },
+      "title": {
+        "en": "Adult class",
+        "es": "Clase para adultos"
+      },
+      "description": {
+        "en": "Sample event. Short description goes here.",
+        "es": "Evento de ejemplo. Aquí va una breve descripción."
+      },
       "date": "2026-12-02",
       "time": "19:15",
-      "location": { "en": "Parish library", "es": "Biblioteca parroquial" },
+      "location": {
+        "en": "Parish library",
+        "es": "Biblioteca parroquial"
+      },
       "capacity": 20,
       "signups": 9,
-      "organizer": { "en": "Fr. Andrew Example", "es": "P. Andrés Ejemplo" },
-      "category": "class"
+      "organizer": {
+        "en": "Fr. Andrew Example",
+        "es": "P. Andrés Ejemplo"
+      },
+      "category": "class",
+      "image": "/images/placeholders/event-2.svg"
     },
     {
       "id": "evt-st-nicholas",
-      "title": { "en": "St. Nicholas party for children", "es": "Fiesta de San Nicolás para niños" },
-      "description": { "en": "Sample event. Short description goes here.", "es": "Evento de ejemplo. Aquí va una breve descripción." },
+      "title": {
+        "en": "St. Nicholas party for children",
+        "es": "Fiesta de San Nicolás para niños"
+      },
+      "description": {
+        "en": "Sample event. Short description goes here.",
+        "es": "Evento de ejemplo. Aquí va una breve descripción."
+      },
       "date": "2026-12-06",
       "time": "11:30",
-      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "location": {
+        "en": "Parish hall",
+        "es": "Salón parroquial"
+      },
       "capacity": 40,
       "signups": 22,
-      "organizer": { "en": "Church school team", "es": "Equipo de catequesis" },
-      "category": "youth"
+      "organizer": {
+        "en": "Church school team",
+        "es": "Equipo de catequesis"
+      },
+      "category": "youth",
+      "image": "/images/placeholders/event-3.svg"
     },
     {
       "id": "evt-book-circle",
-      "title": { "en": "Reading circle", "es": "Círculo de lectura" },
-      "description": { "en": "Sample event. Short description goes here.", "es": "Evento de ejemplo. Aquí va una breve descripción." },
+      "title": {
+        "en": "Reading circle",
+        "es": "Círculo de lectura"
+      },
+      "description": {
+        "en": "Sample event. Short description goes here.",
+        "es": "Evento de ejemplo. Aquí va una breve descripción."
+      },
       "date": "2026-12-10",
       "time": "19:00",
-      "location": { "en": "Parish library", "es": "Biblioteca parroquial" },
+      "location": {
+        "en": "Parish library",
+        "es": "Biblioteca parroquial"
+      },
       "capacity": 10,
       "signups": 10,
-      "organizer": { "en": "Reading circle", "es": "Círculo de lectura" },
-      "category": "class"
+      "organizer": {
+        "en": "Reading circle",
+        "es": "Círculo de lectura"
+      },
+      "category": "class",
+      "image": "/images/placeholders/event-4.svg"
     },
     {
       "id": "evt-carols",
-      "title": { "en": "Carols for homebound parishioners", "es": "Villancicos para feligreses que no pueden salir" },
-      "description": { "en": "Sample event. Short description goes here.", "es": "Evento de ejemplo. Aquí va una breve descripción." },
+      "title": {
+        "en": "Carols for homebound parishioners",
+        "es": "Villancicos para feligreses que no pueden salir"
+      },
+      "description": {
+        "en": "Sample event. Short description goes here.",
+        "es": "Evento de ejemplo. Aquí va una breve descripción."
+      },
       "date": "2026-12-20",
       "time": "14:00",
-      "location": { "en": "Meet at the church", "es": "Encuentro en la iglesia" },
+      "location": {
+        "en": "Meet at the church",
+        "es": "Encuentro en la iglesia"
+      },
       "capacity": 12,
       "signups": 5,
-      "organizer": { "en": "Choir", "es": "Coro" },
-      "category": "outreach"
+      "organizer": {
+        "en": "Choir",
+        "es": "Coro"
+      },
+      "category": "outreach",
+      "image": "/images/placeholders/event-5.svg"
     },
     {
       "id": "evt-nativity-meal",
-      "title": { "en": "Nativity feast meal", "es": "Comida de la fiesta de la Natividad" },
-      "description": { "en": "Sample event. Short description goes here.", "es": "Evento de ejemplo. Aquí va una breve descripción." },
+      "title": {
+        "en": "Nativity feast meal",
+        "es": "Comida de la fiesta de la Natividad"
+      },
+      "description": {
+        "en": "Sample event. Short description goes here.",
+        "es": "Evento de ejemplo. Aquí va una breve descripción."
+      },
       "date": "2026-12-25",
       "time": "11:30",
-      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "location": {
+        "en": "Parish hall",
+        "es": "Salón parroquial"
+      },
       "capacity": 80,
       "signups": 31,
-      "organizer": { "en": "Parish council", "es": "Consejo parroquial" },
-      "category": "feast"
+      "organizer": {
+        "en": "Parish council",
+        "es": "Consejo parroquial"
+      },
+      "category": "feast",
+      "image": "/images/placeholders/event-6.svg"
     },
     {
       "id": "evt-theophany-potluck",
-      "title": { "en": "Theophany potluck", "es": "Comida compartida de la Teofanía" },
-      "description": { "en": "Sample event. Short description goes here.", "es": "Evento de ejemplo. Aquí va una breve descripción." },
+      "title": {
+        "en": "Theophany potluck",
+        "es": "Comida compartida de la Teofanía"
+      },
+      "description": {
+        "en": "Sample event. Short description goes here.",
+        "es": "Evento de ejemplo. Aquí va una breve descripción."
+      },
       "date": "2027-01-06",
       "time": "12:00",
-      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "location": {
+        "en": "Parish hall",
+        "es": "Salón parroquial"
+      },
       "capacity": 60,
       "signups": 12,
-      "organizer": { "en": "Parish council", "es": "Consejo parroquial" },
-      "category": "feast"
+      "organizer": {
+        "en": "Parish council",
+        "es": "Consejo parroquial"
+      },
+      "category": "feast",
+      "image": "/images/placeholders/event-7.svg"
     }
   ]
 }

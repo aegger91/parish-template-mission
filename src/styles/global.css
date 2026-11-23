@@ -30,6 +30,8 @@
   --color-gold: var(--mission-gold);
   --color-gold-line: var(--mission-gold-line);
   --color-gold-wash: var(--mission-gold-wash);
+  --color-ink-band: var(--mission-ink-band);
+  --color-ink-band-soft: var(--mission-ink-band-soft);
   --color-health: var(--mission-health-red);
   --color-repose: var(--mission-repose-black);
 
@@ -167,5 +169,52 @@
   }
   .safe-bottom {
     padding-bottom: env(safe-area-inset-bottom);
+  }
+  .section-ornament {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--mission-gold);
+  }
+  .section-ornament::before,
+  .section-ornament::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    max-width: 3.5rem;
+    background: linear-gradient(90deg, transparent, var(--mission-gold-line));
+  }
+  .section-ornament::after {
+    background: linear-gradient(90deg, var(--mission-gold-line), transparent);
+  }
+  .hero-overlay {
+    background:
+      linear-gradient(105deg, rgb(18 28 44 / 0.78) 0%, rgb(18 28 44 / 0.62) 42%, rgb(18 28 44 / 0.4) 72%, rgb(18 28 44 / 0.28) 100%),
+      linear-gradient(0deg, rgb(18 28 44 / 0.45) 0%, transparent 48%);
+  }
+  .page-banner-overlay {
+    background:
+      linear-gradient(100deg, rgb(18 28 44 / 0.72) 0%, rgb(18 28 44 / 0.5) 55%, rgb(18 28 44 / 0.36) 100%);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-fade {
+      animation: mission-fade-up 0.7s ease both;
+    }
+    .reveal-fade-delay {
+      animation: mission-fade-up 0.7s ease 0.12s both;
+    }
+    .reveal-fade-late {
+      animation: mission-fade-up 0.7s ease 0.24s both;
+    }
+  }
+  @keyframes mission-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(0.6rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

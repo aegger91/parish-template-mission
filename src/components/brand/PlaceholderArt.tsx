@@ -2,10 +2,10 @@ import { cn } from "@/lib/utils"
 import { Pictogram } from "./Pictogram"
 
 const tones: Record<string, { bg: string; ink: string }> = {
-  blue: { bg: "linear-gradient(155deg, #f3f6fb 0%, #e3eaf5 100%)", ink: "var(--mission-blue)" },
-  stone: { bg: "linear-gradient(155deg, #faf9f6 0%, #ebe7de 100%)", ink: "var(--mission-slate-600)" },
-  slate: { bg: "linear-gradient(155deg, #f1f3f6 0%, #dfe3ea 100%)", ink: "var(--mission-slate-700)" },
-  gold: { bg: "linear-gradient(155deg, #fcf9f2 0%, #f1e8d4 100%)", ink: "#8a6a2e" },
+  blue: { bg: "linear-gradient(155deg, #e8eef6 0%, #c5d3e6 100%)", ink: "var(--mission-blue)" },
+  stone: { bg: "linear-gradient(155deg, #f3eee4 0%, #d9cebc 100%)", ink: "var(--mission-slate-600)" },
+  slate: { bg: "linear-gradient(155deg, #e8ecf1 0%, #c5ced9 100%)", ink: "var(--mission-slate-700)" },
+  gold: { bg: "linear-gradient(155deg, #f7f0de 0%, #e2d2ad 100%)", ink: "#8a6a2e" },
 }
 
 interface PlaceholderArtProps {
@@ -19,10 +19,19 @@ interface PlaceholderArtProps {
   arch?: boolean
 }
 
-/** Drawn stand-in for parish photos. When src is set, the real image is shown instead. */
+/** Drawn stand-in for parish photos. When src is set, the real (or placeholder) image is shown instead. */
 export function PlaceholderArt({ motif, tone = "stone", src, alt, label, className, iconSize = "34%", arch = true }: PlaceholderArtProps) {
   if (src) {
-    return <img src={src} alt={alt} loading="lazy" className={cn("h-full w-full object-cover", className)} />
+    return (
+      <div className={cn("relative isolate h-full w-full overflow-hidden", className)}>
+        <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover" />
+        {label ? (
+          <span className="absolute start-2.5 bottom-2.5 rounded-md bg-ink/70 px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-white uppercase backdrop-blur-sm">
+            {label}
+          </span>
+        ) : null}
+      </div>
+    )
   }
   const t = tones[tone] ?? tones.stone
   return (
@@ -39,7 +48,7 @@ export function PlaceholderArt({ motif, tone = "stone", src, alt, label, classNa
         <Pictogram name={motif} size={96} strokeWidth={0.9} className="h-full w-full" />
       </div>
       {label ? (
-        <span className="absolute start-2.5 bottom-2.5 rounded-full bg-white/80 px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-ink-500 uppercase backdrop-blur-sm">
+        <span className="absolute start-2.5 bottom-2.5 rounded-md bg-white/85 px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-ink-500 uppercase backdrop-blur-sm">
           {label}
         </span>
       ) : null}

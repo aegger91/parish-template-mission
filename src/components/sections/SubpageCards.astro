@@ -1,7 +1,7 @@
 ---
 import { ArrowRight } from "lucide-react"
 import SectionShell from "./SectionShell.astro"
-import { Pictogram } from "@/components/brand/Pictogram"
+import { PlaceholderArt } from "@/components/brand/PlaceholderArt"
 import { tr, t, href, isPageEnabled, type SectionNode, type FlatPage } from "@/lib/site"
 interface Props {
   lang: string
@@ -10,20 +10,35 @@ interface Props {
 }
 const { lang, section, page } = Astro.props
 const children = (page.node.children ?? []).filter((c) => isPageEnabled(c) && c.showInNav !== false)
+const cardImages = [
+  "/images/placeholders/card-1.svg",
+  "/images/placeholders/card-2.svg",
+  "/images/placeholders/card-3.svg",
+  "/images/placeholders/card-4.svg",
+]
 ---
 
 {
   children.length > 0 && (
-    <SectionShell id={section.id} title={tr(section.title, lang)}>
+    <SectionShell id={section.id} title={tr(section.title, lang)} tone={(section.tone as any) ?? "white"}>
       <ul class:list={["grid gap-5 sm:grid-cols-2", children.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"]}>
-        {children.map((child) => (
+        {children.map((child, index) => (
           <li class="min-w-0">
             <a
               href={href(lang, `${page.path}/${child.slug}`)}
-              class="group flex h-full flex-col rounded-[1.5rem] border border-border bg-white p-2 transition-shadow hover:shadow-[var(--mission-shadow-lift)]"
+              class="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-stone-200/90 bg-paper shadow-[var(--mission-shadow-soft)] transition-shadow hover:shadow-[var(--mission-shadow-lift)]"
             >
-              <span class="kiot-arch flex h-44 items-center justify-center bg-stone-50 text-blue transition-colors group-hover:bg-blue-wash">
-                <Pictogram name={child.icon ?? "church"} size={64} strokeWidth={0.95} />
+              <span class="aspect-[16/10] block overflow-hidden">
+                <PlaceholderArt
+                  motif={child.icon ?? "church"}
+                  tone="stone"
+                  src={(child as any).image ?? cardImages[index % cardImages.length]}
+                  alt={tr(child.title, lang)}
+                  label={t("replacePhoto", lang)}
+                  arch={false}
+                  iconSize="28%"
+                  className="transition-transform duration-500 group-hover:scale-[1.03]"
+                />
               </span>
               <span class="flex flex-1 flex-col p-5">
                 <span class="font-heading text-2xl text-ink">{tr(child.title, lang)}</span>

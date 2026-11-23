@@ -10,6 +10,7 @@ interface Post {
   category: string
   categoryLabel: string
   motif: string
+  image?: string | null
   title: string
   excerpt: string
 }
@@ -25,7 +26,7 @@ export default function NewsList({ posts, categories, s }: { posts: Post[]; cate
       {lead ? (
         <a href={lead.href} className="group mt-8 grid overflow-hidden rounded-[1.75rem] border border-border bg-white transition-shadow hover:shadow-[var(--mission-shadow-lift)] md:grid-cols-2">
           <div className="aspect-[16/10] md:aspect-auto md:min-h-[18rem]">
-            <PlaceholderArt motif={lead.motif} tone="blue" alt={lead.title} label={s.sampleImage} iconSize="24%" />
+            <PlaceholderArt motif={lead.motif} tone="blue" src={lead.image} alt={lead.title} label={s.replacePhoto} arch={false} iconSize="24%" />
           </div>
           <div className="flex flex-col justify-center p-6 md:p-10">
             <p className="flex flex-wrap items-center gap-2 text-sm text-ink-500">
@@ -44,7 +45,7 @@ export default function NewsList({ posts, categories, s }: { posts: Post[]; cate
             <li key={p.id} className="min-w-0">
               <a href={p.href} className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-white transition-shadow hover:shadow-[var(--mission-shadow-lift)]">
                 <div className="aspect-[16/10]">
-                  <PlaceholderArt motif={p.motif} tone="stone" alt={p.title} label={s.sampleImage} iconSize="28%" />
+                  <PlaceholderArt motif={p.motif} tone="stone" src={p.image} alt={p.title} label={s.replacePhoto} arch={false} iconSize="28%" />
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <p className="flex flex-wrap items-center gap-2 text-sm text-ink-500">

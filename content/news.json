@@ -1,9 +1,27 @@
 {
   "$schema": "../schemas/news.schema.json",
   "categories": [
-    { "id": "announcements", "label": { "en": "Announcements", "es": "Avisos" } },
-    { "id": "events", "label": { "en": "Events", "es": "Eventos" } },
-    { "id": "reflections", "label": { "en": "Parish life", "es": "Vida parroquial" } }
+    {
+      "id": "announcements",
+      "label": {
+        "en": "Announcements",
+        "es": "Avisos"
+      }
+    },
+    {
+      "id": "events",
+      "label": {
+        "en": "Events",
+        "es": "Eventos"
+      }
+    },
+    {
+      "id": "reflections",
+      "label": {
+        "en": "Parish life",
+        "es": "Vida parroquial"
+      }
+    }
   ],
   "posts": [
     {
@@ -12,9 +30,21 @@
       "date": "2026-11-20",
       "category": "announcements",
       "motif": "candle",
-      "title": { "en": "Nativity service times", "es": "Horarios de la Natividad" },
-      "excerpt": { "en": "Sample post. A one line summary goes here.", "es": "Publicación de ejemplo. Aquí va un resumen de una línea." },
-      "body": [{ "en": "Sample post. Article text goes here.", "es": "Publicación de ejemplo. Aquí va el texto del artículo." }]
+      "title": {
+        "en": "Nativity service times",
+        "es": "Horarios de la Natividad"
+      },
+      "excerpt": {
+        "en": "Sample post. A one line summary goes here.",
+        "es": "Publicación de ejemplo. Aquí va un resumen de una línea."
+      },
+      "body": [
+        {
+          "en": "Sample post. Article text goes here.",
+          "es": "Publicación de ejemplo. Aquí va el texto del artículo."
+        }
+      ],
+      "image": "/images/placeholders/news-1.svg"
     },
     {
       "id": "post-meal",
@@ -22,9 +52,21 @@
       "date": "2026-11-12",
       "category": "events",
       "motif": "utensils",
-      "title": { "en": "Neighbors meal in December", "es": "Comida para vecinos en diciembre" },
-      "excerpt": { "en": "Sample post. A one line summary goes here.", "es": "Publicación de ejemplo. Aquí va un resumen de una línea." },
-      "body": [{ "en": "Sample post. Article text goes here.", "es": "Publicación de ejemplo. Aquí va el texto del artículo." }]
+      "title": {
+        "en": "Neighbors meal in December",
+        "es": "Comida para vecinos en diciembre"
+      },
+      "excerpt": {
+        "en": "Sample post. A one line summary goes here.",
+        "es": "Publicación de ejemplo. Aquí va un resumen de una línea."
+      },
+      "body": [
+        {
+          "en": "Sample post. Article text goes here.",
+          "es": "Publicación de ejemplo. Aquí va el texto del artículo."
+        }
+      ],
+      "image": "/images/placeholders/news-2.svg"
     },
     {
       "id": "post-parish-update",
@@ -32,9 +74,21 @@
       "date": "2026-11-03",
       "category": "reflections",
       "motif": "prayer-rope",
-      "title": { "en": "Parish update", "es": "Noticias de la parroquia" },
-      "excerpt": { "en": "Sample post. A one line summary goes here.", "es": "Publicación de ejemplo. Aquí va un resumen de una línea." },
-      "body": [{ "en": "Sample post. Article text goes here.", "es": "Publicación de ejemplo. Aquí va el texto del artículo." }]
+      "title": {
+        "en": "Parish update",
+        "es": "Noticias de la parroquia"
+      },
+      "excerpt": {
+        "en": "Sample post. A one line summary goes here.",
+        "es": "Publicación de ejemplo. Aquí va un resumen de una línea."
+      },
+      "body": [
+        {
+          "en": "Sample post. Article text goes here.",
+          "es": "Publicación de ejemplo. Aquí va el texto del artículo."
+        }
+      ],
+      "image": "/images/placeholders/news-3.svg"
     },
     {
       "id": "post-choir",
@@ -42,9 +96,21 @@
       "date": "2026-10-24",
       "category": "announcements",
       "motif": "bells",
-      "title": { "en": "Choir rehearsals", "es": "Ensayos del coro" },
-      "excerpt": { "en": "Sample post. A one line summary goes here.", "es": "Publicación de ejemplo. Aquí va un resumen de una línea." },
-      "body": [{ "en": "Sample post. Article text goes here.", "es": "Publicación de ejemplo. Aquí va el texto del artículo." }]
+      "title": {
+        "en": "Choir rehearsals",
+        "es": "Ensayos del coro"
+      },
+      "excerpt": {
+        "en": "Sample post. A one line summary goes here.",
+        "es": "Publicación de ejemplo. Aquí va un resumen de una línea."
+      },
+      "body": [
+        {
+          "en": "Sample post. Article text goes here.",
+          "es": "Publicación de ejemplo. Aquí va el texto del artículo."
+        }
+      ],
+      "image": "/images/placeholders/news-4.svg"
     },
     {
       "id": "post-icons",
@@ -52,9 +118,21 @@
       "date": "2026-10-05",
       "category": "events",
       "motif": "icon-frame",
-      "title": { "en": "New icons", "es": "Nuevos íconos" },
-      "excerpt": { "en": "Sample post. A one line summary goes here.", "es": "Publicación de ejemplo. Aquí va un resumen de una línea." },
-      "body": [{ "en": "Sample post. Article text goes here.", "es": "Publicación de ejemplo. Aquí va el texto del artículo." }]
+      "title": {
+        "en": "New icons",
+        "es": "Nuevos íconos"
+      },
+      "excerpt": {
+        "en": "Sample post. A one line summary goes here.",
+        "es": "Publicación de ejemplo. Aquí va un resumen de una línea."
+      },
+      "body": [
+        {
+          "en": "Sample post. Article text goes here.",
+          "es": "Publicación de ejemplo. Aquí va el texto del artículo."
+        }
+      ],
+      "image": "/images/placeholders/news-5.svg"
     }
   ]
 }

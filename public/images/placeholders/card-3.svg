@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="Replace with your photo">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ebe7de"/>
+<stop offset="50%" stop-color="#d2c8b6"/>
+<stop offset="100%" stop-color="#b0a898"/>
+    </linearGradient>
+    <radialGradient id="v" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#1c2430" stop-opacity="0.28"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="700" fill="url(#g)"/>
+  <rect width="1000" height="700" fill="url(#v)"/>
+  <circle cx="180" cy="154" r="84" fill="#ffffff" opacity="0.06"/>
+  <circle cx="820" cy="489" r="126" fill="#1c2430" opacity="0.08"/>
+  <rect x="444" y="266" width="112" height="112" rx="14" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="50%" y="52%" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#ffffff" fill-opacity="0.92">Replace with your photo</text>
+  <text x="50%" y="87%" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" fill="#ffffff" fill-opacity="0.7">Card image</text>
+</svg>

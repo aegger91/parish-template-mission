@@ -74,7 +74,7 @@ export default function Gallery({ items, categories, s }: { items: Item[]; categ
                 aria-label={fill(s.openImage, { name: item.caption })}
                 className="group relative block h-full w-full overflow-hidden rounded-2xl"
               >
-                <PlaceholderArt motif={item.motif} tone={item.tone} src={item.src} alt="" className="transition-transform duration-500 group-hover:scale-[1.03]" iconSize={item.shape === "wide" ? "22%" : "38%"} />
+                <PlaceholderArt motif={item.motif} tone={item.tone} src={item.src} alt={item.caption} label={s.replacePhoto ?? s.sampleImage} arch={false} className="transition-transform duration-500 group-hover:scale-[1.03]" iconSize={item.shape === "wide" ? "22%" : "38%"} />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent px-3 pt-8 pb-3 text-start text-sm text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                   {item.caption}
                 </span>
@@ -90,7 +90,7 @@ export default function Gallery({ items, categories, s }: { items: Item[]; categ
           {current ? (
             <>
               <div className="relative aspect-[4/3] max-h-[70dvh] w-full sm:aspect-[16/10]">
-                <PlaceholderArt motif={current.motif} tone={current.tone} src={current.src} alt={current.caption} label={s.sampleImage} iconSize="24%" />
+                <PlaceholderArt motif={current.motif} tone={current.tone} src={current.src} alt={current.caption} label={s.replacePhoto ?? s.sampleImage} arch={false} iconSize="24%" />
               </div>
               <div className="flex flex-wrap items-center justify-between gap-3 p-4 sm:px-6">
                 <div className="min-w-0">

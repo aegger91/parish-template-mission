@@ -13,31 +13,35 @@
   --tracking-tradition: 0.02em;
   --tracking-ornament: 0.22em;
 
-  /* Paper and stone */
-  --mission-paper: #ffffff;
-  --mission-canvas: #fcfbf9;
-  --mission-stone-50: #f8f7f4;
-  --mission-stone-100: #f2f0eb;
-  --mission-stone-200: #e7e3da;
-  --mission-stone-300: #d6d0c4;
+  /* Warm paper and stone — soft warm tone alternating with white */
+  --mission-paper: #fffdf9;
+  --mission-canvas: #f7f1e8;
+  --mission-stone-50: #f4eee4;
+  --mission-stone-100: #ebe3d6;
+  --mission-stone-200: #d9cebc;
+  --mission-stone-300: #c4b5a0;
 
   /* Slate ink */
-  --mission-slate-900: #1c2430;
-  --mission-slate-700: #364152;
-  --mission-slate-600: #4a5567;
-  --mission-slate-500: #5f6b7d;
-  --mission-slate-300: #b4bcc8;
+  --mission-slate-900: #1a2230;
+  --mission-slate-700: #334155;
+  --mission-slate-600: #475569;
+  --mission-slate-500: #5b6b7e;
+  --mission-slate-300: #b0bac8;
 
-  /* The one accent: icon blue */
-  --mission-blue: #24519a;
-  --mission-blue-deep: #1a3c75;
-  --mission-blue-wash: #eef3fa;
-  --mission-blue-line: #c9d6ea;
+  /* Stronger accent: icon blue */
+  --mission-blue: #1e4d96;
+  --mission-blue-deep: #153a74;
+  --mission-blue-wash: #e8f0fa;
+  --mission-blue-line: #b7c8e3;
 
-  /* Gold, only as thin hairlines and small marks */
-  --mission-gold: #b08d4c;
-  --mission-gold-line: rgb(176 141 76 / 0.55);
-  --mission-gold-wash: #faf5ea;
+  /* Gold ornaments and thin hairlines */
+  --mission-gold: #a67c32;
+  --mission-gold-line: rgb(166 124 50 / 0.6);
+  --mission-gold-wash: #f8f0de;
+
+  /* Deep accent band (donate / highlight strips) */
+  --mission-ink-band: #1a2a42;
+  --mission-ink-band-soft: #243652;
 
   /* Slips (zapiski) */
   --mission-health-red: #a3242b;
@@ -46,8 +50,8 @@
   --mission-hairline: 1px;
   --mission-radius: 0.875rem;
   --mission-radius-pill: 999px;
-  --mission-shadow-soft: 0 1px 2px rgb(28 36 48 / 0.04), 0 8px 24px -12px rgb(28 36 48 / 0.12);
-  --mission-shadow-lift: 0 2px 4px rgb(28 36 48 / 0.05), 0 18px 40px -18px rgb(28 36 48 / 0.22);
+  --mission-shadow-soft: 0 1px 2px rgb(28 36 48 / 0.05), 0 10px 28px -12px rgb(28 36 48 / 0.14);
+  --mission-shadow-lift: 0 2px 4px rgb(28 36 48 / 0.06), 0 20px 44px -18px rgb(28 36 48 / 0.24);
 
   --mission-header-h: 5rem;
   --mission-header-h-condensed: 4rem;

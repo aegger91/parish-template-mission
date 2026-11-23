@@ -12,9 +12,9 @@ const locale = langInfo(lang).locale
 const category = newsData.categories.find((c: any) => c.id === post.category)
 ---
 
-<a href={`${baseHref}${post.slug}/`} class="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-white transition-shadow hover:shadow-[var(--mission-shadow-lift)]">
+<a href={`${baseHref}${post.slug}/`} class="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-stone-200/90 bg-paper shadow-[var(--mission-shadow-soft)] transition-shadow hover:shadow-[var(--mission-shadow-lift)]">
   <div class="aspect-[16/10] overflow-hidden">
-    <PlaceholderArt motif={post.motif} tone="stone" alt={tr(post.title, lang)} label={t("sampleImage", lang)} iconSize="26%" />
+    <PlaceholderArt motif={post.motif} tone="stone" src={post.image} alt={tr(post.title, lang)} label={t("replacePhoto", lang)} arch={false} iconSize="26%" className="transition-transform duration-500 group-hover:scale-[1.03]" />
   </div>
   <div class="flex flex-1 flex-col p-5">
     <p class="flex flex-wrap items-center gap-2 text-sm text-ink-500">

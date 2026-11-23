@@ -14,7 +14,7 @@ const posts = [...newsData.posts].sort((a: any, b: any) => b.date.localeCompare(
 
 {
   newsHref && (
-    <SectionShell id={section.id} eyebrow={tr(section.eyebrow, lang)} title={tr(section.title, lang)}>
+    <SectionShell id={section.id} eyebrow={tr(section.eyebrow, lang)} title={tr(section.title, lang)} tone={(section.tone as any) ?? "white"}>
       <ul class="grid gap-5 md:grid-cols-3">
         {posts.map((post: any) => (
           <li class="min-w-0">
