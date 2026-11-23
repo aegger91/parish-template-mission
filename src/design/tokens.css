@@ -3,15 +3,16 @@
   components read them through the Tailwind theme in src/styles/global.css.
 */
 :root {
-  /* Font roles. "tradition" carries headings, buttons and ornaments. */
-  --font-tradition: "Marcellus", "Cormorant Garamond", "Palatino Linotype", Palatino, Georgia, serif;
-  --font-body: "Instrument Sans Variable", "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  /* Font roles. "tradition" carries headings, buttons and ornaments.
+     EB Garamond + Source Sans 3 ship Latin, Latin-ext, Cyrillic and Greek. */
+  --font-tradition: "EB Garamond", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-body: "Source Sans 3 Variable", "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-role-heading: var(--font-tradition);
   --font-role-button: var(--font-tradition);
   --font-role-ornament: var(--font-tradition);
   --font-role-body: var(--font-body);
-  --tracking-tradition: 0.02em;
-  --tracking-ornament: 0.22em;
+  --tracking-tradition: 0.01em;
+  --tracking-ornament: 0.16em;
 
   /* Warm paper and stone — soft warm tone alternating with white */
   --mission-paper: #fffdf9;
@@ -53,8 +54,9 @@
   --mission-shadow-soft: 0 1px 2px rgb(28 36 48 / 0.05), 0 10px 28px -12px rgb(28 36 48 / 0.14);
   --mission-shadow-lift: 0 2px 4px rgb(28 36 48 / 0.06), 0 20px 44px -18px rgb(28 36 48 / 0.24);
 
-  --mission-header-h: 5rem;
-  --mission-header-h-condensed: 4rem;
+  /* Single stable header height — no scroll resize (avoids flicker/jitter). */
+  --mission-header-h: 4.25rem;
+  --mission-header-h-condensed: 4.25rem;
   --mission-mobile-bar-h: 4rem;
   --mission-container: 76rem;
 }

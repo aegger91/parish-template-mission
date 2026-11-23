@@ -43,11 +43,12 @@ import {
   connectLink,
   newsData,
   productsData,
+  formatAddressLines,
   type FlatPage,
   type SectionNode,
 } from "@/lib/site"
 import { scheduleData, buildDate } from "@/lib/scheduleData"
-import { formatDate } from "@/lib/calendar"
+import { formatDate, normalizeCalendarStyle } from "@/lib/calendar"
 import { formatMoney } from "@/lib/format"
 import clergyJson from "@content/clergy.json"
 import galleryJson from "@content/gallery.json"
@@ -104,7 +105,8 @@ function props(section: SectionNode): Record<string, any> | null {
         s: strings(lang, ["all", "close", "filterLabel", "imageOf", "nextItem", "noResults", "openImage", "previous", "sampleImage", "replacePhoto"]),
       }
     }
-    case "schedule":
+    case "schedule": {
+      const calStyle = normalizeCalendarStyle(site.calendar?.style)
       return {
         data: scheduleData(lang),
         initialToday: today,
@@ -113,10 +115,14 @@ function props(section: SectionNode): Record<string, any> | null {
         startView: section.startView === "month" ? "month" : "week",
         highlightRanks: site.calendar?.highlightRanks ?? ["great"],
         liveOn: isFeatureOn("livestream"),
-        calendarNote: t(`calendarStyle.${site.calendar?.style ?? "revised-julian"}`, lang),
+        livestreamHref: specialPageHref("livestream", lang) ?? site.features.livestream?.watchUrl ?? null,
+        calendarLabel: t(`calendarStyle.${calStyle}`, lang),
         note: tr((scheduleJson as any).note, lang),
-        s: strings(lang, ["feast", "goToToday", "greatFeast", "legendFeast", "legendStream", "legendToday", "monthly", "nextMonth", "nextWeek", "noServices", "previousMonth", "previousWeek", "streamed", "today", "viewLabel", "weekly", "weekOf"]),
+        place: formatAddressLines(lang).join(", "),
+        directionsUrl: site.contact.directionsUrl,
+        s: strings(lang, ["addToCalendar", "feast", "goToToday", "googleCalendar", "greatFeast", "legendFeast", "legendStream", "legendToday", "location", "monthly", "nextMonth", "nextWeek", "noServices", "notes", "previousMonth", "previousWeek", "serviceDetailNote", "streamed", "time", "today", "viewLabel", "watchLive", "weekly", "weekOf", "getDirections"]),
       }
+    }
     case "sermons": {
       const data = (sermonsJson as any).sermons
       const clergy = (clergyJson as any).people
@@ -162,13 +168,11 @@ function props(section: SectionNode): Record<string, any> | null {
       const d = site.donate
       return {
         presets: d.presets,
-        defaultPreset: d.defaultPreset,
-        minimum: d.minimum,
         currency: d.currency,
         locale,
         funds: labelList(d.funds),
         frequencies: d.frequencies,
-        s: strings(lang, ["amount", "donateAgain", "donateSampleNote", "donateSummary", "donateSummaryMonthly", "donateTax", "donateThanks", "frequency", "fund", "giveMonthly", "giveOnce", "minimumAmount", "monthlyGift", "oneTime", "otherAmount"]),
+        s: strings(lang, ["amount", "donateAgain", "donateSampleNote", "donateSummary", "donateSummaryMonthly", "donateTax", "donateThanks", "frequency", "fund", "giveMonthly", "giveOnce", "monthlyGift", "oneTime", "otherAmount"]),
       }
     }
     case "contactForm":
@@ -282,7 +286,8 @@ function props(section: SectionNode): Record<string, any> | null {
         locale,
         weekStartsOn,
         parishId,
-        s: strings(lang, [...connectS, "all", "calendarView", "eventsOnDay", "filterLabel", "going", "listView", "location", "nextMonth", "noEvents", "noResults", "onConnect", "organizer", "previousMonth", "rsvp", "seeAllEvents", "viewLabel", "replacePhoto"]),
+        directionsUrl: site.contact.directionsUrl,
+        s: strings(lang, [...connectS, "addToCalendar", "all", "calendarView", "eventsOnDay", "filterLabel", "getDirections", "going", "googleCalendar", "listView", "location", "nextMonth", "noEvents", "noResults", "notes", "onConnect", "organizer", "previousMonth", "rsvp", "seeAllEvents", "serviceDetailNote", "time", "viewLabel", "watchLive", "replacePhoto"]),
       }
     }
     case "needsBoard": {

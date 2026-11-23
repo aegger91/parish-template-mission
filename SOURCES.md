@@ -4,12 +4,14 @@
 
 | Font | Use | License | Source |
 | --- | --- | --- | --- |
-| Marcellus, by Astigmatic | Tradition font: headings, buttons, ornaments | SIL Open Font License 1.1 | Google Fonts, bundled with `@fontsource/marcellus` |
-| Instrument Sans, by Instrument | Body text | SIL Open Font License 1.1 | Google Fonts, bundled with `@fontsource-variable/instrument-sans` |
+| EB Garamond | Tradition font: headings, buttons, ornaments | SIL Open Font License 1.1 | Google Fonts, bundled with `@fontsource/eb-garamond` (latin, latin-ext, cyrillic, greek) |
+| Source Sans 3 | Body text | SIL Open Font License 1.1 | Google Fonts, bundled with `@fontsource-variable/source-sans-3` (latin, latin-ext, cyrillic, greek) |
 
 ## Images
 
-No third-party photographs are hotlinked. Soft gradient placeholder images ship in `public/images/placeholders/` and are labeled “Replace with your photo”. Swap them by replacing the files or changing paths in:
+Sample photographs live in `public/images/samples/` as optimized WebP. Full title, author, license and Commons URL for each file are listed in `public/images/CREDITS.md`.
+
+Builders swap photos by replacing those files or changing paths in:
 
 - `content/images.json` — hero, page banner, about/welcome side image
 - `content/clergy.json` → `photo`
@@ -19,13 +21,11 @@ No third-party photographs are hotlinked. Soft gradient placeholder images ship 
 - `content/pages.json` section `image` / page `banner`
 - `content/products.json` → `images[].src`
 
-Drawn brand art still used when a path is null:
+Drawn brand art:
 
 - The eight-pointed cross (`src/components/brand/OrthodoxCross.tsx`), including the favicon and sample logo.
 - Line pictograms (`src/components/brand/Pictogram.tsx`).
-- Fallback placeholder art (`src/components/brand/PlaceholderArt.tsx`).
+- Fallback placeholder art when a path is null (`src/components/brand/PlaceholderArt.tsx`).
 - `public/favicon.svg` and `public/brand/sample-logo-square.svg`.
 
 Two general icons (utensils, mail) and the interface icons come from Lucide (ISC license).
-
-If a parish adds public-domain images, for example from Wikimedia Commons, list each one here with its title, author, license and URL.

@@ -19,32 +19,26 @@ export interface LogoProps {
 function Wordmark({ line1, line2, showCross, condensed }: LogoProps) {
   return (
     <span className="flex min-w-0 items-center gap-3">
-      {showCross ? <OrthodoxCross size={condensed ? 26 : 32} className="shrink-0 text-blue transition-all duration-300" /> : null}
-      <span className="flex min-w-0 flex-col">
-        <span
-          className={cn(
-            "font-tradition leading-none tracking-[0.04em] text-ink transition-all duration-300",
-            condensed ? "text-[1.2rem]" : "text-[1.35rem] sm:text-[1.5rem]",
-          )}
-        >
+      {showCross ? <OrthodoxCross size={condensed ? 26 : 28} className="shrink-0 text-blue" /> : null}
+      <span className="flex min-w-0 flex-col justify-center">
+        <span className={cn("font-tradition leading-[1.15] tracking-[0.02em] text-ink", condensed ? "text-[1.15rem]" : "text-[1.25rem] sm:text-[1.35rem]")}>
           {line1}
         </span>
-        <span
-          className={cn(
-            "mt-1.5 flex items-center gap-2 overflow-hidden transition-all duration-300",
-            condensed ? "max-h-0 opacity-0 sm:max-h-8 sm:opacity-100" : "max-h-8 opacity-100",
-          )}
-        >
-          <span aria-hidden="true" className="h-px w-4 shrink-0 bg-gold" />
-          <span className="min-w-0 font-tradition text-[0.62rem] leading-[1.35] tracking-[0.28em] text-ink-500 uppercase">{line2}</span>
-        </span>
+        {line2 ? (
+          <span className="mt-0.5 hidden min-w-0 items-center gap-2 sm:flex">
+            <span aria-hidden="true" className="h-px w-3.5 shrink-0 bg-gold" />
+            <span className="min-w-0 whitespace-nowrap font-tradition text-[0.68rem] leading-[1.4] tracking-[0.1em] text-ink-500 uppercase">
+              {line2}
+            </span>
+          </span>
+        ) : null}
       </span>
     </span>
   )
 }
 
 function Seal({ name, condensed }: LogoProps) {
-  const size = condensed ? 44 : 52
+  const size = condensed ? 40 : 44
   const id = `seal-${useId().replace(/[^a-zA-Z0-9]/g, "")}`
   return (
     <svg viewBox="0 0 100 100" width={size} height={size} className="shrink-0 text-blue" aria-hidden="true">
@@ -53,7 +47,7 @@ function Seal({ name, condensed }: LogoProps) {
       <defs>
         <path id={id} d="M50 50 m-41 0 a41 41 0 1 1 82 0 a41 41 0 1 1 -82 0" />
       </defs>
-      <text style={{ fontFamily: "var(--font-role-ornament)", fontSize: 8.6, letterSpacing: 1.6 }} fill="currentColor">
+      <text style={{ fontFamily: "var(--font-role-ornament)", fontSize: 8.6, letterSpacing: 1.2 }} fill="currentColor">
         <textPath href={`#${id}`} startOffset="0">
           {name.toUpperCase()}
         </textPath>
@@ -68,18 +62,18 @@ function Kiot({ image, imageAlt, condensed }: LogoProps) {
     <span
       className={cn(
         "kiot-arch flex shrink-0 items-center justify-center overflow-hidden border border-gold bg-blue-wash text-blue",
-        condensed ? "h-11 w-9" : "h-13 w-10",
+        condensed ? "h-10 w-8" : "h-11 w-9",
       )}
     >
-      {image ? <img src={image} alt={imageAlt ?? ""} className="h-full w-full object-cover" /> : <OrthodoxCross size={condensed ? 22 : 26} />}
+      {image ? <img src={image} alt={imageAlt ?? ""} className="h-full w-full object-cover" /> : <OrthodoxCross size={condensed ? 20 : 24} />}
     </span>
   )
 }
 
 function Square({ image, imageAlt, condensed }: LogoProps) {
   return (
-    <span className={cn("flex shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-white", condensed ? "size-10" : "size-12")}>
-      {image ? <img src={image} alt={imageAlt ?? ""} className="h-full w-full object-contain" /> : <OrthodoxCross size={24} className="text-blue" />}
+    <span className={cn("flex shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-white", condensed ? "size-9" : "size-10")}>
+      {image ? <img src={image} alt={imageAlt ?? ""} className="h-full w-full object-contain" /> : <OrthodoxCross size={22} className="text-blue" />}
     </span>
   )
 }

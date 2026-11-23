@@ -50,8 +50,8 @@
           "shortcut": {
             "feature": "zapiski",
             "label": {
-              "en": "Submit a commemoration",
-              "es": "Enviar una conmemoración"
+              "en": "Submit commemoration names",
+              "es": "Enviar nombres para conmemorar"
             },
             "pageId": "zapiski"
           }
@@ -75,7 +75,7 @@
             }
           ],
           "tone": "warm",
-          "image": "/images/placeholders/about.svg",
+          "image": "/images/samples/about.webp",
           "imageAlt": {
             "en": "Placeholder for a welcome photo of parish life",
             "es": "Imagen provisional de bienvenida de la vida parroquial"
@@ -193,7 +193,7 @@
             }
           ],
           "tone": "warm",
-          "image": "/images/placeholders/about.svg",
+          "image": "/images/samples/about.webp",
           "imageAlt": {
             "en": "Placeholder for a parish welcome photo",
             "es": "Imagen provisional de bienvenida parroquial"
@@ -233,7 +233,7 @@
                 "en": "Short description goes here.",
                 "es": "Aquí va una breve descripción."
               },
-              "image": "/images/placeholders/ministry-1.svg"
+              "image": "/images/samples/interior.webp"
             },
             {
               "id": "learning",
@@ -246,7 +246,7 @@
                 "en": "Short description goes here.",
                 "es": "Aquí va una breve descripción."
               },
-              "image": "/images/placeholders/ministry-2.svg"
+              "image": "/images/samples/iconostasis.webp"
             },
             {
               "id": "fellowship",
@@ -259,7 +259,7 @@
                 "en": "Short description goes here.",
                 "es": "Aquí va una breve descripción."
               },
-              "image": "/images/placeholders/ministry-3.svg"
+              "image": "/images/samples/parish-gathering.webp"
             },
             {
               "id": "outreach",
@@ -272,7 +272,7 @@
                 "en": "Short description goes here.",
                 "es": "Aquí va una breve descripción."
               },
-              "image": "/images/placeholders/ministry-4.svg"
+              "image": "/images/samples/candles.webp"
             }
           ]
         }
@@ -475,16 +475,16 @@
           "slug": "zapiski",
           "feature": "zapiski",
           "title": {
-            "en": "Zapiski and Candles",
-            "es": "Zapiski y velas"
+            "en": "Commemoration names and Candles",
+            "es": "Nombres para conmemorar y velas"
           },
           "intro": {
-            "en": "Names for commemoration and candle requests.",
+            "en": "Names for prayer and candle requests.",
             "es": "Nombres para conmemorar y pedidos de velas."
           },
           "description": {
-            "en": "Commemoration notes and candles.",
-            "es": "Notas de conmemoración y velas."
+            "en": "Commemoration names and candles.",
+            "es": "Nombres para conmemorar y velas."
           },
           "icon": "candle",
           "showInNav": true,
@@ -494,7 +494,11 @@
               "type": "zapiski",
               "enabled": true
             }
-          ]
+          ],
+          "navLabel": {
+            "en": "Prayer requests",
+            "es": "Nombres para conmemorar"
+          }
         }
       ]
     },

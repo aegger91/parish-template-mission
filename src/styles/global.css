@@ -1,8 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource/marcellus/400.css";
-@import "@fontsource-variable/instrument-sans";
+/* Self-hosted with Latin, Latin-ext, Cyrillic and Greek subsets */
+@import "@fontsource/eb-garamond/latin-400.css";
+@import "@fontsource/eb-garamond/latin-ext-400.css";
+@import "@fontsource/eb-garamond/cyrillic-400.css";
+@import "@fontsource/eb-garamond/greek-400.css";
+@import "@fontsource-variable/source-sans-3/wght.css";
 @import "../design/tokens.css";
 
 @custom-variant dark (&:is(.dark *));
@@ -147,7 +151,14 @@
     text-transform: uppercase;
     letter-spacing: var(--tracking-ornament);
     font-size: 0.75rem;
+    line-height: 1.45;
     color: var(--mission-gold);
+    overflow: visible;
+  }
+  /* Tracked uppercase labels need room for descenders/diacritics */
+  :where([class*="uppercase"]) {
+    line-height: 1.45;
+    overflow-wrap: anywhere;
   }
   .hairline-gold {
     height: 1px;

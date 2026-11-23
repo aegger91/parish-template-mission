@@ -1,111 +1,386 @@
 {
   "$schema": "../schemas/ui.schema.json",
   "strings": {
-    "skipToContent": { "en": "Skip to content", "es": "Ir al contenido" },
-    "homeLink": { "en": "Home page", "es": "Página de inicio" },
-    "mainNav": { "en": "Main navigation", "es": "Navegación principal" },
-    "menu": { "en": "Menu", "es": "Menú" },
-    "closeMenu": { "en": "Close menu", "es": "Cerrar menú" },
-    "openSubmenu": { "en": "Show pages in {name}", "es": "Mostrar páginas de {name}" },
-    "language": { "en": "Language", "es": "Idioma" },
-    "donate": { "en": "Donate", "es": "Donar" },
-    "directions": { "en": "Directions", "es": "Cómo llegar" },
-    "schedule": { "en": "Schedule", "es": "Horarios" },
-    "liveNow": { "en": "Live now", "es": "En vivo" },
-    "watchLive": { "en": "Watch live", "es": "Ver en vivo" },
-    "thisWeek": { "en": "This week", "es": "Esta semana" },
-    "thisWeeksServices": { "en": "This week's services", "es": "Servicios de esta semana" },
-    "fullSchedule": { "en": "Full schedule", "es": "Horario completo" },
-    "getDirections": { "en": "Get directions", "es": "Ver cómo llegar" },
-    "address": { "en": "Address", "es": "Dirección" },
-    "today": { "en": "Today", "es": "Hoy" },
-    "tomorrow": { "en": "Tomorrow", "es": "Mañana" },
-    "feastToday": { "en": "Feast today", "es": "Fiesta de hoy" },
-    "nextFeast": { "en": "Next feast", "es": "Próxima fiesta" },
-    "inDays": { "en": "in {n} days", "es": "en {n} días" },
-    "inOneDay": { "en": "tomorrow", "es": "mañana" },
+    "skipToContent": {
+      "en": "Skip to content",
+      "es": "Ir al contenido"
+    },
+    "homeLink": {
+      "en": "Home page",
+      "es": "Página de inicio"
+    },
+    "mainNav": {
+      "en": "Main navigation",
+      "es": "Navegación principal"
+    },
+    "menu": {
+      "en": "Menu",
+      "es": "Menú"
+    },
+    "closeMenu": {
+      "en": "Close menu",
+      "es": "Cerrar menú"
+    },
+    "openSubmenu": {
+      "en": "Show pages in {name}",
+      "es": "Mostrar páginas de {name}"
+    },
+    "language": {
+      "en": "Language",
+      "es": "Idioma"
+    },
+    "donate": {
+      "en": "Donate",
+      "es": "Donar"
+    },
+    "directions": {
+      "en": "Directions",
+      "es": "Cómo llegar"
+    },
+    "schedule": {
+      "en": "Schedule",
+      "es": "Horarios"
+    },
+    "liveNow": {
+      "en": "Live now",
+      "es": "En vivo"
+    },
+    "watchLive": {
+      "en": "Watch live",
+      "es": "Ver en vivo"
+    },
+    "thisWeek": {
+      "en": "This week",
+      "es": "Esta semana"
+    },
+    "thisWeeksServices": {
+      "en": "This week's services",
+      "es": "Servicios de esta semana"
+    },
+    "fullSchedule": {
+      "en": "Full schedule",
+      "es": "Horario completo"
+    },
+    "getDirections": {
+      "en": "Get directions",
+      "es": "Ver cómo llegar"
+    },
+    "address": {
+      "en": "Address",
+      "es": "Dirección"
+    },
+    "today": {
+      "en": "Today",
+      "es": "Hoy"
+    },
+    "tomorrow": {
+      "en": "Tomorrow",
+      "es": "Mañana"
+    },
+    "feastToday": {
+      "en": "Feast today",
+      "es": "Fiesta de hoy"
+    },
+    "nextFeast": {
+      "en": "Next feast",
+      "es": "Próxima fiesta"
+    },
+    "inDays": {
+      "en": "in {n} days",
+      "es": "en {n} días"
+    },
+    "inOneDay": {
+      "en": "tomorrow",
+      "es": "mañana"
+    },
     "dailyCalendarNote": {
       "en": "Daily saints and readings appear here when the OrthodoxConnect calendar is turned on.",
       "es": "Los santos y lecturas del día aparecen aquí cuando se activa el calendario de OrthodoxConnect."
     },
-    "calendarStyle.julian": { "en": "Feasts follow the Julian calendar.", "es": "Las fiestas siguen el calendario juliano." },
-    "calendarStyle.revised-julian": { "en": "Feasts follow the Revised Julian calendar.", "es": "Las fiestas siguen el calendario juliano revisado." },
-    "calendarStyle.gregorian": { "en": "Feasts follow the Gregorian calendar.", "es": "Las fiestas siguen el calendario gregoriano." },
-    "weekly": { "en": "Weekly", "es": "Semanal" },
-    "monthly": { "en": "Monthly", "es": "Mensual" },
-    "viewLabel": { "en": "Schedule view", "es": "Vista del horario" },
-    "weekOf": { "en": "Week of {date}", "es": "Semana del {date}" },
-    "previousWeek": { "en": "Previous week", "es": "Semana anterior" },
-    "nextWeek": { "en": "Next week", "es": "Semana siguiente" },
-    "previousMonth": { "en": "Previous month", "es": "Mes anterior" },
-    "nextMonth": { "en": "Next month", "es": "Mes siguiente" },
-    "goToToday": { "en": "Today", "es": "Hoy" },
-    "noServices": { "en": "No services", "es": "Sin servicios" },
-    "feast": { "en": "Feast", "es": "Fiesta" },
-    "greatFeast": { "en": "Great feast", "es": "Gran fiesta" },
-    "streamed": { "en": "Streamed live", "es": "Transmisión en vivo" },
-    "legendFeast": { "en": "Feast day", "es": "Día de fiesta" },
-    "legendToday": { "en": "Today", "es": "Hoy" },
-    "legendStream": { "en": "Livestreamed", "es": "Se transmite" },
-    "all": { "en": "All", "es": "Todo" },
-    "filterLabel": { "en": "Filter", "es": "Filtrar" },
-    "noResults": { "en": "Nothing matches yet. Try another filter.", "es": "Todavía no hay resultados. Pruebe otro filtro." },
-    "sampleImage": { "en": "Sample image", "es": "Imagen de ejemplo" },
-    "replacePhoto": { "en": "Replace with your photo", "es": "Reemplazar con su foto" },
-    "viewGallery": { "en": "View gallery", "es": "Ver galería" },
-    "close": { "en": "Close", "es": "Cerrar" },
-    "previous": { "en": "Previous", "es": "Anterior" },
-    "nextItem": { "en": "Next", "es": "Siguiente" },
-    "imageOf": { "en": "Image {n} of {total}", "es": "Imagen {n} de {total}" },
-    "openImage": { "en": "Open image: {name}", "es": "Abrir imagen: {name}" },
-    "formName": { "en": "Your name", "es": "Su nombre" },
-    "formEmail": { "en": "Email", "es": "Correo electrónico" },
-    "formPhone": { "en": "Phone (optional)", "es": "Teléfono (opcional)" },
-    "formTopic": { "en": "What is it about?", "es": "¿Sobre qué es?" },
-    "formTopic.visit": { "en": "Visiting", "es": "Una visita" },
-    "formTopic.sacraments": { "en": "Baptism, wedding or funeral", "es": "Bautizo, boda o funeral" },
-    "formTopic.prayer": { "en": "A prayer request", "es": "Una petición de oración" },
-    "formTopic.other": { "en": "Something else", "es": "Otra cosa" },
-    "formMessage": { "en": "Message", "es": "Mensaje" },
-    "formSend": { "en": "Send message", "es": "Enviar mensaje" },
-    "formSending": { "en": "Sending", "es": "Enviando" },
-    "formSent": { "en": "Thank you. Your message is on its way and we will reply soon.", "es": "Gracias. Su mensaje está en camino y le responderemos pronto." },
+    "calendarStyle.julian": {
+      "en": "Old Calendar (Julian)",
+      "es": "Calendario antiguo (juliano)"
+    },
+    "calendarStyle.revised-julian": {
+      "en": "New Calendar",
+      "es": "Calendario nuevo"
+    },
+    "calendarStyle.gregorian": {
+      "en": "New Calendar",
+      "es": "Calendario nuevo"
+    },
+    "weekly": {
+      "en": "Weekly",
+      "es": "Semanal"
+    },
+    "monthly": {
+      "en": "Monthly",
+      "es": "Mensual"
+    },
+    "viewLabel": {
+      "en": "Schedule view",
+      "es": "Vista del horario"
+    },
+    "weekOf": {
+      "en": "Week of {date}",
+      "es": "Semana del {date}"
+    },
+    "previousWeek": {
+      "en": "Previous week",
+      "es": "Semana anterior"
+    },
+    "nextWeek": {
+      "en": "Next week",
+      "es": "Semana siguiente"
+    },
+    "previousMonth": {
+      "en": "Previous month",
+      "es": "Mes anterior"
+    },
+    "nextMonth": {
+      "en": "Next month",
+      "es": "Mes siguiente"
+    },
+    "goToToday": {
+      "en": "Today",
+      "es": "Hoy"
+    },
+    "noServices": {
+      "en": "No services",
+      "es": "Sin servicios"
+    },
+    "feast": {
+      "en": "Feast",
+      "es": "Fiesta"
+    },
+    "greatFeast": {
+      "en": "Great feast",
+      "es": "Gran fiesta"
+    },
+    "streamed": {
+      "en": "Streamed live",
+      "es": "Transmisión en vivo"
+    },
+    "legendFeast": {
+      "en": "Feast day",
+      "es": "Día de fiesta"
+    },
+    "legendToday": {
+      "en": "Today",
+      "es": "Hoy"
+    },
+    "legendStream": {
+      "en": "Livestreamed",
+      "es": "Se transmite"
+    },
+    "all": {
+      "en": "All",
+      "es": "Todo"
+    },
+    "filterLabel": {
+      "en": "Filter",
+      "es": "Filtrar"
+    },
+    "noResults": {
+      "en": "Nothing matches yet. Try another filter.",
+      "es": "Todavía no hay resultados. Pruebe otro filtro."
+    },
+    "sampleImage": {
+      "en": "Sample image",
+      "es": "Imagen de ejemplo"
+    },
+    "replacePhoto": {
+      "en": "Replace with your photo",
+      "es": "Reemplazar con su foto"
+    },
+    "viewGallery": {
+      "en": "View gallery",
+      "es": "Ver galería"
+    },
+    "close": {
+      "en": "Close",
+      "es": "Cerrar"
+    },
+    "previous": {
+      "en": "Previous",
+      "es": "Anterior"
+    },
+    "nextItem": {
+      "en": "Next",
+      "es": "Siguiente"
+    },
+    "imageOf": {
+      "en": "Image {n} of {total}",
+      "es": "Imagen {n} de {total}"
+    },
+    "openImage": {
+      "en": "Open image: {name}",
+      "es": "Abrir imagen: {name}"
+    },
+    "formName": {
+      "en": "Your name",
+      "es": "Su nombre"
+    },
+    "formEmail": {
+      "en": "Email",
+      "es": "Correo electrónico"
+    },
+    "formPhone": {
+      "en": "Phone (optional)",
+      "es": "Teléfono (opcional)"
+    },
+    "formTopic": {
+      "en": "What is it about?",
+      "es": "¿Sobre qué es?"
+    },
+    "formTopic.visit": {
+      "en": "Visiting",
+      "es": "Una visita"
+    },
+    "formTopic.sacraments": {
+      "en": "Baptism, wedding or funeral",
+      "es": "Bautizo, boda o funeral"
+    },
+    "formTopic.prayer": {
+      "en": "A prayer request",
+      "es": "Una petición de oración"
+    },
+    "formTopic.other": {
+      "en": "Something else",
+      "es": "Otra cosa"
+    },
+    "formMessage": {
+      "en": "Message",
+      "es": "Mensaje"
+    },
+    "formSend": {
+      "en": "Send message",
+      "es": "Enviar mensaje"
+    },
+    "formSending": {
+      "en": "Sending",
+      "es": "Enviando"
+    },
+    "formSent": {
+      "en": "Thank you. Your message is on its way and we will reply soon.",
+      "es": "Gracias. Su mensaje está en camino y le responderemos pronto."
+    },
     "formSampleNote": {
       "en": "Sample form. Messages are not sent until the parish connects a form handler.",
       "es": "Formulario de ejemplo. Los mensajes no se envían hasta que la parroquia conecte un servicio de formularios."
     },
-    "formRequired": { "en": "Please fill this in.", "es": "Complete este campo, por favor." },
-    "formInvalidEmail": { "en": "Please enter a valid email address.", "es": "Escriba un correo electrónico válido." },
-    "formSendAnother": { "en": "Send another message", "es": "Enviar otro mensaje" },
-    "newsletterTitle": { "en": "Parish newsletter", "es": "Boletín parroquial" },
+    "formRequired": {
+      "en": "Please fill this in.",
+      "es": "Complete este campo, por favor."
+    },
+    "formInvalidEmail": {
+      "en": "Please enter a valid email address.",
+      "es": "Escriba un correo electrónico válido."
+    },
+    "formSendAnother": {
+      "en": "Send another message",
+      "es": "Enviar otro mensaje"
+    },
+    "newsletterTitle": {
+      "en": "Parish newsletter",
+      "es": "Boletín parroquial"
+    },
     "newsletterText": {
       "en": "One email a week with services, feasts and parish news.",
       "es": "Un correo a la semana con servicios, fiestas y noticias de la parroquia."
     },
-    "newsletterEmail": { "en": "Email address", "es": "Correo electrónico" },
-    "newsletterSubscribe": { "en": "Subscribe", "es": "Suscribirse" },
-    "newsletterDone": { "en": "Thank you. Please check your inbox to confirm.", "es": "Gracias. Revise su correo para confirmar." },
-    "newsletterVia": { "en": "Sent through OrthodoxConnect", "es": "Enviado a través de OrthodoxConnect" },
-    "footerServices": { "en": "Service times", "es": "Horarios de servicios" },
-    "footerContact": { "en": "Contact", "es": "Contacto" },
-    "footerFollow": { "en": "Follow", "es": "Síganos" },
-    "footerPages": { "en": "Pages", "es": "Páginas" },
-    "footerApp": { "en": "Parish app on OrthodoxConnect", "es": "App de la parroquia en OrthodoxConnect" },
-    "officeHours": { "en": "Office hours", "es": "Horario de oficina" },
-    "phone": { "en": "Phone", "es": "Teléfono" },
-    "email": { "en": "Email", "es": "Correo" },
-    "parking": { "en": "Parking", "es": "Estacionamiento" },
-    "transit": { "en": "Public transit", "es": "Transporte público" },
-    "mapPlaceholder": { "en": "Map preview. Add a map embed link in site settings.", "es": "Vista previa del mapa. Añada un enlace de mapa en la configuración." },
-    "oneTime": { "en": "One time", "es": "Una vez" },
-    "monthlyGift": { "en": "Monthly", "es": "Mensual" },
-    "frequency": { "en": "How often", "es": "Frecuencia" },
-    "amount": { "en": "Amount", "es": "Cantidad" },
-    "otherAmount": { "en": "Other amount", "es": "Otra cantidad" },
-    "fund": { "en": "Give toward", "es": "Destinar a" },
-    "giveOnce": { "en": "Give {amount}", "es": "Donar {amount}" },
-    "giveMonthly": { "en": "Give {amount} each month", "es": "Donar {amount} cada mes" },
-    "minimumAmount": { "en": "The smallest online gift is {amount}.", "es": "La donación mínima en línea es de {amount}." },
+    "newsletterEmail": {
+      "en": "Email address",
+      "es": "Correo electrónico"
+    },
+    "newsletterSubscribe": {
+      "en": "Subscribe",
+      "es": "Suscribirse"
+    },
+    "newsletterDone": {
+      "en": "Thank you. Please check your inbox to confirm.",
+      "es": "Gracias. Revise su correo para confirmar."
+    },
+    "newsletterVia": {
+      "en": "Sent through OrthodoxConnect",
+      "es": "Enviado a través de OrthodoxConnect"
+    },
+    "footerServices": {
+      "en": "Service times",
+      "es": "Horarios de servicios"
+    },
+    "footerContact": {
+      "en": "Contact",
+      "es": "Contacto"
+    },
+    "footerFollow": {
+      "en": "Follow",
+      "es": "Síganos"
+    },
+    "footerPages": {
+      "en": "Pages",
+      "es": "Páginas"
+    },
+    "footerApp": {
+      "en": "Parish app on OrthodoxConnect",
+      "es": "App de la parroquia en OrthodoxConnect"
+    },
+    "officeHours": {
+      "en": "Office hours",
+      "es": "Horario de oficina"
+    },
+    "phone": {
+      "en": "Phone",
+      "es": "Teléfono"
+    },
+    "email": {
+      "en": "Email",
+      "es": "Correo"
+    },
+    "parking": {
+      "en": "Parking",
+      "es": "Estacionamiento"
+    },
+    "transit": {
+      "en": "Public transit",
+      "es": "Transporte público"
+    },
+    "mapPlaceholder": {
+      "en": "Map preview. Add a map embed link in site settings.",
+      "es": "Vista previa del mapa. Añada un enlace de mapa en la configuración."
+    },
+    "oneTime": {
+      "en": "One time",
+      "es": "Una vez"
+    },
+    "monthlyGift": {
+      "en": "Monthly",
+      "es": "Mensual"
+    },
+    "frequency": {
+      "en": "How often",
+      "es": "Frecuencia"
+    },
+    "amount": {
+      "en": "Amount",
+      "es": "Cantidad"
+    },
+    "otherAmount": {
+      "en": "Other amount",
+      "es": "Otra cantidad"
+    },
+    "fund": {
+      "en": "Give toward",
+      "es": "Destinar a"
+    },
+    "giveOnce": {
+      "en": "Give {amount}",
+      "es": "Donar {amount}"
+    },
+    "giveMonthly": {
+      "en": "Give {amount} each month",
+      "es": "Donar {amount} cada mes"
+    },
     "donateSampleNote": {
       "en": "Sample form. No payment is taken. The parish connects Stripe, Authorize.net or another processor in the builder.",
       "es": "Formulario de ejemplo. No se cobra nada. La parroquia conecta Stripe, Authorize.net u otro procesador en el editor."
@@ -114,21 +389,66 @@
       "en": "Thank you. In a live site you would now continue to secure payment.",
       "es": "Gracias. En un sitio real ahora continuaría al pago seguro."
     },
-    "donateSummary": { "en": "{amount} to the {fund}", "es": "{amount} para {fund}" },
-    "donateSummaryMonthly": { "en": "{amount} each month to the {fund}", "es": "{amount} cada mes para {fund}" },
-    "donateAgain": { "en": "Make another gift", "es": "Hacer otra donación" },
-    "donateTax": { "en": "Receipts for tax purposes are sent each January.", "es": "Los recibos para impuestos se envían cada enero." },
-    "sermonFormat.all": { "en": "All", "es": "Todo" },
-    "sermonFormat.audio": { "en": "Audio", "es": "Audio" },
-    "sermonFormat.video": { "en": "Video", "es": "Video" },
-    "sermonFormat.text": { "en": "Text", "es": "Texto" },
-    "sermonSearch": { "en": "Search sermons", "es": "Buscar sermones" },
-    "sermonSpeaker": { "en": "Speaker", "es": "Predicador" },
-    "allSpeakers": { "en": "All speakers", "es": "Todos" },
-    "listen": { "en": "Listen", "es": "Escuchar" },
-    "watch": { "en": "Watch", "es": "Ver" },
-    "read": { "en": "Read", "es": "Leer" },
-    "nowPlaying": { "en": "Selected", "es": "Seleccionado" },
+    "donateSummary": {
+      "en": "{amount} to the {fund}",
+      "es": "{amount} para {fund}"
+    },
+    "donateSummaryMonthly": {
+      "en": "{amount} each month to the {fund}",
+      "es": "{amount} cada mes para {fund}"
+    },
+    "donateAgain": {
+      "en": "Make another gift",
+      "es": "Hacer otra donación"
+    },
+    "donateTax": {
+      "en": "Receipts for tax purposes are sent each January.",
+      "es": "Los recibos para impuestos se envían cada enero."
+    },
+    "sermonFormat.all": {
+      "en": "All",
+      "es": "Todo"
+    },
+    "sermonFormat.audio": {
+      "en": "Audio",
+      "es": "Audio"
+    },
+    "sermonFormat.video": {
+      "en": "Video",
+      "es": "Video"
+    },
+    "sermonFormat.text": {
+      "en": "Text",
+      "es": "Texto"
+    },
+    "sermonSearch": {
+      "en": "Search sermons",
+      "es": "Buscar sermones"
+    },
+    "sermonSpeaker": {
+      "en": "Speaker",
+      "es": "Predicador"
+    },
+    "allSpeakers": {
+      "en": "All speakers",
+      "es": "Todos"
+    },
+    "listen": {
+      "en": "Listen",
+      "es": "Escuchar"
+    },
+    "watch": {
+      "en": "Watch",
+      "es": "Ver"
+    },
+    "read": {
+      "en": "Read",
+      "es": "Leer"
+    },
+    "nowPlaying": {
+      "en": "Selected",
+      "es": "Seleccionado"
+    },
     "mediaPlaceholder": {
       "en": "Sample entry. The recording plays here once a file or link is added.",
       "es": "Entrada de ejemplo. La grabación se reproduce aquí cuando se añade un archivo o enlace."
@@ -141,65 +461,218 @@
       "en": "Video player. Add your stream link in site settings.",
       "es": "Reproductor de video. Añada el enlace de la transmisión en la configuración."
     },
-    "openStream": { "en": "Open on {platform}", "es": "Abrir en {platform}" },
-    "nextStream": { "en": "Next streamed service", "es": "Próximo servicio transmitido" },
-    "readPost": { "en": "Read post", "es": "Leer publicación" },
-    "backToNews": { "en": "All news", "es": "Todas las noticias" },
-    "allNews": { "en": "See all news", "es": "Ver todas las noticias" },
-    "readBio": { "en": "Read bio", "es": "Ver biografía" },
-    "hideBio": { "en": "Hide bio", "es": "Ocultar biografía" },
-    "explore": { "en": "Open", "es": "Abrir" },
-    "donateNow": { "en": "Give online", "es": "Donar en línea" },
-    "sermonArchive": { "en": "Sermon archive", "es": "Archivo de sermones" },
-    "notFoundTitle": { "en": "This page is not here", "es": "Esta página no existe" },
-    "quickLinks": { "en": "Quick links", "es": "Accesos rápidos" },
-    "contactUs": { "en": "Contact us", "es": "Contáctenos" },
+    "openStream": {
+      "en": "Open on {platform}",
+      "es": "Abrir en {platform}"
+    },
+    "nextStream": {
+      "en": "Next streamed service",
+      "es": "Próximo servicio transmitido"
+    },
+    "readPost": {
+      "en": "Read post",
+      "es": "Leer publicación"
+    },
+    "backToNews": {
+      "en": "All news",
+      "es": "Todas las noticias"
+    },
+    "allNews": {
+      "en": "See all news",
+      "es": "Ver todas las noticias"
+    },
+    "readBio": {
+      "en": "Read bio",
+      "es": "Ver biografía"
+    },
+    "hideBio": {
+      "en": "Hide bio",
+      "es": "Ocultar biografía"
+    },
+    "explore": {
+      "en": "Open",
+      "es": "Abrir"
+    },
+    "donateNow": {
+      "en": "Give online",
+      "es": "Donar en línea"
+    },
+    "sermonArchive": {
+      "en": "Sermon archive",
+      "es": "Archivo de sermones"
+    },
+    "notFoundTitle": {
+      "en": "This page is not here",
+      "es": "Esta página no existe"
+    },
+    "quickLinks": {
+      "en": "Quick links",
+      "es": "Accesos rápidos"
+    },
+    "contactUs": {
+      "en": "Contact us",
+      "es": "Contáctenos"
+    },
     "notFoundText": {
       "en": "The link may be old or mistyped. These pages might help.",
       "es": "Puede que el enlace sea antiguo o tenga un error. Estas páginas pueden ayudar."
     },
-    "breadcrumb": { "en": "Breadcrumb", "es": "Ruta de navegación" },
-    "more": { "en": "More", "es": "Más" },
-    "cart": { "en": "Cart", "es": "Carrito" },
-    "cartCount": { "en": "Cart, {n} items", "es": "Carrito, {n} artículos" },
-    "cartEmpty": { "en": "Your cart is empty.", "es": "Su carrito está vacío." },
-    "continueShopping": { "en": "Continue shopping", "es": "Seguir comprando" },
-    "addToCart": { "en": "Add to cart", "es": "Añadir al carrito" },
-    "addedToCart": { "en": "Added to your cart", "es": "Añadido al carrito" },
-    "viewCart": { "en": "View cart", "es": "Ver carrito" },
-    "inStock": { "en": "In stock", "es": "Disponible" },
-    "lowStock": { "en": "Only {n} left", "es": "Quedan {n}" },
-    "outOfStock": { "en": "Out of stock", "es": "Agotado" },
-    "quantity": { "en": "Quantity", "es": "Cantidad" },
-    "decrease": { "en": "Decrease quantity", "es": "Reducir cantidad" },
-    "increase": { "en": "Increase quantity", "es": "Aumentar cantidad" },
-    "option": { "en": "Option", "es": "Opción" },
-    "fromPrice": { "en": "From {price}", "es": "Desde {price}" },
-    "backToStore": { "en": "Back to the store", "es": "Volver a la tienda" },
-    "pickupOnly": { "en": "Pickup at church only", "es": "Solo recogida en la iglesia" },
-    "subtotal": { "en": "Subtotal", "es": "Subtotal" },
-    "shipping": { "en": "Shipping", "es": "Envío" },
-    "shippingFree": { "en": "Free", "es": "Gratis" },
-    "freeShippingOver": { "en": "Free shipping on orders over {amount}.", "es": "Envío gratis en pedidos de más de {amount}." },
-    "offerings": { "en": "Offerings and donations", "es": "Ofrendas y donativos" },
-    "offeringsNote": { "en": "Offerings are not taxed or shipped.", "es": "Las ofrendas no llevan impuestos ni envío." },
-    "total": { "en": "Total", "es": "Total" },
-    "remove": { "en": "Remove", "es": "Quitar" },
-    "goToCheckout": { "en": "Go to checkout", "es": "Ir a pagar" },
-    "fulfillment": { "en": "How would you like to receive your order?", "es": "¿Cómo quiere recibir su pedido?" },
-    "fulfillShip": { "en": "Ship to my address", "es": "Enviar a mi dirección" },
-    "fulfillPickup": { "en": "Pick up at church", "es": "Recoger en la iglesia" },
+    "breadcrumb": {
+      "en": "Breadcrumb",
+      "es": "Ruta de navegación"
+    },
+    "more": {
+      "en": "More",
+      "es": "Más"
+    },
+    "cart": {
+      "en": "Cart",
+      "es": "Carrito"
+    },
+    "cartCount": {
+      "en": "Cart, {n} items",
+      "es": "Carrito, {n} artículos"
+    },
+    "cartEmpty": {
+      "en": "Your cart is empty.",
+      "es": "Su carrito está vacío."
+    },
+    "continueShopping": {
+      "en": "Continue shopping",
+      "es": "Seguir comprando"
+    },
+    "addToCart": {
+      "en": "Add to cart",
+      "es": "Añadir al carrito"
+    },
+    "addedToCart": {
+      "en": "Added to your cart",
+      "es": "Añadido al carrito"
+    },
+    "viewCart": {
+      "en": "View cart",
+      "es": "Ver carrito"
+    },
+    "inStock": {
+      "en": "In stock",
+      "es": "Disponible"
+    },
+    "lowStock": {
+      "en": "Only {n} left",
+      "es": "Quedan {n}"
+    },
+    "outOfStock": {
+      "en": "Out of stock",
+      "es": "Agotado"
+    },
+    "quantity": {
+      "en": "Quantity",
+      "es": "Cantidad"
+    },
+    "decrease": {
+      "en": "Decrease quantity",
+      "es": "Reducir cantidad"
+    },
+    "increase": {
+      "en": "Increase quantity",
+      "es": "Aumentar cantidad"
+    },
+    "option": {
+      "en": "Option",
+      "es": "Opción"
+    },
+    "fromPrice": {
+      "en": "From {price}",
+      "es": "Desde {price}"
+    },
+    "backToStore": {
+      "en": "Back to the store",
+      "es": "Volver a la tienda"
+    },
+    "pickupOnly": {
+      "en": "Pickup at church only",
+      "es": "Solo recogida en la iglesia"
+    },
+    "subtotal": {
+      "en": "Subtotal",
+      "es": "Subtotal"
+    },
+    "shipping": {
+      "en": "Shipping",
+      "es": "Envío"
+    },
+    "shippingFree": {
+      "en": "Free",
+      "es": "Gratis"
+    },
+    "freeShippingOver": {
+      "en": "Free shipping on orders over {amount}.",
+      "es": "Envío gratis en pedidos de más de {amount}."
+    },
+    "offerings": {
+      "en": "Offerings and donations",
+      "es": "Ofrendas y donativos"
+    },
+    "offeringsNote": {
+      "en": "Offerings are not taxed or shipped.",
+      "es": "Las ofrendas no llevan impuestos ni envío."
+    },
+    "total": {
+      "en": "Total",
+      "es": "Total"
+    },
+    "remove": {
+      "en": "Remove",
+      "es": "Quitar"
+    },
+    "goToCheckout": {
+      "en": "Go to checkout",
+      "es": "Ir a pagar"
+    },
+    "fulfillment": {
+      "en": "How would you like to receive your order?",
+      "es": "¿Cómo quiere recibir su pedido?"
+    },
+    "fulfillShip": {
+      "en": "Ship to my address",
+      "es": "Enviar a mi dirección"
+    },
+    "fulfillPickup": {
+      "en": "Pick up at church",
+      "es": "Recoger en la iglesia"
+    },
     "pickupForced": {
       "en": "Your cart has an item that can only be picked up at church.",
       "es": "Su carrito tiene un artículo que solo se puede recoger en la iglesia."
     },
-    "yourDetails": { "en": "Your details", "es": "Sus datos" },
-    "shippingAddress": { "en": "Shipping address", "es": "Dirección de envío" },
-    "street": { "en": "Street address", "es": "Calle y número" },
-    "city": { "en": "City", "es": "Ciudad" },
-    "region": { "en": "State or region", "es": "Estado o región" },
-    "postalCode": { "en": "Postal code", "es": "Código postal" },
-    "placeOrder": { "en": "Continue to payment", "es": "Continuar al pago" },
+    "yourDetails": {
+      "en": "Your details",
+      "es": "Sus datos"
+    },
+    "shippingAddress": {
+      "en": "Shipping address",
+      "es": "Dirección de envío"
+    },
+    "street": {
+      "en": "Street address",
+      "es": "Calle y número"
+    },
+    "city": {
+      "en": "City",
+      "es": "Ciudad"
+    },
+    "region": {
+      "en": "State or region",
+      "es": "Estado o región"
+    },
+    "postalCode": {
+      "en": "Postal code",
+      "es": "Código postal"
+    },
+    "placeOrder": {
+      "en": "Continue to payment",
+      "es": "Continuar al pago"
+    },
     "orderSampleNote": {
       "en": "Sample checkout. No payment is taken. The parish connects Stripe, Authorize.net or another processor in the builder.",
       "es": "Pago de ejemplo. No se cobra nada. La parroquia conecta Stripe, Authorize.net u otro procesador en el editor."
@@ -208,19 +681,58 @@
       "en": "Thank you. Order {id} is recorded as a sample. No payment was taken.",
       "es": "Gracias. El pedido {id} se registró como ejemplo. No se cobró nada."
     },
-    "orderSummary": { "en": "Order summary", "es": "Resumen del pedido" },
-    "priceFree": { "en": "Free", "es": "Gratuito" },
-    "priceDonation": { "en": "Donation", "es": "Donativo" },
-    "duration": { "en": "Duration", "es": "Duración" },
-    "requestThis": { "en": "Request", "es": "Solicitar" },
-    "writeNote": { "en": "Write a note", "es": "Escribir una nota" },
-    "requestFormTitle": { "en": "Request: {name}", "es": "Solicitud: {name}" },
-    "requestGoesTo": { "en": "Your request goes to: {to}", "es": "Su solicitud llega a: {to}" },
-    "preferredDate": { "en": "Preferred date", "es": "Fecha preferida" },
-    "preferredTime": { "en": "Preferred time", "es": "Hora preferida" },
-    "notes": { "en": "Notes", "es": "Notas" },
-    "notesHint": { "en": "Anything Father should know, such as names, place or urgency.", "es": "Lo que el padre deba saber, como nombres, lugar o urgencia." },
-    "sendRequest": { "en": "Send request", "es": "Enviar solicitud" },
+    "orderSummary": {
+      "en": "Order summary",
+      "es": "Resumen del pedido"
+    },
+    "priceFree": {
+      "en": "Free",
+      "es": "Gratuito"
+    },
+    "priceDonation": {
+      "en": "Donation",
+      "es": "Donativo"
+    },
+    "duration": {
+      "en": "Duration",
+      "es": "Duración"
+    },
+    "requestThis": {
+      "en": "Request",
+      "es": "Solicitar"
+    },
+    "writeNote": {
+      "en": "Write a note",
+      "es": "Escribir una nota"
+    },
+    "requestFormTitle": {
+      "en": "Request: {name}",
+      "es": "Solicitud: {name}"
+    },
+    "requestGoesTo": {
+      "en": "Your request goes to: {to}",
+      "es": "Su solicitud llega a: {to}"
+    },
+    "preferredDate": {
+      "en": "Preferred date",
+      "es": "Fecha preferida"
+    },
+    "preferredTime": {
+      "en": "Preferred time",
+      "es": "Hora preferida"
+    },
+    "notes": {
+      "en": "Notes",
+      "es": "Notas"
+    },
+    "notesHint": {
+      "en": "Anything Father should know, such as names, place or urgency.",
+      "es": "Lo que el padre deba saber, como nombres, lugar o urgencia."
+    },
+    "sendRequest": {
+      "en": "Send request",
+      "es": "Enviar solicitud"
+    },
     "requestSent": {
       "en": "Thank you. Your request has been recorded and the parish will call you to arrange it.",
       "es": "Gracias. Su solicitud quedó registrada y la parroquia le llamará para concretarla."
@@ -229,73 +741,269 @@
       "en": "Sample form. Requests reach the priest or office once the parish connects a handler.",
       "es": "Formulario de ejemplo. Las solicitudes llegan al sacerdote o a la oficina cuando la parroquia conecte un servicio."
     },
-    "phoneRequired": { "en": "Phone", "es": "Teléfono" },
-    "phoneFormat": { "en": "Format: (000)-000-0000", "es": "Formato: (000)-000-0000" },
-    "invalidPhone": { "en": "Please enter a 10 digit phone number.", "es": "Escriba un número de teléfono de 10 dígitos." },
-    "slipNumber": { "en": "Note {n}", "es": "Nota {n}" },
-    "slipType": { "en": "Type of note", "es": "Tipo de nota" },
-    "commemoration": { "en": "Commemoration", "es": "Conmemoración" },
-    "suggestedDonation": { "en": "Suggested donation {amount}", "es": "Donativo sugerido {amount}" },
-    "namesLegend": { "en": "Baptismal names", "es": "Nombres de bautismo" },
-    "nameN": { "en": "Name {n}", "es": "Nombre {n}" },
-    "prefixN": { "en": "Title for name {n}", "es": "Título del nombre {n}" },
-    "namePlaceholder": { "en": "First name", "es": "Nombre" },
-    "addName": { "en": "Add a name", "es": "Añadir un nombre" },
-    "removeName": { "en": "Remove name {n}", "es": "Quitar el nombre {n}" },
-    "maxNames": { "en": "A note holds up to {n} names. Add another note for more.", "es": "Una nota admite hasta {n} nombres. Añada otra nota para más." },
-    "addSlip": { "en": "Add another note", "es": "Añadir otra nota" },
-    "removeSlip": { "en": "Remove this note", "es": "Quitar esta nota" },
-    "candleLabel": { "en": "Light a candle for them", "es": "Encender una vela por ellos" },
-    "noCandle": { "en": "No candle", "es": "Sin vela" },
-    "extraDonation": { "en": "Additional donation (optional)", "es": "Donativo adicional (opcional)" },
-    "noExtra": { "en": "None", "es": "Ninguno" },
-    "notesSummary": { "en": "Your notes", "es": "Sus notas" },
-    "namesCount": { "en": "{n} names", "es": "{n} nombres" },
-    "oneName": { "en": "1 name", "es": "1 nombre" },
-    "candleLine": { "en": "Candle: {name}", "es": "Vela: {name}" },
-    "donationLine": { "en": "Additional donation", "es": "Donativo adicional" },
-    "zapiskaLine": { "en": "Note {type}, {commemoration}", "es": "Nota {type}, {commemoration}" },
-    "addNotesToCart": { "en": "Add to cart", "es": "Añadir al carrito" },
-    "donateAndSubmit": { "en": "Donate and submit", "es": "Donar y enviar" },
-    "notesAdded": { "en": "Your notes are in the cart.", "es": "Sus notas están en el carrito." },
-    "notesSubmitted": {
-      "en": "Thank you. Your notes are recorded as a sample and no payment was taken. The names would be given to Father before the next Liturgy.",
-      "es": "Gracias. Sus notas se registraron como ejemplo y no se cobró nada. Los nombres se entregarían al padre antes de la próxima Liturgia."
+    "phoneRequired": {
+      "en": "Phone",
+      "es": "Teléfono"
     },
-    "needOneName": { "en": "Add at least one name to each note.", "es": "Añada al menos un nombre en cada nota." },
-    "consentRequired": { "en": "Please agree to the note about storing names.", "es": "Acepte, por favor, la nota sobre el uso de los nombres." },
-    "writeAnother": { "en": "Write more notes", "es": "Escribir más notas" },
-    "onConnect": { "en": "on OrthodoxConnect", "es": "en OrthodoxConnect" },
-    "createEvent": { "en": "Create an event", "es": "Crear un evento" },
-    "postNeed": { "en": "Post a need", "es": "Publicar una necesidad" },
-    "connectHandoff": { "en": "Opens the OrthodoxConnect app for this parish.", "es": "Abre la app OrthodoxConnect de esta parroquia." },
+    "phoneFormat": {
+      "en": "Format: (000)-000-0000",
+      "es": "Formato: (000)-000-0000"
+    },
+    "invalidPhone": {
+      "en": "Please enter a 10 digit phone number.",
+      "es": "Escriba un número de teléfono de 10 dígitos."
+    },
+    "slipNumber": {
+      "en": "Slip {n}",
+      "es": "Ficha {n}"
+    },
+    "slipType": {
+      "en": "Type of commemoration",
+      "es": "Tipo de conmemoración"
+    },
+    "commemoration": {
+      "en": "Commemoration",
+      "es": "Conmemoración"
+    },
+    "suggestedDonation": {
+      "en": "Suggested donation {amount}",
+      "es": "Donativo sugerido {amount}"
+    },
+    "namesLegend": {
+      "en": "Baptismal names",
+      "es": "Nombres de bautismo"
+    },
+    "nameN": {
+      "en": "Name {n}",
+      "es": "Nombre {n}"
+    },
+    "prefixN": {
+      "en": "Title for name {n}",
+      "es": "Título del nombre {n}"
+    },
+    "namePlaceholder": {
+      "en": "First name",
+      "es": "Nombre"
+    },
+    "addName": {
+      "en": "Add a name",
+      "es": "Añadir un nombre"
+    },
+    "removeName": {
+      "en": "Remove name {n}",
+      "es": "Quitar el nombre {n}"
+    },
+    "maxNames": {
+      "en": "A slip holds up to {n} names. Add another slip for more.",
+      "es": "Una ficha admite hasta {n} nombres. Añada otra ficha para más."
+    },
+    "addSlip": {
+      "en": "Add another slip",
+      "es": "Añadir otra ficha"
+    },
+    "removeSlip": {
+      "en": "Remove this slip",
+      "es": "Quitar esta ficha"
+    },
+    "candleLabel": {
+      "en": "Light a candle for them",
+      "es": "Encender una vela por ellos"
+    },
+    "noCandle": {
+      "en": "No candle",
+      "es": "Sin vela"
+    },
+    "extraDonation": {
+      "en": "Additional donation (optional)",
+      "es": "Donativo adicional (opcional)"
+    },
+    "noExtra": {
+      "en": "None",
+      "es": "Ninguno"
+    },
+    "notesSummary": {
+      "en": "Your commemorations",
+      "es": "Sus conmemoraciones"
+    },
+    "namesCount": {
+      "en": "{n} names",
+      "es": "{n} nombres"
+    },
+    "oneName": {
+      "en": "1 name",
+      "es": "1 nombre"
+    },
+    "candleLine": {
+      "en": "Candle: {name}",
+      "es": "Vela: {name}"
+    },
+    "donationLine": {
+      "en": "Additional donation",
+      "es": "Donativo adicional"
+    },
+    "zapiskaLine": {
+      "en": "Commemoration names: {type}, {commemoration}",
+      "es": "Nombres para conmemorar: {type}, {commemoration}"
+    },
+    "addNotesToCart": {
+      "en": "Add commemorations to cart",
+      "es": "Añadir conmemoraciones al carrito"
+    },
+    "donateAndSubmit": {
+      "en": "Donate and submit",
+      "es": "Donar y enviar"
+    },
+    "notesAdded": {
+      "en": "Your commemorations are in the cart.",
+      "es": "Sus conmemoraciones están en el carrito."
+    },
+    "notesSubmitted": {
+      "en": "Thank you. Your commemorations are recorded as a sample and no payment was taken. The names would be given to Father before the next Liturgy.",
+      "es": "Gracias. Sus conmemoraciones se registraron como ejemplo y no se cobró nada. Los nombres se entregarían al padre antes de la próxima Liturgia."
+    },
+    "needOneName": {
+      "en": "Add at least one name to each slip.",
+      "es": "Añada al menos un nombre en cada ficha."
+    },
+    "consentRequired": {
+      "en": "Please agree to the note about storing names.",
+      "es": "Acepte, por favor, la nota sobre el uso de los nombres."
+    },
+    "writeAnother": {
+      "en": "Write more commemorations",
+      "es": "Escribir más conmemoraciones"
+    },
+    "onConnect": {
+      "en": "on OrthodoxConnect",
+      "es": "en OrthodoxConnect"
+    },
+    "createEvent": {
+      "en": "Create an event",
+      "es": "Crear un evento"
+    },
+    "postNeed": {
+      "en": "Post a need",
+      "es": "Publicar una necesidad"
+    },
+    "connectHandoff": {
+      "en": "Opens the OrthodoxConnect app for this parish.",
+      "es": "Abre la app OrthodoxConnect de esta parroquia."
+    },
     "connectIntro": {
       "en": "Events and sign-ups live in the OrthodoxConnect app, so organizers can message everyone who is coming.",
       "es": "Los eventos y las inscripciones están en la app OrthodoxConnect, para que los organizadores puedan escribir a quienes asisten."
     },
-    "rsvp": { "en": "RSVP", "es": "Confirmar asistencia" },
-    "going": { "en": "You are going", "es": "Usted asistirá" },
-    "full": { "en": "Full", "es": "Completo" },
-    "spotsLeft": { "en": "{n} spots left", "es": "Quedan {n} plazas" },
-    "oneSpotLeft": { "en": "1 spot left", "es": "Queda 1 plaza" },
-    "signedUpCount": { "en": "{n} of {cap} signed up", "es": "{n} de {cap} inscritos" },
-    "signUp": { "en": "Sign up", "es": "Inscribirse" },
-    "signedUp": { "en": "Signed up", "es": "Inscrito" },
-    "connectSignInTitle": { "en": "Continue with OrthodoxConnect", "es": "Continuar con OrthodoxConnect" },
+    "rsvp": {
+      "en": "RSVP",
+      "es": "Confirmar asistencia"
+    },
+    "going": {
+      "en": "You are going",
+      "es": "Usted asistirá"
+    },
+    "full": {
+      "en": "Full",
+      "es": "Completo"
+    },
+    "spotsLeft": {
+      "en": "{n} spots left",
+      "es": "Quedan {n} plazas"
+    },
+    "oneSpotLeft": {
+      "en": "1 spot left",
+      "es": "Queda 1 plaza"
+    },
+    "signedUpCount": {
+      "en": "{n} of {cap} signed up",
+      "es": "{n} de {cap} inscritos"
+    },
+    "signUp": {
+      "en": "Sign up",
+      "es": "Inscribirse"
+    },
+    "signedUp": {
+      "en": "Signed up",
+      "es": "Inscrito"
+    },
+    "connectSignInTitle": {
+      "en": "Continue with OrthodoxConnect",
+      "es": "Continuar con OrthodoxConnect"
+    },
     "connectSignInText": {
       "en": "Sign-ups use your OrthodoxConnect account so the organizer can reach you. This sample does not sign you in or save anything.",
       "es": "Las inscripciones usan su cuenta de OrthodoxConnect para que el organizador pueda contactarle. Este ejemplo no inicia sesión ni guarda nada."
     },
-    "connectContinue": { "en": "Continue", "es": "Continuar" },
-    "cancel": { "en": "Cancel", "es": "Cancelar" },
-    "peopleComing": { "en": "People coming", "es": "Personas que vienen" },
-    "listView": { "en": "List", "es": "Lista" },
-    "calendarView": { "en": "Calendar", "es": "Calendario" },
-    "organizer": { "en": "Organizer", "es": "Organiza" },
-    "location": { "en": "Where", "es": "Dónde" },
-    "noEvents": { "en": "No events this month.", "es": "No hay eventos este mes." },
-    "eventsOnDay": { "en": "Events on {date}", "es": "Eventos del {date}" },
-    "slotsLabel": { "en": "Choose a slot", "es": "Elija un turno" },
-    "seeAllEvents": { "en": "See all events", "es": "Ver todos los eventos" }
+    "connectContinue": {
+      "en": "Continue",
+      "es": "Continuar"
+    },
+    "cancel": {
+      "en": "Cancel",
+      "es": "Cancelar"
+    },
+    "peopleComing": {
+      "en": "People coming",
+      "es": "Personas que vienen"
+    },
+    "listView": {
+      "en": "List",
+      "es": "Lista"
+    },
+    "calendarView": {
+      "en": "Calendar",
+      "es": "Calendario"
+    },
+    "organizer": {
+      "en": "Organizer",
+      "es": "Organiza"
+    },
+    "location": {
+      "en": "Where",
+      "es": "Dónde"
+    },
+    "noEvents": {
+      "en": "No events this month.",
+      "es": "No hay eventos este mes."
+    },
+    "eventsOnDay": {
+      "en": "Events on {date}",
+      "es": "Eventos del {date}"
+    },
+    "slotsLabel": {
+      "en": "Choose a slot",
+      "es": "Elija un turno"
+    },
+    "seeAllEvents": {
+      "en": "See all events",
+      "es": "Ver todos los eventos"
+    },
+    "calendarStyle.new": {
+      "en": "New Calendar",
+      "es": "Calendario nuevo"
+    },
+    "calendarStyle.old": {
+      "en": "Old Calendar (Julian)",
+      "es": "Calendario antiguo (juliano)"
+    },
+    "oldStyleAbbr": {
+      "en": "O.S.",
+      "es": "E.J."
+    },
+    "addToCalendar": {
+      "en": "Add to calendar",
+      "es": "Añadir al calendario"
+    },
+    "googleCalendar": {
+      "en": "Google Calendar",
+      "es": "Google Calendar"
+    },
+    "time": {
+      "en": "Time",
+      "es": "Hora"
+    },
+    "serviceDetailNote": {
+      "en": "All are welcome.",
+      "es": "Todos son bienvenidos."
+    }
   }
 }

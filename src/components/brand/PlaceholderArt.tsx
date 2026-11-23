@@ -19,14 +19,14 @@ interface PlaceholderArtProps {
   arch?: boolean
 }
 
-/** Drawn stand-in for parish photos. When src is set, the real (or placeholder) image is shown instead. */
+/** Photo slot for parish images. When src is set, the image is shown with one optional corner tag. */
 export function PlaceholderArt({ motif, tone = "stone", src, alt, label, className, iconSize = "34%", arch = true }: PlaceholderArtProps) {
   if (src) {
     return (
       <div className={cn("relative isolate h-full w-full overflow-hidden", className)}>
         <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover" />
         {label ? (
-          <span className="absolute start-2.5 bottom-2.5 rounded-md bg-ink/70 px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-white uppercase backdrop-blur-sm">
+          <span className="pointer-events-none absolute start-2.5 bottom-2.5 rounded-md bg-ink/75 px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-white uppercase backdrop-blur-sm">
             {label}
           </span>
         ) : null}
@@ -48,7 +48,7 @@ export function PlaceholderArt({ motif, tone = "stone", src, alt, label, classNa
         <Pictogram name={motif} size={96} strokeWidth={0.9} className="h-full w-full" />
       </div>
       {label ? (
-        <span className="absolute start-2.5 bottom-2.5 rounded-md bg-white/85 px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-ink-500 uppercase backdrop-blur-sm">
+        <span className="pointer-events-none absolute start-2.5 bottom-2.5 rounded-md bg-ink/75 px-2 py-0.5 text-[0.65rem] font-medium tracking-wide text-white uppercase backdrop-blur-sm">
           {label}
         </span>
       ) : null}

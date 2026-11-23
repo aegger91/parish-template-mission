@@ -11,10 +11,10 @@ interface Props {
 const { lang, section, page } = Astro.props
 const children = (page.node.children ?? []).filter((c) => isPageEnabled(c) && c.showInNav !== false)
 const cardImages = [
-  "/images/placeholders/card-1.svg",
-  "/images/placeholders/card-2.svg",
-  "/images/placeholders/card-3.svg",
-  "/images/placeholders/card-4.svg",
+  "/images/samples/church-exterior-1.webp",
+  "/images/samples/iconostasis.webp",
+  "/images/samples/candles.webp",
+  "/images/samples/parish-gathering.webp",
 ]
 ---
 

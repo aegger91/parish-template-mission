@@ -12,7 +12,7 @@
         "es": "Rector"
       },
       "initials": "AE",
-      "photo": "/images/placeholders/clergy-1.svg",
+      "photo": "/images/samples/iconostasis.webp",
       "email": "father@example.org",
       "phone": "(555) 555-0142",
       "summary": {
@@ -37,7 +37,7 @@
         "es": "Diácono"
       },
       "initials": "SS",
-      "photo": "/images/placeholders/clergy-2.svg",
+      "photo": "/images/samples/candles.webp",
       "email": "deacon@example.org",
       "summary": {
         "en": "Short summary goes here.",
@@ -61,7 +61,7 @@
         "es": "Lector y director del coro"
       },
       "initials": "MP",
-      "photo": "/images/placeholders/clergy-3.svg",
+      "photo": "/images/samples/wall-painting.webp",
       "email": "choir@example.org",
       "summary": {
         "en": "Short summary goes here.",

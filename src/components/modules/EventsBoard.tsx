@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react"
 import { ArrowRight, Check, ChevronLeft, ChevronRight, Clock, MapPin, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FilterChips } from "@/components/sections/Gallery"
+import ServiceDetail, { type ServiceDetailItem } from "@/components/sections/ServiceDetail"
 import { addMonths, daysInMonth, formatDate, formatTime, localToday, startOfMonth, weekday, weekdayNames, addDays } from "@/lib/calendar"
 import { fill } from "@/lib/format"
 import { cn } from "@/lib/utils"
@@ -33,14 +34,29 @@ interface Props {
   locale: string
   weekStartsOn: number
   parishId: string
+  directionsUrl: string
   s: Record<string, string>
 }
 
-function EventCard({ ev, locale, s, going, onRsvp }: { ev: EventItem; locale: string; s: Record<string, string>; going: boolean; onRsvp: () => void }) {
+function EventCard({
+  ev,
+  locale,
+  s,
+  going,
+  onRsvp,
+  onOpen,
+}: {
+  ev: EventItem
+  locale: string
+  s: Record<string, string>
+  going: boolean
+  onRsvp: () => void
+  onOpen: () => void
+}) {
   const full = ev.signups >= ev.capacity
   return (
     <li className="flex min-w-0 flex-col gap-4 overflow-hidden rounded-[1.5rem] border border-stone-200/90 bg-paper p-4 shadow-[var(--mission-shadow-soft)] sm:flex-row sm:p-5">
-      <div className="relative h-36 w-full shrink-0 overflow-hidden rounded-[1rem] border border-gold-line/40 sm:h-28 sm:w-36">
+      <button type="button" onClick={onOpen} className="relative h-36 w-full shrink-0 overflow-hidden rounded-[1rem] border border-gold-line/40 text-start sm:h-28 sm:w-36">
         {ev.image ? (
           <img src={ev.image} alt="" className="h-full w-full object-cover" loading="lazy" />
         ) : (
@@ -53,23 +69,34 @@ function EventCard({ ev, locale, s, going, onRsvp }: { ev: EventItem; locale: st
           <span className="block text-[0.65rem] font-semibold tracking-[0.14em] uppercase">{formatDate(ev.date, locale, { month: "short" })}</span>
           <span className="font-tradition text-lg leading-none">{formatDate(ev.date, locale, { day: "numeric" })}</span>
         </div>
-        <span className="absolute end-2 bottom-2 rounded-md bg-ink/70 px-1.5 py-0.5 text-[0.6rem] tracking-wide text-white uppercase">{s.replacePhoto}</span>
-      </div>
+        <span className="pointer-events-none absolute start-2 bottom-2 rounded-md bg-ink/75 px-1.5 py-0.5 text-[0.6rem] font-medium tracking-wide text-white uppercase">{s.replacePhoto}</span>
+      </button>
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-ink-700">{ev.categoryLabel}</span>
           <ConnectBadge label={s.onConnect} />
         </div>
         <h3 className="mt-2 text-xl leading-snug text-ink">
-          <a href={ev.connectHref} rel="noopener" className="hover:text-blue-deep">
+          <button type="button" onClick={onOpen} className="text-start hover:text-blue-deep">
             {ev.title}
-          </a>
+          </button>
         </h3>
         <p className="mt-1 text-ink-600">{ev.description}</p>
         <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-ink-600">
-          <li className="inline-flex items-center gap-1.5"><Clock aria-hidden="true" className="size-3.5 text-gold" />{formatTime(ev.time, locale)}</li>
-          <li className="inline-flex items-center gap-1.5"><MapPin aria-hidden="true" className="size-3.5 text-gold" /><span className="sr-only">{s.location}: </span>{ev.location}</li>
-          <li className="inline-flex items-center gap-1.5"><User aria-hidden="true" className="size-3.5 text-gold" /><span className="sr-only">{s.organizer}: </span>{ev.organizer}</li>
+          <li className="inline-flex items-center gap-1.5">
+            <Clock aria-hidden="true" className="size-3.5 text-gold" />
+            {formatTime(ev.time, locale)}
+          </li>
+          <li className="inline-flex items-center gap-1.5">
+            <MapPin aria-hidden="true" className="size-3.5 text-gold" />
+            <span className="sr-only">{s.location}: </span>
+            {ev.location}
+          </li>
+          <li className="inline-flex items-center gap-1.5">
+            <User aria-hidden="true" className="size-3.5 text-gold" />
+            <span className="sr-only">{s.organizer}: </span>
+            {ev.organizer}
+          </li>
         </ul>
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
           <div className="min-w-0 flex-1">
@@ -91,12 +118,13 @@ function EventCard({ ev, locale, s, going, onRsvp }: { ev: EventItem; locale: st
   )
 }
 
-export default function EventsBoard({ events, categories, limit, showCalendar, allHref, initialToday, locale, weekStartsOn, parishId, s }: Props) {
+export default function EventsBoard({ events, categories, limit, showCalendar, allHref, initialToday, locale, weekStartsOn, parishId, directionsUrl, s }: Props) {
   const [today, setToday] = useState(initialToday)
   useEffect(() => setToday(localToday()), [])
   const [items, setItems] = useState(events)
   const [going, setGoing] = useState<Record<string, boolean>>({})
   const [target, setTarget] = useState<ConnectTarget | null>(null)
+  const [selected, setSelected] = useState<ServiceDetailItem | null>(null)
   const [filter, setFilter] = useState("all")
   const [view, setView] = useState<"list" | "calendar">("list")
   const upcoming = useMemo(() => items.filter((e) => e.date >= today).sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time)), [items, today])
@@ -104,6 +132,16 @@ export default function EventsBoard({ events, categories, limit, showCalendar, a
   const shown = limit ? filtered.slice(0, limit) : filtered
   const [month, setMonth] = useState(startOfMonth(upcoming[0]?.date ?? initialToday))
   const [selectedDay, setSelectedDay] = useState<string | null>(null)
+
+  const openDetail = (ev: EventItem) =>
+    setSelected({
+      id: ev.id,
+      title: ev.title,
+      date: ev.date,
+      time: ev.time,
+      place: ev.location,
+      note: ev.description || s.serviceDetailNote,
+    })
 
   const rsvp = (ev: EventItem) =>
     setTarget({ itemType: "event", itemId: ev.id, title: ev.title, subtitle: `${formatDate(ev.date, locale, { weekday: "long", month: "long", day: "numeric" })}, ${formatTime(ev.time, locale)}`, allowGuests: true, maxGuests: Math.min(6, ev.capacity - ev.signups) })
@@ -142,17 +180,37 @@ export default function EventsBoard({ events, categories, limit, showCalendar, a
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
           <div className="min-w-0 rounded-[1.5rem] border border-border bg-white p-4">
             <div className="flex items-center justify-between gap-2">
-              <Button variant="ghost" size="icon-sm" aria-label={s.previousMonth} onClick={() => { setMonth(addMonths(month, -1)); setSelectedDay(null) }}>
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                aria-label={s.previousMonth}
+                onClick={() => {
+                  setMonth(addMonths(month, -1))
+                  setSelectedDay(null)
+                }}
+              >
                 <ChevronLeft aria-hidden="true" className="rtl:rotate-180" />
               </Button>
-              <p aria-live="polite" className="font-heading text-lg text-ink">{formatDate(month, locale, { month: "long", year: "numeric" })}</p>
-              <Button variant="ghost" size="icon-sm" aria-label={s.nextMonth} onClick={() => { setMonth(addMonths(month, 1)); setSelectedDay(null) }}>
+              <p aria-live="polite" className="font-heading text-lg text-ink">
+                {formatDate(month, locale, { month: "long", year: "numeric" })}
+              </p>
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                aria-label={s.nextMonth}
+                onClick={() => {
+                  setMonth(addMonths(month, 1))
+                  setSelectedDay(null)
+                }}
+              >
                 <ChevronRight aria-hidden="true" className="rtl:rotate-180" />
               </Button>
             </div>
             <div className="mt-3 grid grid-cols-7 gap-1 text-center text-[0.7rem] font-semibold tracking-wider text-ink-500 uppercase">
               {names.map((n) => (
-                <span key={n} className="truncate">{n}</span>
+                <span key={n} className="truncate">
+                  {n}
+                </span>
               ))}
             </div>
             <ol className="mt-1 grid grid-cols-7 gap-1">
@@ -161,24 +219,30 @@ export default function EventsBoard({ events, categories, limit, showCalendar, a
               ))}
               {monthDays.map((d) => {
                 const count = byDay(d).length
-                const selected = selectedDay === d
+                const selectedDayActive = selectedDay === d
                 return (
                   <li key={d}>
                     <button
                       type="button"
                       disabled={count === 0}
-                      aria-pressed={selected}
+                      aria-pressed={selectedDayActive}
                       aria-label={`${formatDate(d, locale, { weekday: "long", month: "long", day: "numeric" })}${count ? `, ${count}` : ""}`}
-                      onClick={() => setSelectedDay(selected ? null : d)}
+                      onClick={() => setSelectedDay(selectedDayActive ? null : d)}
                       className={cn(
                         "flex aspect-square w-full flex-col items-center justify-center rounded-xl text-sm transition-colors",
                         count ? "bg-blue-wash text-blue-deep hover:bg-blue hover:text-white" : "text-ink-500",
-                        selected && "bg-blue text-white",
+                        selectedDayActive && "bg-blue text-white",
                         d === today && "ring-2 ring-gold",
                       )}
                     >
                       <span className="font-tradition">{formatDate(d, locale, { day: "numeric" })}</span>
-                      {count ? <span aria-hidden="true" className="mt-0.5 flex gap-0.5">{Array.from({ length: Math.min(count, 3) }, (_, i) => <span key={i} className="size-1 rounded-full bg-current" />)}</span> : null}
+                      {count ? (
+                        <span aria-hidden="true" className="mt-0.5 flex gap-0.5">
+                          {Array.from({ length: Math.min(count, 3) }, (_, i) => (
+                            <span key={i} className="size-1 rounded-full bg-current" />
+                          ))}
+                        </span>
+                      ) : null}
                     </button>
                   </li>
                 )
@@ -190,7 +254,7 @@ export default function EventsBoard({ events, categories, limit, showCalendar, a
             {dayEvents.length === 0 ? <p className="text-ink-500">{s.noEvents}</p> : null}
             <ul className="space-y-4">
               {dayEvents.map((ev) => (
-                <EventCard key={ev.id} ev={ev} locale={locale} s={s} going={!!going[ev.id]} onRsvp={() => rsvp(ev)} />
+                <EventCard key={ev.id} ev={ev} locale={locale} s={s} going={!!going[ev.id]} onRsvp={() => rsvp(ev)} onOpen={() => openDetail(ev)} />
               ))}
             </ul>
           </div>
@@ -200,7 +264,7 @@ export default function EventsBoard({ events, categories, limit, showCalendar, a
           {shown.length === 0 ? <p className="text-ink-500">{s.noResults}</p> : null}
           <ul className={cn("grid gap-4", limit ? "lg:grid-cols-3 [&>li]:sm:flex-col" : "lg:grid-cols-2")}>
             {shown.map((ev) => (
-              <EventCard key={ev.id} ev={ev} locale={locale} s={s} going={!!going[ev.id]} onRsvp={() => rsvp(ev)} />
+              <EventCard key={ev.id} ev={ev} locale={locale} s={s} going={!!going[ev.id]} onRsvp={() => rsvp(ev)} onOpen={() => openDetail(ev)} />
             ))}
           </ul>
           {limit && allHref ? (
@@ -213,6 +277,7 @@ export default function EventsBoard({ events, categories, limit, showCalendar, a
       )}
 
       <ConnectDialog target={target} parishId={parishId} s={s} onClose={() => setTarget(null)} onConfirmed={confirmed} />
+      <ServiceDetail item={selected} open={!!selected} onOpenChange={(o) => !o && setSelected(null)} locale={locale} directionsUrl={directionsUrl} s={s} />
     </div>
   )
 }

@@ -43,10 +43,17 @@ interface SiteHeaderProps {
 function useScrolled(threshold = 12) {
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > threshold)
+    let frame = 0
+    const onScroll = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => setScrolled(window.scrollY > threshold))
+    }
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
+    return () => {
+      cancelAnimationFrame(frame)
+      window.removeEventListener("scroll", onScroll)
+    }
   }, [threshold])
   return scrolled
 }
@@ -192,11 +199,13 @@ function LanguageSwitcher({ languages, s, compact }: { languages: HeaderLanguage
             title={l.nativeName}
             aria-current={l.current ? "true" : undefined}
             className={cn(
-              "inline-flex h-8 min-w-9 items-center justify-center rounded-full px-2.5 font-tradition text-[0.78rem] tracking-[0.12em] transition-colors",
+              "inline-flex h-8 min-w-[2.5rem] items-center justify-center rounded-full px-2.5 font-tradition text-[0.78rem] leading-none tracking-[0.08em] transition-colors",
               l.current ? "bg-ink text-white" : "text-ink-600 hover:bg-stone-100 hover:text-ink",
             )}
           >
-            <span aria-hidden="true">{l.short}</span>
+            <span aria-hidden="true" className="whitespace-nowrap">
+              {l.short}
+            </span>
             <span className="sr-only">{l.nativeName}</span>
           </a>
         ))}
@@ -295,18 +304,13 @@ export default function SiteHeader({ logo, homeHref, nav, languages, donate, car
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 border-b transition-[background-color,border-color,box-shadow] duration-300",
-        scrolled ? "border-border bg-white/90 shadow-[0_8px_30px_-22px_rgb(28_36_48/0.5)] backdrop-blur-md" : "border-transparent bg-white",
+        "sticky top-0 z-40 h-[var(--mission-header-h)] border-b bg-white transition-[border-color,box-shadow,background-color] duration-200",
+        scrolled ? "border-border shadow-[0_8px_30px_-22px_rgb(28_36_48/0.45)]" : "border-transparent",
       )}
     >
-      <div
-        className={cn(
-          "container-mission flex items-center gap-3 transition-[height] duration-300",
-          scrolled ? "h-[var(--mission-header-h-condensed)]" : "h-[var(--mission-header-h)]",
-        )}
-      >
+      <div className="container-mission flex h-full items-center gap-3">
         <a href={homeHref} className="me-auto flex min-w-0 shrink items-center rounded-lg py-1" aria-label={`${logo.name}, ${s.homeLink}`}>
-          <Logo {...logo} condensed={scrolled} />
+          <Logo {...logo} condensed={false} />
         </a>
 
         <nav aria-label={s.mainNav} className="hidden items-center lg:flex">
@@ -327,8 +331,8 @@ export default function SiteHeader({ logo, homeHref, nav, languages, donate, car
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           {live ? (
             <a href={live.href} className="hidden items-center gap-1.5 rounded-full border border-blue-line bg-blue-wash px-2.5 py-1 text-xs font-semibold text-blue-deep md:inline-flex lg:hidden 2xl:inline-flex">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue opacity-50 motion-reduce:hidden" />
+              <span aria-hidden="true" className="relative inline-flex size-2 shrink-0 overflow-visible">
+                <span className="absolute inset-0 animate-ping rounded-full bg-blue opacity-50 motion-reduce:hidden" />
                 <span className="relative inline-flex size-2 rounded-full bg-blue" />
               </span>
               {live.label}
