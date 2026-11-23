@@ -19,55 +19,20 @@
     }
   ],
   "commemorations": [
-    {
-      "id": "proskomedia",
-      "appliesTo": ["health", "repose"],
-      "suggestedDonation": 5,
-      "label": { "en": "Proskomedia", "es": "Proskomidia" },
-      "description": {
-        "en": "Before the Liturgy the priest reads each name and takes out a particle from the prosphora.",
-        "es": "Antes de la Liturgia el sacerdote lee cada nombre y extrae una partícula de la prósfora."
-      }
-    },
+    { "id": "proskomedia", "appliesTo": ["health", "repose"], "suggestedDonation": 5, "label": { "en": "Proskomedia", "es": "Proskomidia" } },
     {
       "id": "liturgy",
       "appliesTo": ["health", "repose"],
       "suggestedDonation": 3,
-      "label": { "en": "At the Divine Liturgy", "es": "En la Divina Liturgia" },
-      "description": {
-        "en": "Names are read aloud during the litany at the Liturgy.",
-        "es": "Los nombres se leen en voz alta durante la letanía de la Liturgia."
-      }
+      "label": { "en": "At the Divine Liturgy", "es": "En la Divina Liturgia" }
     },
-    {
-      "id": "moleben",
-      "appliesTo": ["health"],
-      "suggestedDonation": 10,
-      "label": { "en": "Moleben", "es": "Moleben" },
-      "description": {
-        "en": "Remembered at the next prayer service for health.",
-        "es": "Se recuerdan en el próximo oficio de rogativa por la salud."
-      }
-    },
-    {
-      "id": "panikhida",
-      "appliesTo": ["repose"],
-      "suggestedDonation": 10,
-      "label": { "en": "Panikhida", "es": "Panijida" },
-      "description": {
-        "en": "Remembered at the next memorial service for the departed.",
-        "es": "Se recuerdan en el próximo oficio de memoria por los difuntos."
-      }
-    },
+    { "id": "moleben", "appliesTo": ["health"], "suggestedDonation": 10, "label": { "en": "Moleben", "es": "Moleben" } },
+    { "id": "panikhida", "appliesTo": ["repose"], "suggestedDonation": 10, "label": { "en": "Panikhida", "es": "Panijida" } },
     {
       "id": "sorokoust",
       "appliesTo": ["health", "repose"],
       "suggestedDonation": 40,
-      "label": { "en": "Sorokoust (40 days)", "es": "Sorokoust (40 días)" },
-      "description": {
-        "en": "Remembered at the Proskomedia of every Liturgy for forty days.",
-        "es": "Se recuerdan en la Proskomidia de cada Liturgia durante cuarenta días."
-      }
+      "label": { "en": "Sorokoust (40 days)", "es": "Sorokoust (40 días)" }
     }
   ],
   "prefixes": [
@@ -79,7 +44,11 @@
     { "id": "nun", "appliesTo": ["health", "repose"], "label": { "en": "Nun", "es": "Monja" } },
     { "id": "infant", "appliesTo": ["health", "repose"], "label": { "en": "Infant (under 7)", "es": "Infante (menor de 7)" } },
     { "id": "child", "appliesTo": ["health", "repose"], "label": { "en": "Child (7 to 15)", "es": "Niño o niña (7 a 15)" } },
-    { "id": "newly-departed", "appliesTo": ["repose"], "label": { "en": "Newly departed (first 40 days)", "es": "Recién fallecido (primeros 40 días)" } }
+    {
+      "id": "newly-departed",
+      "appliesTo": ["repose"],
+      "label": { "en": "Newly departed (first 40 days)", "es": "Recién fallecido (primeros 40 días)" }
+    }
   ],
   "candles": [
     { "id": "small", "price": 2, "label": { "en": "Small candle", "es": "Vela pequeña" } },
@@ -87,12 +56,9 @@
     { "id": "large", "price": 10, "label": { "en": "Large candle", "es": "Vela grande" } }
   ],
   "donationPresets": [5, 10, 25],
-  "hint": {
-    "en": "Please write first names only, in the form given at Baptism, such as John rather than Jack. Surnames are not read. If someone is not Orthodox, tell Father in the note and he will remember them in a fitting way.",
-    "es": "Escriba solo el nombre de pila, tal como se dio en el Bautismo, por ejemplo José y no Pepe. No se leen los apellidos. Si alguien no es ortodoxo, indíquelo al padre en la nota y él lo recordará de la manera adecuada."
-  },
+  "hint": { "en": "Please write baptismal first names only.", "es": "Escriba solo los nombres de bautismo." },
   "consent": {
-    "en": "I agree that the parish may keep these names until the commemoration is complete. They are used only for prayer and are never shared.",
-    "es": "Acepto que la parroquia guarde estos nombres hasta completar la conmemoración. Se usan solo para la oración y nunca se comparten."
+    "en": "I agree that the parish may keep these names until the commemoration is complete.",
+    "es": "Acepto que la parroquia guarde estos nombres hasta que se complete la conmemoración."
   }
 }

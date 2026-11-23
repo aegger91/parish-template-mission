@@ -1,6 +1,8 @@
 # Mission: parish website template
 
-`parish-template-mission`, a Project Orthodox template for a young mission parish. Bright, quiet, and focused on helping newcomers come for the first time. All content is sample content for "St. Example Orthodox Mission".
+`parish-template-mission`, a Project Orthodox template for a young mission parish. Bright and quiet, with the practical things up front: next services, address, livestream. All content is sample content for "St. Example Orthodox Mission".
+
+Text fields hold short neutral placeholders ("Welcome text goes here."). The template ships no explainer or catechesis pages; the parish adds its own words. The home page has an optional About block (`home-about` in `pages.json`) that can be switched off.
 
 Built with Astro (static output), React islands, Tailwind CSS and shadcn/ui. The build is plain HTML, CSS and JS for any static host: one `index.html` per page plus `404.html`.
 

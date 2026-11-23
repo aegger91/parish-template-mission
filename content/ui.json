@@ -47,14 +47,6 @@
     "legendFeast": { "en": "Feast day", "es": "Día de fiesta" },
     "legendToday": { "en": "Today", "es": "Hoy" },
     "legendStream": { "en": "Livestreamed", "es": "Se transmite" },
-    "tapToRead": { "en": "Tap to read", "es": "Toque para leer" },
-    "tapToReturn": { "en": "Tap to go back", "es": "Toque para volver" },
-    "stepOf": { "en": "Step {n} of {total}", "es": "Paso {n} de {total}" },
-    "back": { "en": "Back", "es": "Atrás" },
-    "next": { "en": "Next", "es": "Siguiente" },
-    "startOver": { "en": "Start over", "es": "Volver a empezar" },
-    "tip": { "en": "Good to know", "es": "Conviene saber" },
-    "readMore": { "en": "Read more", "es": "Leer más" },
     "all": { "en": "All", "es": "Todo" },
     "filterLabel": { "en": "Filter", "es": "Filtrar" },
     "noResults": { "en": "Nothing matches yet. Try another filter.", "es": "Todavía no hay resultados. Pruebe otro filtro." },
@@ -76,12 +68,18 @@
     "formSend": { "en": "Send message", "es": "Enviar mensaje" },
     "formSending": { "en": "Sending", "es": "Enviando" },
     "formSent": { "en": "Thank you. Your message is on its way and we will reply soon.", "es": "Gracias. Su mensaje está en camino y le responderemos pronto." },
-    "formSampleNote": { "en": "Sample form. Messages are not sent until the parish connects a form handler.", "es": "Formulario de ejemplo. Los mensajes no se envían hasta que la parroquia conecte un servicio de formularios." },
+    "formSampleNote": {
+      "en": "Sample form. Messages are not sent until the parish connects a form handler.",
+      "es": "Formulario de ejemplo. Los mensajes no se envían hasta que la parroquia conecte un servicio de formularios."
+    },
     "formRequired": { "en": "Please fill this in.", "es": "Complete este campo, por favor." },
     "formInvalidEmail": { "en": "Please enter a valid email address.", "es": "Escriba un correo electrónico válido." },
     "formSendAnother": { "en": "Send another message", "es": "Enviar otro mensaje" },
     "newsletterTitle": { "en": "Parish newsletter", "es": "Boletín parroquial" },
-    "newsletterText": { "en": "One email a week with services, feasts and parish news.", "es": "Un correo a la semana con servicios, fiestas y noticias de la parroquia." },
+    "newsletterText": {
+      "en": "One email a week with services, feasts and parish news.",
+      "es": "Un correo a la semana con servicios, fiestas y noticias de la parroquia."
+    },
     "newsletterEmail": { "en": "Email address", "es": "Correo electrónico" },
     "newsletterSubscribe": { "en": "Subscribe", "es": "Suscribirse" },
     "newsletterDone": { "en": "Thank you. Please check your inbox to confirm.", "es": "Gracias. Revise su correo para confirmar." },
@@ -110,7 +108,10 @@
       "en": "Sample form. No payment is taken. The parish connects Stripe, Authorize.net or another processor in the builder.",
       "es": "Formulario de ejemplo. No se cobra nada. La parroquia conecta Stripe, Authorize.net u otro procesador en el editor."
     },
-    "donateThanks": { "en": "Thank you. In a live site you would now continue to secure payment.", "es": "Gracias. En un sitio real ahora continuaría al pago seguro." },
+    "donateThanks": {
+      "en": "Thank you. In a live site you would now continue to secure payment.",
+      "es": "Gracias. En un sitio real ahora continuaría al pago seguro."
+    },
     "donateSummary": { "en": "{amount} to the {fund}", "es": "{amount} para {fund}" },
     "donateSummaryMonthly": { "en": "{amount} each month to the {fund}", "es": "{amount} cada mes para {fund}" },
     "donateAgain": { "en": "Make another gift", "es": "Hacer otra donación" },
@@ -126,9 +127,18 @@
     "watch": { "en": "Watch", "es": "Ver" },
     "read": { "en": "Read", "es": "Leer" },
     "nowPlaying": { "en": "Selected", "es": "Seleccionado" },
-    "mediaPlaceholder": { "en": "Sample entry. The recording plays here once a file or link is added.", "es": "Entrada de ejemplo. La grabación se reproduce aquí cuando se añade un archivo o enlace." },
-    "livestreamOffline": { "en": "We are not live right now. The next streamed service is listed below.", "es": "Ahora no estamos en vivo. El próximo servicio transmitido aparece abajo." },
-    "livestreamPlaceholder": { "en": "Video player. Add your stream link in site settings.", "es": "Reproductor de video. Añada el enlace de la transmisión en la configuración." },
+    "mediaPlaceholder": {
+      "en": "Sample entry. The recording plays here once a file or link is added.",
+      "es": "Entrada de ejemplo. La grabación se reproduce aquí cuando se añade un archivo o enlace."
+    },
+    "livestreamOffline": {
+      "en": "We are not live right now. The next streamed service is listed below.",
+      "es": "Ahora no estamos en vivo. El próximo servicio transmitido aparece abajo."
+    },
+    "livestreamPlaceholder": {
+      "en": "Video player. Add your stream link in site settings.",
+      "es": "Reproductor de video. Añada el enlace de la transmisión en la configuración."
+    },
     "openStream": { "en": "Open on {platform}", "es": "Abrir en {platform}" },
     "nextStream": { "en": "Next streamed service", "es": "Próximo servicio transmitido" },
     "readPost": { "en": "Read post", "es": "Leer publicación" },
@@ -142,12 +152,12 @@
     "notFoundTitle": { "en": "This page is not here", "es": "Esta página no existe" },
     "quickLinks": { "en": "Quick links", "es": "Accesos rápidos" },
     "contactUs": { "en": "Contact us", "es": "Contáctenos" },
-    "notFoundText": { "en": "The link may be old or mistyped. These pages might help.", "es": "Puede que el enlace sea antiguo o tenga un error. Estas páginas pueden ayudar." },
-    "goHome": { "en": "Go to the home page", "es": "Ir a la página de inicio" },
-    "sampleBadge": { "en": "Sample", "es": "Ejemplo" },
+    "notFoundText": {
+      "en": "The link may be old or mistyped. These pages might help.",
+      "es": "Puede que el enlace sea antiguo o tenga un error. Estas páginas pueden ayudar."
+    },
     "breadcrumb": { "en": "Breadcrumb", "es": "Ruta de navegación" },
     "more": { "en": "More", "es": "Más" },
-
     "cart": { "en": "Cart", "es": "Carrito" },
     "cartCount": { "en": "Cart, {n} items", "es": "Carrito, {n} artículos" },
     "cartEmpty": { "en": "Your cart is empty.", "es": "Su carrito está vacío." },
@@ -177,7 +187,10 @@
     "fulfillment": { "en": "How would you like to receive your order?", "es": "¿Cómo quiere recibir su pedido?" },
     "fulfillShip": { "en": "Ship to my address", "es": "Enviar a mi dirección" },
     "fulfillPickup": { "en": "Pick up at church", "es": "Recoger en la iglesia" },
-    "pickupForced": { "en": "Your cart has an item that can only be picked up at church.", "es": "Su carrito tiene un artículo que solo se puede recoger en la iglesia." },
+    "pickupForced": {
+      "en": "Your cart has an item that can only be picked up at church.",
+      "es": "Su carrito tiene un artículo que solo se puede recoger en la iglesia."
+    },
     "yourDetails": { "en": "Your details", "es": "Sus datos" },
     "shippingAddress": { "en": "Shipping address", "es": "Dirección de envío" },
     "street": { "en": "Street address", "es": "Calle y número" },
@@ -189,9 +202,11 @@
       "en": "Sample checkout. No payment is taken. The parish connects Stripe, Authorize.net or another processor in the builder.",
       "es": "Pago de ejemplo. No se cobra nada. La parroquia conecta Stripe, Authorize.net u otro procesador en el editor."
     },
-    "orderPlaced": { "en": "Thank you. Order {id} is recorded as a sample. No payment was taken.", "es": "Gracias. El pedido {id} se registró como ejemplo. No se cobró nada." },
+    "orderPlaced": {
+      "en": "Thank you. Order {id} is recorded as a sample. No payment was taken.",
+      "es": "Gracias. El pedido {id} se registró como ejemplo. No se cobró nada."
+    },
     "orderSummary": { "en": "Order summary", "es": "Resumen del pedido" },
-
     "priceFree": { "en": "Free", "es": "Gratuito" },
     "priceDonation": { "en": "Donation", "es": "Donativo" },
     "duration": { "en": "Duration", "es": "Duración" },
@@ -204,12 +219,17 @@
     "notes": { "en": "Notes", "es": "Notas" },
     "notesHint": { "en": "Anything Father should know, such as names, place or urgency.", "es": "Lo que el padre deba saber, como nombres, lugar o urgencia." },
     "sendRequest": { "en": "Send request", "es": "Enviar solicitud" },
-    "requestSent": { "en": "Thank you. Your request has been recorded and the parish will call you to arrange it.", "es": "Gracias. Su solicitud quedó registrada y la parroquia le llamará para concretarla." },
-    "requestSampleNote": { "en": "Sample form. Requests reach the priest or office once the parish connects a handler.", "es": "Formulario de ejemplo. Las solicitudes llegan al sacerdote o a la oficina cuando la parroquia conecte un servicio." },
+    "requestSent": {
+      "en": "Thank you. Your request has been recorded and the parish will call you to arrange it.",
+      "es": "Gracias. Su solicitud quedó registrada y la parroquia le llamará para concretarla."
+    },
+    "requestSampleNote": {
+      "en": "Sample form. Requests reach the priest or office once the parish connects a handler.",
+      "es": "Formulario de ejemplo. Las solicitudes llegan al sacerdote o a la oficina cuando la parroquia conecte un servicio."
+    },
     "phoneRequired": { "en": "Phone", "es": "Teléfono" },
     "phoneFormat": { "en": "Format: (000)-000-0000", "es": "Formato: (000)-000-0000" },
     "invalidPhone": { "en": "Please enter a 10 digit phone number.", "es": "Escriba un número de teléfono de 10 dígitos." },
-
     "slipNumber": { "en": "Note {n}", "es": "Nota {n}" },
     "slipType": { "en": "Type of note", "es": "Tipo de nota" },
     "commemoration": { "en": "Commemoration", "es": "Conmemoración" },
@@ -236,16 +256,21 @@
     "addNotesToCart": { "en": "Add to cart", "es": "Añadir al carrito" },
     "donateAndSubmit": { "en": "Donate and submit", "es": "Donar y enviar" },
     "notesAdded": { "en": "Your notes are in the cart.", "es": "Sus notas están en el carrito." },
-    "notesSubmitted": { "en": "Thank you. Your notes are recorded as a sample and no payment was taken. The names would be given to Father before the next Liturgy.", "es": "Gracias. Sus notas se registraron como ejemplo y no se cobró nada. Los nombres se entregarían al padre antes de la próxima Liturgia." },
+    "notesSubmitted": {
+      "en": "Thank you. Your notes are recorded as a sample and no payment was taken. The names would be given to Father before the next Liturgy.",
+      "es": "Gracias. Sus notas se registraron como ejemplo y no se cobró nada. Los nombres se entregarían al padre antes de la próxima Liturgia."
+    },
     "needOneName": { "en": "Add at least one name to each note.", "es": "Añada al menos un nombre en cada nota." },
     "consentRequired": { "en": "Please agree to the note about storing names.", "es": "Acepte, por favor, la nota sobre el uso de los nombres." },
     "writeAnother": { "en": "Write more notes", "es": "Escribir más notas" },
-
     "onConnect": { "en": "on OrthodoxConnect", "es": "en OrthodoxConnect" },
     "createEvent": { "en": "Create an event", "es": "Crear un evento" },
     "postNeed": { "en": "Post a need", "es": "Publicar una necesidad" },
     "connectHandoff": { "en": "Opens the OrthodoxConnect app for this parish.", "es": "Abre la app OrthodoxConnect de esta parroquia." },
-    "connectIntro": { "en": "Events and sign-ups live in the OrthodoxConnect app, so organizers can message everyone who is coming.", "es": "Los eventos y las inscripciones están en la app OrthodoxConnect, para que los organizadores puedan escribir a quienes asisten." },
+    "connectIntro": {
+      "en": "Events and sign-ups live in the OrthodoxConnect app, so organizers can message everyone who is coming.",
+      "es": "Los eventos y las inscripciones están en la app OrthodoxConnect, para que los organizadores puedan escribir a quienes asisten."
+    },
     "rsvp": { "en": "RSVP", "es": "Confirmar asistencia" },
     "going": { "en": "You are going", "es": "Usted asistirá" },
     "full": { "en": "Full", "es": "Completo" },
@@ -255,7 +280,10 @@
     "signUp": { "en": "Sign up", "es": "Inscribirse" },
     "signedUp": { "en": "Signed up", "es": "Inscrito" },
     "connectSignInTitle": { "en": "Continue with OrthodoxConnect", "es": "Continuar con OrthodoxConnect" },
-    "connectSignInText": { "en": "Sign-ups use your OrthodoxConnect account so the organizer can reach you. This sample does not sign you in or save anything.", "es": "Las inscripciones usan su cuenta de OrthodoxConnect para que el organizador pueda contactarle. Este ejemplo no inicia sesión ni guarda nada." },
+    "connectSignInText": {
+      "en": "Sign-ups use your OrthodoxConnect account so the organizer can reach you. This sample does not sign you in or save anything.",
+      "es": "Las inscripciones usan su cuenta de OrthodoxConnect para que el organizador pueda contactarle. Este ejemplo no inicia sesión ni guarda nada."
+    },
     "connectContinue": { "en": "Continue", "es": "Continuar" },
     "cancel": { "en": "Cancel", "es": "Cancelar" },
     "peopleComing": { "en": "People coming", "es": "Personas que vienen" },

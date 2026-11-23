@@ -145,7 +145,7 @@ function SlipCard({
                     <span className="font-tradition text-[1.02rem] text-ink">{c.label}</span>
                     {active ? <Check aria-hidden="true" className="size-4 shrink-0 text-blue" /> : null}
                   </span>
-                  <span className="mt-1 text-sm leading-snug text-ink-600">{c.description}</span>
+                  {c.description ? <span className="mt-1 text-sm leading-snug text-ink-600">{c.description}</span> : null}
                   {c.suggestedDonation ? <span className="mt-2 text-xs font-medium text-ink-500">{fill(s.suggestedDonation, { amount: money(c.suggestedDonation) })}</span> : null}
                 </label>
               )

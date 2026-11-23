@@ -53,7 +53,6 @@ const walk = (nodes) => {
       if (sectionIds.has(s.id)) fail("pages.json", `duplicate section id "${s.id}"`)
       sectionIds.add(s.id)
       for (const k of ["cta", "primaryCta", "secondaryCta", "shortcut"]) if (s[k]) links.push([`${p.id}/${s.id}.${k}`, s[k]])
-      for (const i of s.newcomer?.items ?? []) if (i.link) links.push([`${p.id}/${s.id}.newcomer.${i.id}`, i.link])
     }
     if (p.children) walk(p.children)
   }

@@ -6,60 +6,42 @@
       "year": "2016",
       "icon": "censer",
       "title": { "en": "First Vespers", "es": "Primeras Vísperas" },
-      "text": {
-        "en": "Sample entry. Four families and a visiting priest pray Vespers in a rented community room.",
-        "es": "Entrada de ejemplo. Cuatro familias y un sacerdote visitante oran Vísperas en un salón comunitario alquilado."
-      }
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
     },
     {
       "id": "mission-blessed",
       "year": "2017",
       "icon": "gospel",
       "title": { "en": "Mission blessed", "es": "Bendición de la misión" },
-      "text": {
-        "en": "Sample entry. The bishop blesses the group as a mission and assigns a priest.",
-        "es": "Entrada de ejemplo. El obispo bendice al grupo como misión y le asigna un sacerdote."
-      }
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
     },
     {
       "id": "first-pascha",
       "year": "2018",
       "icon": "candle",
       "title": { "en": "First Pascha together", "es": "Primera Pascua juntos" },
-      "text": {
-        "en": "Sample entry. Forty people fill the room for the midnight service, with candles on every windowsill.",
-        "es": "Entrada de ejemplo. Cuarenta personas llenan el salón para el servicio de medianoche, con velas en cada ventana."
-      }
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
     },
     {
       "id": "building",
       "year": "2021",
       "icon": "church",
       "title": { "en": "A building of our own", "es": "Un edificio propio" },
-      "text": {
-        "en": "Sample entry. The parish buys a small former chapel and parish hall and begins repairs by hand.",
-        "es": "Entrada de ejemplo. La parroquia compra una pequeña capilla con su salón y empieza a repararla con sus propias manos."
-      }
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
     },
     {
       "id": "iconostasis",
       "year": "2023",
       "icon": "icon-frame",
       "title": { "en": "Iconostasis installed", "es": "Iconostasio instalado" },
-      "text": {
-        "en": "Sample entry. A simple wooden iconostasis is built and the first icons are blessed.",
-        "es": "Entrada de ejemplo. Se construye un sencillo iconostasio de madera y se bendicen los primeros íconos."
-      }
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
     },
     {
       "id": "bells",
       "year": "2025",
       "icon": "bells",
       "title": { "en": "Bells ring for the first time", "es": "Las campanas suenan por primera vez" },
-      "text": {
-        "en": "Sample entry. Three small bells are hung above the entrance and rung for the Sunday Liturgy.",
-        "es": "Entrada de ejemplo. Se cuelgan tres pequeñas campanas sobre la entrada y suenan para la Liturgia del domingo."
-      }
+      "text": { "en": "Sample entry. One line about this year goes here.", "es": "Entrada de ejemplo. Aquí va una línea sobre este año." }
     }
   ]
 }

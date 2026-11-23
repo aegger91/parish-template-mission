@@ -15,11 +15,19 @@
       "slug": "christ-pantocrator-print",
       "category": "icons",
       "title": { "en": "Christ the Pantocrator, mounted print", "es": "Cristo Pantocrátor, lámina montada" },
-      "summary": { "en": "Sample product. Icon print on a wooden board with a protective finish.", "es": "Producto de ejemplo. Lámina de ícono sobre tabla de madera con acabado protector." },
-      "description": [
-        { "en": "Sample description. A good first icon for a home icon corner. Each print can be blessed by Father on request after the Sunday Liturgy.", "es": "Descripción de ejemplo. Un buen primer ícono para un rincón de oración en casa. El padre puede bendecirlo después de la Liturgia del domingo si lo pide." }
+      "summary": {
+        "en": "Sample product. Icon print on a wooden board with a protective finish.",
+        "es": "Producto de ejemplo. Lámina de ícono sobre tabla de madera con acabado protector."
+      },
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
+      "images": [
+        {
+          "src": null,
+          "motif": "icon-frame",
+          "tone": "gold",
+          "alt": { "en": "Placeholder for the icon print", "es": "Imagen provisional de la lámina" }
+        }
       ],
-      "images": [{ "src": null, "motif": "icon-frame", "tone": "gold", "alt": { "en": "Placeholder for the icon print", "es": "Imagen provisional de la lámina" } }],
       "variants": [
         { "id": "v-4x6", "label": { "en": "4 x 6 in", "es": "10 x 15 cm" }, "price": 18, "stock": 12, "sku": "ICN-PAN-46" },
         { "id": "v-8x10", "label": { "en": "8 x 10 in", "es": "20 x 25 cm" }, "price": 34, "stock": 4, "sku": "ICN-PAN-810" }
@@ -32,10 +40,15 @@
       "category": "icons",
       "title": { "en": "Theotokos of Tenderness, mounted print", "es": "Madre de Dios de la Ternura, lámina montada" },
       "summary": { "en": "Sample product. Icon print on a wooden board.", "es": "Producto de ejemplo. Lámina de ícono sobre tabla de madera." },
-      "description": [
-        { "en": "Sample description. Mounted on a board with a small hanging loop on the back.", "es": "Descripción de ejemplo. Montada sobre tabla con una pequeña argolla en la parte trasera." }
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
+      "images": [
+        {
+          "src": null,
+          "motif": "icon-frame",
+          "tone": "blue",
+          "alt": { "en": "Placeholder for the icon print", "es": "Imagen provisional de la lámina" }
+        }
       ],
-      "images": [{ "src": null, "motif": "icon-frame", "tone": "blue", "alt": { "en": "Placeholder for the icon print", "es": "Imagen provisional de la lámina" } }],
       "variants": [
         { "id": "v-4x6", "label": { "en": "4 x 6 in", "es": "10 x 15 cm" }, "price": 18, "stock": 9, "sku": "ICN-THT-46" },
         { "id": "v-8x10", "label": { "en": "8 x 10 in", "es": "20 x 25 cm" }, "price": 34, "stock": 0, "sku": "ICN-THT-810" }
@@ -46,11 +59,19 @@
       "slug": "st-nicholas-print",
       "category": "icons",
       "title": { "en": "St. Nicholas, mounted print", "es": "San Nicolás, lámina montada" },
-      "summary": { "en": "Sample product. A small icon for a child's room or a car.", "es": "Producto de ejemplo. Un ícono pequeño para el cuarto de un niño o el coche." },
-      "description": [
-        { "en": "Sample description. Pocket size, rounded corners.", "es": "Descripción de ejemplo. Tamaño de bolsillo, esquinas redondeadas." }
+      "summary": {
+        "en": "Sample product. A small icon for a child's room or a car.",
+        "es": "Producto de ejemplo. Un ícono pequeño para el cuarto de un niño o el coche."
+      },
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
+      "images": [
+        {
+          "src": null,
+          "motif": "icon-frame",
+          "tone": "stone",
+          "alt": { "en": "Placeholder for the icon print", "es": "Imagen provisional de la lámina" }
+        }
       ],
-      "images": [{ "src": null, "motif": "icon-frame", "tone": "stone", "alt": { "en": "Placeholder for the icon print", "es": "Imagen provisional de la lámina" } }],
       "variants": [{ "id": "v-pocket", "label": { "en": "Pocket size", "es": "Tamaño de bolsillo" }, "price": 9, "stock": 30, "sku": "ICN-NIC-PK" }]
     },
     {
@@ -58,14 +79,18 @@
       "slug": "beeswax-tapers",
       "category": "candles",
       "title": { "en": "Beeswax taper candles", "es": "Velas finas de cera de abeja" },
-      "summary": { "en": "Sample product. The same thin candles we light in church, for home prayer.", "es": "Producto de ejemplo. Las mismas velas finas que encendemos en la iglesia, para orar en casa." },
-      "description": [
-        { "en": "Sample description. Pure beeswax, bundle of 50.", "es": "Descripción de ejemplo. Cera de abeja pura, paquete de 50." }
-      ],
+      "summary": { "en": "Sample product. Thin beeswax candles.", "es": "Producto de ejemplo. Velas finas de cera de abeja." },
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
       "images": [{ "src": null, "motif": "candle", "tone": "gold", "alt": { "en": "Placeholder for the candles", "es": "Imagen provisional de las velas" } }],
       "variants": [
         { "id": "v-thin", "label": { "en": "Thin, bundle of 50", "es": "Finas, paquete de 50" }, "price": 12, "stock": 40, "sku": "CND-TAP-THN" },
-        { "id": "v-medium", "label": { "en": "Medium, bundle of 50", "es": "Medianas, paquete de 50" }, "price": 20, "stock": 18, "sku": "CND-TAP-MED" }
+        {
+          "id": "v-medium",
+          "label": { "en": "Medium, bundle of 50", "es": "Medianas, paquete de 50" },
+          "price": 20,
+          "stock": 18,
+          "sku": "CND-TAP-MED"
+        }
       ],
       "featured": true
     },
@@ -74,10 +99,8 @@
       "slug": "hanging-lampada",
       "category": "candles",
       "title": { "en": "Hanging glass lampada", "es": "Lámpara colgante de vidrio" },
-      "summary": { "en": "Sample product. Oil lamp for an icon corner, with chain and float wick.", "es": "Producto de ejemplo. Lámpara de aceite para el rincón de íconos, con cadena y mecha flotante." },
-      "description": [
-        { "en": "Sample description. Fill with olive oil or lamp oil. Ships with five spare wicks.", "es": "Descripción de ejemplo. Use aceite de oliva o aceite para lámparas. Incluye cinco mechas de repuesto." }
-      ],
+      "summary": { "en": "Sample product. Hanging glass oil lamp.", "es": "Producto de ejemplo. Lámpara de aceite colgante de vidrio." },
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
       "images": [{ "src": null, "motif": "lampada", "tone": "blue", "alt": { "en": "Placeholder for the lampada", "es": "Imagen provisional de la lámpara" } }],
       "variants": [
         { "id": "v-red", "label": { "en": "Red glass", "es": "Vidrio rojo" }, "price": 26, "stock": 6, "sku": "LMP-HNG-RED" },
@@ -90,11 +113,16 @@
       "slug": "pocket-prayer-book",
       "category": "books",
       "title": { "en": "Pocket prayer book (sample title)", "es": "Libro de oraciones de bolsillo (título de ejemplo)" },
-      "summary": { "en": "Sample product. Morning and evening prayers and prayers before Communion.", "es": "Producto de ejemplo. Oraciones de la mañana, de la noche y antes de la Comunión." },
-      "description": [
-        { "en": "Sample description. Soft cover, ribbon marker.", "es": "Descripción de ejemplo. Tapa blanda, cinta marcapáginas." }
+      "summary": { "en": "Sample product. Pocket prayer book.", "es": "Producto de ejemplo. Libro de oraciones de bolsillo." },
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
+      "images": [
+        {
+          "src": null,
+          "motif": "gospel",
+          "tone": "slate",
+          "alt": { "en": "Placeholder for the book cover", "es": "Imagen provisional de la portada" }
+        }
       ],
-      "images": [{ "src": null, "motif": "gospel", "tone": "slate", "alt": { "en": "Placeholder for the book cover", "es": "Imagen provisional de la portada" } }],
       "variants": [
         { "id": "v-en", "label": { "en": "English", "es": "Inglés" }, "price": 14, "stock": 15, "sku": "BK-PRY-EN" },
         { "id": "v-es", "label": { "en": "Spanish", "es": "Español" }, "price": 14, "stock": 7, "sku": "BK-PRY-ES" }
@@ -103,14 +131,19 @@
     },
     {
       "id": "prd-worship-guide",
-      "slug": "guide-to-orthodox-worship",
+      "slug": "service-book",
       "category": "books",
-      "title": { "en": "A first guide to Orthodox worship (sample title)", "es": "Primera guía del culto ortodoxo (título de ejemplo)" },
-      "summary": { "en": "Sample product. A short book for newcomers and inquirers.", "es": "Producto de ejemplo. Un libro breve para recién llegados." },
-      "description": [
-        { "en": "Sample description. Placeholder for a real title chosen by the parish.", "es": "Descripción de ejemplo. Espacio para un título real elegido por la parroquia." }
+      "title": { "en": "Service book (sample title)", "es": "Libro de servicios (título de ejemplo)" },
+      "summary": { "en": "Sample product. A book for the parish shop.", "es": "Producto de ejemplo. Un libro para la tienda parroquial." },
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
+      "images": [
+        {
+          "src": null,
+          "motif": "gospel",
+          "tone": "stone",
+          "alt": { "en": "Placeholder for the book cover", "es": "Imagen provisional de la portada" }
+        }
       ],
-      "images": [{ "src": null, "motif": "gospel", "tone": "stone", "alt": { "en": "Placeholder for the book cover", "es": "Imagen provisional de la portada" } }],
       "variants": [{ "id": "v-paper", "label": { "en": "Paperback", "es": "Rústica" }, "price": 16, "stock": 10, "sku": "BK-GDE-PB" }]
     },
     {
@@ -118,11 +151,16 @@
       "slug": "wool-prayer-rope",
       "category": "prayer-ropes",
       "title": { "en": "Wool prayer rope", "es": "Chotki de lana" },
-      "summary": { "en": "Sample product. Hand tied by parishioners, with a knotted cross and tassel.", "es": "Producto de ejemplo. Hecho a mano por feligreses, con cruz de nudos y borla." },
-      "description": [
-        { "en": "Sample description. Black wool. Ask Father how to begin praying with it.", "es": "Descripción de ejemplo. Lana negra. Pregunte al padre cómo empezar a orar con él." }
+      "summary": { "en": "Sample product. Wool prayer rope.", "es": "Producto de ejemplo. Cuerda de oración de lana." },
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
+      "images": [
+        {
+          "src": null,
+          "motif": "prayer-rope",
+          "tone": "slate",
+          "alt": { "en": "Placeholder for the prayer rope", "es": "Imagen provisional del chotki" }
+        }
       ],
-      "images": [{ "src": null, "motif": "prayer-rope", "tone": "slate", "alt": { "en": "Placeholder for the prayer rope", "es": "Imagen provisional del chotki" } }],
       "variants": [
         { "id": "v-33", "label": { "en": "33 knots", "es": "33 nudos" }, "price": 12, "stock": 20, "sku": "PR-WL-33" },
         { "id": "v-50", "label": { "en": "50 knots", "es": "50 nudos" }, "price": 16, "stock": 11, "sku": "PR-WL-50" },
@@ -136,9 +174,7 @@
       "category": "incense",
       "title": { "en": "Church incense, 100 g", "es": "Incienso de iglesia, 100 g" },
       "summary": { "en": "Sample product. Resin incense for a home censer.", "es": "Producto de ejemplo. Incienso en resina para un incensario doméstico." },
-      "description": [
-        { "en": "Sample description. Use with charcoal tablets in a hand censer.", "es": "Descripción de ejemplo. Úselo con pastillas de carbón en un incensario de mano." }
-      ],
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
       "images": [{ "src": null, "motif": "censer", "tone": "stone", "alt": { "en": "Placeholder for the incense", "es": "Imagen provisional del incienso" } }],
       "variants": [
         { "id": "v-rose", "label": { "en": "Rose", "es": "Rosa" }, "price": 9, "stock": 25, "sku": "INC-RSE" },
@@ -151,9 +187,7 @@
       "category": "incense",
       "title": { "en": "Charcoal tablets for censers", "es": "Pastillas de carbón para incensario" },
       "summary": { "en": "Sample product. Quick lighting, roll of 10.", "es": "Producto de ejemplo. Encendido rápido, rollo de 10." },
-      "description": [
-        { "en": "Sample description. Light outdoors or near an open window.", "es": "Descripción de ejemplo. Enciéndalas al aire libre o junto a una ventana abierta." }
-      ],
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
       "images": [{ "src": null, "motif": "censer", "tone": "slate", "alt": { "en": "Placeholder for the charcoal", "es": "Imagen provisional del carbón" } }],
       "variants": [{ "id": "v-roll", "label": { "en": "Roll of 10", "es": "Rollo de 10" }, "price": 5, "stock": 50, "sku": "INC-CHR-10" }]
     },
@@ -162,10 +196,11 @@
       "slug": "baptismal-cross",
       "category": "crosses",
       "title": { "en": "Baptismal cross with cord", "es": "Cruz bautismal con cordón" },
-      "summary": { "en": "Sample product. Small eight-pointed cross, worn from Baptism on.", "es": "Producto de ejemplo. Pequeña cruz de ocho puntas, que se lleva desde el Bautismo." },
-      "description": [
-        { "en": "Sample description. Silver-tone metal on a soft black cord.", "es": "Descripción de ejemplo. Metal plateado con un cordón negro suave." }
-      ],
+      "summary": {
+        "en": "Sample product. Small eight-pointed cross, worn from Baptism on.",
+        "es": "Producto de ejemplo. Pequeña cruz de ocho puntas, que se lleva desde el Bautismo."
+      },
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
       "images": [{ "src": null, "motif": "cross", "tone": "stone", "alt": { "en": "Placeholder for the cross", "es": "Imagen provisional de la cruz" } }],
       "variants": [
         { "id": "v-child", "label": { "en": "Child size", "es": "Tamaño infantil" }, "price": 15, "stock": 12, "sku": "CRS-BAP-CH" },
@@ -178,9 +213,7 @@
       "category": "crosses",
       "title": { "en": "Wooden wall cross", "es": "Cruz de madera para pared" },
       "summary": { "en": "Sample product. Eight-pointed cross in oiled oak.", "es": "Producto de ejemplo. Cruz de ocho puntas en roble aceitado." },
-      "description": [
-        { "en": "Sample description. About 8 inches tall. Made by a parishioner.", "es": "Descripción de ejemplo. Unos 20 cm de alto. Hecha por un feligrés." }
-      ],
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
       "images": [{ "src": null, "motif": "cross", "tone": "gold", "alt": { "en": "Placeholder for the wall cross", "es": "Imagen provisional de la cruz" } }],
       "variants": [{ "id": "v-oak", "label": { "en": "Oak", "es": "Roble" }, "price": 28, "stock": 3, "sku": "CRS-WAL-OAK" }]
     },
@@ -190,9 +223,7 @@
       "category": "gifts",
       "title": { "en": "Feast day greeting cards, set of 6", "es": "Tarjetas de felicitación de fiestas, 6 unidades" },
       "summary": { "en": "Sample product. Blank inside, printed on recycled paper.", "es": "Producto de ejemplo. En blanco por dentro, en papel reciclado." },
-      "description": [
-        { "en": "Sample description. Envelopes included.", "es": "Descripción de ejemplo. Incluye sobres." }
-      ],
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
       "images": [{ "src": null, "motif": "bells", "tone": "blue", "alt": { "en": "Placeholder for the cards", "es": "Imagen provisional de las tarjetas" } }],
       "variants": [{ "id": "v-set", "label": { "en": "Set of 6", "es": "6 unidades" }, "price": 12, "stock": 22, "sku": "GFT-CRD-6" }]
     },
@@ -201,10 +232,11 @@
       "slug": "icon-corner-shelf",
       "category": "gifts",
       "title": { "en": "Icon corner shelf", "es": "Repisa para rincón de íconos" },
-      "summary": { "en": "Sample product. Small corner shelf for icons and a lampada.", "es": "Producto de ejemplo. Pequeña repisa esquinera para íconos y lámpara." },
-      "description": [
-        { "en": "Sample description. Pickup at church only, too fragile to ship.", "es": "Descripción de ejemplo. Solo recogida en la iglesia, es demasiado frágil para enviar." }
-      ],
+      "summary": {
+        "en": "Sample product. Small corner shelf for icons and a lampada.",
+        "es": "Producto de ejemplo. Pequeña repisa esquinera para íconos y lámpara."
+      },
+      "description": [{ "en": "Sample description. Product details go here.", "es": "Descripción de ejemplo. Aquí van los detalles del producto." }],
       "images": [{ "src": null, "motif": "church", "tone": "stone", "alt": { "en": "Placeholder for the shelf", "es": "Imagen provisional de la repisa" } }],
       "variants": [{ "id": "v-oak", "label": { "en": "Oak", "es": "Roble" }, "price": 45, "stock": 2, "sku": "GFT-SHF-OAK" }],
       "pickupOnly": true

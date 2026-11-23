@@ -5,10 +5,7 @@
       "id": "home",
       "slug": "",
       "title": { "en": "Home", "es": "Inicio" },
-      "description": {
-        "en": "A young Orthodox Christian mission parish. Service times, directions and a simple guide for your first visit.",
-        "es": "Una joven parroquia misionera cristiana ortodoxa. Horarios, cómo llegar y una guía sencilla para su primera visita."
-      },
+      "description": { "en": "Service times, directions and parish news.", "es": "Horarios, cómo llegar y noticias de la parroquia." },
       "showInNav": true,
       "navDesktop": false,
       "showPageHeader": false,
@@ -17,211 +14,37 @@
           "id": "home-hero",
           "type": "hero",
           "enabled": true,
-          "eyebrow": { "en": "Welcome", "es": "Bienvenidos" },
-          "title": { "en": "Come and see.", "es": "Vengan y vean." },
+          "eyebrow": { "en": "St. Example Orthodox Mission", "es": "Misión Ortodoxa San Ejemplo" },
+          "title": { "en": "Welcome", "es": "Bienvenidos" },
           "lead": {
-            "en": "We are a young Orthodox Christian mission. Whether you grew up Orthodox or are stepping into a church like this for the first time, there is a place for you here.",
-            "es": "Somos una joven misión cristiana ortodoxa. Tanto si creció en la Iglesia Ortodoxa como si es la primera vez que entra en una iglesia como esta, aquí hay un lugar para usted."
+            "en": "Welcome text goes here. One or two short lines about the parish.",
+            "es": "Aquí va el texto de bienvenida. Una o dos líneas breves sobre la parroquia."
           },
-          "newcomer": {
-            "title": { "en": "I'm new", "es": "Es mi primera vez" },
-            "items": [
-              {
-                "id": "expect",
-                "label": { "en": "What to expect", "es": "Qué esperar" },
-                "text": {
-                  "en": "The service is sung, with candles, icons and incense. Most people stand, chairs are along the walls. You can simply watch and pray.",
-                  "es": "El servicio se canta, con velas, íconos e incienso. La mayoría está de pie y hay sillas junto a las paredes. Puede simplemente mirar y orar."
-                },
-                "link": { "label": { "en": "Six things to know", "es": "Seis cosas que conviene saber" }, "href": "#what-to-expect" }
-              },
-              {
-                "id": "arrive",
-                "label": { "en": "When to arrive", "es": "Cuándo llegar" },
-                "text": {
-                  "en": "Come 10 to 15 minutes early on Sunday. A greeter at the door will hand you a service book and help you find a spot.",
-                  "es": "Llegue de 10 a 15 minutos antes el domingo. Una persona en la puerta le dará un libro del servicio y le ayudará a encontrar un lugar."
-                },
-                "link": { "label": { "en": "Your first visit, step by step", "es": "Su primera visita, paso a paso" }, "href": "#first-visit" }
-              },
-              {
-                "id": "dress",
-                "label": { "en": "How to dress", "es": "Cómo vestir" },
-                "text": {
-                  "en": "Wear something modest and comfortable, as you would for a family celebration. Men remove hats. Some women cover their heads, it is not required.",
-                  "es": "Vista algo sencillo y cómodo, como para una celebración familiar. Los hombres se quitan el sombrero. Algunas mujeres se cubren la cabeza, no es obligatorio."
-                },
-                "link": { "label": { "en": "More practical answers", "es": "Más respuestas prácticas" }, "href": "#first-visit" }
-              }
-            ]
-          },
-          "primaryCta": { "label": { "en": "Plan your first visit", "es": "Planee su primera visita" }, "href": "#first-visit" },
-          "secondaryCta": { "label": { "en": "Full schedule", "es": "Horario completo" }, "pageId": "services" },
-          "shortcut": {
-            "feature": "zapiski",
-            "label": { "en": "Submit a commemoration", "es": "Enviar una conmemoración" },
-            "pageId": "zapiski"
-          }
+          "primaryCta": { "label": { "en": "Service times", "es": "Horarios" }, "pageId": "services" },
+          "secondaryCta": { "label": { "en": "Get directions", "es": "Cómo llegar" }, "pageId": "contact", "anchor": "directions" },
+          "shortcut": { "feature": "zapiski", "label": { "en": "Submit a commemoration", "es": "Enviar una conmemoración" }, "pageId": "zapiski" }
         },
         {
-          "id": "what-to-expect",
-          "type": "whatToExpect",
+          "id": "home-about",
+          "type": "richText",
           "enabled": true,
-          "eyebrow": { "en": "What to expect", "es": "Qué esperar" },
-          "title": { "en": "Six things you will notice", "es": "Seis cosas que notará" },
-          "intro": {
-            "en": "Tap a card to read more. None of this is a test. Watch, listen and join in when you feel ready.",
-            "es": "Toque una tarjeta para leer más. Nada de esto es un examen. Mire, escuche y participe cuando se sienta listo."
-          },
-          "items": [
-            {
-              "id": "icons",
-              "icon": "icon-frame",
-              "title": { "en": "Icons", "es": "Íconos" },
-              "summary": { "en": "Painted images of Christ and the saints", "es": "Imágenes pintadas de Cristo y de los santos" },
-              "detail": {
-                "en": "Icons are windows into the life of the Church. People greet them with the sign of the cross and a kiss. You are welcome to do the same, or simply look.",
-                "es": "Los íconos son ventanas a la vida de la Iglesia. La gente los saluda con la señal de la cruz y un beso. Puede hacer lo mismo o simplemente mirarlos."
-              }
-            },
-            {
-              "id": "candles",
-              "icon": "candle",
-              "title": { "en": "Candles", "es": "Velas" },
-              "summary": { "en": "A small light for each prayer", "es": "Una pequeña luz por cada oración" },
-              "detail": {
-                "en": "Near the entrance you will find thin beeswax candles. Many people light one for someone they are praying for. There is a box for a donation, but nobody checks.",
-                "es": "Cerca de la entrada hay velas finas de cera de abeja. Muchos encienden una por alguien por quien oran. Hay una caja para donativos, pero nadie lo revisa."
-              }
-            },
-            {
-              "id": "incense",
-              "icon": "censer",
-              "title": { "en": "Incense", "es": "Incienso" },
-              "summary": { "en": "Prayer rising like smoke", "es": "La oración que sube como el humo" },
-              "detail": {
-                "en": "The priest or deacon censes the icons and the people. You may bow slightly when the censer passes. If you are sensitive to smoke, a spot near the back door helps.",
-                "es": "El sacerdote o el diácono inciensa los íconos y a los fieles. Puede inclinarse un poco cuando pasa el incensario. Si el humo le molesta, un lugar cerca de la puerta trasera ayuda."
-              }
-            },
-            {
-              "id": "standing",
-              "icon": "prayer-rope",
-              "title": { "en": "Standing in prayer", "es": "Orar de pie" },
-              "summary": { "en": "Stand, sit, or both", "es": "De pie, sentado, o ambas cosas" },
-              "detail": {
-                "en": "Orthodox Christians often stand for most of the service. Chairs line the walls, so sit whenever you need to. Parents with little ones move around freely.",
-                "es": "Los cristianos ortodoxos suelen estar de pie casi todo el servicio. Hay sillas junto a las paredes, siéntese cuando lo necesite. Los padres con niños pequeños se mueven con libertad."
-              }
-            },
-            {
-              "id": "communion",
-              "icon": "chalice",
-              "title": { "en": "Holy Communion", "es": "Santa Comunión" },
-              "summary": { "en": "For Orthodox Christians who have prepared", "es": "Para cristianos ortodoxos que se han preparado" },
-              "detail": {
-                "en": "Communion is received by Orthodox Christians who have prepared with prayer, fasting and confession. At the very end, everyone may come forward for blessed bread.",
-                "es": "La Comunión la reciben los cristianos ortodoxos que se han preparado con oración, ayuno y confesión. Al final, todos pueden acercarse a recibir pan bendito."
-              }
-            },
-            {
-              "id": "afterwards",
-              "icon": "church",
-              "title": { "en": "Afterwards", "es": "Después" },
-              "summary": { "en": "Coffee hour in the hall", "es": "Café en el salón" },
-              "detail": {
-                "en": "After the Liturgy we share coffee and a simple meal. It is the easiest time to meet Father and ask any question you like.",
-                "es": "Después de la Liturgia compartimos café y una comida sencilla. Es el mejor momento para conocer al padre y hacer cualquier pregunta."
-              }
-            }
-          ]
-        },
-        {
-          "id": "first-visit",
-          "type": "firstVisitGuide",
-          "enabled": true,
-          "eyebrow": { "en": "Your first visit", "es": "Su primera visita" },
-          "title": { "en": "A Sunday morning, step by step", "es": "Un domingo por la mañana, paso a paso" },
-          "steps": [
-            {
-              "id": "plan",
-              "icon": "bells",
-              "title": { "en": "Pick a service", "es": "Elija un servicio" },
-              "text": {
-                "en": "The Divine Liturgy on Sunday morning is our main service and lasts about 90 minutes. Saturday evening Vespers is shorter and quieter, a gentle first visit.",
-                "es": "La Divina Liturgia del domingo por la mañana es nuestro servicio principal y dura unos 90 minutos. Las Vísperas del sábado por la tarde son más cortas y tranquilas, una buena primera visita."
-              },
-              "tip": { "en": "Check the schedule, times change on feast days.", "es": "Revise el horario, cambia en los días de fiesta." }
-            },
-            {
-              "id": "arrive",
-              "icon": "church",
-              "title": { "en": "Arrive a little early", "es": "Llegue un poco antes" },
-              "text": {
-                "en": "Plan to arrive 10 to 15 minutes before the start. Park behind the hall and use the front doors. If you arrive late, come in quietly, people do it every week.",
-                "es": "Llegue de 10 a 15 minutos antes del inicio. Estacione detrás del salón y entre por la puerta principal. Si llega tarde, entre en silencio, pasa todas las semanas."
-              },
-              "tip": { "en": "A greeter wears a small name badge.", "es": "La persona que recibe lleva una pequeña tarjeta con su nombre." }
-            },
-            {
-              "id": "dress",
-              "icon": "icon-frame",
-              "title": { "en": "Dress simply", "es": "Vista con sencillez" },
-              "text": {
-                "en": "Choose modest, comfortable clothes. Men take off hats. Many women wear a skirt or dress and some cover their heads. Come as you are, nobody will turn you away.",
-                "es": "Elija ropa sencilla y cómoda. Los hombres se quitan el sombrero. Muchas mujeres usan falda o vestido y algunas se cubren la cabeza. Venga como es, nadie le rechazará."
-              },
-              "tip": { "en": "Comfortable shoes help, we stand a lot.", "es": "Lleve zapatos cómodos, estamos mucho de pie." }
-            },
-            {
-              "id": "during",
-              "icon": "gospel",
-              "title": { "en": "During the service", "es": "Durante el servicio" },
-              "text": {
-                "en": "Follow along in the service book or just listen. Make the sign of the cross if you wish. Children are welcome in church, their sounds are part of a living parish.",
-                "es": "Siga el libro del servicio o simplemente escuche. Haga la señal de la cruz si lo desea. Los niños son bienvenidos, sus voces son parte de una parroquia viva."
-              },
-              "tip": { "en": "Services are in English, some hymns are in Spanish.", "es": "Los servicios son en inglés, algunos himnos en español." }
-            },
-            {
-              "id": "communion",
-              "icon": "chalice",
-              "title": { "en": "Communion and blessed bread", "es": "Comunión y pan bendito" },
-              "text": {
-                "en": "Holy Communion is for Orthodox Christians who have prepared. Everyone, visitors included, may come forward at the end to venerate the cross and take blessed bread.",
-                "es": "La Santa Comunión es para cristianos ortodoxos que se han preparado. Todos, también los visitantes, pueden acercarse al final para venerar la cruz y tomar pan bendito."
-              },
-              "tip": { "en": "If you are Orthodox and visiting, speak with Father before the service.", "es": "Si es ortodoxo y está de visita, hable con el padre antes del servicio." }
-            },
-            {
-              "id": "stay",
-              "icon": "candle",
-              "title": { "en": "Stay for coffee", "es": "Quédese a tomar café" },
-              "text": {
-                "en": "Join us in the hall afterwards. Ask anything. If you want to learn more, Father leads an inquirers class on Wednesday evenings.",
-                "es": "Acompáñenos después en el salón. Pregunte lo que quiera. Si desea saber más, el padre ofrece una clase para quienes buscan conocer la fe los miércoles por la tarde."
-              },
-              "tip": { "en": "There is no sign-up and no pressure.", "es": "No hay que inscribirse y nadie le presionará." }
-            }
-          ],
-          "cta": { "label": { "en": "Ask us a question", "es": "Háganos una pregunta" }, "pageId": "contact" }
+          "eyebrow": { "en": "About", "es": "Sobre nosotros" },
+          "title": { "en": "About our parish", "es": "Nuestra parroquia" },
+          "body": [{ "en": "About text goes here. A short paragraph about the parish.", "es": "Aquí va el texto sobre la parroquia. Un párrafo breve." }]
         },
         {
           "id": "home-livestream",
           "type": "livestreamBand",
           "enabled": true,
-          "title": { "en": "Can't be here in person?", "es": "¿No puede venir en persona?" },
-          "text": {
-            "en": "Sunday Liturgy and feast day services are streamed live. Recent sermons are in the archive.",
-            "es": "La Liturgia del domingo y los servicios de fiesta se transmiten en vivo. Los sermones recientes están en el archivo."
-          }
+          "title": { "en": "Livestream", "es": "Transmisión en vivo" },
+          "text": { "en": "Short text about the livestream goes here.", "es": "Aquí va un texto breve sobre la transmisión." }
         },
         {
           "id": "home-news",
           "type": "latestNews",
           "enabled": true,
           "eyebrow": { "en": "News", "es": "Noticias" },
-          "title": { "en": "Parish life this month", "es": "La vida parroquial este mes" },
+          "title": { "en": "Latest news", "es": "Últimas noticias" },
           "count": 3
         },
         {
@@ -230,20 +53,14 @@
           "enabled": true,
           "eyebrow": { "en": "Visit", "es": "Visítenos" },
           "title": { "en": "Find us", "es": "Cómo encontrarnos" },
-          "text": {
-            "en": "We worship in a small church next to our parish hall. The entrance faces Example Street.",
-            "es": "Celebramos en una pequeña iglesia junto a nuestro salón parroquial. La entrada da a Example Street."
-          }
+          "text": { "en": "Short text about the location goes here.", "es": "Aquí va un texto breve sobre la ubicación." }
         },
         {
           "id": "home-donate",
           "type": "donateBand",
           "enabled": true,
-          "title": { "en": "Help a young parish grow", "es": "Ayude a crecer a una parroquia joven" },
-          "text": {
-            "en": "Our mission is supported entirely by the gifts of its people. Every gift, small or large, keeps the doors open.",
-            "es": "Nuestra misión se sostiene solo con las ofrendas de sus fieles. Cada ofrenda, pequeña o grande, mantiene las puertas abiertas."
-          }
+          "title": { "en": "Support the parish", "es": "Apoye a la parroquia" },
+          "text": { "en": "Short text about giving goes here.", "es": "Aquí va un texto breve sobre las donaciones." }
         }
       ]
     },
@@ -251,68 +68,48 @@
       "id": "our-parish",
       "slug": "our-parish",
       "title": { "en": "Our Parish", "es": "Nuestra parroquia" },
-      "intro": {
-        "en": "A small community of families, students and newcomers, worshipping together since our first Vespers in a rented room.",
-        "es": "Una pequeña comunidad de familias, estudiantes y recién llegados que oran juntos desde nuestras primeras Vísperas en un salón alquilado."
-      },
-      "description": {
-        "en": "Meet the clergy, read our story and browse photos of parish life.",
-        "es": "Conozca al clero, lea nuestra historia y vea fotos de la vida parroquial."
-      },
+      "intro": { "en": "Short introduction goes here.", "es": "Aquí va una breve introducción." },
+      "description": { "en": "Clergy, history, gallery and news.", "es": "Clero, historia, galería y noticias." },
       "showInNav": true,
       "sections": [
         {
           "id": "parish-about",
           "type": "richText",
           "enabled": true,
-          "title": { "en": "Who we are", "es": "Quiénes somos" },
-          "body": [
-            {
-              "en": "St. Example is a mission parish. That means we are still small, still growing, and still doing most things by hand. Our people come from many places: some were born into Orthodox families, many found the Church as adults.",
-              "es": "San Ejemplo es una parroquia misionera. Eso significa que aún somos pocos, seguimos creciendo y casi todo lo hacemos nosotros mismos. Nuestros fieles vienen de muchos lugares: algunos nacieron en familias ortodoxas, muchos encontraron la Iglesia ya de adultos."
-            },
-            {
-              "en": "We keep the full cycle of Orthodox worship as best we can, we teach the faith plainly, and we try to be good neighbors to the town around us.",
-              "es": "Guardamos el ciclo completo del culto ortodoxo lo mejor que podemos, enseñamos la fe con sencillez e intentamos ser buenos vecinos del pueblo que nos rodea."
-            }
-          ]
+          "title": { "en": "About us", "es": "Quiénes somos" },
+          "body": [{ "en": "About text goes here. A short paragraph about the parish.", "es": "Aquí va el texto sobre la parroquia. Un párrafo breve." }]
         },
-        {
-          "id": "parish-subpages",
-          "type": "subpageCards",
-          "enabled": true,
-          "title": { "en": "Get to know us", "es": "Conózcanos" }
-        },
+        { "id": "parish-subpages", "type": "subpageCards", "enabled": true, "title": { "en": "Get to know us", "es": "Conózcanos" } },
         {
           "id": "parish-life",
           "type": "featureList",
           "enabled": true,
-          "eyebrow": { "en": "Parish life", "es": "Vida parroquial" },
-          "title": { "en": "How we spend the week", "es": "Cómo pasamos la semana" },
+          "eyebrow": { "en": "Highlights", "es": "Destacados" },
+          "title": { "en": "Parish life", "es": "Vida parroquial" },
           "items": [
             {
               "id": "worship",
               "icon": "church",
               "title": { "en": "Worship", "es": "Culto" },
-              "text": { "en": "Vespers on Saturday, Divine Liturgy on Sunday, and services for every great feast.", "es": "Vísperas el sábado, Divina Liturgia el domingo y servicios en cada gran fiesta." }
+              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
             },
             {
               "id": "learning",
               "icon": "gospel",
-              "title": { "en": "Learning", "es": "Formación" },
-              "text": { "en": "An inquirers class on Wednesdays and church school for children on Sundays.", "es": "Una clase para quienes buscan conocer la fe los miércoles y catequesis para niños los domingos." }
+              "title": { "en": "Education", "es": "Formación" },
+              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
             },
             {
-              "id": "prayer",
-              "icon": "prayer-rope",
-              "title": { "en": "Prayer at home", "es": "Oración en casa" },
-              "text": { "en": "Help setting up an icon corner and simple morning and evening prayers.", "es": "Ayuda para preparar un rincón de íconos y oraciones sencillas de mañana y de noche." }
-            },
-            {
-              "id": "service",
+              "id": "fellowship",
               "icon": "utensils",
-              "title": { "en": "Serving neighbors", "es": "Servir al prójimo" },
-              "text": { "en": "A monthly meal for neighbors and a pantry shelf in the hall.", "es": "Una comida mensual para los vecinos y un estante de alimentos en el salón." }
+              "title": { "en": "Fellowship", "es": "Convivencia" },
+              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
+            },
+            {
+              "id": "outreach",
+              "icon": "candle",
+              "title": { "en": "Outreach", "es": "Servicio al prójimo" },
+              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
             }
           ]
         }
@@ -322,11 +119,8 @@
           "id": "clergy",
           "slug": "clergy",
           "title": { "en": "Clergy", "es": "Clero" },
-          "intro": {
-            "en": "The people who serve at the altar and care for the parish. Sample names and bios.",
-            "es": "Quienes sirven en el altar y cuidan de la parroquia. Nombres y biografías de ejemplo."
-          },
-          "description": { "en": "Our priest, deacon and those who serve with them.", "es": "Nuestro sacerdote, diácono y quienes sirven con ellos." },
+          "intro": { "en": "Sample names and short bios.", "es": "Nombres y biografías breves de ejemplo." },
+          "description": { "en": "The clergy and those who serve with them.", "es": "El clero y quienes sirven con ellos." },
           "icon": "chalice",
           "showInNav": true,
           "sections": [
@@ -335,13 +129,8 @@
               "id": "clergy-care",
               "type": "richText",
               "enabled": true,
-              "title": { "en": "Pastoral care", "es": "Atención pastoral" },
-              "body": [
-                {
-                  "en": "To arrange confession, a house blessing, a hospital visit or a conversation about joining the Church, call or email Father. If it is urgent, the phone line forwards to him at any hour.",
-                  "es": "Para concertar una confesión, una bendición de casa, una visita al hospital o una conversación sobre entrar en la Iglesia, llame o escriba al padre. Si es urgente, la línea telefónica le llega a cualquier hora."
-                }
-              ]
+              "title": { "en": "Contact the clergy", "es": "Contactar al clero" },
+              "body": [{ "en": "Short text about contacting the clergy goes here.", "es": "Aquí va un texto breve sobre cómo contactar al clero." }]
             }
           ]
         },
@@ -349,11 +138,8 @@
           "id": "history",
           "slug": "history",
           "title": { "en": "History", "es": "Historia" },
-          "intro": {
-            "en": "From a few families praying in a rented room to a parish with its own small church. Sample timeline.",
-            "es": "De unas pocas familias orando en un salón alquilado a una parroquia con su propia iglesia pequeña. Cronología de ejemplo."
-          },
-          "description": { "en": "How the mission began and where it is going.", "es": "Cómo empezó la misión y hacia dónde va." },
+          "intro": { "en": "Sample timeline.", "es": "Cronología de ejemplo." },
+          "description": { "en": "Key dates in the life of the parish.", "es": "Fechas importantes de la parroquia." },
           "icon": "bells",
           "showInNav": true,
           "sections": [
@@ -365,8 +151,8 @@
               "title": { "en": "About our name", "es": "Sobre nuestro nombre" },
               "body": [
                 {
-                  "en": "This is a sample template. A real parish would tell the story of its patron saint here and why the founding families chose that name.",
-                  "es": "Esta es una plantilla de ejemplo. Una parroquia real contaría aquí la historia de su santo patrono y por qué las familias fundadoras eligieron ese nombre."
+                  "en": "Text about the parish name and patron saint goes here.",
+                  "es": "Aquí va el texto sobre el nombre de la parroquia y su santo patrono."
                 }
               ]
             }
@@ -376,11 +162,8 @@
           "id": "gallery",
           "slug": "gallery",
           "title": { "en": "Gallery", "es": "Galería" },
-          "intro": {
-            "en": "Feasts, services and ordinary Sundays. Placeholder artwork stands in for parish photos.",
-            "es": "Fiestas, servicios y domingos de cada día. Las ilustraciones sustituyen a las fotos de la parroquia."
-          },
-          "description": { "en": "Photos from feasts and parish life.", "es": "Fotos de fiestas y de la vida parroquial." },
+          "intro": { "en": "Placeholder artwork stands in for parish photos.", "es": "Las ilustraciones sustituyen a las fotos de la parroquia." },
+          "description": { "en": "Photos of parish life.", "es": "Fotos de la vida parroquial." },
           "icon": "icon-frame",
           "showInNav": true,
           "sections": [{ "id": "gallery-grid", "type": "gallery", "enabled": true }]
@@ -390,10 +173,7 @@
           "slug": "news",
           "collection": "news",
           "title": { "en": "News", "es": "Noticias" },
-          "intro": {
-            "en": "Announcements, parish events and short reflections. Sample posts.",
-            "es": "Avisos, eventos parroquiales y breves reflexiones. Publicaciones de ejemplo."
-          },
+          "intro": { "en": "Sample posts.", "es": "Publicaciones de ejemplo." },
           "description": { "en": "Parish announcements and reflections.", "es": "Avisos y reflexiones de la parroquia." },
           "icon": "gospel",
           "showInNav": true,
@@ -407,58 +187,17 @@
       "title": { "en": "Services & Schedule", "es": "Servicios y horarios" },
       "navLabel": { "en": "Services", "es": "Servicios" },
       "navOverviewLabel": { "en": "Schedule", "es": "Horarios" },
-      "intro": {
-        "en": "Our regular weekly services and the feasts of the Church year. Times are sample placeholders.",
-        "es": "Nuestros servicios semanales y las fiestas del año litúrgico. Los horarios son de ejemplo."
-      },
+      "intro": { "en": "Weekly services and feast days. Sample times.", "es": "Servicios semanales y días de fiesta. Horarios de ejemplo." },
       "description": { "en": "Weekly and monthly service schedule with feast days.", "es": "Horario semanal y mensual de servicios con días de fiesta." },
       "showInNav": true,
-      "sections": [
-        { "id": "schedule-main", "type": "schedule", "enabled": true, "startView": "week" },
-        {
-          "id": "schedule-guide",
-          "type": "featureList",
-          "enabled": true,
-          "eyebrow": { "en": "About our services", "es": "Sobre nuestros servicios" },
-          "title": { "en": "What each service is", "es": "Qué es cada servicio" },
-          "items": [
-            {
-              "id": "liturgy",
-              "icon": "chalice",
-              "title": { "en": "Divine Liturgy", "es": "Divina Liturgia" },
-              "text": { "en": "The central service of the Church, celebrated on Sunday mornings and feast days. About 90 minutes.", "es": "El servicio central de la Iglesia, el domingo por la mañana y en los días de fiesta. Unos 90 minutos." }
-            },
-            {
-              "id": "vespers",
-              "icon": "censer",
-              "title": { "en": "Vespers", "es": "Vísperas" },
-              "text": { "en": "Evening prayer with psalms and hymns. The Church day begins at sunset, so Saturday Vespers opens Sunday.", "es": "Oración de la tarde con salmos e himnos. El día litúrgico empieza al atardecer, por eso las Vísperas del sábado abren el domingo." }
-            },
-            {
-              "id": "confession",
-              "icon": "gospel",
-              "title": { "en": "Confession", "es": "Confesión" },
-              "text": { "en": "After Saturday Vespers, or by appointment. Speak with Father if it is your first time.", "es": "Después de las Vísperas del sábado o con cita. Hable con el padre si es su primera vez." }
-            },
-            {
-              "id": "feasts",
-              "icon": "bells",
-              "title": { "en": "Feast days", "es": "Días de fiesta" },
-              "text": { "en": "Great feasts have a Vigil the evening before and a Liturgy on the day. They are marked in the calendar.", "es": "Las grandes fiestas tienen una Vigilia la tarde anterior y una Liturgia el mismo día. Están marcadas en el calendario." }
-            }
-          ]
-        }
-      ],
+      "sections": [{ "id": "schedule-main", "type": "schedule", "enabled": true, "startView": "week" }],
       "children": [
         {
           "id": "request",
           "slug": "request",
           "feature": "requests",
           "title": { "en": "Request a Service", "es": "Solicitar un servicio" },
-          "intro": {
-            "en": "Ask for a sacrament, a prayer service or a blessing. Your request goes to Father and the parish office, who will call you to arrange the details.",
-            "es": "Pida un sacramento, un oficio de oración o una bendición. Su solicitud llega al padre y a la oficina parroquial, que le llamarán para concretar los detalles."
-          },
+          "intro": { "en": "Requests go to the clergy and the parish office.", "es": "Las solicitudes llegan al clero y a la oficina parroquial." },
           "description": { "en": "Sacraments, prayer services and blessings.", "es": "Sacramentos, oficios de oración y bendiciones." },
           "icon": "censer",
           "showInNav": true,
@@ -469,10 +208,7 @@
           "slug": "zapiski",
           "feature": "zapiski",
           "title": { "en": "Zapiski and Candles", "es": "Zapiski y velas" },
-          "intro": {
-            "en": "Send the names of those you pray for, living and departed, to be remembered at the altar. You may also ask for a candle to be lit.",
-            "es": "Envíe los nombres de aquellos por quienes ora, vivos y difuntos, para que se recuerden en el altar. También puede pedir que se encienda una vela."
-          },
+          "intro": { "en": "Names for commemoration and candle requests.", "es": "Nombres para conmemorar y pedidos de velas." },
           "description": { "en": "Commemoration notes and candles.", "es": "Notas de conmemoración y velas." },
           "icon": "candle",
           "showInNav": true,
@@ -486,10 +222,7 @@
       "feature": "livestream",
       "title": { "en": "Livestream & Sermons", "es": "Transmisión y sermones" },
       "navLabel": { "en": "Livestream", "es": "En vivo" },
-      "intro": {
-        "en": "Pray with us from home and catch up on recent sermons.",
-        "es": "Ore con nosotros desde casa y escuche los sermones recientes."
-      },
+      "intro": { "en": "Live services and recent sermons.", "es": "Servicios en vivo y sermones recientes." },
       "description": { "en": "Live services and the sermon archive.", "es": "Servicios en vivo y archivo de sermones." },
       "showInNav": true,
       "navPriority": "secondary",
@@ -511,19 +244,14 @@
       "title": { "en": "Get Involved", "es": "Participar" },
       "navOverviewLabel": { "en": "Overview", "es": "Resumen" },
       "intro": {
-        "en": "Parish events and the small jobs that keep a mission running. Sign-ups go through the OrthodoxConnect app.",
-        "es": "Eventos de la parroquia y las pequeñas tareas que sostienen una misión. Las inscripciones se hacen en la app OrthodoxConnect."
+        "en": "Events, volunteering and parish needs. Sign-ups go through OrthodoxConnect.",
+        "es": "Eventos, voluntariado y necesidades. Las inscripciones se hacen en OrthodoxConnect."
       },
       "description": { "en": "Events, volunteering and parish needs.", "es": "Eventos, voluntariado y necesidades de la parroquia." },
       "showInNav": true,
       "sections": [
         { "id": "involved-actions", "type": "connectActions", "enabled": true },
-        {
-          "id": "involved-subpages",
-          "type": "subpageCards",
-          "enabled": true,
-          "title": { "en": "Where to start", "es": "Por dónde empezar" }
-        },
+        { "id": "involved-subpages", "type": "subpageCards", "enabled": true, "title": { "en": "Where to start", "es": "Por dónde empezar" } },
         {
           "id": "involved-upcoming",
           "type": "eventsBoard",
@@ -538,10 +266,7 @@
           "id": "events",
           "slug": "events",
           "title": { "en": "Events", "es": "Eventos" },
-          "intro": {
-            "en": "Classes, meals and feast day gatherings. Say you are coming so we cook enough.",
-            "es": "Clases, comidas y encuentros de fiesta. Avísenos si viene para preparar suficiente comida."
-          },
+          "intro": { "en": "Upcoming parish events.", "es": "Próximos eventos de la parroquia." },
           "description": { "en": "Upcoming parish events with RSVP.", "es": "Próximos eventos de la parroquia con confirmación de asistencia." },
           "icon": "bells",
           "showInNav": true,
@@ -554,10 +279,7 @@
           "id": "volunteer",
           "slug": "volunteer",
           "title": { "en": "Volunteer and Needs", "es": "Voluntariado y necesidades" },
-          "intro": {
-            "en": "Coffee hour, cleaning, choir, the food drive and meals for families. Pick a slot that fits your week.",
-            "es": "Café, limpieza, coro, colecta de alimentos y comidas para familias. Elija un turno que le venga bien."
-          },
+          "intro": { "en": "Volunteer slots and parish needs.", "es": "Turnos de voluntariado y necesidades de la parroquia." },
           "description": { "en": "Sign up for a slot or a parish need.", "es": "Apúntese a un turno o a una necesidad de la parroquia." },
           "icon": "candle",
           "showInNav": true,
@@ -575,8 +297,8 @@
       "collection": "products",
       "title": { "en": "Store", "es": "Tienda" },
       "intro": {
-        "en": "Icons, candles, books and gifts from our small parish shop. Ship to your home or pick up at church.",
-        "es": "Íconos, velas, libros y regalos de nuestra pequeña tienda parroquial. Envío a domicilio o recogida en la iglesia."
+        "en": "Sample parish shop. Ship to your home or pick up at church.",
+        "es": "Tienda parroquial de ejemplo. Envío a domicilio o recogida en la iglesia."
       },
       "description": { "en": "The parish shop: icons, candles, books and gifts.", "es": "La tienda parroquial: íconos, velas, libros y regalos." },
       "showInNav": true,
@@ -604,10 +326,7 @@
       "id": "donate",
       "slug": "donate",
       "title": { "en": "Donate", "es": "Donar" },
-      "intro": {
-        "en": "Thank you for supporting a young parish. Choose an amount, once or every month.",
-        "es": "Gracias por apoyar a una parroquia joven. Elija una cantidad, una vez o cada mes."
-      },
+      "intro": { "en": "Short text about giving goes here.", "es": "Aquí va un texto breve sobre las donaciones." },
       "description": { "en": "Give once or monthly to support the mission.", "es": "Done una vez o cada mes para sostener la misión." },
       "showInNav": true,
       "navPlacement": "button",
@@ -617,26 +336,25 @@
           "id": "donate-other",
           "type": "featureList",
           "enabled": true,
-          "eyebrow": { "en": "Other ways to give", "es": "Otras formas de dar" },
-          "title": { "en": "Not online? That is fine.", "es": "¿No en línea? No hay problema." },
+          "title": { "en": "Other ways to give", "es": "Otras formas de dar" },
           "items": [
             {
-              "id": "basket",
+              "id": "in-person",
               "icon": "church",
-              "title": { "en": "On Sunday", "es": "El domingo" },
-              "text": { "en": "Use the offering box by the candle stand, cash or check.", "es": "Use la caja de ofrendas junto a las velas, en efectivo o cheque." }
+              "title": { "en": "In person", "es": "En persona" },
+              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
             },
             {
               "id": "mail",
               "icon": "mail",
               "title": { "en": "By mail", "es": "Por correo" },
-              "text": { "en": "Checks payable to the parish, mailed to 123 Example Street.", "es": "Cheques a nombre de la parroquia, enviados a 123 Example Street." }
+              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
             },
             {
               "id": "time",
               "icon": "candle",
-              "title": { "en": "Your time", "es": "Su tiempo" },
-              "text": { "en": "Bake for coffee hour, sing in the choir, or help clean before feasts.", "es": "Prepare algo para el café, cante en el coro o ayude a limpiar antes de las fiestas." }
+              "title": { "en": "Volunteer", "es": "Voluntariado" },
+              "text": { "en": "Short description goes here.", "es": "Aquí va una breve descripción." }
             }
           ]
         }
@@ -646,17 +364,11 @@
       "id": "contact",
       "slug": "contact",
       "title": { "en": "Contact", "es": "Contacto" },
-      "intro": {
-        "en": "Questions about visiting, baptism, weddings or anything else. We usually reply within two days.",
-        "es": "Preguntas sobre una visita, bautizos, bodas o cualquier otra cosa. Solemos responder en dos días."
-      },
+      "intro": { "en": "Short text about contacting the parish goes here.", "es": "Aquí va un texto breve sobre cómo contactar a la parroquia." },
       "description": { "en": "Address, directions, phone and a contact form.", "es": "Dirección, cómo llegar, teléfono y formulario de contacto." },
       "showInNav": true,
       "navPriority": "secondary",
-      "sections": [
-        { "id": "contact-form", "type": "contactForm", "enabled": true },
-        { "id": "directions", "type": "mapDirections", "enabled": true }
-      ]
+      "sections": [{ "id": "contact-form", "type": "contactForm", "enabled": true }, { "id": "directions", "type": "mapDirections", "enabled": true }]
     }
   ]
 }

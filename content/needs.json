@@ -12,7 +12,7 @@
     {
       "id": "need-coffee-hour",
       "title": { "en": "Coffee hour hosts", "es": "Anfitriones del café" },
-      "description": { "en": "Sample need. Set out coffee and a simple snack, then tidy up. Three people per Sunday.", "es": "Necesidad de ejemplo. Preparar café y algo sencillo para picar, y después recoger. Tres personas por domingo." },
+      "description": { "en": "Sample need. Short description goes here.", "es": "Necesidad de ejemplo. Aquí va una breve descripción." },
       "location": { "en": "Parish hall", "es": "Salón parroquial" },
       "organizer": { "en": "Hospitality team", "es": "Equipo de acogida" },
       "category": "coffee-hour",
@@ -26,18 +26,16 @@
     {
       "id": "need-cleaning",
       "title": { "en": "Church cleaning before the Nativity", "es": "Limpieza de la iglesia antes de la Natividad" },
-      "description": { "en": "Sample need. Dust, polish candle stands and wash floors. Children welcome with a parent.", "es": "Necesidad de ejemplo. Quitar el polvo, pulir los candeleros y fregar el suelo. Niños bienvenidos con un adulto." },
+      "description": { "en": "Sample need. Short description goes here.", "es": "Necesidad de ejemplo. Aquí va una breve descripción." },
       "location": { "en": "Church", "es": "Iglesia" },
       "organizer": { "en": "Altar guild", "es": "Equipo del altar" },
       "category": "cleaning",
-      "slots": [
-        { "id": "slot-cln-1219", "date": "2026-12-19", "time": "10:00", "capacity": 10, "signups": 4 }
-      ]
+      "slots": [{ "id": "slot-cln-1219", "date": "2026-12-19", "time": "10:00", "capacity": 10, "signups": 4 }]
     },
     {
       "id": "need-choir",
       "title": { "en": "Extra voices for the Nativity", "es": "Más voces para la Natividad" },
-      "description": { "en": "Sample need. Join three rehearsals and sing at the feast. No experience needed.", "es": "Necesidad de ejemplo. Venga a tres ensayos y cante en la fiesta. No hace falta experiencia." },
+      "description": { "en": "Sample need. Short description goes here.", "es": "Necesidad de ejemplo. Aquí va una breve descripción." },
       "location": { "en": "Parish hall", "es": "Salón parroquial" },
       "organizer": { "en": "Reader Mark Placeholder", "es": "Lector Marcos Ficticio" },
       "category": "choir",
@@ -50,7 +48,7 @@
     {
       "id": "need-food-drive",
       "title": { "en": "Food drive for the pantry shelf", "es": "Colecta para el estante de alimentos" },
-      "description": { "en": "Sample need. Sort donated food, then deliver boxes to the local food bank.", "es": "Necesidad de ejemplo. Clasificar los alimentos donados y llevar las cajas al banco de alimentos." },
+      "description": { "en": "Sample need. Short description goes here.", "es": "Necesidad de ejemplo. Aquí va una breve descripción." },
       "location": { "en": "Parish hall", "es": "Salón parroquial" },
       "organizer": { "en": "Dn. Stephen Sample", "es": "Diác. Esteban Muestra" },
       "category": "food-drive",
@@ -62,7 +60,7 @@
     {
       "id": "need-meals",
       "title": { "en": "Meals for a family with a new baby", "es": "Comidas para una familia con un bebé" },
-      "description": { "en": "Sample need. Drop off a dinner at the family's home. Details come by message after you sign up.", "es": "Necesidad de ejemplo. Lleve una cena a casa de la familia. Recibirá los detalles por mensaje al inscribirse." },
+      "description": { "en": "Sample need. Short description goes here.", "es": "Necesidad de ejemplo. Aquí va una breve descripción." },
       "location": { "en": "Shared after sign-up", "es": "Se indica al inscribirse" },
       "organizer": { "en": "Hospitality team", "es": "Equipo de acogida" },
       "category": "meals",

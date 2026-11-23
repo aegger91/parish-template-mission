@@ -12,8 +12,6 @@ import Visit from "./Visit.astro"
 import DonateBand from "./DonateBand.astro"
 import MapDirections from "./MapDirections.astro"
 import ConnectActions from "./ConnectActions.astro"
-import WhatToExpect from "./WhatToExpect"
-import FirstVisitGuide from "./FirstVisitGuide"
 import ClergyCards from "./ClergyCards"
 import Gallery from "./Gallery"
 import Schedule from "./Schedule"
@@ -92,17 +90,6 @@ const cartCfg = {
 
 function props(section: SectionNode): Record<string, any> | null {
   switch (section.type) {
-    case "whatToExpect":
-      return {
-        items: section.items.map((i: any) => ({ id: i.id, icon: i.icon, title: tr(i.title, lang), summary: tr(i.summary, lang), detail: tr(i.detail, lang) })),
-        s: strings(lang, ["tapToRead", "tapToReturn"]),
-      }
-    case "firstVisitGuide":
-      return {
-        steps: section.steps.map((st: any) => ({ id: st.id, icon: st.icon, title: tr(st.title, lang), text: tr(st.text, lang), tip: st.tip ? tr(st.tip, lang) : undefined })),
-        cta: resolveLink(section.cta, lang),
-        s: strings(lang, ["back", "next", "startOver", "stepOf", "tip"]),
-      }
     case "clergyCards":
       return {
         people: (clergyJson as any).people.map((p: any) => ({ ...p, name: tr(p.name, lang), role: tr(p.role, lang), summary: tr(p.summary, lang), bio: p.bio.map((b: any) => tr(b, lang)) })),
@@ -352,18 +339,6 @@ for (const { section, p } of items) {
         return <MapDirections lang={lang} section={section} />
       case "connectActions":
         return <ConnectActions lang={lang} section={section} />
-      case "whatToExpect":
-        return (
-          <SectionShell {...shell(section)} tone="stone">
-            <WhatToExpect client:visible {...(p as any)} />
-          </SectionShell>
-        )
-      case "firstVisitGuide":
-        return (
-          <SectionShell {...shell(section)}>
-            <FirstVisitGuide client:visible {...(p as any)} />
-          </SectionShell>
-        )
       case "clergyCards":
         return (
           <SectionShell {...shell(section)}>

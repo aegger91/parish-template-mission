@@ -168,40 +168,4 @@
   .safe-bottom {
     padding-bottom: env(safe-area-inset-bottom);
   }
-  .flip-scene {
-    perspective: 1200px;
-  }
-  .flip-inner {
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  .flip-inner[data-flipped="true"] {
-    transform: rotateY(180deg);
-  }
-  .flip-face {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
-  .flip-back {
-    transform: rotateY(180deg);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .flip-inner,
-    .flip-inner[data-flipped="true"] {
-      transform: none;
-      transition: none;
-    }
-    .flip-face {
-      backface-visibility: visible;
-      transition: opacity 200ms;
-    }
-    .flip-back {
-      transform: none;
-    }
-    .flip-inner[data-flipped="true"] .flip-front,
-    .flip-inner:not([data-flipped="true"]) .flip-back {
-      opacity: 0;
-    }
-  }
 }

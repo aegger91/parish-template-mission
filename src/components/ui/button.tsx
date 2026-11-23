@@ -2,7 +2,7 @@ import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-const buttonVariants = cva(
+const buttonVariantsBase = cva(
   "group/button inline-flex shrink-0 items-center justify-center gap-2 rounded-full border bg-clip-padding font-tradition text-[0.95rem] tracking-[0.03em] whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/40 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
@@ -33,16 +33,27 @@ const buttonVariants = cva(
   }
 )
 
+type ButtonVariantProps = VariantProps<typeof buttonVariantsBase>
+
+// Merged so a caller's className (e.g. "bg-white text-ink") wins over the variant's own colors.
+function buttonVariants(props?: ButtonVariantProps & { className?: string }) {
+  return cn(buttonVariantsBase(props))
+}
+
 function Button({
   className,
   variant = "default",
   size = "default",
   ...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+}: ButtonPrimitive.Props & ButtonVariantProps) {
   return (
     <ButtonPrimitive
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={
+        typeof className === "function"
+          ? (state) => buttonVariants({ variant, size, className: className(state) })
+          : buttonVariants({ variant, size, className })
+      }
       {...props}
     />
   )

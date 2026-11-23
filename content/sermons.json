@@ -62,10 +62,7 @@
       "duration": "10:20",
       "scripture": { "en": "Luke 16:19-31", "es": "Lucas 16, 19-31" },
       "title": { "en": "Sample sermon: The rich man and Lazarus", "es": "Sermón de ejemplo: El rico y Lázaro" },
-      "summary": {
-        "en": "Placeholder summary for an audio sermon.",
-        "es": "Resumen de ejemplo de un sermón en audio."
-      }
+      "summary": { "en": "Placeholder summary for an audio sermon.", "es": "Resumen de ejemplo de un sermón en audio." }
     },
     {
       "id": "sermon-2026-10-25",
@@ -76,10 +73,7 @@
       "duration": "13:55",
       "scripture": { "en": "Luke 8:26-39", "es": "Lucas 8, 26-39" },
       "title": { "en": "Sample sermon: Go home and tell", "es": "Sermón de ejemplo: Vuelve a tu casa y cuenta" },
-      "summary": {
-        "en": "Placeholder summary for a video sermon.",
-        "es": "Resumen de ejemplo de un sermón en video."
-      }
+      "summary": { "en": "Placeholder summary for a video sermon.", "es": "Resumen de ejemplo de un sermón en video." }
     }
   ]
 }

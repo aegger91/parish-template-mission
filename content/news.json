@@ -3,7 +3,7 @@
   "categories": [
     { "id": "announcements", "label": { "en": "Announcements", "es": "Avisos" } },
     { "id": "events", "label": { "en": "Events", "es": "Eventos" } },
-    { "id": "reflections", "label": { "en": "Reflections", "es": "Reflexiones" } }
+    { "id": "reflections", "label": { "en": "Parish life", "es": "Vida parroquial" } }
   ],
   "posts": [
     {
@@ -12,21 +12,9 @@
       "date": "2026-11-20",
       "category": "announcements",
       "motif": "candle",
-      "title": { "en": "Nativity services and the fast", "es": "Servicios de la Natividad y el ayuno" },
-      "excerpt": {
-        "en": "Sample post. The Nativity Fast has begun. Here is how our services change until Christmas.",
-        "es": "Publicación de ejemplo. Ha comenzado el ayuno de la Natividad. Así cambian nuestros servicios hasta Navidad."
-      },
-      "body": [
-        {
-          "en": "Sample post. During the fast we add a short weekday prayer service and keep confession open after every Vespers.",
-          "es": "Publicación de ejemplo. Durante el ayuno añadimos un breve oficio entre semana y ofrecemos confesión después de cada Vísperas."
-        },
-        {
-          "en": "The full list of Nativity services is on the schedule page. Please check it before you travel.",
-          "es": "La lista completa de servicios de la Natividad está en la página de horarios. Revísela antes de venir."
-        }
-      ]
+      "title": { "en": "Nativity service times", "es": "Horarios de la Natividad" },
+      "excerpt": { "en": "Sample post. A one line summary goes here.", "es": "Publicación de ejemplo. Aquí va un resumen de una línea." },
+      "body": [{ "en": "Sample post. Article text goes here.", "es": "Publicación de ejemplo. Aquí va el texto del artículo." }]
     },
     {
       "id": "post-meal",
@@ -34,35 +22,19 @@
       "date": "2026-11-12",
       "category": "events",
       "motif": "utensils",
-      "title": { "en": "Neighbors meal needs cooks", "es": "Se buscan cocineros para la comida de los vecinos" },
-      "excerpt": {
-        "en": "Sample post. We are looking for three more people to cook for the December meal.",
-        "es": "Publicación de ejemplo. Buscamos tres personas más para cocinar en la comida de diciembre."
-      },
-      "body": [
-        {
-          "en": "Sample post. The meal is on the second Saturday of the month. Sign up at coffee hour or reply through the contact page.",
-          "es": "Publicación de ejemplo. La comida es el segundo sábado del mes. Apúntese en el café o escríbanos desde la página de contacto."
-        }
-      ]
+      "title": { "en": "Neighbors meal in December", "es": "Comida para vecinos en diciembre" },
+      "excerpt": { "en": "Sample post. A one line summary goes here.", "es": "Publicación de ejemplo. Aquí va un resumen de una línea." },
+      "body": [{ "en": "Sample post. Article text goes here.", "es": "Publicación de ejemplo. Aquí va el texto del artículo." }]
     },
     {
-      "id": "post-reflection",
-      "slug": "why-we-stand",
+      "id": "post-parish-update",
+      "slug": "parish-update",
       "date": "2026-11-03",
       "category": "reflections",
       "motif": "prayer-rope",
-      "title": { "en": "Why we stand in church", "es": "Por qué estamos de pie en la iglesia" },
-      "excerpt": {
-        "en": "Sample post. A short note from Father on standing, sitting and paying attention.",
-        "es": "Publicación de ejemplo. Una breve nota del padre sobre estar de pie, sentarse y prestar atención."
-      },
-      "body": [
-        {
-          "en": "Sample post. Standing is an old Christian posture of prayer and readiness. It is not a rule meant to wear anyone out, so please sit whenever you need to.",
-          "es": "Publicación de ejemplo. Estar de pie es una antigua postura cristiana de oración y disposición. No es una norma para cansar a nadie, siéntese cuando lo necesite."
-        }
-      ]
+      "title": { "en": "Parish update", "es": "Noticias de la parroquia" },
+      "excerpt": { "en": "Sample post. A one line summary goes here.", "es": "Publicación de ejemplo. Aquí va un resumen de una línea." },
+      "body": [{ "en": "Sample post. Article text goes here.", "es": "Publicación de ejemplo. Aquí va el texto del artículo." }]
     },
     {
       "id": "post-choir",
@@ -70,17 +42,9 @@
       "date": "2026-10-24",
       "category": "announcements",
       "motif": "bells",
-      "title": { "en": "Choir rehearsals move to Thursday", "es": "Los ensayos del coro pasan al jueves" },
-      "excerpt": {
-        "en": "Sample post. New singers are welcome, no experience needed.",
-        "es": "Publicación de ejemplo. Los nuevos cantores son bienvenidos, no hace falta experiencia."
-      },
-      "body": [
-        {
-          "en": "Sample post. Rehearsals now start at 7:00 PM on Thursdays in the hall.",
-          "es": "Publicación de ejemplo. Los ensayos empiezan ahora a las 19:00 los jueves en el salón."
-        }
-      ]
+      "title": { "en": "Choir rehearsals", "es": "Ensayos del coro" },
+      "excerpt": { "en": "Sample post. A one line summary goes here.", "es": "Publicación de ejemplo. Aquí va un resumen de una línea." },
+      "body": [{ "en": "Sample post. Article text goes here.", "es": "Publicación de ejemplo. Aquí va el texto del artículo." }]
     },
     {
       "id": "post-icons",
@@ -88,17 +52,9 @@
       "date": "2026-10-05",
       "category": "events",
       "motif": "icon-frame",
-      "title": { "en": "Two new icons blessed", "es": "Dos íconos nuevos bendecidos" },
-      "excerpt": {
-        "en": "Sample post. Thank you to everyone who gave toward the iconostasis fund.",
-        "es": "Publicación de ejemplo. Gracias a todos los que donaron para el fondo del iconostasio."
-      },
-      "body": [
-        {
-          "en": "Sample post. The icons were blessed after the Sunday Liturgy and are now in their places on the iconostasis.",
-          "es": "Publicación de ejemplo. Los íconos se bendijeron después de la Liturgia del domingo y ya están en su lugar en el iconostasio."
-        }
-      ]
+      "title": { "en": "New icons", "es": "Nuevos íconos" },
+      "excerpt": { "en": "Sample post. A one line summary goes here.", "es": "Publicación de ejemplo. Aquí va un resumen de una línea." },
+      "body": [{ "en": "Sample post. Article text goes here.", "es": "Publicación de ejemplo. Aquí va el texto del artículo." }]
     }
   ]
 }
