@@ -1,0 +1,55 @@
+---
+import { ChevronRight } from "lucide-react"
+import { Pictogram } from "@/components/brand/Pictogram"
+import { pageById, tr, t, href, navLabel, type FlatPage } from "@/lib/site"
+
+interface Props {
+  lang: string
+  page: FlatPage
+  title?: string
+  intro?: string
+  crumbs?: { label: string; href: string }[]
+}
+const { lang, page, title, intro, crumbs } = Astro.props
+const parents = page.parentIds.map((id) => pageById(id)).filter(Boolean) as FlatPage[]
+const trail = crumbs ?? [
+  { label: t("homeLink", lang), href: href(lang, "") },
+  ...parents.map((p) => ({ label: navLabel(p.node, lang), href: href(lang, p.path) })),
+]
+const heading = title ?? tr(page.node.title, lang)
+const lead = intro ?? tr(page.node.intro, lang)
+---
+
+<header class="relative overflow-hidden border-b border-border bg-stone-50">
+  <div class="container-mission relative py-12 md:py-16">
+    <nav aria-label={t("breadcrumb", lang)} class="mb-6">
+      <ol class="flex flex-wrap items-center gap-1.5 text-sm text-ink-500">
+        {
+          trail.map((c) => (
+            <li class="flex items-center gap-1.5">
+              <a href={c.href} class="hover:text-blue">
+                {c.label}
+              </a>
+              <ChevronRight aria-hidden="true" className="size-3.5 text-ink-300 rtl:rotate-180" />
+            </li>
+          ))
+        }
+        <li aria-current="page" class="text-ink-700">{heading}</li>
+      </ol>
+    </nav>
+    <div class="flex items-start gap-6">
+      <div class="min-w-0 flex-1">
+        <h1 class="max-w-3xl text-[2.25rem] leading-[1.08] text-ink sm:text-5xl md:text-[3.5rem]">{heading}</h1>
+        <div aria-hidden="true" class="hairline-gold-start mt-6 w-40"></div>
+        {lead && <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">{lead}</p>}
+      </div>
+      {
+        page.node.icon && (
+          <div aria-hidden="true" class="kiot-arch hidden h-36 w-28 shrink-0 items-center justify-center border border-gold-line bg-white text-blue md:flex">
+            <Pictogram name={page.node.icon} size={56} strokeWidth={1} />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</header>

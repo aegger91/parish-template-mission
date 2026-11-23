@@ -1,0 +1,56 @@
+/*
+  Mission design tokens. Builders and parishes override these values only;
+  components read them through the Tailwind theme in src/styles/global.css.
+*/
+:root {
+  /* Font roles. "tradition" carries headings, buttons and ornaments. */
+  --font-tradition: "Marcellus", "Cormorant Garamond", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-body: "Instrument Sans Variable", "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-role-heading: var(--font-tradition);
+  --font-role-button: var(--font-tradition);
+  --font-role-ornament: var(--font-tradition);
+  --font-role-body: var(--font-body);
+  --tracking-tradition: 0.02em;
+  --tracking-ornament: 0.22em;
+
+  /* Paper and stone */
+  --mission-paper: #ffffff;
+  --mission-canvas: #fcfbf9;
+  --mission-stone-50: #f8f7f4;
+  --mission-stone-100: #f2f0eb;
+  --mission-stone-200: #e7e3da;
+  --mission-stone-300: #d6d0c4;
+
+  /* Slate ink */
+  --mission-slate-900: #1c2430;
+  --mission-slate-700: #364152;
+  --mission-slate-600: #4a5567;
+  --mission-slate-500: #5f6b7d;
+  --mission-slate-300: #b4bcc8;
+
+  /* The one accent: icon blue */
+  --mission-blue: #24519a;
+  --mission-blue-deep: #1a3c75;
+  --mission-blue-wash: #eef3fa;
+  --mission-blue-line: #c9d6ea;
+
+  /* Gold, only as thin hairlines and small marks */
+  --mission-gold: #b08d4c;
+  --mission-gold-line: rgb(176 141 76 / 0.55);
+  --mission-gold-wash: #faf5ea;
+
+  /* Slips (zapiski) */
+  --mission-health-red: #a3242b;
+  --mission-repose-black: #1a1a1a;
+
+  --mission-hairline: 1px;
+  --mission-radius: 0.875rem;
+  --mission-radius-pill: 999px;
+  --mission-shadow-soft: 0 1px 2px rgb(28 36 48 / 0.04), 0 8px 24px -12px rgb(28 36 48 / 0.12);
+  --mission-shadow-lift: 0 2px 4px rgb(28 36 48 / 0.05), 0 18px 40px -18px rgb(28 36 48 / 0.22);
+
+  --mission-header-h: 5rem;
+  --mission-header-h-condensed: 4rem;
+  --mission-mobile-bar-h: 4rem;
+  --mission-container: 76rem;
+}

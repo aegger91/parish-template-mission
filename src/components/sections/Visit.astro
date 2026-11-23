@@ -1,0 +1,37 @@
+---
+import { Car, Bus, Clock } from "lucide-react"
+import SectionShell from "./SectionShell.astro"
+import MapPanel from "./MapPanel.astro"
+import { buttonVariants } from "@/components/ui/button"
+import { site, tr, t, formatAddressLines, specialPageHref, type SectionNode } from "@/lib/site"
+interface Props {
+  lang: string
+  section: SectionNode
+}
+const { lang, section } = Astro.props
+const c = site.contact
+const contactHref = specialPageHref("contact", lang)
+---
+
+<SectionShell id={section.id} tone="stone">
+  <div class="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-12">
+    <div class="min-w-0">
+      <p class="eyebrow mb-3">{tr(section.eyebrow, lang)}</p>
+      <h2 class="text-3xl leading-tight text-ink md:text-[2.6rem]">{tr(section.title, lang)}</h2>
+      <p class="mt-4 text-lg leading-relaxed text-ink-600">{tr(section.text, lang)}</p>
+      <address class="mt-6 font-tradition text-xl leading-relaxed not-italic text-ink">
+        {formatAddressLines(lang).map((l) => <span class="block">{l}</span>)}
+      </address>
+      <dl class="mt-6 space-y-4 text-ink-700">
+        <div class="flex gap-3"><Car aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-gold" /><div><dt class="font-semibold">{t("parking", lang)}</dt><dd>{tr(c.parking, lang)}</dd></div></div>
+        <div class="flex gap-3"><Bus aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-gold" /><div><dt class="font-semibold">{t("transit", lang)}</dt><dd>{tr(c.transit, lang)}</dd></div></div>
+        <div class="flex gap-3"><Clock aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-gold" /><div><dt class="font-semibold">{t("officeHours", lang)}</dt><dd>{tr(c.officeHours, lang)}</dd></div></div>
+      </dl>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={c.directionsUrl} target="_blank" rel="noopener" class={buttonVariants({ size: "lg" })}>{t("getDirections", lang)}</a>
+        {contactHref && <a href={contactHref} class={buttonVariants({ size: "lg", variant: "outline" })}>{t("footerContact", lang)}</a>}
+      </div>
+    </div>
+    <MapPanel lang={lang} />
+  </div>
+</SectionShell>

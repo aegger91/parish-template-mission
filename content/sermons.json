@@ -1,0 +1,85 @@
+{
+  "$schema": "../schemas/sermons.schema.json",
+  "sermons": [
+    {
+      "id": "sermon-2026-11-22",
+      "date": "2026-11-22",
+      "speakerId": "fr-andrew",
+      "format": "audio",
+      "mediaUrl": null,
+      "duration": "12:40",
+      "scripture": { "en": "Luke 12:16-21", "es": "Lucas 12, 16-21" },
+      "title": { "en": "Sample sermon: Rich toward God", "es": "Sermón de ejemplo: Rico ante Dios" },
+      "summary": {
+        "en": "Placeholder summary for an audio sermon on the parable of the rich fool.",
+        "es": "Resumen de ejemplo de un sermón en audio sobre la parábola del rico insensato."
+      }
+    },
+    {
+      "id": "sermon-2026-11-15",
+      "date": "2026-11-15",
+      "speakerId": "fr-andrew",
+      "format": "video",
+      "mediaUrl": null,
+      "duration": "15:05",
+      "scripture": { "en": "Luke 10:25-37", "es": "Lucas 10, 25-37" },
+      "title": { "en": "Sample sermon: Who is my neighbor?", "es": "Sermón de ejemplo: ¿Quién es mi prójimo?" },
+      "summary": {
+        "en": "Placeholder summary for a video sermon on the Good Samaritan.",
+        "es": "Resumen de ejemplo de un sermón en video sobre el buen samaritano."
+      }
+    },
+    {
+      "id": "sermon-2026-11-08",
+      "date": "2026-11-08",
+      "speakerId": "dn-stephen",
+      "format": "text",
+      "mediaUrl": null,
+      "duration": null,
+      "scripture": { "en": "Luke 8:41-56", "es": "Lucas 8, 41-56" },
+      "title": { "en": "Sample homily: Do not be afraid, only believe", "es": "Homilía de ejemplo: No temas, cree solamente" },
+      "summary": {
+        "en": "Placeholder text of a short homily, shown here so the reader layout can be previewed.",
+        "es": "Texto de ejemplo de una breve homilía, para ver cómo se muestra el lector."
+      },
+      "text": [
+        {
+          "en": "This is sample text. A parish would paste the written homily here, in as many paragraphs as needed.",
+          "es": "Este es un texto de ejemplo. Una parroquia pegaría aquí la homilía escrita, en los párrafos que necesite."
+        },
+        {
+          "en": "Each paragraph can be translated separately, and any language without a translation falls back to the default language.",
+          "es": "Cada párrafo se puede traducir por separado, y si falta una traducción se muestra el idioma principal."
+        }
+      ]
+    },
+    {
+      "id": "sermon-2026-11-01",
+      "date": "2026-11-01",
+      "speakerId": "fr-andrew",
+      "format": "audio",
+      "mediaUrl": null,
+      "duration": "10:20",
+      "scripture": { "en": "Luke 16:19-31", "es": "Lucas 16, 19-31" },
+      "title": { "en": "Sample sermon: The rich man and Lazarus", "es": "Sermón de ejemplo: El rico y Lázaro" },
+      "summary": {
+        "en": "Placeholder summary for an audio sermon.",
+        "es": "Resumen de ejemplo de un sermón en audio."
+      }
+    },
+    {
+      "id": "sermon-2026-10-25",
+      "date": "2026-10-25",
+      "speakerId": "fr-andrew",
+      "format": "video",
+      "mediaUrl": null,
+      "duration": "13:55",
+      "scripture": { "en": "Luke 8:26-39", "es": "Lucas 8, 26-39" },
+      "title": { "en": "Sample sermon: Go home and tell", "es": "Sermón de ejemplo: Vuelve a tu casa y cuenta" },
+      "summary": {
+        "en": "Placeholder summary for a video sermon.",
+        "es": "Resumen de ejemplo de un sermón en video."
+      }
+    }
+  ]
+}

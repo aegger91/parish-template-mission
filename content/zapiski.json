@@ -1,0 +1,98 @@
+{
+  "$schema": "../schemas/zapiski.schema.json",
+  "maxNames": 10,
+  "maxSlips": 10,
+  "healthSlipInk": "red",
+  "currency": "USD",
+  "types": [
+    {
+      "id": "health",
+      "label": { "en": "For Health", "es": "Por la salud" },
+      "heading": { "en": "For Health", "es": "Por la salud" },
+      "style": "health"
+    },
+    {
+      "id": "repose",
+      "label": { "en": "For the Repose", "es": "Por el descanso" },
+      "heading": { "en": "For the Repose", "es": "Por el descanso" },
+      "style": "repose"
+    }
+  ],
+  "commemorations": [
+    {
+      "id": "proskomedia",
+      "appliesTo": ["health", "repose"],
+      "suggestedDonation": 5,
+      "label": { "en": "Proskomedia", "es": "Proskomidia" },
+      "description": {
+        "en": "Before the Liturgy the priest reads each name and takes out a particle from the prosphora.",
+        "es": "Antes de la Liturgia el sacerdote lee cada nombre y extrae una partícula de la prósfora."
+      }
+    },
+    {
+      "id": "liturgy",
+      "appliesTo": ["health", "repose"],
+      "suggestedDonation": 3,
+      "label": { "en": "At the Divine Liturgy", "es": "En la Divina Liturgia" },
+      "description": {
+        "en": "Names are read aloud during the litany at the Liturgy.",
+        "es": "Los nombres se leen en voz alta durante la letanía de la Liturgia."
+      }
+    },
+    {
+      "id": "moleben",
+      "appliesTo": ["health"],
+      "suggestedDonation": 10,
+      "label": { "en": "Moleben", "es": "Moleben" },
+      "description": {
+        "en": "Remembered at the next prayer service for health.",
+        "es": "Se recuerdan en el próximo oficio de rogativa por la salud."
+      }
+    },
+    {
+      "id": "panikhida",
+      "appliesTo": ["repose"],
+      "suggestedDonation": 10,
+      "label": { "en": "Panikhida", "es": "Panijida" },
+      "description": {
+        "en": "Remembered at the next memorial service for the departed.",
+        "es": "Se recuerdan en el próximo oficio de memoria por los difuntos."
+      }
+    },
+    {
+      "id": "sorokoust",
+      "appliesTo": ["health", "repose"],
+      "suggestedDonation": 40,
+      "label": { "en": "Sorokoust (40 days)", "es": "Sorokoust (40 días)" },
+      "description": {
+        "en": "Remembered at the Proskomedia of every Liturgy for forty days.",
+        "es": "Se recuerdan en la Proskomidia de cada Liturgia durante cuarenta días."
+      }
+    }
+  ],
+  "prefixes": [
+    { "id": "none", "appliesTo": ["health", "repose"], "label": { "en": "No prefix", "es": "Sin título" } },
+    { "id": "bishop", "appliesTo": ["health", "repose"], "label": { "en": "Bishop", "es": "Obispo" } },
+    { "id": "priest", "appliesTo": ["health", "repose"], "label": { "en": "Priest", "es": "Sacerdote" } },
+    { "id": "deacon", "appliesTo": ["health", "repose"], "label": { "en": "Deacon", "es": "Diácono" } },
+    { "id": "monk", "appliesTo": ["health", "repose"], "label": { "en": "Monk", "es": "Monje" } },
+    { "id": "nun", "appliesTo": ["health", "repose"], "label": { "en": "Nun", "es": "Monja" } },
+    { "id": "infant", "appliesTo": ["health", "repose"], "label": { "en": "Infant (under 7)", "es": "Infante (menor de 7)" } },
+    { "id": "child", "appliesTo": ["health", "repose"], "label": { "en": "Child (7 to 15)", "es": "Niño o niña (7 a 15)" } },
+    { "id": "newly-departed", "appliesTo": ["repose"], "label": { "en": "Newly departed (first 40 days)", "es": "Recién fallecido (primeros 40 días)" } }
+  ],
+  "candles": [
+    { "id": "small", "price": 2, "label": { "en": "Small candle", "es": "Vela pequeña" } },
+    { "id": "medium", "price": 5, "label": { "en": "Medium candle", "es": "Vela mediana" } },
+    { "id": "large", "price": 10, "label": { "en": "Large candle", "es": "Vela grande" } }
+  ],
+  "donationPresets": [5, 10, 25],
+  "hint": {
+    "en": "Please write first names only, in the form given at Baptism, such as John rather than Jack. Surnames are not read. If someone is not Orthodox, tell Father in the note and he will remember them in a fitting way.",
+    "es": "Escriba solo el nombre de pila, tal como se dio en el Bautismo, por ejemplo José y no Pepe. No se leen los apellidos. Si alguien no es ortodoxo, indíquelo al padre en la nota y él lo recordará de la manera adecuada."
+  },
+  "consent": {
+    "en": "I agree that the parish may keep these names until the commemoration is complete. They are used only for prayer and are never shared.",
+    "es": "Acepto que la parroquia guarde estos nombres hasta completar la conmemoración. Se usan solo para la oración y nunca se comparten."
+  }
+}

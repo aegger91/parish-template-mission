@@ -1,0 +1,455 @@
+---
+import SectionShell from "./SectionShell.astro"
+import Hero from "./Hero.astro"
+import RichText from "./RichText.astro"
+import FeatureList from "./FeatureList.astro"
+import SubpageCards from "./SubpageCards.astro"
+import Timeline from "./Timeline.astro"
+import LivestreamBand from "./LivestreamBand.astro"
+import Livestream from "./Livestream.astro"
+import LatestNews from "./LatestNews.astro"
+import Visit from "./Visit.astro"
+import DonateBand from "./DonateBand.astro"
+import MapDirections from "./MapDirections.astro"
+import ConnectActions from "./ConnectActions.astro"
+import WhatToExpect from "./WhatToExpect"
+import FirstVisitGuide from "./FirstVisitGuide"
+import ClergyCards from "./ClergyCards"
+import Gallery from "./Gallery"
+import Schedule from "./Schedule"
+import Sermons from "./Sermons"
+import NewsList from "./NewsList"
+import DonateForm from "./DonateForm"
+import ContactForm from "./ContactForm"
+import ServiceRequests from "@/components/modules/ServiceRequests"
+import Zapiski from "@/components/modules/Zapiski"
+import EventsBoard from "@/components/modules/EventsBoard"
+import NeedsBoard from "@/components/modules/NeedsBoard"
+import ProductGrid from "@/components/store/ProductGrid"
+import CartView from "@/components/store/CartView"
+import Checkout from "@/components/store/Checkout"
+import {
+  site,
+  tr,
+  t,
+  strings,
+  langInfo,
+  languages,
+  defaultLang,
+  href,
+  pageHref,
+  specialPageHref,
+  resolveLink,
+  isFeatureOn,
+  connectLink,
+  newsData,
+  productsData,
+  type FlatPage,
+  type SectionNode,
+} from "@/lib/site"
+import { scheduleData, buildDate } from "@/lib/scheduleData"
+import { formatDate } from "@/lib/calendar"
+import { formatMoney } from "@/lib/format"
+import clergyJson from "@content/clergy.json"
+import galleryJson from "@content/gallery.json"
+import sermonsJson from "@content/sermons.json"
+import requestsJson from "@content/requests.json"
+import zapiskiJson from "@content/zapiski.json"
+import eventsJson from "@content/events.json"
+import needsJson from "@content/needs.json"
+import scheduleJson from "@content/schedule.json"
+
+interface Props {
+  lang: string
+  page: FlatPage
+  sections: SectionNode[]
+}
+const { lang, page, sections } = Astro.props
+const locale = langInfo(lang).locale
+const today = buildDate()
+const parishId: string = site.orthodoxConnect?.parishId ?? ""
+const weekStartsOn: number = site.calendar?.weekStartsOn ?? 0
+const allLangs = (v: any) => Object.fromEntries(languages.map((l) => [l.code, tr(v, l.code)]))
+const labelList = (list: any[]) => list.map((c) => ({ id: c.id, label: tr(c.label, lang) }))
+const shell = (section: SectionNode) => ({
+  id: section.id,
+  eyebrow: tr(section.eyebrow, lang) || undefined,
+  title: tr(section.title, lang) || undefined,
+  intro: tr(section.intro, lang) || undefined,
+  tone: section.tone === "stone" ? ("stone" as const) : ("white" as const),
+})
+
+const cartCfg = {
+  lang,
+  defaultLang,
+  locale,
+  currency: site.checkout.currency,
+  shippingFlat: site.checkout.shippingFlat,
+  freeShippingOver: site.checkout.freeShippingOver,
+  storeHref: specialPageHref("store", lang) ?? href(lang, ""),
+  checkoutHref: specialPageHref("checkout", lang) ?? "#",
+}
+
+function props(section: SectionNode): Record<string, any> | null {
+  switch (section.type) {
+    case "whatToExpect":
+      return {
+        items: section.items.map((i: any) => ({ id: i.id, icon: i.icon, title: tr(i.title, lang), summary: tr(i.summary, lang), detail: tr(i.detail, lang) })),
+        s: strings(lang, ["tapToRead", "tapToReturn"]),
+      }
+    case "firstVisitGuide":
+      return {
+        steps: section.steps.map((st: any) => ({ id: st.id, icon: st.icon, title: tr(st.title, lang), text: tr(st.text, lang), tip: st.tip ? tr(st.tip, lang) : undefined })),
+        cta: resolveLink(section.cta, lang),
+        s: strings(lang, ["back", "next", "startOver", "stepOf", "tip"]),
+      }
+    case "clergyCards":
+      return {
+        people: (clergyJson as any).people.map((p: any) => ({ ...p, name: tr(p.name, lang), role: tr(p.role, lang), summary: tr(p.summary, lang), bio: p.bio.map((b: any) => tr(b, lang)) })),
+        s: strings(lang, ["hideBio", "readBio"]),
+      }
+    case "gallery": {
+      const g = galleryJson as any
+      return {
+        items: g.items.map((i: any) => ({ ...i, caption: tr(i.caption, lang) })),
+        categories: labelList(g.categories),
+        s: strings(lang, ["all", "close", "filterLabel", "imageOf", "nextItem", "noResults", "openImage", "previous", "sampleImage"]),
+      }
+    }
+    case "schedule":
+      return {
+        data: scheduleData(lang),
+        initialToday: today,
+        locale,
+        weekStartsOn,
+        startView: section.startView === "month" ? "month" : "week",
+        highlightRanks: site.calendar?.highlightRanks ?? ["great"],
+        liveOn: isFeatureOn("livestream"),
+        calendarNote: t(`calendarStyle.${site.calendar?.style ?? "revised-julian"}`, lang),
+        note: tr((scheduleJson as any).note, lang),
+        s: strings(lang, ["feast", "goToToday", "greatFeast", "legendFeast", "legendStream", "legendToday", "monthly", "nextMonth", "nextWeek", "noServices", "previousMonth", "previousWeek", "streamed", "today", "viewLabel", "weekly", "weekOf"]),
+      }
+    case "sermons": {
+      const data = (sermonsJson as any).sermons
+      const clergy = (clergyJson as any).people
+      const speakerName = (id: string) => tr(clergy.find((c: any) => c.id === id)?.name ?? id, lang)
+      const speakerIds = [...new Set<string>(data.map((x: any) => x.speakerId))]
+      return {
+        sermons: data.map((x: any) => ({
+          ...x,
+          dateLabel: formatDate(x.date, locale, { year: "numeric", month: "long", day: "numeric" }),
+          speaker: speakerName(x.speakerId),
+          scripture: tr(x.scripture, lang),
+          title: tr(x.title, lang),
+          summary: tr(x.summary, lang),
+          duration: x.duration ? tr(x.duration, lang) : null,
+          text: (x.text ?? []).map((p: any) => tr(p, lang)),
+        })),
+        speakers: speakerIds.map((id) => ({ id, label: speakerName(id) })),
+        s: strings(lang, ["allSpeakers", "filterLabel", "listen", "mediaPlaceholder", "noResults", "nowPlaying", "read", "sermonSearch", "sermonSpeaker", "watch", "sermonFormat.all", "sermonFormat.audio", "sermonFormat.video", "sermonFormat.text"]),
+      }
+    }
+    case "newsList": {
+      const base = specialPageHref("news", lang) ?? href(lang, page.path)
+      return {
+        posts: [...newsData.posts]
+          .sort((a: any, b: any) => b.date.localeCompare(a.date))
+          .map((p: any) => ({
+            id: p.id,
+            href: `${base}${p.slug}/`,
+            date: p.date,
+            dateLabel: formatDate(p.date, locale, { year: "numeric", month: "long", day: "numeric" }),
+            category: p.category,
+            categoryLabel: tr(newsData.categories.find((c: any) => c.id === p.category)?.label, lang),
+            motif: p.motif,
+            title: tr(p.title, lang),
+            excerpt: tr(p.excerpt, lang),
+          })),
+        categories: labelList(newsData.categories),
+        s: strings(lang, ["all", "filterLabel", "noResults", "readPost", "sampleImage"]),
+      }
+    }
+    case "donate": {
+      const d = site.donate
+      return {
+        presets: d.presets,
+        defaultPreset: d.defaultPreset,
+        minimum: d.minimum,
+        currency: d.currency,
+        locale,
+        funds: labelList(d.funds),
+        frequencies: d.frequencies,
+        s: strings(lang, ["amount", "donateAgain", "donateSampleNote", "donateSummary", "donateSummaryMonthly", "donateTax", "donateThanks", "frequency", "fund", "giveMonthly", "giveOnce", "minimumAmount", "monthlyGift", "oneTime", "otherAmount"]),
+      }
+    }
+    case "contactForm":
+      return {
+        s: strings(lang, ["formEmail", "formInvalidEmail", "formMessage", "formName", "formPhone", "formRequired", "formSampleNote", "formSend", "formSendAnother", "formSending", "formSent", "formTopic", "invalidPhone", "phoneFormat", "formTopic.visit", "formTopic.sacraments", "formTopic.prayer", "formTopic.other"]),
+      }
+    case "serviceRequests": {
+      const r = requestsJson as any
+      return {
+        items: r.services.map((x: any) => {
+          const recipients: string[] = x.recipients ?? []
+          const target = x.action?.type === "page" && x.action.pageId ? specialPageHref(x.action.pageId, lang) ?? (pageHref(x.action.pageId, lang)) : undefined
+          return {
+            id: x.id,
+            motif: x.motif,
+            title: tr(x.title, lang),
+            summary: tr(x.summary, lang),
+            price: x.price,
+            duration: tr(x.duration, lang),
+            recipients,
+            recipientLabels: recipients.map((k) => tr(r.recipients[k], lang)).join(", "),
+            href: target,
+          }
+        }),
+        s: strings(lang, ["close", "duration", "formEmail", "formInvalidEmail", "formName", "formRequired", "invalidPhone", "notes", "notesHint", "phoneFormat", "phoneRequired", "preferredDate", "preferredTime", "priceDonation", "priceFree", "requestFormTitle", "requestGoesTo", "requestSampleNote", "requestSent", "requestThis", "sendRequest", "writeNote"]),
+      }
+    }
+    case "zapiski": {
+      const z = zapiskiJson as any
+      const opt = (o: any) => ({ id: o.id, label: tr(o.label, lang), labels: allLangs(o.label), appliesTo: o.appliesTo, description: o.description ? tr(o.description, lang) : undefined, suggestedDonation: o.suggestedDonation, price: o.price })
+      return {
+        lang,
+        locale,
+        currency: z.currency ?? site.checkout.currency,
+        maxNames: z.maxNames,
+        maxSlips: z.maxSlips,
+        healthSlipInk: z.healthSlipInk === "black" ? "black" : "red",
+        types: z.types.map(opt),
+        commemorations: z.commemorations.map(opt),
+        prefixes: z.prefixes.map(opt),
+        candles: z.candles.map(opt),
+        donationPresets: z.donationPresets,
+        hint: tr(z.hint, lang),
+        consent: tr(z.consent, lang),
+        storeOn: isFeatureOn("store") && !!specialPageHref("cart", lang),
+        cartHref: specialPageHref("cart", lang),
+        lineTemplates: Object.fromEntries(languages.map((l) => [l.code, strings(l.code, ["zapiskaLine", "candleLine", "donationLine"])])),
+        s: strings(lang, ["addName", "addNotesToCart", "addSlip", "candleLabel", "candleLine", "commemoration", "consentRequired", "donateAndSubmit", "donateSampleNote", "extraDonation", "maxNames", "nameN", "namePlaceholder", "namesCount", "namesLegend", "needOneName", "noCandle", "noExtra", "notesAdded", "notesSubmitted", "notesSummary", "oneName", "otherAmount", "prefixN", "removeName", "removeSlip", "slipNumber", "slipType", "suggestedDonation", "total", "viewCart", "writeAnother"]),
+      }
+    }
+    case "productGrid": {
+      const base = href(lang, page.path)
+      const money = (n: number) => formatMoney(n, locale, site.checkout.currency)
+      return {
+        products: productsData.products.map((p: any) => {
+          const prices = p.variants.map((v: any) => v.price)
+          const min = Math.min(...prices)
+          const image = p.images?.[0] ?? {}
+          const category = productsData.categories.find((c: any) => c.id === p.category)
+          return {
+            id: p.id,
+            href: `${base}${p.slug}/`,
+            category: p.category,
+            categoryLabel: tr(category?.label, lang),
+            title: tr(p.title, lang),
+            summary: tr(p.summary, lang),
+            priceLabel: prices.some((x: number) => x !== min) ? t("fromPrice", lang, { price: money(min) }) : money(min),
+            inStock: p.variants.some((v: any) => v.stock > 0),
+            motif: image.motif ?? category?.motif ?? "church",
+            tone: image.tone ?? "stone",
+            src: image.src ?? null,
+            alt: tr(image.alt, lang),
+            pickupOnly: !!p.pickupOnly,
+          }
+        }),
+        categories: labelList(productsData.categories),
+        s: strings(lang, ["all", "filterLabel", "noResults", "outOfStock", "pickupOnly", "sampleImage"]),
+      }
+    }
+    case "cart":
+      return {
+        cfg: cartCfg,
+        s: strings(lang, ["cartEmpty", "continueShopping", "freeShippingOver", "goToCheckout", "offerings", "offeringsNote", "quantity", "remove", "shipping", "shippingFree", "subtotal", "total", "decrease", "increase"]),
+      }
+    case "checkout":
+      return {
+        cfg: cartCfg,
+        fulfillmentOptions: site.checkout.fulfillment ?? ["ship", "pickup"],
+        pickupNote: tr(site.checkout.pickupNote, lang),
+        s: strings(lang, ["cartEmpty", "city", "continueShopping", "formEmail", "formInvalidEmail", "formName", "formPhone", "formRequired", "fulfillment", "fulfillPickup", "fulfillShip", "invalidPhone", "orderPlaced", "orderSampleNote", "orderSummary", "phoneFormat", "pickupForced", "placeOrder", "postalCode", "region", "shippingAddress", "street", "yourDetails", "subtotal", "shipping", "shippingFree", "offerings", "total", "quantity"]),
+      }
+    case "eventsBoard": {
+      const e = eventsJson as any
+      const connectS = ["cancel", "connectContinue", "connectSignInText", "connectSignInTitle", "full", "oneSpotLeft", "peopleComing", "signedUpCount", "spotsLeft"] as const
+      return {
+        events: e.events.map((ev: any) => ({
+          ...ev,
+          title: tr(ev.title, lang),
+          description: tr(ev.description, lang),
+          location: tr(ev.location, lang),
+          organizer: tr(ev.organizer, lang),
+          categoryLabel: tr(e.categories.find((c: any) => c.id === ev.category)?.label, lang),
+          connectHref: connectLink("event", ev.id),
+        })),
+        categories: labelList(e.categories),
+        limit: typeof section.limit === "number" ? section.limit : undefined,
+        showCalendar: !!section.showCalendar,
+        allHref: specialPageHref("events", lang),
+        initialToday: today,
+        locale,
+        weekStartsOn,
+        parishId,
+        s: strings(lang, [...connectS, "all", "calendarView", "eventsOnDay", "filterLabel", "going", "listView", "location", "nextMonth", "noEvents", "noResults", "onConnect", "organizer", "previousMonth", "rsvp", "seeAllEvents", "viewLabel"]),
+      }
+    }
+    case "needsBoard": {
+      const n = needsJson as any
+      return {
+        needs: n.needs.map((x: any) => ({
+          ...x,
+          title: tr(x.title, lang),
+          description: tr(x.description, lang),
+          location: tr(x.location, lang),
+          organizer: tr(x.organizer, lang),
+          categoryLabel: tr(n.categories.find((c: any) => c.id === x.category)?.label, lang),
+          connectHref: connectLink("signup", x.id),
+        })),
+        categories: labelList(n.categories),
+        locale,
+        parishId,
+        s: strings(lang, ["cancel", "connectContinue", "connectSignInText", "connectSignInTitle", "full", "oneSpotLeft", "peopleComing", "signedUpCount", "spotsLeft", "all", "filterLabel", "location", "noResults", "onConnect", "organizer", "signedUp", "signUp", "slotsLabel"]),
+      }
+    }
+    default:
+      return null
+  }
+}
+
+const items = sections.map((section) => ({ section, p: props(section) }))
+const known = new Set(["hero", "richText", "featureList", "subpageCards", "timeline", "livestreamBand", "livestream", "latestNews", "visit", "donateBand", "mapDirections", "connectActions"])
+for (const { section, p } of items) {
+  if (!p && !known.has(section.type)) console.warn(`[mission] unknown section type "${section.type}" in page "${page.node.id}"`)
+}
+---
+
+{
+  items.map(({ section, p }) => {
+    switch (section.type) {
+      case "hero":
+        return <Hero lang={lang} section={section} />
+      case "richText":
+        return <RichText lang={lang} section={section} />
+      case "featureList":
+        return <FeatureList lang={lang} section={section} />
+      case "subpageCards":
+        return <SubpageCards lang={lang} section={section} page={page} />
+      case "timeline":
+        return <Timeline lang={lang} section={section} />
+      case "livestreamBand":
+        return <LivestreamBand lang={lang} section={section} />
+      case "livestream":
+        return <Livestream lang={lang} section={section} />
+      case "latestNews":
+        return <LatestNews lang={lang} section={section} />
+      case "visit":
+        return <Visit lang={lang} section={section} />
+      case "donateBand":
+        return <DonateBand lang={lang} section={section} />
+      case "mapDirections":
+        return <MapDirections lang={lang} section={section} />
+      case "connectActions":
+        return <ConnectActions lang={lang} section={section} />
+      case "whatToExpect":
+        return (
+          <SectionShell {...shell(section)} tone="stone">
+            <WhatToExpect client:visible {...(p as any)} />
+          </SectionShell>
+        )
+      case "firstVisitGuide":
+        return (
+          <SectionShell {...shell(section)}>
+            <FirstVisitGuide client:visible {...(p as any)} />
+          </SectionShell>
+        )
+      case "clergyCards":
+        return (
+          <SectionShell {...shell(section)}>
+            <ClergyCards client:visible {...(p as any)} />
+          </SectionShell>
+        )
+      case "gallery":
+        return (
+          <SectionShell {...shell(section)}>
+            <Gallery client:visible {...(p as any)} />
+          </SectionShell>
+        )
+      case "schedule":
+        return (
+          <SectionShell {...shell(section)}>
+            <Schedule client:load {...(p as any)} />
+          </SectionShell>
+        )
+      case "sermons":
+        return (
+          <SectionShell {...shell(section)} tone="stone">
+            <Sermons client:visible {...(p as any)} />
+          </SectionShell>
+        )
+      case "newsList":
+        return (
+          <SectionShell {...shell(section)}>
+            <NewsList client:load {...(p as any)} />
+          </SectionShell>
+        )
+      case "donate":
+        return (
+          <SectionShell {...shell(section)}>
+            <DonateForm client:load {...(p as any)} />
+          </SectionShell>
+        )
+      case "contactForm":
+        return (
+          <SectionShell {...shell(section)}>
+            <ContactForm client:visible {...(p as any)} />
+          </SectionShell>
+        )
+      case "serviceRequests":
+        return (
+          <SectionShell {...shell(section)}>
+            <ServiceRequests client:load {...(p as any)} />
+          </SectionShell>
+        )
+      case "zapiski":
+        return (
+          <SectionShell {...shell(section)}>
+            <Zapiski client:load {...(p as any)} />
+          </SectionShell>
+        )
+      case "productGrid":
+        return (
+          <SectionShell {...shell(section)}>
+            <ProductGrid client:load {...(p as any)} />
+          </SectionShell>
+        )
+      case "cart":
+        return (
+          <SectionShell {...shell(section)}>
+            <CartView client:only="react" {...(p as any)} />
+          </SectionShell>
+        )
+      case "checkout":
+        return (
+          <SectionShell {...shell(section)}>
+            <Checkout client:only="react" {...(p as any)} />
+          </SectionShell>
+        )
+      case "eventsBoard":
+        return (
+          <SectionShell {...shell(section)} tone={section.limit ? "stone" : "white"}>
+            <EventsBoard client:visible {...(p as any)} />
+          </SectionShell>
+        )
+      case "needsBoard":
+        return (
+          <SectionShell {...shell(section)}>
+            <NeedsBoard client:visible {...(p as any)} />
+          </SectionShell>
+        )
+      default:
+        return null
+    }
+  })
+}

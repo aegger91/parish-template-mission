@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>Sample square logo</title>
+  <rect width="200" height="200" rx="28" fill="#faf9f6"/>
+  <rect x="10" y="10" width="180" height="180" rx="20" fill="none" stroke="#b08d4c" stroke-opacity="0.55" stroke-width="1.5"/>
+  <!-- Eight-pointed cross; footrest end on the viewer's left is higher. -->
+  <g transform="translate(71.43 40) scale(1.4286)" fill="#24519a">
+    <rect x="18" y="1" width="4" height="54" rx="0.6"/>
+    <rect x="12.5" y="8" width="15" height="3.2" rx="0.6"/>
+    <rect x="4" y="16.5" width="32" height="3.8" rx="0.6"/>
+    <polygon points="10,35.5 30,42 30,45.6 10,39.1"/>
+  </g>
+  <text x="100" y="150" text-anchor="middle" font-family="Marcellus, Georgia, serif" font-size="17" letter-spacing="3" fill="#1f2a37">ST. EXAMPLE</text>
+  <text x="100" y="170" text-anchor="middle" font-family="Georgia, serif" font-size="9" letter-spacing="2.5" fill="#5b6675">SAMPLE LOGO</text>
+</svg>

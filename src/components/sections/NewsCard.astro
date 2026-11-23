@@ -1,0 +1,27 @@
+---
+import { PlaceholderArt } from "@/components/brand/PlaceholderArt"
+import { tr, t, langInfo, newsData } from "@/lib/site"
+import { formatDate } from "@/lib/calendar"
+interface Props {
+  lang: string
+  post: any
+  baseHref: string
+}
+const { lang, post, baseHref } = Astro.props
+const locale = langInfo(lang).locale
+const category = newsData.categories.find((c: any) => c.id === post.category)
+---
+
+<a href={`${baseHref}${post.slug}/`} class="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-white transition-shadow hover:shadow-[var(--mission-shadow-lift)]">
+  <div class="aspect-[16/10] overflow-hidden">
+    <PlaceholderArt motif={post.motif} tone="stone" alt={tr(post.title, lang)} label={t("sampleImage", lang)} iconSize="26%" />
+  </div>
+  <div class="flex flex-1 flex-col p-5">
+    <p class="flex flex-wrap items-center gap-2 text-sm text-ink-500">
+      <span class="rounded-full bg-blue-wash px-2.5 py-0.5 text-xs font-medium text-blue-deep">{tr(category?.label, lang)}</span>
+      <time datetime={post.date}>{formatDate(post.date, locale, { year: "numeric", month: "long", day: "numeric" })}</time>
+    </p>
+    <h3 class="mt-3 text-xl leading-snug text-ink group-hover:text-blue-deep">{tr(post.title, lang)}</h3>
+    <p class="mt-2 flex-1 text-ink-600">{tr(post.excerpt, lang)}</p>
+  </div>
+</a>

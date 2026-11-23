@@ -1,0 +1,138 @@
+{
+  "$schema": "../schemas/requests.schema.json",
+  "recipients": {
+    "priest": { "en": "Father", "es": "El padre" },
+    "office": { "en": "Parish office", "es": "Oficina parroquial" }
+  },
+  "services": [
+    {
+      "id": "zapiska",
+      "motif": "slip",
+      "title": { "en": "Submit a Commemoration Note (Zapiska)", "es": "Enviar una nota de conmemoración (zapiska)" },
+      "summary": {
+        "en": "Names of the living and the departed, remembered at the altar.",
+        "es": "Nombres de vivos y difuntos, recordados en el altar."
+      },
+      "price": "donation",
+      "duration": { "en": "At the next Liturgy", "es": "En la próxima Liturgia" },
+      "action": { "type": "page", "pageId": "zapiski" }
+    },
+    {
+      "id": "moleben",
+      "motif": "icon-frame",
+      "title": { "en": "Moleben (Prayer Service)", "es": "Moleben (oficio de rogativa)" },
+      "summary": {
+        "en": "A short service of prayer before an icon, for health, travel, a new home, studies or thanksgiving.",
+        "es": "Un breve oficio de oración ante un ícono, por la salud, un viaje, un nuevo hogar, los estudios o en acción de gracias."
+      },
+      "price": "donation",
+      "duration": { "en": "About 30 minutes", "es": "Unos 30 minutos" },
+      "recipients": ["priest"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "baptism",
+      "motif": "font",
+      "title": { "en": "Baptism", "es": "Bautismo" },
+      "summary": {
+        "en": "For infants and adults. Father meets with parents and godparents beforehand.",
+        "es": "Para niños y adultos. El padre se reúne antes con los padres y padrinos."
+      },
+      "price": "free",
+      "duration": { "en": "About 1 hour", "es": "Alrededor de 1 hora" },
+      "recipients": ["priest", "office"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "confession",
+      "motif": "analogion",
+      "title": { "en": "Confession", "es": "Confesión" },
+      "summary": {
+        "en": "Offered after Saturday Vespers, or at another time by appointment.",
+        "es": "Después de las Vísperas del sábado, o en otro momento con cita."
+      },
+      "price": "free",
+      "duration": { "en": "15 to 30 minutes", "es": "De 15 a 30 minutos" },
+      "recipients": ["priest"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "chrismation",
+      "motif": "chrism",
+      "title": { "en": "Chrismation", "es": "Crismación" },
+      "summary": {
+        "en": "Anointing with Holy Chrism. Given right after Baptism, and how many Christians baptized elsewhere are received into the Church after preparation.",
+        "es": "Unción con el Santo Crisma. Se da justo después del Bautismo, y así se recibe en la Iglesia a muchos cristianos bautizados en otra confesión, tras una preparación."
+      },
+      "price": "free",
+      "duration": { "en": "After a time of preparation", "es": "Tras un tiempo de preparación" },
+      "recipients": ["priest"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "wedding",
+      "motif": "crowns",
+      "title": { "en": "Wedding (Crowning)", "es": "Boda (Coronación)" },
+      "summary": {
+        "en": "The Service of Betrothal and Crowning. Please ask at least three months ahead, weddings are not held during the fasts.",
+        "es": "El oficio de esponsales y coronación. Pida fecha con al menos tres meses de antelación, no se celebran bodas durante los ayunos."
+      },
+      "price": "donation",
+      "duration": { "en": "About 1 hour", "es": "Alrededor de 1 hora" },
+      "recipients": ["priest", "office"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "unction",
+      "motif": "unction",
+      "title": { "en": "Holy Unction (Anointing of the Sick)", "es": "Santa Unción (unción de los enfermos)" },
+      "summary": {
+        "en": "Prayer and anointing with oil for healing of soul and body. Father can come to a home or hospital.",
+        "es": "Oración y unción con aceite para la sanación del alma y del cuerpo. El padre puede ir a una casa o al hospital."
+      },
+      "price": "free",
+      "duration": { "en": "30 to 60 minutes", "es": "De 30 a 60 minutos" },
+      "recipients": ["priest"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "blessing",
+      "motif": "holy-water",
+      "title": { "en": "House or Car Blessing", "es": "Bendición de casa o coche" },
+      "summary": {
+        "en": "Blessing with holy water, after Theophany each year or when you move into a new home.",
+        "es": "Bendición con agua bendita, cada año después de la Teofanía o al mudarse a un nuevo hogar."
+      },
+      "price": "donation",
+      "duration": { "en": "About 30 minutes", "es": "Unos 30 minutos" },
+      "recipients": ["priest", "office"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "funeral",
+      "motif": "kanun",
+      "title": { "en": "Funeral Service (Panikhida / Otpevanie)", "es": "Oficio fúnebre (Panijida / Otpevanie)" },
+      "summary": {
+        "en": "The Otpevanie is the funeral service. A Panikhida is a memorial service for the departed, after death and on anniversaries. Please call as soon as you can.",
+        "es": "El Otpevanie es el oficio fúnebre. La Panijida es un oficio de memoria por los difuntos, tras la muerte y en los aniversarios. Llámenos cuanto antes."
+      },
+      "price": "donation",
+      "duration": { "en": "Panikhida about 30 minutes, funeral about 1 hour", "es": "Panijida unos 30 minutos, funeral alrededor de 1 hora" },
+      "recipients": ["priest", "office"],
+      "action": { "type": "form" }
+    },
+    {
+      "id": "counseling",
+      "motif": "lampada",
+      "title": { "en": "Pastoral Counseling", "es": "Acompañamiento pastoral" },
+      "summary": {
+        "en": "A private conversation with Father about faith, family or a hard season.",
+        "es": "Una conversación privada con el padre sobre la fe, la familia o un momento difícil."
+      },
+      "price": "free",
+      "duration": { "en": "About 1 hour", "es": "Alrededor de 1 hora" },
+      "recipients": ["priest"],
+      "action": { "type": "form" }
+    }
+  ]
+}

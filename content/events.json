@@ -1,0 +1,96 @@
+{
+  "$schema": "../schemas/events.schema.json",
+  "source": "orthodoxconnect",
+  "categories": [
+    { "id": "class", "label": { "en": "Classes", "es": "Clases" } },
+    { "id": "youth", "label": { "en": "Youth and children", "es": "Jóvenes y niños" } },
+    { "id": "feast", "label": { "en": "Feast gatherings", "es": "Encuentros de fiesta" } },
+    { "id": "outreach", "label": { "en": "Outreach", "es": "Servicio al prójimo" } }
+  ],
+  "events": [
+    {
+      "id": "evt-youth-evening",
+      "title": { "en": "Youth evening: questions and pizza", "es": "Tarde de jóvenes: preguntas y pizza" },
+      "description": { "en": "Sample event. Bring a question about the faith, any question.", "es": "Evento de ejemplo. Traiga una pregunta sobre la fe, la que sea." },
+      "date": "2026-11-28",
+      "time": "18:00",
+      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "capacity": 25,
+      "signups": 14,
+      "organizer": { "en": "Youth team", "es": "Equipo de jóvenes" },
+      "category": "youth"
+    },
+    {
+      "id": "evt-inquirers-creed",
+      "title": { "en": "Inquirers class: the Creed", "es": "Clase para quienes buscan: el Credo" },
+      "description": { "en": "Sample event. Open to anyone curious about the Orthodox faith.", "es": "Evento de ejemplo. Abierta a cualquiera que tenga curiosidad por la fe ortodoxa." },
+      "date": "2026-12-02",
+      "time": "19:15",
+      "location": { "en": "Parish library", "es": "Biblioteca parroquial" },
+      "capacity": 20,
+      "signups": 9,
+      "organizer": { "en": "Fr. Andrew Example", "es": "P. Andrés Ejemplo" },
+      "category": "class"
+    },
+    {
+      "id": "evt-st-nicholas",
+      "title": { "en": "St. Nicholas party for children", "es": "Fiesta de San Nicolás para niños" },
+      "description": { "en": "Sample event. Stories, a small gift and lunch after the Liturgy.", "es": "Evento de ejemplo. Cuentos, un pequeño regalo y comida después de la Liturgia." },
+      "date": "2026-12-06",
+      "time": "11:30",
+      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "capacity": 40,
+      "signups": 22,
+      "organizer": { "en": "Church school team", "es": "Equipo de catequesis" },
+      "category": "youth"
+    },
+    {
+      "id": "evt-book-circle",
+      "title": { "en": "Reading circle", "es": "Círculo de lectura" },
+      "description": { "en": "Sample event. This month: a short book on prayer.", "es": "Evento de ejemplo. Este mes: un libro breve sobre la oración." },
+      "date": "2026-12-10",
+      "time": "19:00",
+      "location": { "en": "Parish library", "es": "Biblioteca parroquial" },
+      "capacity": 10,
+      "signups": 10,
+      "organizer": { "en": "Reading circle", "es": "Círculo de lectura" },
+      "category": "class"
+    },
+    {
+      "id": "evt-carols",
+      "title": { "en": "Carols for homebound parishioners", "es": "Villancicos para feligreses que no pueden salir" },
+      "description": { "en": "Sample event. We visit three homes and sing Nativity hymns.", "es": "Evento de ejemplo. Visitamos tres casas y cantamos himnos de la Natividad." },
+      "date": "2026-12-20",
+      "time": "14:00",
+      "location": { "en": "Meet at the church", "es": "Encuentro en la iglesia" },
+      "capacity": 12,
+      "signups": 5,
+      "organizer": { "en": "Choir", "es": "Coro" },
+      "category": "outreach"
+    },
+    {
+      "id": "evt-nativity-meal",
+      "title": { "en": "Nativity feast meal", "es": "Comida de la fiesta de la Natividad" },
+      "description": { "en": "Sample event. A shared meal after the feast day Liturgy. Bring a dish if you can.", "es": "Evento de ejemplo. Comida compartida después de la Liturgia de la fiesta. Traiga un plato si puede." },
+      "date": "2026-12-25",
+      "time": "11:30",
+      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "capacity": 80,
+      "signups": 31,
+      "organizer": { "en": "Parish council", "es": "Consejo parroquial" },
+      "category": "feast"
+    },
+    {
+      "id": "evt-theophany-potluck",
+      "title": { "en": "Theophany potluck", "es": "Comida compartida de la Teofanía" },
+      "description": { "en": "Sample event. After the Great Blessing of Water.", "es": "Evento de ejemplo. Después de la Gran Bendición de las Aguas." },
+      "date": "2027-01-06",
+      "time": "12:00",
+      "location": { "en": "Parish hall", "es": "Salón parroquial" },
+      "capacity": 60,
+      "signups": 12,
+      "organizer": { "en": "Parish council", "es": "Consejo parroquial" },
+      "category": "feast"
+    }
+  ]
+}

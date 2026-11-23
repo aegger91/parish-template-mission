@@ -1,0 +1,31 @@
+---
+import { ArrowRight } from "lucide-react"
+import SectionShell from "./SectionShell.astro"
+import NewsCard from "./NewsCard.astro"
+import { tr, t, specialPageHref, newsData, type SectionNode } from "@/lib/site"
+interface Props {
+  lang: string
+  section: SectionNode
+}
+const { lang, section } = Astro.props
+const newsHref = specialPageHref("news", lang)
+const posts = [...newsData.posts].sort((a: any, b: any) => b.date.localeCompare(a.date)).slice(0, section.count ?? 3)
+---
+
+{
+  newsHref && (
+    <SectionShell id={section.id} eyebrow={tr(section.eyebrow, lang)} title={tr(section.title, lang)}>
+      <ul class="grid gap-5 md:grid-cols-3">
+        {posts.map((post: any) => (
+          <li class="min-w-0">
+            <NewsCard lang={lang} post={post} baseHref={newsHref} />
+          </li>
+        ))}
+      </ul>
+      <a href={newsHref} class="mt-8 inline-flex items-center gap-1.5 font-tradition text-blue hover:text-blue-deep">
+        {t("allNews", lang)}
+        <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
+      </a>
+    </SectionShell>
+  )
+}

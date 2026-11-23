@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import PageHeader from "@/components/layout/PageHeader.astro"
+import SectionRenderer from "@/components/sections/SectionRenderer.astro"
+import NewsArticle from "@/components/sections/NewsArticle.astro"
+import ProductPage from "@/components/store/ProductPage.astro"
+import { allRoutes, enabledSections, langPrefix, tr, newsData, productsData, type Route } from "@/lib/site"
+
+export function getStaticPaths() {
+  return allRoutes().map((route) => {
+    const full = [langPrefix(route.lang), route.path].filter(Boolean).join("/")
+    return { params: { path: full || undefined }, props: { route } }
+  })
+}
+
+const { route } = Astro.props as { route: Route }
+const { lang, path, page, item } = route
+const node = page.node
+
+let title = tr(node.title, lang)
+let description = tr(node.description, lang)
+const post = item?.kind === "news" ? newsData.posts.find((p: any) => p.id === item.id) : null
+const product = item?.kind === "products" ? productsData.products.find((p: any) => p.id === item.id) : null
+if (post) {
+  title = tr(post.title, lang)
+  description = tr(post.excerpt, lang)
+}
+if (product) {
+  title = tr(product.title, lang)
+  description = tr(product.summary, lang)
+}
+const showHeader = !item && node.showPageHeader !== false
+---
+
+<BaseLayout lang={lang} path={path} title={title} description={description}>
+  {showHeader && <PageHeader lang={lang} page={page} />}
+  {post && <NewsArticle lang={lang} page={page} post={post} />}
+  {product && <ProductPage lang={lang} page={page} product={product} />}
+  {!item && <SectionRenderer lang={lang} page={page} sections={enabledSections(node)} />}
+</BaseLayout>

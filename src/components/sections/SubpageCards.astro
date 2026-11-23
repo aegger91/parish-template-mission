@@ -1,0 +1,42 @@
+---
+import { ArrowRight } from "lucide-react"
+import SectionShell from "./SectionShell.astro"
+import { Pictogram } from "@/components/brand/Pictogram"
+import { tr, t, href, isPageEnabled, type SectionNode, type FlatPage } from "@/lib/site"
+interface Props {
+  lang: string
+  section: SectionNode
+  page: FlatPage
+}
+const { lang, section, page } = Astro.props
+const children = (page.node.children ?? []).filter((c) => isPageEnabled(c) && c.showInNav !== false)
+---
+
+{
+  children.length > 0 && (
+    <SectionShell id={section.id} title={tr(section.title, lang)}>
+      <ul class:list={["grid gap-5 sm:grid-cols-2", children.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"]}>
+        {children.map((child) => (
+          <li class="min-w-0">
+            <a
+              href={href(lang, `${page.path}/${child.slug}`)}
+              class="group flex h-full flex-col rounded-[1.5rem] border border-border bg-white p-2 transition-shadow hover:shadow-[var(--mission-shadow-lift)]"
+            >
+              <span class="kiot-arch flex h-44 items-center justify-center bg-stone-50 text-blue transition-colors group-hover:bg-blue-wash">
+                <Pictogram name={child.icon ?? "church"} size={64} strokeWidth={0.95} />
+              </span>
+              <span class="flex flex-1 flex-col p-5">
+                <span class="font-heading text-2xl text-ink">{tr(child.title, lang)}</span>
+                <span class="mt-2 flex-1 text-ink-600">{tr(child.description, lang)}</span>
+                <span class="mt-5 inline-flex items-center gap-1.5 font-tradition text-blue">
+                  {t("explore", lang)}
+                  <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+                </span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </SectionShell>
+  )
+}

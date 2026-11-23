@@ -1,0 +1,27 @@
+---
+import SectionShell from "./SectionShell.astro"
+import { Pictogram } from "@/components/brand/Pictogram"
+import { tr, type SectionNode } from "@/lib/site"
+interface Props {
+  lang: string
+  section: SectionNode
+}
+const { lang, section } = Astro.props
+const items = section.items ?? []
+---
+
+<SectionShell id={section.id} eyebrow={tr(section.eyebrow, lang)} title={tr(section.title, lang)} intro={tr(section.intro, lang)} tone="stone">
+  <ul class:list={["grid gap-px overflow-hidden rounded-[1.5rem] border border-border bg-border sm:grid-cols-2", items.length % 3 === 0 ? "lg:grid-cols-3" : "lg:grid-cols-4"]}>
+    {
+      items.map((item: any) => (
+        <li class="flex min-w-0 flex-col bg-white p-6 md:p-7">
+          <span class="flex size-12 items-center justify-center rounded-full border border-gold-line text-blue">
+            <Pictogram name={item.icon} size={26} strokeWidth={1.25} />
+          </span>
+          <h3 class="mt-5 text-xl text-ink">{tr(item.title, lang)}</h3>
+          <p class="mt-2 leading-relaxed text-ink-600">{tr(item.text, lang)}</p>
+        </li>
+      ))
+    }
+  </ul>
+</SectionShell>

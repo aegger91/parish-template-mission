@@ -1,0 +1,104 @@
+---
+import "@/styles/global.css"
+import SiteHeader from "@/components/layout/SiteHeader"
+import SiteFooter from "@/components/layout/SiteFooter.astro"
+import MobileBar from "@/components/layout/MobileBar.astro"
+import {
+  site,
+  tr,
+  t,
+  strings,
+  langInfo,
+  languages,
+  buildNav,
+  href,
+  specialPageHref,
+  isFeatureOn,
+  alternatesFor,
+  defaultLang,
+} from "@/lib/site"
+
+interface Props {
+  lang: string
+  path: string
+  title: string
+  description?: string
+  noindex?: boolean
+  notFound?: boolean
+}
+
+const { lang, path, title, description, noindex, notFound } = Astro.props
+const info = langInfo(lang)
+const parishName = tr(site.parish.name, lang)
+const pageTitle = path === "" && !notFound ? parishName : `${title} | ${parishName}`
+const metaDescription = description || tr(site.parish.description, lang)
+
+const logo = {
+  style: site.logo.style,
+  name: parishName,
+  line1: tr(site.logo.line1, lang),
+  line2: tr(site.logo.line2, lang),
+  image: site.logo.image,
+  imageAlt: tr(site.logo.imageAlt, lang),
+  showCross: site.logo.showCross,
+}
+
+const nav = buildNav(lang, path)
+const headerLanguages = languages.map((l) => ({
+  code: l.code,
+  nativeName: l.nativeName,
+  short: l.shortLabel ?? l.code.toUpperCase(),
+  href: href(l.code, notFound ? "" : path),
+  current: l.code === lang,
+}))
+const donateHref = specialPageHref("donate", lang)
+const livestreamOn = isFeatureOn("livestream") && site.features.livestream.live
+const liveHref = specialPageHref("livestream", lang)
+const cartHref = isFeatureOn("store") && site.features.store.showCartInHeader !== false ? specialPageHref("cart", lang) : null
+
+const s = strings(lang, ["menu", "closeMenu", "mainNav", "language", "more", "cartCount", "homeLink", "openSubmenu"])
+const alternates = notFound ? [] : alternatesFor(path)
+---
+
+<!doctype html>
+<html lang={info.locale ?? lang} dir={info.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="generator" content={`Project Orthodox template ${site.template.slug} ${site.template.version}`} />
+    {noindex || site.sample ? <meta name="robots" content="noindex" /> : null}
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.info.locale ?? a.lang} href={a.href} />)}
+    {!notFound && <link rel="alternate" hreflang="x-default" href={href(defaultLang, path)} />}
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:locale" content={(info.locale ?? lang).replace("-", "_")} />
+  </head>
+  <body class="flex min-h-dvh flex-col pb-[calc(var(--mission-mobile-bar-h)+env(safe-area-inset-bottom))] md:pb-0">
+    <a
+      href="#main"
+      class="sr-only z-50 rounded-full bg-ink px-4 py-2 text-white focus:not-sr-only focus:fixed focus:start-4 focus:top-4"
+      >{t("skipToContent", lang)}</a
+    >
+    <SiteHeader
+      client:load
+      logo={logo}
+      homeHref={href(lang, "")}
+      nav={nav}
+      languages={headerLanguages}
+      donate={donateHref ? { label: t("donate", lang), href: donateHref } : null}
+      cartHref={cartHref}
+      live={livestreamOn && liveHref ? { label: t("liveNow", lang), href: liveHref } : null}
+      dir={info.dir}
+      s={s}
+    />
+    <main id="main" class="flex-1" tabindex="-1">
+      <slot />
+    </main>
+    <SiteFooter lang={lang} logo={logo} />
+    <MobileBar lang={lang} />
+  </body>
+</html>

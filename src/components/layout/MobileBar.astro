@@ -1,0 +1,51 @@
+---
+import { MapPin, CalendarDays, HandCoins } from "lucide-react"
+import { site, t, specialPageHref } from "@/lib/site"
+
+interface Props {
+  lang: string
+}
+const { lang } = Astro.props
+const bar = site.features.mobileBar
+const items = (bar?.enabled === false ? [] : (bar?.items ?? [])) as string[]
+
+const entries = items
+  .map((id) => {
+    if (id === "directions") return { id, label: t("directions", lang), href: site.contact.directionsUrl, external: true }
+    if (id === "schedule") return { id, label: t("schedule", lang), href: specialPageHref("schedule", lang), external: false }
+    if (id === "donate") return { id, label: t("donate", lang), href: specialPageHref("donate", lang), external: false }
+    return null
+  })
+  .filter((e) => e && e.href) as { id: string; label: string; href: string; external: boolean }[]
+---
+
+{
+  entries.length > 0 && (
+    <nav
+      aria-label={t("mainNav", lang)}
+      class="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-white/95 backdrop-blur-md md:hidden"
+      style="padding-bottom: env(safe-area-inset-bottom)"
+    >
+      <ul class="mx-auto grid h-[var(--mission-mobile-bar-h)] max-w-lg" style={`grid-template-columns: repeat(${entries.length}, minmax(0, 1fr))`}>
+        {entries.map((e) => (
+          <li class="min-w-0">
+            <a
+              href={e.href}
+              target={e.external ? "_blank" : undefined}
+              rel={e.external ? "noopener" : undefined}
+              class:list={[
+                "flex h-full min-w-0 flex-col items-center justify-center gap-1 px-1 text-center font-tradition text-[0.78rem] tracking-wide",
+                e.id === "donate" ? "text-blue-deep" : "text-ink-700",
+              ]}
+            >
+              {e.id === "directions" && <MapPin aria-hidden="true" className="size-5" strokeWidth={1.6} />}
+              {e.id === "schedule" && <CalendarDays aria-hidden="true" className="size-5" strokeWidth={1.6} />}
+              {e.id === "donate" && <HandCoins aria-hidden="true" className="size-5" strokeWidth={1.6} />}
+              <span class="max-w-full truncate">{e.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}

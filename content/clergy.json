@@ -1,0 +1,64 @@
+{
+  "$schema": "../schemas/clergy.schema.json",
+  "people": [
+    {
+      "id": "fr-andrew",
+      "name": { "en": "Fr. Andrew Example", "es": "P. Andrés Ejemplo" },
+      "role": { "en": "Rector", "es": "Rector" },
+      "initials": "AE",
+      "photo": null,
+      "email": "father@example.org",
+      "phone": "(555) 555-0142",
+      "summary": {
+        "en": "Serves the Liturgy, teaches the inquirers class and visits the sick.",
+        "es": "Celebra la Liturgia, da la clase para quienes buscan y visita a los enfermos."
+      },
+      "bio": [
+        {
+          "en": "Sample bio. Fr. Andrew was ordained to the priesthood after seminary and was assigned to start this mission with a handful of families.",
+          "es": "Biografía de ejemplo. El P. Andrés fue ordenado sacerdote después del seminario y enviado a iniciar esta misión con unas pocas familias."
+        },
+        {
+          "en": "He and his wife have three children. On weekdays you can usually find him in the parish office or at the hospital down the road.",
+          "es": "Él y su esposa tienen tres hijos. Entre semana suele estar en la oficina parroquial o en el hospital cercano."
+        }
+      ]
+    },
+    {
+      "id": "dn-stephen",
+      "name": { "en": "Dn. Stephen Sample", "es": "Diác. Esteban Muestra" },
+      "role": { "en": "Deacon", "es": "Diácono" },
+      "initials": "SS",
+      "photo": null,
+      "email": "deacon@example.org",
+      "summary": {
+        "en": "Serves at the altar and leads the monthly meal for neighbors.",
+        "es": "Sirve en el altar y coordina la comida mensual para los vecinos."
+      },
+      "bio": [
+        {
+          "en": "Sample bio. Deacon Stephen works as a nurse during the week. He came to the Orthodox Church as a young adult and was ordained deacon for this parish.",
+          "es": "Biografía de ejemplo. El diácono Esteban trabaja como enfermero entre semana. Llegó a la Iglesia Ortodoxa siendo joven y fue ordenado diácono para esta parroquia."
+        }
+      ]
+    },
+    {
+      "id": "rd-mark",
+      "name": { "en": "Reader Mark Placeholder", "es": "Lector Marcos Ficticio" },
+      "role": { "en": "Reader and choir director", "es": "Lector y director del coro" },
+      "initials": "MP",
+      "photo": null,
+      "email": "choir@example.org",
+      "summary": {
+        "en": "Reads the Epistle, leads the small choir and teaches new singers.",
+        "es": "Lee la Epístola, dirige el pequeño coro y enseña a los nuevos cantores."
+      },
+      "bio": [
+        {
+          "en": "Sample bio. Mark leads rehearsals on Thursday evenings. No experience is needed to join, only a willingness to learn the tones.",
+          "es": "Biografía de ejemplo. Marcos dirige los ensayos los jueves por la tarde. No hace falta experiencia para unirse, solo ganas de aprender los tonos."
+        }
+      ]
+    }
+  ]
+}

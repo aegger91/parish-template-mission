@@ -1,0 +1,199 @@
+{
+  "$schema": "../schemas/site.schema.json",
+  "template": {
+    "name": "Mission",
+    "slug": "parish-template-mission",
+    "version": "1.0.0"
+  },
+  "sample": true,
+  "parish": {
+    "name": {
+      "en": "St. Example Orthodox Mission",
+      "es": "Misión Ortodoxa San Ejemplo"
+    },
+    "shortName": {
+      "en": "St. Example",
+      "es": "San Ejemplo"
+    },
+    "jurisdiction": {
+      "en": "Sample Diocese of the Orthodox Church",
+      "es": "Diócesis de ejemplo de la Iglesia Ortodoxa"
+    },
+    "description": {
+      "en": "A small Orthodox Christian mission parish. Sample website template, all names and details are placeholders.",
+      "es": "Una pequeña parroquia misionera cristiana ortodoxa. Plantilla de ejemplo, todos los nombres y datos son ficticios."
+    },
+    "sampleNotice": {
+      "en": "Sample site. All names, times and details are placeholders.",
+      "es": "Sitio de ejemplo. Todos los nombres, horarios y datos son ficticios."
+    }
+  },
+  "defaultLanguage": "en",
+  "languages": [
+    {
+      "code": "en",
+      "label": "English",
+      "nativeName": "English",
+      "shortLabel": "EN",
+      "locale": "en-US",
+      "dir": "ltr"
+    },
+    {
+      "code": "es",
+      "label": "Spanish",
+      "nativeName": "Español",
+      "shortLabel": "ES",
+      "locale": "es-US",
+      "dir": "ltr"
+    }
+  ],
+  "calendar": {
+    "style": "revised-julian",
+    "weekStartsOn": 0,
+    "highlightRanks": ["great", "major"]
+  },
+  "logo": {
+    "style": "wordmark",
+    "showCross": true,
+    "image": "/brand/sample-logo-square.svg",
+    "imageAlt": {
+      "en": "St. Example Orthodox Mission logo",
+      "es": "Logotipo de la Misión Ortodoxa San Ejemplo"
+    },
+    "line1": {
+      "en": "St. Example",
+      "es": "San Ejemplo"
+    },
+    "line2": {
+      "en": "Orthodox Mission",
+      "es": "Misión Ortodoxa"
+    }
+  },
+  "contact": {
+    "address": {
+      "street": "123 Example Street",
+      "city": "Sampletown",
+      "region": "ST",
+      "postalCode": "00000",
+      "country": {
+        "en": "Sample Country",
+        "es": "País de ejemplo"
+      }
+    },
+    "phone": "(555) 555-0142",
+    "email": "hello@example.org",
+    "directionsUrl": "https://www.openstreetmap.org/search?query=123%20Example%20Street%20Sampletown",
+    "mapEmbedUrl": null,
+    "parking": {
+      "en": "Free parking in the lot behind the hall. Street parking on Example Street on Sundays.",
+      "es": "Estacionamiento gratuito detrás del salón. Los domingos también se puede estacionar en Example Street."
+    },
+    "transit": {
+      "en": "Sample bus line 00 stops two blocks away at Example and Main.",
+      "es": "La línea de autobús de ejemplo 00 para a dos cuadras, en Example y Main."
+    },
+    "officeHours": {
+      "en": "Tuesday to Friday, 10:00 AM to 2:00 PM",
+      "es": "De martes a viernes, de 10:00 a 14:00"
+    }
+  },
+  "socials": [
+    { "id": "facebook", "label": "Facebook", "url": "https://example.org/facebook" },
+    { "id": "instagram", "label": "Instagram", "url": "https://example.org/instagram" },
+    { "id": "youtube", "label": "YouTube", "url": "https://example.org/youtube" }
+  ],
+  "features": {
+    "livestream": {
+      "enabled": true,
+      "live": true,
+      "platform": "YouTube",
+      "watchUrl": "https://example.org/live",
+      "embedUrl": null
+    },
+    "sermons": {
+      "enabled": true
+    },
+    "store": {
+      "enabled": true,
+      "showCartInHeader": true
+    },
+    "requests": {
+      "enabled": true
+    },
+    "zapiski": {
+      "enabled": true,
+      "showHeroShortcut": true
+    },
+    "involved": {
+      "enabled": true
+    },
+    "mobileBar": {
+      "enabled": true,
+      "items": ["directions", "schedule", "donate"]
+    }
+  },
+  "orthodoxConnect": {
+    "appUrl": "https://example.org/orthodoxconnect",
+    "parishId": "sample-parish-id",
+    "newsletter": {
+      "enabled": true,
+      "listId": "sample-newsletter"
+    },
+    "calendar": {
+      "enabled": false
+    },
+    "deepLinks": {
+      "createEvent": "{appUrl}/parish/{parishId}/events/new",
+      "postNeed": "{appUrl}/parish/{parishId}/needs/new",
+      "signup": "{appUrl}/parish/{parishId}/signup/{itemId}",
+      "event": "{appUrl}/parish/{parishId}/events/{itemId}"
+    }
+  },
+  "checkout": {
+    "currency": "USD",
+    "provider": "none",
+    "fulfillment": ["ship", "pickup"],
+    "shippingFlat": 8,
+    "freeShippingOver": 75,
+    "pickupNote": {
+      "en": "Pick up at the candle desk after any Sunday Liturgy.",
+      "es": "Recoja su pedido en la mesa de velas después de cualquier Liturgia dominical."
+    }
+  },
+  "donate": {
+    "currency": "USD",
+    "provider": "none",
+    "presets": [25, 50, 100, 250],
+    "defaultPreset": 50,
+    "minimum": 5,
+    "frequencies": ["one-time", "monthly"],
+    "funds": [
+      {
+        "id": "general",
+        "label": { "en": "General fund", "es": "Fondo general" }
+      },
+      {
+        "id": "building",
+        "label": { "en": "Building fund", "es": "Fondo de construcción" }
+      },
+      {
+        "id": "charity",
+        "label": { "en": "Help for neighbors in need", "es": "Ayuda a vecinos necesitados" }
+      }
+    ]
+  },
+  "pages": {
+    "schedule": "services",
+    "donate": "donate",
+    "contact": "contact",
+    "news": "news",
+    "livestream": "livestream",
+    "store": "store",
+    "cart": "cart",
+    "checkout": "checkout",
+    "zapiski": "zapiski",
+    "requests": "request",
+    "events": "events",
+    "volunteer": "volunteer"
+  }
+}

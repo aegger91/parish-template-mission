@@ -1,0 +1,32 @@
+---
+import { OrthodoxCross } from "@/components/brand/OrthodoxCross"
+import { buttonVariants } from "@/components/ui/button"
+import { tr, t, specialPageHref, type SectionNode } from "@/lib/site"
+interface Props {
+  lang: string
+  section: SectionNode
+}
+const { lang, section } = Astro.props
+const donateHref = specialPageHref("donate", lang)
+---
+
+{
+  donateHref && (
+    <section id={section.id} class="bg-white py-16 md:py-24">
+      <div class="container-mission">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="flex items-center justify-center gap-4 text-gold" aria-hidden="true">
+            <span class="h-px w-16 bg-gold-line" />
+            <OrthodoxCross size={28} />
+            <span class="h-px w-16 bg-gold-line" />
+          </div>
+          <h2 class="mt-6 text-3xl leading-tight text-ink md:text-[2.75rem]">{tr(section.title, lang)}</h2>
+          <p class="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-ink-600">{tr(section.text, lang)}</p>
+          <a href={donateHref} class={buttonVariants({ size: "lg", className: "mt-8" })}>
+            {t("donateNow", lang)}
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
